@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+# Local outputs / extracted data
+data/yelp_extracted/
+
+# Raw archives (too large for git)
+data/*.zip
+data/*.tar
+data/*.tgz
+data/*.tar.gz

@@ -1,0 +1,15 @@
+field,present_in_sample,present_pct,type_counts,example,num_min,num_max,str_len_min,str_len_max
+address,20000,1.0,str:20000,"'1616 Chapala St, Ste 2'",,,0,89
+attributes,20000,1.0,dict:18198 | null:1802,{'ByAppointmentOnly': 'True'},,,,
+business_id,20000,1.0,str:20000,'Pns2l4eNsfO8kk83dixA6A',,,22,22
+categories,20000,1.0,str:19985 | null:15,"'Doctors, Traditional Chinese Medicine, Naturopathic/Holistic, Acupuncture, Health & Medical, Nutritionists'",,,4,383
+city,20000,1.0,str:20000,'Santa Barbara',,,4,52
+hours,20000,1.0,dict:16927 | null:3073,"{'Monday': '0:0-0:0', 'Tuesday': '8:0-18:30', 'Wednesday': '8:0-18:30', 'Thursday': '8:0-18:30', 'Friday': '8:0-18:30',…",,,,
+is_open,20000,1.0,int:20000,0,0.0,1.0,,
+latitude,20000,1.0,float:20000,34.4266787,27.555127,53.647812,,
+longitude,20000,1.0,float:20000,-119.7111968,-120.095137,-74.6585723,,
+name,20000,1.0,str:20000,"'Abby Rappoport, LAC, CMQ'",,,2,63
+postal_code,20000,1.0,str:20000,'93101',,,0,7
+review_count,20000,1.0,int:20000,7,5.0,4554.0,,
+stars,20000,1.0,float:20000,5.0,1.0,5.0,,
+state,20000,1.0,str:20000,'CA',,,2,2

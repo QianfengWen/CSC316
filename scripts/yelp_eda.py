@@ -20,6 +20,12 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+import matplotlib
+
+# Force a non-interactive backend so this script runs in headless environments
+# (e.g., WSL/containers/CI) without requiring Qt/X11.
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as mticker
@@ -247,7 +253,7 @@ def main() -> int:
         description="Generate quick exploratory charts for the Yelp Open Dataset.",
     )
     parser.add_argument("--zip", type=Path, default=Path("data/Yelp-JSON.zip"))
-    parser.add_argument("--out", type=Path, default=Path("eda_output"))
+    parser.add_argument("--out", type=Path, default=Path("outputs/eda"))
 
     parser.add_argument(
         "--state",
@@ -394,7 +400,7 @@ def main() -> int:
                     color="#4C78A8",
                     edgecolor="white",
                 )
-                ax.set_title("How are Yelp business star ratings distributed?")
+                ax.set_title("What is the distribution of business star ratings?")
                 ax.set_xlabel("Stars")
                 ax.set_ylabel("Number of businesses")
                 ax.yaxis.set_major_formatter(mticker.StrMethodFormatter("{x:,.0f}"))
@@ -404,7 +410,7 @@ def main() -> int:
                         args.out,
                         ChartSpec(
                             filename="01_business_star_distribution.png",
-                            title="How are Yelp business star ratings distributed?",
+                            title="What is the distribution of business star ratings?",
                         ),
                     )
                 )
@@ -423,7 +429,7 @@ def main() -> int:
                     bins="log",
                 )
                 fig.colorbar(hb, ax=ax, label="Businesses (log scale)")
-                ax.set_title("Do businesses with more reviews tend to have higher ratings?")
+                ax.set_title("How do star ratings vary with review count? (hexbin; log x)")
                 ax.set_xlabel("Review count (log scale)")
                 ax.set_ylabel("Stars")
                 specs.append(
@@ -432,7 +438,7 @@ def main() -> int:
                         args.out,
                         ChartSpec(
                             filename="02_reviewcount_vs_stars_hexbin.png",
-                            title="Do businesses with more reviews tend to have higher ratings?",
+                            title="How do star ratings vary with review count? (hexbin; log x)",
                         ),
                     )
                 )
@@ -446,7 +452,7 @@ def main() -> int:
                     ax.barh(range(len(cats)), counts, color="#F58518")
                     ax.set_yticks(range(len(cats)), labels=cats)
                     ax.invert_yaxis()
-                    ax.set_title(f"Which categories have the most businesses? (Top {len(cats)})")
+                    ax.set_title(f"Which categories appear most often? (Top {len(cats)} by business count)")
                     ax.set_xlabel("Number of businesses")
                     ax.xaxis.set_major_formatter(mticker.StrMethodFormatter("{x:,.0f}"))
                     specs.append(
@@ -455,7 +461,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="03_top_categories.png",
-                                title=f"Which categories have the most businesses? (Top {len(cats)})",
+                                title=f"Which categories appear most often? (Top {len(cats)} by business count)",
                             ),
                         )
                     )
@@ -473,7 +479,7 @@ def main() -> int:
                     ax.barh(range(len(city_labels)), counts, color="#54A24B")
                     ax.set_yticks(range(len(city_labels)), labels=city_labels)
                     ax.invert_yaxis()
-                    ax.set_title(f"Which cities have the most businesses? (Top {len(city_labels)})")
+                    ax.set_title(f"Which cities have the most businesses? (Top {len(city_labels)} city+state pairs)")
                     ax.set_xlabel("Number of businesses")
                     ax.xaxis.set_major_formatter(mticker.StrMethodFormatter("{x:,.0f}"))
                     specs.append(
@@ -482,7 +488,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="04_top_cities.png",
-                                title=f"Which cities have the most businesses? (Top {len(city_labels)})",
+                                title=f"Which cities have the most businesses? (Top {len(city_labels)} city+state pairs)",
                             ),
                         )
                     )
@@ -521,7 +527,7 @@ def main() -> int:
                         ax=ax,
                         color="#E45756",
                     )
-                    ax.set_title("How do ratings vary by restaurant price range?")
+                    ax.set_title("How do star ratings vary by restaurant price range?")
                     ax.set_xlabel("Price range (1=cheap, 4=expensive)")
                     ax.set_ylabel("Stars")
                     specs.append(
@@ -530,7 +536,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="05_stars_by_price_range.png",
-                                title="How do ratings vary by restaurant price range?",
+                                title="How do star ratings vary by restaurant price range?",
                             ),
                         )
                     )
@@ -550,9 +556,7 @@ def main() -> int:
                     ax.barh(range(len(states_labels)), counts, color="#72B7B2")
                     ax.set_yticks(range(len(states_labels)), labels=states_labels)
                     ax.invert_yaxis()
-                    ax.set_title(
-                        f"Which states/provinces have the most businesses? (Top {len(states_labels)})"
-                    )
+                    ax.set_title(f"Which states/provinces have the most businesses? (Top {len(states_labels)} by business count)")
                     ax.set_xlabel("Number of businesses")
                     ax.xaxis.set_major_formatter(mticker.StrMethodFormatter("{x:,.0f}"))
                     specs.append(
@@ -561,7 +565,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="08_top_states.png",
-                                title=f"Which states/provinces have the most businesses? (Top {len(states_labels)})",
+                                title=f"Which states/provinces have the most businesses? (Top {len(states_labels)} by business count)",
                             ),
                         )
                     )
@@ -582,7 +586,7 @@ def main() -> int:
                         df_countries["businesses"],
                         color=["#4C78A8", "#F58518", "#9D9DA0"][: len(df_countries)],
                     )
-                    ax.set_title("How are businesses distributed by country?")
+                    ax.set_title("How are businesses split across Canada, the U.S., and other? (from state code)")
                     ax.set_xlabel("Country")
                     ax.set_ylabel("Number of businesses")
                     ax.yaxis.set_major_formatter(mticker.StrMethodFormatter("{x:,.0f}"))
@@ -592,7 +596,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="09_country_distribution.png",
-                                title="How are businesses distributed by country?",
+                                title="How are businesses split across Canada, the U.S., and other? (from state code)",
                             ),
                         )
                     )
@@ -643,7 +647,7 @@ def main() -> int:
                         xticklabels=list(range(24)),
                         yticklabels=days,
                     )
-                    ax.set_title("When do check-ins happen during the week?")
+                    ax.set_title("When do check-ins happen? (day-of-week × hour heatmap)")
                     ax.set_xlabel("Hour of day")
                     ax.set_ylabel("Day of week")
                     ax.tick_params(axis="x", rotation=0)
@@ -653,7 +657,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="06_checkins_heatmap.png",
-                                title="When do check-ins happen during the week?",
+                                title="When do check-ins happen? (day-of-week × hour heatmap)",
                                 notes=f"{checkins_total:,} check-ins (filtered)",
                             ),
                         )
@@ -700,7 +704,7 @@ def main() -> int:
                     series["month_dt"] = pd.to_datetime(series["month"], format="%Y-%m")
                     fig, ax = plt.subplots(figsize=(10, 4))
                     ax.plot(series["month_dt"], series["reviews"], color="#B279A2", linewidth=2)
-                    ax.set_title("How has review volume changed over time?")
+                    ax.set_title("How has review volume changed over time? (reviews per month)")
                     ax.set_xlabel("Month")
                     ax.set_ylabel("Number of reviews (sampled)")
                     locator = mdates.AutoDateLocator(minticks=4, maxticks=8)
@@ -713,7 +717,7 @@ def main() -> int:
                             args.out,
                             ChartSpec(
                                 filename="07_reviews_over_time.png",
-                                title="How has review volume changed over time?",
+                                title="How has review volume changed over time? (reviews per month)",
                                 notes=f"{reviews_counted:,} reviews (filtered sample)",
                             ),
                         )

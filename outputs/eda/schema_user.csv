@@ -1,0 +1,23 @@
+field,present_in_sample,present_pct,type_counts,example,num_min,num_max,str_len_min,str_len_max
+average_stars,20000,1.0,float:20000,3.91,1.0,5.0,,
+compliment_cool,20000,1.0,int:20000,467,0.0,13280.0,,
+compliment_cute,20000,1.0,int:20000,56,0.0,1744.0,,
+compliment_funny,20000,1.0,int:20000,467,0.0,13280.0,,
+compliment_hot,20000,1.0,int:20000,250,0.0,12391.0,,
+compliment_list,20000,1.0,int:20000,18,0.0,2607.0,,
+compliment_more,20000,1.0,int:20000,65,0.0,4347.0,,
+compliment_note,20000,1.0,int:20000,232,0.0,8616.0,,
+compliment_photos,20000,1.0,int:20000,180,0.0,14045.0,,
+compliment_plain,20000,1.0,int:20000,844,0.0,28974.0,,
+compliment_profile,20000,1.0,int:20000,55,0.0,7039.0,,
+compliment_writer,20000,1.0,int:20000,239,0.0,7309.0,,
+cool,20000,1.0,int:20000,5994,0.0,195814.0,,
+elite,20000,1.0,str:20000,'2007',,,0,80
+fans,20000,1.0,int:20000,267,0.0,12497.0,,
+friends,20000,1.0,str:20000,"'NSCy54eWehBJyZdG2iE84w, pe42u7DcCH2QmI81NX-8qA, EjlCGf14tYMPJ0rsrL703w, 7OagHIAKx2Rm9z3CQ0OmvA, uZoFvKs0dahfffIqHQf1eA…",,,22,359878
+funny,20000,1.0,int:20000,1259,0.0,185823.0,,
+name,20000,1.0,str:20000,'Walker',,,1,31
+review_count,20000,1.0,int:20000,585,1.0,17473.0,,
+useful,20000,1.0,int:20000,7217,0.0,206296.0,,
+user_id,20000,1.0,str:20000,'qVc8ODYU5SZjKXVBgXdI7w',,,22,22
+yelping_since,20000,1.0,str:20000,'2007-01-25 16:47:26',,,19,19

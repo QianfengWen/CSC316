@@ -22,8 +22,19 @@ python3 -u scripts/yelp_eda.py --max-reviews 200000
 ```
 
 Outputs:
-- Images: `eda_output/`
-- Chart list + titles: `eda_output/manifest.md`
+- Images: `outputs/eda/`
+- Chart list + titles: `outputs/eda/manifest.md`
+
+## Fancy figures (Week 3, full dataset by default)
+Generate “process-book-ready” figures (plus a `manifest.md`) from the Yelp Open Dataset:
+
+```bash
+python3 -u scripts/yelp_fancy_figures.py --zip data/Yelp-JSON.zip --out outputs/week3_figures
+```
+
+Notes:
+- Full dataset is the default; use `--max-reviews/--max-users/--max-tips` to cap for speed.
+- Question list for the figures: `docs/week3_figure_questions.md`
 
 ## Extract the dataset (browse files)
 Extract the JSON dataset (business/checkin/review/tip/user JSONL files) into `data/yelp_extracted/`:
@@ -46,5 +57,5 @@ python3 -u scripts/yelp_profile.py --count-total-rows --sample-rows 20000
 ```
 
 Outputs:
-- Report: `eda_output/data_overview.md`
-- Schemas: `eda_output/schema_*.csv`
+- Report: `outputs/eda/data_overview.md`
+- Schemas: `outputs/eda/schema_*.csv`

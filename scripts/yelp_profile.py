@@ -272,7 +272,7 @@ def main() -> int:
     parser.add_argument(
         "--out",
         type=Path,
-        default=Path("eda_output"),
+        default=Path("outputs/eda"),
         help="Output directory for the report and schema CSVs.",
     )
     parser.add_argument(

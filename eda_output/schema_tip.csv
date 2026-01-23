@@ -1,6 +1,0 @@
-field,present_in_sample,present_pct,type_counts,example,num_min,num_max,str_len_min,str_len_max
-business_id,20000,1.0,str:20000,'3uLgwr0qeCNMjKenHJwPGQ',,,22,22
-compliment_count,20000,1.0,int:20000,0,0.0,3.0,,
-date,20000,1.0,str:20000,'2012-05-18 02:17:21',,,19,19
-text,20000,1.0,str:20000,'Avengers time with the ladies.',,,1,500
-user_id,20000,1.0,str:20000,'AGNUgVwnZUey3gcPCJ76iw',,,22,22

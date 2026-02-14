@@ -9,3 +9,18 @@ data/*.zip
 data/*.tar
 data/*.tgz
 data/*.tar.gz
+
+# Prototype test artifacts
+prototype/screenshots/
+prototype/test_screenshots.py
+prototype/REVIEW.md
+
+# Node / OS
+node_modules/
+.DS_Store
+
+# Large files
+storyboard.pdf
+
+# Cache
+.pytest_cache/

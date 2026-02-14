@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidden Gems — Philadelphia Restaurant Market Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ Navigation Dots ============ -->
+  <nav id="nav-dots">
+    <div class="nav-dot active" data-target="hero"><span class="dot-label">Start</span></div>
+    <div class="nav-dot" data-target="section-hook"><span class="dot-label">The Assumption</span></div>
+    <div class="nav-dot" data-target="section-map"><span class="dot-label">Explore Philly</span></div>
+    <div class="nav-dot" data-target="section-competition"><span class="dot-label">Competition</span></div>
+    <div class="nav-dot" data-target="section-ratings"><span class="dot-label">Ratings</span></div>
+    <div class="nav-dot" data-target="section-aha"><span class="dot-label">Hidden Gems</span></div>
+    <div class="nav-dot" data-target="section-volatility"><span class="dot-label">Risk</span></div>
+    <div class="nav-dot" data-target="cta"><span class="dot-label">Conclusion</span></div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="section">
+    <div class="section-inner" style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <!-- SVG: Cartoon entrepreneur looking at a busy burger restaurant -->
+      <svg width="420" height="220" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="Entrepreneur looking at a restaurant queue" style="max-width:100%;">
+        <!-- Sky gradient -->
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a2040"/>
+            <stop offset="100%" stop-color="#1a1410"/>
+          </linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="420" height="220" fill="url(#sky)"/>
+        <!-- Street -->
+        <rect x="0" y="170" width="420" height="50" fill="#2a2218" rx="0"/>
+        <rect x="0" y="168" width="420" height="4" fill="#e8a838" opacity="0.3"/>
+        <!-- Streetlamp -->
+        <rect x="15" y="60" width="3" height="110" fill="#5a4a30" rx="1"/>
+        <circle cx="16" cy="58" r="8" fill="#f0c040" opacity="0.4" filter="url(#glow)"/>
+        <circle cx="16" cy="58" r="4" fill="#f0c040" opacity="0.8"/>
+        <!-- Burger restaurant (cartoon style) -->
+        <rect x="220" y="55" width="170" height="115" fill="#3d2f1e" rx="10" stroke="#e8a838" stroke-width="2"/>
+        <!-- Awning -->
+        <path d="M215 58 L395 58 L390 75 L220 75 Z" fill="#d4503a" rx="3"/>
+        <path d="M220 75 L250 58" stroke="#c94430" stroke-width="1.5"/>
+        <path d="M260 75 L290 58" stroke="#c94430" stroke-width="1.5"/>
+        <path d="M300 75 L330 58" stroke="#c94430" stroke-width="1.5"/>
+        <path d="M340 75 L370 58" stroke="#c94430" stroke-width="1.5"/>
+        <!-- Sign -->
+        <rect x="252" y="38" width="106" height="22" fill="#1a1410" rx="4" stroke="#e8a838" stroke-width="1.5"/>
+        <text x="305" y="53" text-anchor="middle" fill="#e8a838" font-size="11" font-weight="800" font-family="sans-serif">BURGER SHOP</text>
+        <!-- Windows with warm glow -->
+        <rect x="235" y="80" width="38" height="32" fill="#f0c040" opacity="0.3" rx="4"/>
+        <rect x="237" y="82" width="34" height="28" fill="none" stroke="#e8a838" stroke-width="1" rx="3"/>
+        <line x1="254" y1="82" x2="254" y2="110" stroke="#e8a838" stroke-width="0.8"/>
+        <line x1="237" y1="96" x2="271" y2="96" stroke="#e8a838" stroke-width="0.8"/>
+        <rect x="337" y="80" width="38" height="32" fill="#f0c040" opacity="0.3" rx="4"/>
+        <rect x="339" y="82" width="34" height="28" fill="none" stroke="#e8a838" stroke-width="1" rx="3"/>
+        <line x1="356" y1="82" x2="356" y2="110" stroke="#e8a838" stroke-width="0.8"/>
+        <line x1="339" y1="96" x2="373" y2="96" stroke="#e8a838" stroke-width="0.8"/>
+        <!-- Door -->
+        <rect x="290" y="118" width="30" height="52" fill="#2a1f10" rx="4" stroke="#e8a838" stroke-width="1.2"/>
+        <circle cx="315" cy="145" r="2.5" fill="#e8a838"/>
+        <!-- Burger icon on the building (SVG-drawn) -->
+        <g transform="translate(296, 86)">
+          <ellipse cx="9" cy="18" rx="10" ry="4" fill="#d4763a"/>
+          <ellipse cx="9" cy="14" rx="9" ry="3" fill="#6b3a1f"/>
+          <path d="M0 12 Q4.5 9 9 12 Q13.5 9 18 12" fill="#27ae60" stroke="none"/>
+          <path d="M0 12 Q0 2 9 2 Q18 2 18 12 Z" fill="#e8a838"/>
+          <ellipse cx="6" cy="6" rx="1.5" ry="1" fill="#f0c040" transform="rotate(-15 6 6)"/>
+          <ellipse cx="12" cy="5" rx="1.5" ry="1" fill="#f0c040" transform="rotate(10 12 5)"/>
+        </g>
+        <!-- Queue of people -->
+        <circle cx="270" cy="145" r="8" fill="#deb887"/><rect x="264" y="153" width="12" height="14" fill="#5b8cbe" rx="4"/><rect x="265" y="167" width="4" height="6" fill="#deb887" rx="1"/><rect x="273" y="167" width="4" height="6" fill="#deb887" rx="1"/>
+        <circle cx="248" cy="147" r="7" fill="#c4a882"/><rect x="243" y="154" width="10" height="12" fill="#e74c3c" rx="3"/><rect x="244" y="166" width="3" height="6" fill="#c4a882" rx="1"/><rect x="251" y="166" width="3" height="6" fill="#c4a882" rx="1"/>
+        <circle cx="228" cy="146" r="7.5" fill="#deb887"/><rect x="222" y="153.5" width="11" height="13" fill="#27ae60" rx="4"/><rect x="223" y="166.5" width="4" height="6" fill="#deb887" rx="1"/><rect x="230" y="166.5" width="4" height="6" fill="#deb887" rx="1"/>
+        <circle cx="208" cy="148" r="6.5" fill="#c4a882"/><rect x="203" y="154.5" width="10" height="12" fill="#9b59b6" rx="3"/><rect x="204" y="166.5" width="3" height="6" fill="#c4a882" rx="1"/><rect x="210" y="166.5" width="3" height="6" fill="#c4a882" rx="1"/>
+        <circle cx="190" cy="147" r="7" fill="#deb887"/><rect x="185" y="154" width="10" height="12" fill="#e67e22" rx="3"/><rect x="186" y="166" width="3" height="6" fill="#deb887" rx="1"/><rect x="192" y="166" width="3" height="6" fill="#deb887" rx="1"/>
+        <!-- ENTREPRENEUR -->
+        <g transform="translate(80, 100)">
+          <circle cx="0" cy="28" r="13" fill="#e8a838"/>
+          <path d="M-13 25 Q-14 12 -6 8 Q0 5 6 8 Q14 12 13 25" fill="#2c2418"/>
+          <circle cx="-4" cy="26" r="1.8" fill="#2c2418"/>
+          <circle cx="4" cy="26" r="1.8" fill="#2c2418"/>
+          <path d="M-3 32 Q0 35 3 32" stroke="#2c2418" stroke-width="1.2" fill="none"/>
+          <rect x="-11" y="41" width="22" height="20" fill="#3498db" rx="6"/>
+          <rect x="-18" y="43" width="8" height="4" fill="#3498db" rx="2"/>
+          <rect x="10" y="43" width="8" height="4" fill="#3498db" rx="2"/>
+          <rect x="-8" y="61" width="6" height="10" fill="#2c3e50" rx="2"/>
+          <rect x="2" y="61" width="6" height="10" fill="#2c3e50" rx="2"/>
+          <rect x="-9" y="70" width="8" height="4" fill="#2c2418" rx="2"/>
+          <rect x="1" y="70" width="8" height="4" fill="#2c2418" rx="2"/>
+        </g>
+        <!-- Thought bubble -->
+        <ellipse cx="125" cy="72" rx="36" ry="22" fill="#faf6f0" stroke="#d4cfc5" stroke-width="1.5"/>
+        <circle cx="103" cy="98" r="6" fill="#faf6f0" stroke="#d4cfc5" stroke-width="1"/>
+        <circle cx="93" cy="110" r="3.5" fill="#faf6f0" stroke="#d4cfc5" stroke-width="1"/>
+        <text x="125" y="70" text-anchor="middle" font-size="13" fill="#2c2418" font-weight="700" font-family="sans-serif">Sure bet!</text>
+        <g transform="translate(112, 73)">
+          <ellipse cx="6" cy="10" rx="6" ry="2.5" fill="#d4763a"/>
+          <ellipse cx="6" cy="8" rx="5.5" ry="2" fill="#6b3a1f"/>
+          <path d="M0.5 7 Q3 5 6 7 Q9 5 11.5 7" fill="#27ae60"/>
+          <path d="M0.5 7 Q0.5 1 6 1 Q11.5 1 11.5 7 Z" fill="#e8a838"/>
+        </g>
+        <g transform="translate(128, 73)">
+          <circle cx="6" cy="6" r="6" fill="#3a8c5c" opacity="0.8"/>
+          <text x="6" y="10" text-anchor="middle" font-size="9" fill="#faf6f0" font-weight="800" font-family="sans-serif">$</text>
+        </g>
+        <!-- Stars decoration -->
+        <polygon points="40,24 42,28 46,30 42,32 40,36 38,32 34,30 38,28" fill="#e8a838" opacity="0.4"/>
+        <polygon points="120,15 121.5,18 125,20 121.5,22 120,25 118.5,22 115,20 118.5,18" fill="#e8a838" opacity="0.3"/>
+        <polygon points="170,31 171,33.5 174,35 171,36.5 170,39 169,36.5 166,35 169,33.5" fill="#e8a838" opacity="0.25"/>
+        <polygon points="400,19 402,23 406,25 402,27 400,31 398,27 394,25 398,23" fill="#e8a838" opacity="0.3"/>
+      </svg>
+
+      <h1>The Entrepreneur's <span class="highlight">Data-Driven</span> Restaurant Journey</h1>
+      <p class="subtitle">Philadelphia Restaurant Market Analysis — Finding hidden opportunities in a city of 7,000+ restaurants</p>
+      <!-- Animated counter (JS fills this in) -->
+      <div class="hero-stat" id="hero-counter">0</div>
+      <div class="hero-stat-label">restaurants in Philadelphia's Yelp dataset</div>
+    </div>
+    <div class="scroll-indicator">
+      Scroll to explore
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 1: The Hook ============ -->
+  <section id="section-hook" class="section story-section">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-tag">Where the story begins</div>
+        <h2>"Everyone Loves Burgers, Right?"</h2>
+        <p>Our entrepreneur sees long lines at Philly burger joints and thinks: this is a sure bet. But is popularity really the same as opportunity?</p>
+      </div>
+
+      <!-- Interactive quiz: user guesses the most popular cuisine -->
+      <div class="interactive-quiz fade-in" id="hook-quiz">
+        <div class="quiz-question">
+          <h3>Quick question: What do you think is the most common cuisine in Philadelphia?</h3>
+          <p class="quiz-hint">Click your best guess below</p>
+        </div>
+        <div class="quiz-options" id="quiz-options">
+          <button class="quiz-btn" data-answer="Burgers">Burgers</button>
+          <button class="quiz-btn" data-answer="Italian">Italian</button>
+          <button class="quiz-btn" data-answer="Pizza">Pizza</button>
+          <button class="quiz-btn" data-answer="Chinese">Chinese</button>
+          <button class="quiz-btn" data-answer="Mexican">Mexican</button>
+        </div>
+        <div class="quiz-result" id="quiz-result" style="display:none;"></div>
+      </div>
+
+      <div class="narration fade-in">
+        <span class="narrator">The Entrepreneur</span>
+        "Wow, people in Philly really love burgers! Opening a burger place seems like a sure bet. The lines are out the door!"
+      </div>
+
+      <div class="insight-box fade-in">
+        <div class="insight-icon" style="font-size:1.5rem;">?</div>
+        <div>
+          <h4>But is popularity the same as opportunity?</h4>
+          <p>The most popular cuisines may also have the fiercest competition. Let's look at the data to find out what's really going on beneath the surface.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: Interactive Map (moved up!) ============ -->
+  <section id="section-map" class="section story-section">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-tag">Explore the Landscape</div>
+        <h2>7,083 Restaurants. One City.</h2>
+        <p>Before we dive into the data, let's see what we're working with. Every dot below is a real restaurant in Philadelphia.</p>
+      </div>
+
+      <div class="map-dashboard fade-in">
+        <!-- Map + side stats panel -->
+        <div class="map-main">
+          <div class="viz-container" style="padding:16px;">
+            <div class="map-controls-top">
+              <div class="map-search-wrapper">
+                <input type="text" id="map-search" class="map-search" placeholder="Search cuisines or restaurants..." />
+              </div>
+              <div class="map-view-toggles">
+                <button class="map-toggle-btn active" data-view="dots" title="Dot map">Dots</button>
+                <button class="map-toggle-btn" data-view="heat" title="Density heatmap">Heatmap</button>
+                <button class="map-toggle-btn" data-view="clusters" title="Cluster view">Clusters</button>
+              </div>
+            </div>
+            <div class="filter-bar" id="map-filters"></div>
+            <div id="philly-map" style="width:100%; height:520px; border-radius:12px; overflow:hidden;"></div>
+          </div>
+        </div>
+
+        <!-- Side stats panel — dynamically updates with filter -->
+        <div class="map-stats-panel" id="map-stats">
+          <h3 class="stats-title">At a Glance</h3>
+          <div class="stat-card" id="stat-total">
+            <div class="stat-number">7,083</div>
+            <div class="stat-label">Total Restaurants</div>
+          </div>
+          <div class="stat-card" id="stat-cuisines">
+            <div class="stat-number">51</div>
+            <div class="stat-label">Cuisine Types</div>
+          </div>
+          <div class="stat-card" id="stat-avg-rating">
+            <div class="stat-number">3.6</div>
+            <div class="stat-label">Avg Rating</div>
+          </div>
+          <div class="stat-card highlight-card" id="stat-gems">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Hidden Gems Found</div>
+          </div>
+          <!-- Top cuisines mini chart -->
+          <div class="stats-mini-chart" id="stats-mini-chart">
+            <h4>Top cuisines in view</h4>
+            <div id="mini-bar-chart"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="narration fade-in" style="margin-top:24px;">
+        <span class="narrator">First Impression</span>
+        "Look at all those dots! But notice something: they're not evenly spread. Some cuisines cluster together, while others are rare finds. Try clicking <strong>Hidden Gems</strong> above to see what stands out."
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: Competition Bar Chart ============ -->
+  <section id="section-competition" class="section story-section">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-tag">Rising Insight #1</div>
+        <h2>The Competition Reality</h2>
+        <p>The most popular cuisines are also the most crowded markets. Each icon below represents roughly 10 restaurants fighting for the same customers.</p>
+      </div>
+
+      <div class="split-layout">
+        <div class="split-narration fade-in">
+          <div class="narration">
+            <span class="narrator">The Data Reveals</span>
+            "A closer look at the data shows a different story. The most popular cuisines are the most crowded markets. <strong>800 pizza places</strong> compete for the same pie-loving customers."
+          </div>
+          <div class="insight-box" style="margin-top:24px;">
+            <div class="insight-icon" style="font-size:1.5rem;">!</div>
+            <div>
+              <h4>Market Saturation</h4>
+              <p>Pizza alone accounts for 800 restaurants. Burgers, American, Italian — the "obvious" choices are packed with competitors. But scroll down to the bottom of the chart...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="viz-container fade-in">
+          <div class="viz-title">Restaurant Count by Cuisine</div>
+          <div class="viz-subtitle">Each house icon ~ 10 restaurants | Philadelphia, PA</div>
+          <!-- Sort controls -->
+          <div class="chart-controls" id="competition-controls">
+            <span class="control-label">Sort by:</span>
+            <button class="control-btn active" data-sort="count">Count</button>
+            <button class="control-btn" data-sort="rating">Avg Rating</button>
+            <button class="control-btn" data-sort="opportunity">Opportunity</button>
+          </div>
+          <div id="competition-chart"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: Scatter Plot — Rating vs Reviews ============ -->
+  <section id="section-ratings" class="section story-section">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-tag">Rising Insight #2</div>
+        <h2>High Ratings Can Be Deceiving</h2>
+        <p>A 5-star restaurant with 3 reviews is not the same as a 4.5-star restaurant with 500 reviews. Let's explore why.</p>
+      </div>
+
+      <div class="split-layout">
+        <div class="split-narration fade-in">
+          <div class="narration">
+            <span class="narrator">The Entrepreneur Realizes</span>
+            "That 5-star taco place only has 3 reviews. One bad day and it drops to 4 stars. But that 4.5-star spot with 500 reviews? That's a proven track record."
+          </div>
+          <div class="insight-box" style="margin-top:24px;">
+            <div class="insight-icon" style="font-size:1.2rem; color:var(--accent-red);">!!</div>
+            <div>
+              <h4>The Danger Zone</h4>
+              <p>Restaurants in the <span style="color:var(--accent-red); font-weight:700;">top-left corner</span> have high ratings but very few reviews — their scores are unreliable and volatile.</p>
+            </div>
+          </div>
+          <!-- Scatter controls -->
+          <div class="chart-controls" id="scatter-controls" style="margin-top:16px;">
+            <span class="control-label">Color by:</span>
+            <button class="control-btn active" data-color="rating">Rating</button>
+            <button class="control-btn" data-color="cuisine">Cuisine</button>
+          </div>
+          <div class="chart-controls" style="margin-top:8px;">
+            <span class="control-label">Highlight:</span>
+            <button class="control-btn" data-highlight="danger">Danger Zone</button>
+            <button class="control-btn" data-highlight="gems">Hidden Gems</button>
+            <button class="control-btn" data-highlight="none">None</button>
+          </div>
+        </div>
+
+        <div class="viz-container fade-in">
+          <div class="viz-title">Rating vs. Review Count</div>
+          <div class="viz-subtitle">Each dot is one Philadelphia restaurant | Hover to explore | Brush to select</div>
+          <div id="scatter-chart"></div>
+          <!-- Selection info panel -->
+          <div class="scatter-selection-info" id="scatter-selection" style="display:none;">
+            <h4>Selected Restaurants</h4>
+            <div id="scatter-selection-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 5: AHA MOMENT — Opportunity Matrix ============ -->
+  <section id="section-aha" class="section story-section" style="background: linear-gradient(180deg, #f0ebe3 0%, #faf6f0 100%);">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-tag" style="background:rgba(58,140,92,0.1); color:var(--accent-green);">The Aha Moment</div>
+        <h2>Finding the <span style="color:var(--accent-gold)">Hidden Gems</span></h2>
+        <p>Combining competition level with rating quality reveals a surprising landscape. The best opportunities aren't the most obvious ones.</p>
+      </div>
+
+      <div class="viz-container fade-in" style="border: 2px solid var(--accent-green);">
+        <div class="viz-title">The Opportunity Matrix</div>
+        <div class="viz-subtitle">X = Competition | Y = Quality | Bubble size = median reviews | Color = stability</div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-green)"></div> Stable ratings</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-gold)"></div> Moderate</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-red)"></div> Volatile ratings</div>
+          <div class="legend-item"><div class="legend-swatch" style="width:8px;height:8px"></div> Few reviews</div>
+          <div class="legend-item"><div class="legend-swatch" style="width:20px;height:20px"></div> Many reviews</div>
+        </div>
+        <!-- Filter controls for matrix -->
+        <div class="chart-controls" id="matrix-controls" style="margin-bottom:12px;">
+          <span class="control-label">Show:</span>
+          <button class="control-btn active" data-filter="all">All Cuisines</button>
+          <button class="control-btn" data-filter="gems">Hidden Gems Only</button>
+          <button class="control-btn" data-filter="top-rated">Top Rated</button>
+          <button class="control-btn" data-filter="high-comp">High Competition</button>
+        </div>
+        <div id="opportunity-matrix"></div>
+        <!-- Cuisine detail card (shown on bubble click) -->
+        <div class="cuisine-detail-card" id="cuisine-detail" style="display:none;">
+          <button class="close-detail" id="close-cuisine-detail">&times;</button>
+          <h3 id="detail-cuisine-name"></h3>
+          <div id="detail-content"></div>
+        </div>
+      </div>
+
+      <div class="insight-box fade-in" style="margin-top:32px; border-color: var(--accent-gold);">
+        <div class="insight-icon" style="font-size:1.5rem; color:var(--accent-gold);">*</div>
+        <div>
+          <h4>The best opportunities are hidden in the top-left quadrant</h4>
+          <p>Cuisines like <strong>Ethiopian, Indonesian, Polish, and Taiwanese</strong> have very few competitors but consistently high ratings. These are the "Hidden Gems" — proven quality in uncrowded markets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 6: Volatility ============ -->
+  <section id="section-volatility" class="section story-section">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-tag">Rising Insight #3</div>
+        <h2>Understanding Risk</h2>
+        <p>Not all cuisines are created equal when it comes to rating consistency. Some cuisines show tight, reliable ratings — others are all over the map.</p>
+      </div>
+
+      <div class="split-layout">
+        <div class="split-narration fade-in">
+          <div class="narration">
+            <span class="narrator">The Entrepreneur Asks</span>
+            "For new businesses, a single bad review can tank you. For established ones, it's just a drop in the bucket. How do I measure this risk?"
+          </div>
+          <div class="insight-box" style="margin-top:24px;">
+            <div class="insight-icon" style="font-size:1.2rem;">~</div>
+            <div>
+              <h4>Rating Distribution</h4>
+              <p>Click any cuisine bar to see its full rating distribution. Compare two cuisines side by side. Use the minimum review slider to filter out unreliable data.</p>
+            </div>
+          </div>
+          <!-- Volatility controls -->
+          <div class="chart-controls" id="volatility-controls" style="margin-top:16px;">
+            <span class="control-label">Sort:</span>
+            <button class="control-btn active" data-sort="volatility">Volatility</button>
+            <button class="control-btn" data-sort="alpha">A-Z</button>
+            <button class="control-btn" data-sort="count">Count</button>
+          </div>
+          <div class="slider-control" style="margin-top:12px;">
+            <label class="control-label" for="min-reviews-slider">Min reviews:</label>
+            <input type="range" id="min-reviews-slider" min="5" max="50" value="10" step="5"/>
+            <span id="min-reviews-value">10</span>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <div class="viz-container">
+            <div class="viz-title">Rating Volatility by Cuisine — "Spice Meter"</div>
+            <div class="viz-subtitle">How spread out are ratings? Green = consistent, Red = volatile | Click a bar for details</div>
+            <div id="volatility-chart"></div>
+            <!-- Rating distribution popup (shown on bar click) -->
+            <div class="distribution-popup" id="distribution-popup" style="display:none;">
+              <button class="close-detail" id="close-distribution">&times;</button>
+              <h4 id="dist-cuisine-name"></h4>
+              <div id="dist-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 7: CTA ============ -->
+  <section id="cta" class="section">
+    <div class="section-inner" style="display:flex; flex-direction:column; align-items:center;">
+      <!-- SVG: Entrepreneur confidently opening her new restaurant -->
+      <svg width="380" height="200" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" class="fade-in" aria-label="Entrepreneur opening her restaurant" style="max-width:100%;">
+        <defs>
+          <filter id="glow2"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="380" height="200" fill="#1a1410" rx="12"/>
+        <!-- Confetti -->
+        <circle cx="40" cy="30" r="3" fill="#e8a838" opacity="0.6"/><circle cx="90" cy="20" r="2" fill="#3a8c5c" opacity="0.5"/><circle cx="340" cy="25" r="3" fill="#d4503a" opacity="0.5"/><circle cx="300" cy="35" r="2" fill="#e8a838" opacity="0.4"/><circle cx="150" cy="15" r="2.5" fill="#3a8c5c" opacity="0.6"/><circle cx="250" cy="22" r="2" fill="#d4503a" opacity="0.4"/>
+        <!-- Ethiopian Eats restaurant -->
+        <rect x="120" y="50" width="180" height="120" fill="#1e3a2a" rx="10" stroke="#3a8c5c" stroke-width="2.5"/>
+        <path d="M115 53 L305 53 L300 72 L120 72 Z" fill="#3a8c5c"/>
+        <path d="M120 72 L150 53" stroke="#2d7048" stroke-width="1.5"/>
+        <path d="M180 72 L210 53" stroke="#2d7048" stroke-width="1.5"/>
+        <path d="M240 72 L270 53" stroke="#2d7048" stroke-width="1.5"/>
+        <rect x="145" y="30" width="130" height="25" fill="#1a1410" rx="5" stroke="#e8a838" stroke-width="2"/>
+        <text x="210" y="47" text-anchor="middle" fill="#e8a838" font-size="12" font-weight="800" font-family="sans-serif">ETHIOPIAN EATS</text>
+        <rect x="135" y="78" width="35" height="28" fill="#3a8c5c" opacity="0.3" rx="4"/><rect x="137" y="80" width="31" height="24" fill="none" stroke="#3a8c5c" stroke-width="1" rx="3"/>
+        <rect x="250" y="78" width="35" height="28" fill="#3a8c5c" opacity="0.3" rx="4"/><rect x="252" y="80" width="31" height="24" fill="none" stroke="#3a8c5c" stroke-width="1" rx="3"/>
+        <rect x="195" y="115" width="30" height="55" fill="#0d2a1a" rx="4" stroke="#3a8c5c" stroke-width="1.2"/>
+        <circle cx="220" cy="143" r="2.5" fill="#e8a838"/>
+        <rect x="197" y="120" width="26" height="12" fill="#e8a838" rx="3"/>
+        <text x="210" y="129" text-anchor="middle" fill="#1a1410" font-size="7" font-weight="800" font-family="sans-serif">OPEN!</text>
+        <!-- Injera icon -->
+        <g transform="translate(170, 90)">
+          <circle cx="10" cy="10" r="9" fill="#d4a06a" stroke="#c4905a" stroke-width="1"/>
+          <circle cx="6" cy="7" r="1.2" fill="#c4905a" opacity="0.6"/>
+          <circle cx="12" cy="6" r="1" fill="#c4905a" opacity="0.5"/>
+          <circle cx="8" cy="12" r="1.1" fill="#c4905a" opacity="0.6"/>
+          <circle cx="14" cy="11" r="0.9" fill="#c4905a" opacity="0.5"/>
+        </g>
+        <!-- Curry bowl icon -->
+        <g transform="translate(229, 90)">
+          <path d="M2 10 Q2 18 11 18 Q20 18 20 10 Z" fill="#e67e22"/>
+          <ellipse cx="11" cy="10" rx="10" ry="4" fill="#f39c12"/>
+          <ellipse cx="11" cy="10" rx="8" ry="3" fill="#d35400" opacity="0.6"/>
+          <path d="M8 5 Q9 2 8 0" stroke="#b8a890" stroke-width="0.8" fill="none" opacity="0.5"/>
+          <path d="M14 5 Q15 2 14 0" stroke="#b8a890" stroke-width="0.8" fill="none" opacity="0.5"/>
+        </g>
+        <text x="210" y="160" text-anchor="middle" font-size="14" fill="#e8a838" filter="url(#glow2)">&#9733; &#9733; &#9733; &#9733; &#9733;</text>
+        <!-- ENTREPRENEUR (happy) -->
+        <g transform="translate(55, 88)">
+          <circle cx="0" cy="28" r="14" fill="#e8a838"/>
+          <path d="M-14 25 Q-15 11 -6 7 Q0 4 6 7 Q15 11 14 25" fill="#2c2418"/>
+          <circle cx="-4" cy="26" r="2" fill="#2c2418"/>
+          <circle cx="5" cy="26" r="2" fill="#2c2418"/>
+          <path d="M-5 33 Q0 39 5 33" stroke="#2c2418" stroke-width="1.5" fill="none"/>
+          <rect x="-12" y="42" width="24" height="22" fill="#3a8c5c" rx="6"/>
+          <rect x="-8" y="48" width="16" height="14" fill="#faf6f0" rx="3" opacity="0.8"/>
+          <line x1="-12" y1="48" x2="-24" y2="34" stroke="#3a8c5c" stroke-width="5" stroke-linecap="round"/>
+          <line x1="12" y1="48" x2="24" y2="34" stroke="#3a8c5c" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="-25" cy="32" r="4" fill="#e8a838"/>
+          <circle cx="25" cy="32" r="4" fill="#e8a838"/>
+          <rect x="-9" y="64" width="7" height="11" fill="#2c3e50" rx="2"/>
+          <rect x="2" y="64" width="7" height="11" fill="#2c3e50" rx="2"/>
+        </g>
+        <!-- Lightbulb -->
+        <circle cx="55" cy="65" r="12" fill="#f0c040" opacity="0.3" filter="url(#glow2)"/>
+        <g transform="translate(47, 55)">
+          <path d="M8 0 Q15 0 15 7 Q15 11 11 13 L11 16 L5 16 L5 13 Q1 11 1 7 Q1 0 8 0 Z" fill="#f0c040" stroke="#e8a838" stroke-width="0.8"/>
+          <line x1="5" y1="17" x2="11" y2="17" stroke="#e8a838" stroke-width="1"/>
+          <line x1="5.5" y1="18.5" x2="10.5" y2="18.5" stroke="#e8a838" stroke-width="1"/>
+          <line x1="8" y1="-3" x2="8" y2="-6" stroke="#f0c040" stroke-width="1.2" opacity="0.7"/>
+          <line x1="0" y1="3" x2="-3" y2="1" stroke="#f0c040" stroke-width="1" opacity="0.6"/>
+          <line x1="16" y1="3" x2="19" y2="1" stroke="#f0c040" stroke-width="1" opacity="0.6"/>
+        </g>
+        <!-- Gem -->
+        <g transform="translate(322, 58)">
+          <polygon points="8,0 16,5 12,16 4,16 0,5" fill="#5b8cbe" stroke="#3a8c5c" stroke-width="1"/>
+          <polygon points="8,0 5,5 11,5" fill="#7bb3d4" opacity="0.6"/>
+          <line x1="5" y1="5" x2="4" y2="16" stroke="#4a7ca0" stroke-width="0.5"/>
+          <line x1="11" y1="5" x2="12" y2="16" stroke="#4a7ca0" stroke-width="0.5"/>
+        </g>
+        <!-- Sparkle -->
+        <polygon points="345,94 347,98 351,100 347,102 345,106 343,102 339,100 343,98" fill="#f0c040" opacity="0.7"/>
+      </svg>
+
+      <!-- Journey summary (interactive recap) -->
+      <div class="journey-recap fade-in" id="journey-recap">
+        <div class="recap-step completed" data-section="section-hook">
+          <div class="recap-dot"></div>
+          <span>Questioned the assumption</span>
+        </div>
+        <div class="recap-step completed" data-section="section-map">
+          <div class="recap-dot"></div>
+          <span>Explored the landscape</span>
+        </div>
+        <div class="recap-step completed" data-section="section-competition">
+          <div class="recap-dot"></div>
+          <span>Measured competition</span>
+        </div>
+        <div class="recap-step completed" data-section="section-ratings">
+          <div class="recap-dot"></div>
+          <span>Understood reliability</span>
+        </div>
+        <div class="recap-step completed" data-section="section-aha">
+          <div class="recap-dot"></div>
+          <span>Found Hidden Gems</span>
+        </div>
+        <div class="recap-step completed" data-section="section-volatility">
+          <div class="recap-dot"></div>
+          <span>Assessed risk</span>
+        </div>
+      </div>
+
+      <h2 class="fade-in">Ready to Find <em>Your</em> Hidden Gem?</h2>
+      <p class="fade-in">Armed with data, our entrepreneur chose Ethiopian cuisine — low competition, high quality, proven demand. What will you discover?</p>
+      <button class="cta-btn fade-in" onclick="document.getElementById('section-map').scrollIntoView({behavior:'smooth'})">Explore the Data Again</button>
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer>
+    <p>CSC 316 — Data Visualization Final Project | Philadelphia Restaurant Market Analysis</p>
+    <p style="margin-top:8px;">Data source: <a href="https://www.yelp.com/dataset" target="_blank">Yelp Open Dataset</a></p>
+  </footer>
+
+  <!-- ============ Scripts ============ -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

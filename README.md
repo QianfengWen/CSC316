@@ -4,6 +4,30 @@
 - Yelp Open Dataset archive: `data/Yelp-JSON.zip`
 - (Optional) Photos archive: `data/Yelp-Photos.zip`
 
+## Prototype (Interactive Scrollytelling)
+
+Philadelphia Restaurant Market Analysis — a scrollytelling webpage with D3 charts and a Leaflet map exploring 7,083 restaurants across 170+ cuisine types.
+
+**Features:**
+- Interactive Leaflet map with 3 view modes (dots, heatmap, clusters), search, and filters
+- D3 competition bar chart with sorting
+- D3 scatter plot with color-by, highlights, and brush selection
+- D3 opportunity matrix with filters and click-to-detail
+- D3 volatility chart with sorting and min-reviews slider
+- Interactive quiz, animated counters, journey recap
+
+**Run locally:**
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open: `http://localhost:8000/prototype/`
+
+**Data files** (`prototype/data/`):
+- `philly_restaurants.json` — 7,083 individual restaurant records
+- `philly_cuisines.json` — 51 cuisine category aggregates
+
 ## Quick EDA charts (Week 3)
 Generate exploratory charts as PNGs (plus a `manifest.md` you can copy into the process book):
 

@@ -1,0 +1,886 @@
+{
+  "Pizza": {
+    "n_reviews": 68523,
+    "mean_rating": 3.664,
+    "std_rating": 1.414,
+    "ci_lower": 3.653,
+    "ci_upper": 3.675,
+    "histogram": {
+      "1": 9552,
+      "2": 5998,
+      "3": 8626,
+      "4": 18096,
+      "5": 26251
+    },
+    "z_score": -34.797,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 800
+  },
+  "Italian": {
+    "n_reviews": 82982,
+    "mean_rating": 3.814,
+    "std_rating": 1.308,
+    "ci_lower": 3.805,
+    "ci_upper": 3.823,
+    "histogram": {
+      "1": 7834,
+      "2": 7406,
+      "3": 10889,
+      "4": 23103,
+      "5": 33750
+    },
+    "z_score": -8.415,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 505
+  },
+  "Chinese": {
+    "n_reviews": 56947,
+    "mean_rating": 3.854,
+    "std_rating": 1.287,
+    "ci_lower": 3.843,
+    "ci_upper": 3.864,
+    "histogram": {
+      "1": 5415,
+      "2": 4055,
+      "3": 7277,
+      "4": 16894,
+      "5": 23306
+    },
+    "z_score": 0.337,
+    "p_value": 0.7364,
+    "significant": false,
+    "restaurant_count": 473
+  },
+  "Seafood": {
+    "n_reviews": 53422,
+    "mean_rating": 3.821,
+    "std_rating": 1.323,
+    "ci_lower": 3.81,
+    "ci_upper": 3.832,
+    "histogram": {
+      "1": 5404,
+      "2": 4440,
+      "3": 6661,
+      "4": 14725,
+      "5": 22192
+    },
+    "z_score": -5.406,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 381
+  },
+  "Burgers": {
+    "n_reviews": 41865,
+    "mean_rating": 3.569,
+    "std_rating": 1.399,
+    "ci_lower": 3.556,
+    "ci_upper": 3.583,
+    "histogram": {
+      "1": 5922,
+      "2": 4061,
+      "3": 6143,
+      "4": 11731,
+      "5": 14008
+    },
+    "z_score": -41.315,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 363
+  },
+  "Mexican": {
+    "n_reviews": 42210,
+    "mean_rating": 3.792,
+    "std_rating": 1.287,
+    "ci_lower": 3.78,
+    "ci_upper": 3.804,
+    "histogram": {
+      "1": 3863,
+      "2": 3731,
+      "3": 5907,
+      "4": 12526,
+      "5": 16183
+    },
+    "z_score": -9.554,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 316
+  },
+  "Japanese": {
+    "n_reviews": 37398,
+    "mean_rating": 3.916,
+    "std_rating": 1.239,
+    "ci_lower": 3.903,
+    "ci_upper": 3.928,
+    "histogram": {
+      "1": 2817,
+      "2": 2805,
+      "3": 5080,
+      "4": 10700,
+      "5": 15996
+    },
+    "z_score": 9.98,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 237
+  },
+  "Asian Fusion": {
+    "n_reviews": 39592,
+    "mean_rating": 3.877,
+    "std_rating": 1.251,
+    "ci_lower": 3.865,
+    "ci_upper": 3.89,
+    "histogram": {
+      "1": 3101,
+      "2": 3182,
+      "3": 5533,
+      "4": 11437,
+      "5": 16339
+    },
+    "z_score": 4.017,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 229
+  },
+  "Vegetarian": {
+    "n_reviews": 38024,
+    "mean_rating": 4.027,
+    "std_rating": 1.2,
+    "ci_lower": 4.015,
+    "ci_upper": 4.039,
+    "histogram": {
+      "1": 2437,
+      "2": 2627,
+      "3": 4374,
+      "4": 10609,
+      "5": 17977
+    },
+    "z_score": 28.487,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 205
+  },
+  "Sushi Bars": {
+    "n_reviews": 29555,
+    "mean_rating": 3.866,
+    "std_rating": 1.257,
+    "ci_lower": 3.852,
+    "ci_upper": 3.881,
+    "histogram": {
+      "1": 2363,
+      "2": 2414,
+      "3": 4157,
+      "4": 8494,
+      "5": 12127
+    },
+    "z_score": 1.98,
+    "p_value": 0.05,
+    "significant": false,
+    "restaurant_count": 184
+  },
+  "Mediterranean": {
+    "n_reviews": 29504,
+    "mean_rating": 4.026,
+    "std_rating": 1.218,
+    "ci_lower": 4.012,
+    "ci_upper": 4.04,
+    "histogram": {
+      "1": 2057,
+      "2": 1948,
+      "3": 3305,
+      "4": 8048,
+      "5": 14146
+    },
+    "z_score": 24.584,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 182
+  },
+  "Cheesesteaks": {
+    "n_reviews": 38161,
+    "mean_rating": 3.667,
+    "std_rating": 1.379,
+    "ci_lower": 3.653,
+    "ci_upper": 3.681,
+    "histogram": {
+      "1": 4562,
+      "2": 3869,
+      "3": 5752,
+      "4": 9499,
+      "5": 14479
+    },
+    "z_score": -26.17,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 177
+  },
+  "Vegan": {
+    "n_reviews": 26134,
+    "mean_rating": 4.078,
+    "std_rating": 1.178,
+    "ci_lower": 4.064,
+    "ci_upper": 4.092,
+    "histogram": {
+      "1": 1507,
+      "2": 1770,
+      "3": 2853,
+      "4": 7056,
+      "5": 12948
+    },
+    "z_score": 30.986,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 151
+  },
+  "Vietnamese": {
+    "n_reviews": 16071,
+    "mean_rating": 3.978,
+    "std_rating": 1.183,
+    "ci_lower": 3.96,
+    "ci_upper": 3.997,
+    "histogram": {
+      "1": 1046,
+      "2": 1030,
+      "3": 2065,
+      "4": 5013,
+      "5": 6917
+    },
+    "z_score": 13.55,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 136
+  },
+  "Indian": {
+    "n_reviews": 14704,
+    "mean_rating": 3.895,
+    "std_rating": 1.316,
+    "ci_lower": 3.873,
+    "ci_upper": 3.916,
+    "histogram": {
+      "1": 1455,
+      "2": 1056,
+      "3": 1685,
+      "4": 3896,
+      "5": 6612
+    },
+    "z_score": 3.927,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 122
+  },
+  "Middle Eastern": {
+    "n_reviews": 18373,
+    "mean_rating": 4.148,
+    "std_rating": 1.183,
+    "ci_lower": 4.131,
+    "ci_upper": 4.165,
+    "histogram": {
+      "1": 1129,
+      "2": 1031,
+      "3": 1829,
+      "4": 4382,
+      "5": 10002
+    },
+    "z_score": 33.948,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 118
+  },
+  "Thai": {
+    "n_reviews": 18232,
+    "mean_rating": 3.865,
+    "std_rating": 1.26,
+    "ci_lower": 3.846,
+    "ci_upper": 3.883,
+    "histogram": {
+      "1": 1537,
+      "2": 1411,
+      "3": 2416,
+      "4": 5485,
+      "5": 7383
+    },
+    "z_score": 1.368,
+    "p_value": 0.1713,
+    "significant": false,
+    "restaurant_count": 113
+  },
+  "Caribbean": {
+    "n_reviews": 7287,
+    "mean_rating": 3.867,
+    "std_rating": 1.295,
+    "ci_lower": 3.837,
+    "ci_upper": 3.896,
+    "histogram": {
+      "1": 683,
+      "2": 554,
+      "3": 896,
+      "4": 2072,
+      "5": 3082
+    },
+    "z_score": 0.974,
+    "p_value": 0.3301,
+    "significant": false,
+    "restaurant_count": 107
+  },
+  "Soul Food": {
+    "n_reviews": 7905,
+    "mean_rating": 3.624,
+    "std_rating": 1.419,
+    "ci_lower": 3.593,
+    "ci_upper": 3.656,
+    "histogram": {
+      "1": 1064,
+      "2": 858,
+      "3": 1048,
+      "4": 1948,
+      "5": 2987
+    },
+    "z_score": -14.254,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 100
+  },
+  "Korean": {
+    "n_reviews": 13989,
+    "mean_rating": 3.92,
+    "std_rating": 1.204,
+    "ci_lower": 3.9,
+    "ci_upper": 3.94,
+    "histogram": {
+      "1": 944,
+      "2": 1021,
+      "3": 2018,
+      "4": 4228,
+      "5": 5778
+    },
+    "z_score": 6.717,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 98
+  },
+  "French": {
+    "n_reviews": 18443,
+    "mean_rating": 4.042,
+    "std_rating": 1.133,
+    "ci_lower": 4.025,
+    "ci_upper": 4.058,
+    "histogram": {
+      "1": 898,
+      "2": 1266,
+      "3": 2279,
+      "4": 5726,
+      "5": 8274
+    },
+    "z_score": 22.744,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 95
+  },
+  "Halal": {
+    "n_reviews": 8583,
+    "mean_rating": 3.99,
+    "std_rating": 1.33,
+    "ci_lower": 3.961,
+    "ci_upper": 4.018,
+    "histogram": {
+      "1": 857,
+      "2": 548,
+      "3": 848,
+      "4": 1904,
+      "5": 4426
+    },
+    "z_score": 9.59,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 91
+  },
+  "Latin American": {
+    "n_reviews": 12715,
+    "mean_rating": 3.92,
+    "std_rating": 1.206,
+    "ci_lower": 3.899,
+    "ci_upper": 3.941,
+    "histogram": {
+      "1": 871,
+      "2": 957,
+      "3": 1707,
+      "4": 3968,
+      "5": 5212
+    },
+    "z_score": 6.323,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 82
+  },
+  "Greek": {
+    "n_reviews": 11885,
+    "mean_rating": 3.866,
+    "std_rating": 1.244,
+    "ci_lower": 3.843,
+    "ci_upper": 3.888,
+    "histogram": {
+      "1": 967,
+      "2": 927,
+      "3": 1513,
+      "4": 3805,
+      "5": 4673
+    },
+    "z_score": 1.211,
+    "p_value": 0.2258,
+    "significant": false,
+    "restaurant_count": 64
+  },
+  "Southern": {
+    "n_reviews": 9237,
+    "mean_rating": 3.757,
+    "std_rating": 1.295,
+    "ci_lower": 3.73,
+    "ci_upper": 3.783,
+    "histogram": {
+      "1": 853,
+      "2": 893,
+      "3": 1341,
+      "4": 2711,
+      "5": 3439
+    },
+    "z_score": -7.07,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 58
+  },
+  "Tapas/Small Plates": {
+    "n_reviews": 16636,
+    "mean_rating": 3.928,
+    "std_rating": 1.223,
+    "ci_lower": 3.91,
+    "ci_upper": 3.947,
+    "histogram": {
+      "1": 1158,
+      "2": 1312,
+      "3": 2208,
+      "4": 4847,
+      "5": 7111
+    },
+    "z_score": 8.032,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 51
+  },
+  "Spanish": {
+    "n_reviews": 7914,
+    "mean_rating": 4.081,
+    "std_rating": 1.123,
+    "ci_lower": 4.056,
+    "ci_upper": 4.105,
+    "histogram": {
+      "1": 396,
+      "2": 486,
+      "3": 862,
+      "4": 2509,
+      "5": 3661
+    },
+    "z_score": 18.123,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 50
+  },
+  "Dim Sum": {
+    "n_reviews": 12016,
+    "mean_rating": 3.74,
+    "std_rating": 1.266,
+    "ci_lower": 3.718,
+    "ci_upper": 3.763,
+    "histogram": {
+      "1": 1125,
+      "2": 979,
+      "3": 1906,
+      "4": 3886,
+      "5": 4120
+    },
+    "z_score": -9.659,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 48
+  },
+  "Irish": {
+    "n_reviews": 5900,
+    "mean_rating": 3.56,
+    "std_rating": 1.268,
+    "ci_lower": 3.528,
+    "ci_upper": 3.592,
+    "histogram": {
+      "1": 605,
+      "2": 596,
+      "3": 1191,
+      "4": 1906,
+      "5": 1602
+    },
+    "z_score": -17.693,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 42
+  },
+  "Cajun/Creole": {
+    "n_reviews": 2564,
+    "mean_rating": 3.769,
+    "std_rating": 1.34,
+    "ci_lower": 3.717,
+    "ci_upper": 3.821,
+    "histogram": {
+      "1": 284,
+      "2": 213,
+      "3": 325,
+      "4": 732,
+      "5": 1010
+    },
+    "z_score": -3.145,
+    "p_value": 0.003,
+    "significant": true,
+    "restaurant_count": 39
+  },
+  "Ramen": {
+    "n_reviews": 7268,
+    "mean_rating": 3.989,
+    "std_rating": 1.16,
+    "ci_lower": 3.962,
+    "ci_upper": 4.015,
+    "histogram": {
+      "1": 391,
+      "2": 514,
+      "3": 1046,
+      "4": 2152,
+      "5": 3165
+    },
+    "z_score": 10.047,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 35
+  },
+  "Szechuan": {
+    "n_reviews": 8013,
+    "mean_rating": 3.943,
+    "std_rating": 1.232,
+    "ci_lower": 3.916,
+    "ci_upper": 3.97,
+    "histogram": {
+      "1": 625,
+      "2": 525,
+      "3": 999,
+      "4": 2394,
+      "5": 3470
+    },
+    "z_score": 6.637,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 31
+  },
+  "Cantonese": {
+    "n_reviews": 3717,
+    "mean_rating": 3.866,
+    "std_rating": 1.216,
+    "ci_lower": 3.827,
+    "ci_upper": 3.905,
+    "histogram": {
+      "1": 284,
+      "2": 268,
+      "3": 522,
+      "4": 1231,
+      "5": 1412
+    },
+    "z_score": 0.704,
+    "p_value": 0.4814,
+    "significant": false,
+    "restaurant_count": 27
+  },
+  "Turkish": {
+    "n_reviews": 1662,
+    "mean_rating": 3.985,
+    "std_rating": 1.308,
+    "ci_lower": 3.922,
+    "ci_upper": 4.048,
+    "histogram": {
+      "1": 158,
+      "2": 109,
+      "3": 159,
+      "4": 410,
+      "5": 826
+    },
+    "z_score": 4.145,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 22
+  },
+  "Taiwanese": {
+    "n_reviews": 3457,
+    "mean_rating": 4.014,
+    "std_rating": 1.171,
+    "ci_lower": 3.975,
+    "ci_upper": 4.053,
+    "histogram": {
+      "1": 224,
+      "2": 177,
+      "3": 473,
+      "4": 1036,
+      "5": 1547
+    },
+    "z_score": 8.127,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 19
+  },
+  "Ethiopian": {
+    "n_reviews": 1809,
+    "mean_rating": 3.898,
+    "std_rating": 1.182,
+    "ci_lower": 3.844,
+    "ci_upper": 3.953,
+    "histogram": {
+      "1": 128,
+      "2": 107,
+      "3": 277,
+      "4": 606,
+      "5": 691
+    },
+    "z_score": 1.666,
+    "p_value": 0.1,
+    "significant": false,
+    "restaurant_count": 18
+  },
+  "Cuban": {
+    "n_reviews": 5363,
+    "mean_rating": 3.953,
+    "std_rating": 1.138,
+    "ci_lower": 3.922,
+    "ci_upper": 3.983,
+    "histogram": {
+      "1": 280,
+      "2": 374,
+      "3": 804,
+      "4": 1767,
+      "5": 2138
+    },
+    "z_score": 6.477,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 17
+  },
+  "Indonesian": {
+    "n_reviews": 1343,
+    "mean_rating": 4.425,
+    "std_rating": 0.939,
+    "ci_lower": 4.375,
+    "ci_upper": 4.475,
+    "histogram": {
+      "1": 41,
+      "2": 33,
+      "3": 83,
+      "4": 343,
+      "5": 843
+    },
+    "z_score": 22.369,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 17
+  },
+  "Moroccan": {
+    "n_reviews": 1543,
+    "mean_rating": 4.017,
+    "std_rating": 1.211,
+    "ci_lower": 3.957,
+    "ci_upper": 4.078,
+    "histogram": {
+      "1": 121,
+      "2": 71,
+      "3": 179,
+      "4": 461,
+      "5": 711
+    },
+    "z_score": 5.369,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 12
+  },
+  "Polish": {
+    "n_reviews": 646,
+    "mean_rating": 4.359,
+    "std_rating": 1.025,
+    "ci_lower": 4.28,
+    "ci_upper": 4.438,
+    "histogram": {
+      "1": 25,
+      "2": 23,
+      "3": 46,
+      "4": 153,
+      "5": 399
+    },
+    "z_score": 12.576,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 12
+  },
+  "German": {
+    "n_reviews": 2959,
+    "mean_rating": 3.829,
+    "std_rating": 1.187,
+    "ci_lower": 3.787,
+    "ci_upper": 3.872,
+    "histogram": {
+      "1": 215,
+      "2": 217,
+      "3": 440,
+      "4": 1073,
+      "5": 1014
+    },
+    "z_score": -1.038,
+    "p_value": 0.2995,
+    "significant": false,
+    "restaurant_count": 12
+  },
+  "Brazilian": {
+    "n_reviews": 3454,
+    "mean_rating": 3.95,
+    "std_rating": 1.246,
+    "ci_lower": 3.908,
+    "ci_upper": 3.991,
+    "histogram": {
+      "1": 260,
+      "2": 268,
+      "3": 409,
+      "4": 966,
+      "5": 1551
+    },
+    "z_score": 4.605,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 12
+  },
+  "Filipino": {
+    "n_reviews": 749,
+    "mean_rating": 4.224,
+    "std_rating": 1.105,
+    "ci_lower": 4.145,
+    "ci_upper": 4.303,
+    "histogram": {
+      "1": 31,
+      "2": 45,
+      "3": 71,
+      "4": 180,
+      "5": 422
+    },
+    "z_score": 9.223,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 11
+  },
+  "Portuguese": {
+    "n_reviews": 708,
+    "mean_rating": 4.16,
+    "std_rating": 1.171,
+    "ci_lower": 4.073,
+    "ci_upper": 4.246,
+    "histogram": {
+      "1": 50,
+      "2": 27,
+      "3": 57,
+      "4": 200,
+      "5": 374
+    },
+    "z_score": 6.99,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 10
+  },
+  "Colombian": {
+    "n_reviews": 126,
+    "mean_rating": 3.881,
+    "std_rating": 1.494,
+    "ci_lower": 3.62,
+    "ci_upper": 4.142,
+    "histogram": {
+      "1": 20,
+      "2": 6,
+      "3": 11,
+      "4": 21,
+      "5": 68
+    },
+    "z_score": 0.218,
+    "p_value": 0.8277,
+    "significant": false,
+    "restaurant_count": 8
+  },
+  "Malaysian": {
+    "n_reviews": 2506,
+    "mean_rating": 3.732,
+    "std_rating": 1.218,
+    "ci_lower": 3.685,
+    "ci_upper": 3.78,
+    "histogram": {
+      "1": 211,
+      "2": 200,
+      "3": 418,
+      "4": 897,
+      "5": 780
+    },
+    "z_score": -4.921,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 7
+  },
+  "Afghan": {
+    "n_reviews": 503,
+    "mean_rating": 3.895,
+    "std_rating": 1.245,
+    "ci_lower": 3.786,
+    "ci_upper": 4.003,
+    "histogram": {
+      "1": 38,
+      "2": 41,
+      "3": 68,
+      "4": 145,
+      "5": 211
+    },
+    "z_score": 0.768,
+    "p_value": 0.4422,
+    "significant": false,
+    "restaurant_count": 7
+  },
+  "Peruvian": {
+    "n_reviews": 1228,
+    "mean_rating": 3.855,
+    "std_rating": 1.254,
+    "ci_lower": 3.785,
+    "ci_upper": 3.925,
+    "histogram": {
+      "1": 101,
+      "2": 92,
+      "3": 185,
+      "4": 356,
+      "5": 494
+    },
+    "z_score": 0.086,
+    "p_value": 0.9316,
+    "significant": false,
+    "restaurant_count": 6
+  },
+  "Salvadoran": {
+    "n_reviews": 325,
+    "mean_rating": 4.526,
+    "std_rating": 0.906,
+    "ci_lower": 4.428,
+    "ci_upper": 4.625,
+    "histogram": {
+      "1": 9,
+      "2": 7,
+      "3": 18,
+      "4": 61,
+      "5": 230
+    },
+    "z_score": 13.408,
+    "p_value": 0.0005,
+    "significant": true,
+    "restaurant_count": 5
+  },
+  "_city_mean": 3.852,
+  "_city_std": 1.289
+}

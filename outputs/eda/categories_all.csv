@@ -1,0 +1,1312 @@
+category,businesses,food_businesses,food_share,is_food_related
+Restaurants,52268,52268,1.000000,1
+Food,27781,27781,1.000000,1
+Shopping,24395,3350,0.137323,0
+Home Services,14356,124,0.008638,0
+Beauty & Spas,14292,507,0.035474,0
+Nightlife,12281,9325,0.759303,0
+Health & Medical,11890,637,0.053574,0
+Local Services,11198,194,0.017325,0
+Bars,11065,8872,0.801808,1
+Automotive,10773,704,0.065349,0
+Event Planning & Services,9895,3602,0.364022,0
+Sandwiches,8366,8366,1.000000,1
+American (Traditional),8139,8139,1.000000,1
+Active Life,7687,425,0.055288,0
+Pizza,7093,7093,1.000000,1
+Coffee & Tea,6703,6703,1.000000,1
+Fast Food,6472,6472,1.000000,1
+Breakfast & Brunch,6239,6239,1.000000,1
+American (New),6097,6097,1.000000,1
+Hotels & Travel,5857,559,0.095441,0
+Home & Garden,5799,362,0.062425,0
+Fashion,5739,598,0.104199,0
+Burgers,5636,5636,1.000000,1
+Arts & Entertainment,5434,1559,0.286897,0
+Auto Repair,5433,19,0.003497,0
+Hair Salons,5046,24,0.004756,0
+Nail Salons,4621,14,0.003030,0
+Mexican,4600,4600,1.000000,1
+Italian,4573,4573,1.000000,1
+Specialty Food,4233,4233,1.000000,1
+Doctors,3763,27,0.007175,0
+Pets,3758,55,0.014635,0
+Real Estate,3577,32,0.008946,0
+Seafood,3539,3539,1.000000,1
+Fitness & Instruction,3293,74,0.022472,0
+Professional Services,3270,82,0.025076,0
+Hair Removal,3239,5,0.001544,0
+Desserts,3186,3186,1.000000,1
+Chinese,3169,3169,1.000000,1
+Bakeries,3150,3150,1.000000,1
+Grocery,3139,3139,1.000000,1
+Salad,3064,3064,1.000000,1
+Hotels,2977,301,0.101108,0
+Chicken Wings,2966,2966,1.000000,1
+Cafes,2756,2756,1.000000,1
+Ice Cream & Frozen Yogurt,2657,2657,1.000000,1
+Caterers,2645,2336,0.883176,1
+Pet Services,2626,21,0.007997,0
+Dentists,2528,2,0.000791,0
+Skin Care,2498,25,0.010008,0
+Venues & Event Spaces,2480,903,0.364113,0
+Tires,2471,55,0.022258,0
+Beer,2413,2413,1.000000,1
+Wine & Spirits,2413,2413,1.000000,1
+Delis,2393,2393,1.000000,1
+Oil Change Stations,2356,7,0.002971,0
+Waxing,2333,3,0.001286,0
+Contractors,2327,14,0.006016,0
+Women's Clothing,2184,31,0.014194,0
+Massage,2134,33,0.015464,0
+Sports Bars,2110,1818,0.861611,1
+Day Spas,1997,38,0.019029,0
+General Dentistry,1993,1,0.000502,0
+Education,1936,130,0.067149,0
+Flowers & Gifts,1930,450,0.233161,0
+Auto Parts & Supplies,1926,7,0.003634,0
+Apartments,1921,5,0.002603,0
+Convenience Stores,1919,1919,1.000000,1
+Home Decor,1892,77,0.040698,0
+Gyms,1831,22,0.012015,0
+Japanese,1830,1830,1.000000,1
+Pubs,1821,1503,0.825371,1
+Cocktail Bars,1718,1476,0.859139,1
+Sushi Bars,1717,1717,1.000000,1
+Barbeque,1694,1694,1.000000,1
+Juice Bars & Smoothies,1684,1684,1.000000,1
+Barbers,1677,11,0.006559,0
+Car Dealers,1665,6,0.003604,0
+Sporting Goods,1662,53,0.031889,0
+Accessories,1639,37,0.022575,0
+Cosmetic Dentists,1630,0,0.000000,0
+Drugstores,1630,1382,0.847853,0
+Local Flavor,1604,703,0.438279,0
+Furniture Stores,1597,141,0.088291,0
+Pet Groomers,1549,7,0.004519,0
+Asian Fusion,1547,1547,1.000000,1
+Cosmetics & Beauty Supply,1544,396,0.256477,0
+Jewelry,1525,30,0.019672,0
+Steakhouses,1506,1506,1.000000,1
+Diners,1494,1494,1.000000,1
+Financial Services,1487,13,0.008742,0
+Trainers,1460,13,0.008904,0
+Hair Stylists,1459,3,0.002056,0
+Arts & Crafts,1440,119,0.082639,0
+Department Stores,1430,499,0.348951,0
+Electronics,1422,314,0.220816,0
+Veterinarians,1383,2,0.001446,0
+Massage Therapy,1357,21,0.015475,0
+Pet Sitting,1356,4,0.002950,0
+Eyelash Service,1278,1,0.000782,0
+Food Trucks,1273,1273,1.000000,1
+Men's Clothing,1273,13,0.010212,0
+Mediterranean,1263,1263,1.000000,1
+Body Shops,1229,7,0.005696,0
+Public Services & Government,1216,46,0.037829,0
+Heating & Air Conditioning/HVAC,1199,5,0.004170,0
+Lounges,1194,747,0.625628,0
+Wine Bars,1192,1085,0.910235,1
+IT Services & Computer Repair,1189,6,0.005046,0
+Vegetarian,1158,1158,1.000000,1
+Laundry Services,1149,3,0.002611,0
+Medical Centers,1131,14,0.012378,0
+Optometrists,1112,8,0.007194,0
+Plumbing,1111,9,0.008101,0
+Music Venues,1104,565,0.511775,0
+Donuts,1097,1097,1.000000,1
+Dry Cleaning & Laundry,1075,5,0.004651,0
+Party & Event Planning,1073,265,0.246971,0
+Gas Stations,1063,613,0.576670,0
+Soup,1061,1061,1.000000,1
+Food Delivery Services,1050,1050,1.000000,1
+Pet Stores,1043,26,0.024928,0
+Tacos,1020,1020,1.000000,1
+Shoe Stores,1018,5,0.004912,0
+Eyewear & Opticians,1016,26,0.025591,0
+Southern,988,988,1.000000,1
+Parks,984,25,0.025407,0
+Books,975,78,0.080000,0
+Mags,975,78,0.080000,0
+Music & Video,975,78,0.080000,0
+Makeup Artists,973,1,0.001028,0
+Thai,971,971,1.000000,1
+Car Wash,960,28,0.029167,0
+Florists,955,230,0.240838,0
+Building Supplies,954,9,0.009434,0
+Mobile Phones,952,124,0.130252,0
+Movers,948,6,0.006329,0
+Yoga,938,28,0.029851,0
+Specialty Schools,932,52,0.055794,0
+Cajun/Creole,923,923,1.000000,1
+Tex-Mex,919,919,1.000000,1
+Auto Detailing,906,9,0.009934,0
+Landscaping,896,7,0.007812,0
+Nurseries & Gardening,892,62,0.069507,0
+Appliances,872,32,0.036697,0
+Beer Bar,870,781,0.897701,1
+Discount Store,868,367,0.422811,0
+Breweries,863,863,1.000000,1
+Transportation,858,28,0.032634,0
+Vegan,856,856,1.000000,1
+Vietnamese,852,852,1.000000,1
+Home Cleaning,850,4,0.004706,0
+Sewing & Alterations,842,0,0.000000,0
+Tours,842,156,0.185273,0
+Indian,838,838,1.000000,1
+Men's Hair Salons,828,1,0.001208,0
+Latin American,810,810,1.000000,1
+Chicken Shop,808,808,1.000000,1
+Appliances & Repair,800,7,0.008750,0
+Real Estate Services,800,1,0.001250,0
+Gift Shops,796,208,0.261307,0
+Self Storage,795,5,0.006289,0
+Hardware Stores,792,4,0.005051,0
+Shipping Centers,792,4,0.005051,0
+Printing Services,790,4,0.005063,0
+Art Galleries,786,78,0.099237,0
+Medical Spas,781,9,0.011524,0
+Greek,779,779,1.000000,1
+Gluten-Free,777,777,1.000000,1
+Hot Dogs,774,774,1.000000,1
+Kitchen & Bath,763,56,0.073394,0
+Property Management,759,3,0.003953,0
+Used,753,17,0.022576,0
+Vintage & Consignment,753,17,0.022576,0
+Oral Surgeons,752,1,0.001330,0
+Banks & Credit Unions,749,6,0.008011,0
+Comfort Food,746,746,1.000000,1
+Bagels,738,738,1.000000,1
+Auto Glass Services,727,4,0.005502,0
+Chiropractors,726,8,0.011019,0
+Wedding Planning,709,107,0.150917,0
+Endodontists,706,0,0.000000,0
+Towing,692,2,0.002890,0
+Tobacco Shops,691,135,0.195369,0
+Car Rental,670,2,0.002985,0
+Tanning,667,4,0.005997,0
+Orthodontists,660,0,0.000000,0
+Ethnic Food,658,658,1.000000,1
+Transmission Repair,639,2,0.003130,0
+Antiques,638,18,0.028213,0
+Dive Bars,636,296,0.465409,0
+Mattresses,630,4,0.006349,0
+Hair Extensions,624,1,0.001603,0
+Buffets,622,622,1.000000,1
+Flooring,621,0,0.000000,0
+Cheesesteaks,614,614,1.000000,1
+Thrift Stores,610,12,0.019672,0
+Tattoo,609,4,0.006568,0
+Health Markets,601,601,1.000000,1
+Caribbean,590,590,1.000000,1
+Middle Eastern,588,588,1.000000,1
+Performing Arts,581,47,0.080895,0
+Sports Wear,574,7,0.012195,0
+Real Estate Agents,565,3,0.005310,0
+Pet Training,561,3,0.005348,0
+Physical Therapy,561,3,0.005348,0
+Tree Services,561,5,0.008913,0
+Water Heater Installation/Repair,557,2,0.003591,0
+Bridal,555,8,0.014414,0
+Hobby Shops,552,31,0.056159,0
+Meat Shops,552,552,1.000000,1
+Urgent Care,541,14,0.025878,0
+Soul Food,539,539,1.000000,1
+Fruits & Veggies,532,532,1.000000,1
+Pediatric Dentists,528,0,0.000000,0
+Carpet Cleaning,526,2,0.003802,0
+Mobile Phone Repair,525,3,0.005714,0
+Toy Stores,518,29,0.055985,0
+Notaries,516,4,0.007752,0
+Gastropubs,513,513,1.000000,1
+Interior Design,509,6,0.011788,0
+Photographers,507,9,0.017751,0
+Community Service/Non-Profit,503,42,0.083499,0
+Electronics Repair,503,2,0.003976,0
+Family Practice,503,2,0.003976,0
+French,503,503,1.000000,1
+Pest Control,503,5,0.009940,0
+Pharmacy,503,413,0.821074,0
+Farmers Market,498,498,1.000000,1
+Korean,497,497,1.000000,1
+Golf,494,91,0.184211,0
+Electricians,489,1,0.002045,0
+Bubble Tea,477,477,1.000000,1
+Vape Shops,469,37,0.078891,0
+Mobile Phone Accessories,468,0,0.000000,0
+Roofing,468,1,0.002137,0
+Diagnostic Services,467,3,0.006424,0
+Photography Stores & Services,466,318,0.682403,0
+Periodontists,464,0,0.000000,0
+Bikes,463,15,0.032397,0
+Blow Dry/Out Services,456,1,0.002193,0
+Eyebrow Services,454,2,0.004405,0
+Dance Clubs,447,148,0.331096,0
+Windows Installation,447,0,0.000000,0
+Painters,446,2,0.004484,0
+Children's Clothing,445,5,0.011236,0
+Festivals,442,89,0.201357,0
+Weight Loss Centers,441,28,0.063492,0
+Tapas/Small Plates,440,440,1.000000,1
+Nutritionists,439,80,0.182232,0
+Used Car Dealers,436,1,0.002294,0
+Pet Boarding,425,1,0.002353,0
+Acupuncture,424,12,0.028302,0
+Food Stands,423,423,1.000000,1
+Cupcakes,422,422,1.000000,1
+Ophthalmologists,421,0,0.000000,0
+Bookstores,416,41,0.098558,0
+Child Care & Day Care,416,3,0.007212,0
+Museums,413,26,0.062954,0
+Reflexology,411,6,0.014599,0
+Insurance,403,0,0.000000,0
+Junk Removal & Hauling,401,3,0.007481,0
+Telecommunications,397,0,0.000000,0
+Hospitals,395,4,0.010127,0
+Laser Hair Removal,394,0,0.000000,0
+Dry Cleaning,382,1,0.002618,0
+Noodles,382,382,1.000000,1
+Arcades,378,133,0.351852,0
+Permanent Makeup,377,0,0.000000,0
+Office Cleaning,373,2,0.005362,0
+Outdoor Gear,369,8,0.021680,0
+Piercing,368,2,0.005435,0
+Cosmetic Surgeons,367,2,0.005450,0
+Kids Activities,367,55,0.149864,0
+Lawyers,363,3,0.008264,0
+Masonry/Concrete,363,0,0.000000,0
+Mortgage Brokers,363,0,0.000000,0
+Halal,362,362,1.000000,1
+Cinema,359,32,0.089136,0
+Session Photography,357,1,0.002801,0
+Street Vendors,357,357,1.000000,1
+Candy Stores,356,356,1.000000,1
+Handyman,356,0,0.000000,0
+Internet Service Providers,356,2,0.005618,0
+Damage Restoration,353,2,0.005666,0
+Windshield Installation & Repair,352,1,0.002841,0
+Jewelry Repair,347,1,0.002882,0
+Preschools,344,4,0.011628,0
+Wineries,342,342,1.000000,1
+Chocolatiers & Shops,339,339,1.000000,1
+Computers,339,5,0.014749,0
+Mailbox Centers,339,3,0.008850,0
+Boot Camps,337,1,0.002967,0
+Seafood Markets,337,337,1.000000,1
+Dermatologists,336,1,0.002976,0
+Lighting Fixtures & Equipment,336,1,0.002976,0
+Spray Tanning,332,2,0.006024,0
+Watches,329,2,0.006079,0
+Airport Shuttles,328,5,0.015244,0
+Post Offices,327,2,0.006116,0
+Event Photography,325,0,0.000000,0
+Karaoke,325,200,0.615385,0
+Bed & Breakfast,324,67,0.206790,0
+Keys & Locksmiths,323,3,0.009288,0
+Gutter Services,320,0,0.000000,0
+Nail Technicians,320,2,0.006250,0
+Couriers & Delivery Services,317,18,0.056782,0
+Sports Clubs,314,15,0.047771,0
+Pressure Washers,313,1,0.003195,0
+Art Supplies,311,5,0.016077,0
+Auto Customization,311,3,0.009646,0
+Obstetricians & Gynecologists,311,0,0.000000,0
+Wraps,310,310,1.000000,1
+Party Supplies,309,36,0.116505,0
+Carpeting,304,0,0.000000,0
+Wheel & Rim Repair,303,1,0.003300,0
+Landmarks & Historical Buildings,302,20,0.066225,0
+Pool & Hot Tub Service,301,0,0.000000,0
+Shopping Centers,297,99,0.333333,0
+Bike Rentals,296,8,0.027027,0
+Custom Cakes,296,296,1.000000,1
+Pilates,294,5,0.017007,0
+Limos,293,15,0.051195,0
+Organic Stores,292,292,1.000000,1
+Sports Medicine,289,1,0.003460,0
+Boating,287,20,0.069686,0
+Security Systems,287,3,0.010453,0
+Home Inspectors,286,0,0.000000,0
+Religious Organizations,286,25,0.087413,0
+Spanish,286,286,1.000000,1
+Dog Walkers,284,0,0.000000,0
+Cuban,283,283,1.000000,1
+Amusement Parks,279,23,0.082437,0
+Formal Wear,279,1,0.003584,0
+Coffee Roasteries,278,278,1.000000,1
+Swimming Pools,278,15,0.053957,0
+Door Sales/Installation,277,0,0.000000,0
+Musical Instruments & Teachers,277,2,0.007220,0
+Wholesale Stores,274,125,0.456204,0
+Bike Repair/Maintenance,273,13,0.047619,0
+Laboratory Testing,272,1,0.003676,0
+Shaved Ice,272,272,1.000000,1
+Air Duct Cleaning,271,1,0.003690,0
+Travel Services,270,17,0.062963,0
+Packing Services,269,1,0.003717,0
+Acai Bowls,268,268,1.000000,1
+Playgrounds,266,13,0.048872,0
+Shades & Blinds,266,0,0.000000,0
+Martial Arts,265,1,0.003774,0
+Canadian (New),261,261,1.000000,1
+Office Equipment,261,13,0.049808,0
+Hot Tub & Pool,257,0,0.000000,0
+Floral Designers,256,13,0.050781,0
+Shoe Repair,256,1,0.003906,0
+Gardeners,254,7,0.027559,0
+Vitamins & Supplements,253,144,0.569170,0
+Cards & Stationery,252,14,0.055556,0
+Pediatricians,252,2,0.007937,0
+Taxis,250,7,0.028000,0
+Car Stereo Installation,245,1,0.004082,0
+Guns & Ammo,245,1,0.004082,0
+Recreation Centers,244,10,0.040984,0
+Parking,243,7,0.028807,0
+Baby Gear & Furniture,242,3,0.012397,0
+Art Classes,241,10,0.041494,0
+Watch Repair,241,0,0.000000,0
+Landscape Architects,239,4,0.016736,0
+Graphic Design,238,2,0.008403,0
+Tiling,236,0,0.000000,0
+Hookah Bars,235,157,0.668085,0
+Music & DVDs,232,10,0.043103,0
+Summer Camps,232,5,0.021552,0
+Window Washing,232,0,0.000000,0
+Car Window Tinting,228,1,0.004386,0
+Pakistani,228,228,1.000000,1
+Tea Rooms,228,228,1.000000,1
+Motorcycle Dealers,226,4,0.017699,0
+Tapas Bars,226,226,1.000000,1
+Counseling & Mental Health,225,6,0.026667,0
+Orthopedists,225,0,0.000000,0
+Ramen,223,223,1.000000,1
+Elementary Schools,222,2,0.009009,0
+Glass & Mirrors,222,0,0.000000,0
+Rehabilitation Center,222,0,0.000000,0
+Naturopathic/Holistic,221,16,0.072398,0
+Smog Check Stations,220,4,0.018182,0
+Adult Entertainment,218,42,0.192661,0
+Churches,218,9,0.041284,0
+Internal Medicine,218,1,0.004587,0
+Cabinetry,216,0,0.000000,0
+Irish,215,215,1.000000,1
+Hiking,211,3,0.014218,0
+Poke,210,210,1.000000,1
+Irrigation,207,2,0.009662,0
+Libraries,207,2,0.009662,0
+Pool Cleaners,207,0,0.000000,0
+Truck Rental,206,2,0.009709,0
+International Grocery,205,205,1.000000,1
+Motorcycle Repair,204,0,0.000000,0
+Signmaking,204,1,0.004902,0
+Interval Training Gyms,203,0,0.000000,0
+Fish & Chips,202,202,1.000000,1
+Dance Studios,201,2,0.009950,0
+Head Shops,201,28,0.139303,0
+Imported Food,201,201,1.000000,1
+Lingerie,201,0,0.000000,0
+Reiki,201,2,0.009950,0
+Fences & Gates,200,0,0.000000,0
+Auto Insurance,198,0,0.000000,0
+Laundromat,198,2,0.010101,0
+Framing,197,1,0.005076,0
+Gelato,197,197,1.000000,1
+Medical Supplies,197,7,0.035533,0
+Bowling,195,52,0.266667,0
+Party Equipment Rentals,194,15,0.077320,0
+Pasta Shops,193,193,1.000000,1
+Laser Eye Surgery/Lasik,191,0,0.000000,0
+Waffles,190,190,1.000000,1
+Brewpubs,186,186,1.000000,1
+Videos & Video Game Rental,186,10,0.053763,0
+Beer Gardens,185,161,0.870270,1
+Hawaiian,185,185,1.000000,1
+Butcher,182,182,1.000000,1
+Outlet Stores,182,21,0.115385,0
+Siding,180,0,0.000000,0
+Financial Advising,179,1,0.005587,0
+Jazz & Blues,178,115,0.646067,0
+Colleges & Universities,177,6,0.033898,0
+Diagnostic Imaging,176,1,0.005682,0
+Auto Loan Providers,175,1,0.005714,0
+Escape Games,175,4,0.022857,0
+Fabric Stores,175,1,0.005714,0
+Musical Instrument Services,174,0,0.000000,0
+Traditional Chinese Medicine,174,11,0.063218,0
+Resorts,173,32,0.184971,0
+Garage Door Services,172,2,0.011628,0
+Pool Halls,171,74,0.432749,0
+Dog Parks,170,5,0.029412,0
+Packing Supplies,170,0,0.000000,0
+Pet Adoption,168,15,0.089286,0
+Funeral Services & Cemeteries,166,2,0.012048,0
+Personal Shopping,166,22,0.132530,0
+Creperies,165,165,1.000000,1
+Furniture Reupholstery,163,2,0.012270,0
+Roadside Assistance,163,2,0.012270,0
+Snow Removal,162,1,0.006173,0
+Recycling Center,161,4,0.024845,0
+Home Window Tinting,159,0,0.000000,0
+Television Service Providers,159,0,0.000000,0
+Barre Classes,158,2,0.012658,0
+Fishing,158,10,0.063291,0
+Home Organization,157,2,0.012739,0
+Irish Pub,157,125,0.796178,0
+Lawn Services,156,2,0.012821,0
+Mass Media,156,5,0.032051,0
+Countertop Installation,155,1,0.006452,0
+Threading Services,154,1,0.006494,0
+Gun/Rifle Ranges,153,3,0.019608,0
+Pretzels,153,153,1.000000,1
+Cheese Shops,151,151,1.000000,1
+Drywall Installation & Repair,151,0,0.000000,0
+Rugs,151,0,0.000000,0
+Home & Rental Insurance,150,0,0.000000,0
+Animal Shelters,149,1,0.006711,0
+Cardio Classes,149,1,0.006711,0
+Wine Tasting Room,149,149,1.000000,1
+Comic Books,148,4,0.027027,0
+Refinishing Services,148,0,0.000000,0
+Walk-in Clinics,148,4,0.027027,0
+Life Insurance,147,0,0.000000,0
+Propane,147,10,0.068027,0
+Personal Injury Law,146,1,0.006849,0
+Do-It-Yourself Food,145,145,1.000000,1
+Internet Cafes,143,143,1.000000,1
+Vacation Rentals,143,2,0.013986,0
+Vinyl Records,142,8,0.056338,0
+Departments of Motor Vehicles,140,9,0.064286,0
+Dim Sum,140,140,1.000000,1
+Leather Goods,140,3,0.021429,0
+Cannabis Clinics,139,8,0.057554,0
+Social Clubs,139,41,0.294964,0
+Tax Services,139,2,0.014388,0
+Home Theatre Installation,138,1,0.007246,0
+Costumes,137,2,0.014599,0
+Historical Tours,136,13,0.095588,0
+Supernatural Readings,136,9,0.066176,0
+Team Building Activities,136,7,0.051471,0
+Divorce & Family Law,135,1,0.007407,0
+Educational Services,135,7,0.051852,0
+Gay Bars,135,47,0.348148,0
+Public Transportation,135,4,0.029630,0
+Carpet Installation,133,0,0.000000,0
+Plus Size Fashion,133,0,0.000000,0
+Boxing,131,0,0.000000,0
+Country Clubs,131,40,0.305344,0
+Gold Buyers,131,0,0.000000,0
+Modern European,131,131,1.000000,1
+Water Purification Services,131,19,0.145038,0
+Boat Charters,130,12,0.092308,0
+Food Court,130,130,1.000000,1
+Life Coach,130,1,0.007692,0
+Stadiums & Arenas,130,4,0.030769,0
+Tanning Beds,130,2,0.015385,0
+Cannabis Dispensaries,128,10,0.078125,0
+Screen Printing/T-Shirt Printing,128,2,0.015625,0
+DJs,127,2,0.015748,0
+Marketing,127,3,0.023622,0
+Party Bus Rentals,127,13,0.102362,0
+Web Design,127,4,0.031496,0
+Accountants,126,4,0.031746,0
+Rafting/Kayaking,126,4,0.031746,0
+Fireplace Services,125,5,0.040000,0
+German,125,125,1.000000,1
+Knitting Supplies,124,1,0.008065,0
+Podiatrists,124,0,0.000000,0
+Surgeons,123,0,0.000000,0
+Airports,122,8,0.065574,0
+Beaches,122,14,0.114754,0
+Cycling Classes,122,0,0.000000,0
+Home Automation,122,0,0.000000,0
+Mortgage Lenders,122,0,0.000000,0
+Teeth Whitening,122,0,0.000000,0
+University Housing,122,1,0.008197,0
+Data Recovery,121,0,0.000000,0
+Adult,118,9,0.076271,0
+Airlines,118,2,0.016949,0
+Paint Stores,118,0,0.000000,0
+Decks & Railing,117,0,0.000000,0
+Patisserie/Cake Shop,117,117,1.000000,1
+Septic Services,117,2,0.017094,0
+Amateur Sports Teams,116,5,0.043103,0
+Commercial Real Estate,116,2,0.017241,0
+Pain Management,116,1,0.008621,0
+Personal Chefs,116,81,0.698276,0
+Solar Installation,116,1,0.008621,0
+African,115,115,1.000000,1
+Casinos,114,58,0.508772,0
+Szechuan,114,114,1.000000,1
+Chimney Sweeps,113,0,0.000000,0
+Home Health Care,113,6,0.053097,0
+Souvenir Shops,113,25,0.221239,0
+Herbs & Spices,112,112,1.000000,1
+New Mexican Cuisine,111,111,1.000000,1
+Skating Rinks,111,8,0.072072,0
+Swimwear,111,1,0.009009,0
+Candle Stores,110,10,0.090909,0
+Wine Tours,110,50,0.454545,0
+Paint & Sip,109,4,0.036697,0
+RV Dealers,109,0,0.000000,0
+Filipino,108,108,1.000000,1
+Pawn Shops,108,2,0.018519,0
+RV Repair,108,1,0.009259,0
+Grout Services,106,0,0.000000,0
+Carpenters,105,0,0.000000,0
+Distilleries,105,105,1.000000,1
+Bespoke Clothing,104,1,0.009615,0
+Falafel,103,103,1.000000,1
+Plastic Surgeons,103,1,0.009709,0
+Dance Schools,102,1,0.009804,0
+Utilities,102,1,0.009804,0
+Donation Center,101,0,0.000000,0
+Video Game Stores,100,2,0.020000,0
+Walking Tours,100,13,0.130000,0
+Meditation Centers,99,1,0.010101,0
+Occupational Therapy,99,0,0.000000,0
+Puerto Rican,99,99,1.000000,1
+Wildlife Control,99,1,0.010101,0
+Fitness/Exercise Equipment,98,2,0.020408,0
+Paddleboarding,98,2,0.020408,0
+Waterproofing,98,0,0.000000,0
+Comedy Clubs,97,24,0.247423,0
+Retirement Homes,97,0,0.000000,0
+Shutters,97,0,0.000000,0
+Car Buyers,96,0,0.000000,0
+Mini Golf,96,12,0.125000,0
+Adult Education,95,6,0.063158,0
+Art Schools,95,2,0.021053,0
+Body Contouring,94,1,0.010638,0
+Battery Stores,93,1,0.010753,0
+Cantonese,93,93,1.000000,1
+Cosmetology Schools,93,0,0.000000,0
+Emergency Rooms,93,2,0.021505,0
+Campgrounds,92,2,0.021739,0
+Cooking Classes,92,63,0.684783,0
+Insulation Installation,92,0,0.000000,0
+Photo Booth Rentals,92,1,0.010870,0
+Tattoo Removal,92,0,0.000000,0
+Criminal Defense Law,91,0,0.000000,0
+Advertising,90,2,0.022222,0
+Kebab,90,90,1.000000,1
+Uniforms,90,0,0.000000,0
+Investing,89,1,0.011236,0
+Psychiatrists,89,1,0.011236,0
+Customized Merchandise,88,10,0.113636,0
+Farms,88,45,0.511364,0
+Live/Raw Food,88,88,1.000000,1
+Spiritual Shop,88,13,0.147727,0
+Motorcycle Gear,87,2,0.022989,0
+Tennis,87,15,0.172414,0
+Video/Film Production,87,0,0.000000,0
+Hunting & Fishing Supplies,86,6,0.069767,0
+Vehicle Wraps,86,0,0.000000,0
+Wigs,86,6,0.069767,0
+Donairs,85,85,1.000000,1
+RV Parks,85,2,0.023529,0
+Turkish,85,85,1.000000,1
+Whiskey Bars,85,65,0.764706,0
+Guitar Stores,84,0,0.000000,0
+Legal Services,84,1,0.011905,0
+Lebanese,83,83,1.000000,1
+Swimming Lessons/Schools,83,1,0.012048,0
+Appraisal Services,82,0,0.000000,0
+Outdoor Furniture Stores,82,2,0.024390,0
+Peruvian,82,82,1.000000,1
+Employment Agencies,81,0,0.000000,0
+Indoor Playcentre,81,38,0.469136,0
+Screen Printing,81,0,0.000000,0
+Auto Upholstery,80,0,0.000000,0
+Kickboxing,80,0,0.000000,0
+Metal Fabricators,80,0,0.000000,0
+Radiologists,80,1,0.012500,0
+Ear Nose & Throat,79,0,0.000000,0
+General Litigation,79,1,0.012658,0
+Boat Repair,78,1,0.012821,0
+Registration Services,78,0,0.000000,0
+Brazilian,77,77,1.000000,1
+Middle Schools & High Schools,77,0,0.000000,0
+Tabletop Games,77,13,0.168831,0
+Taiwanese,77,77,1.000000,1
+Cooking Schools,76,41,0.539474,0
+Print Media,76,3,0.039474,0
+British,75,75,1.000000,1
+Embroidery & Crochet,75,1,0.013333,0
+Hot Pot,75,75,1.000000,1
+Pop-Up Restaurants,75,75,1.000000,1
+Smokehouse,75,75,1.000000,1
+Emergency Pet Hospital,73,0,0.000000,0
+Estate Planning Law,73,0,0.000000,0
+Gymnastics,73,1,0.013699,0
+Kosher,73,73,1.000000,1
+Trampoline Parks,73,3,0.041096,0
+Videographers,73,0,0.000000,0
+Generator Installation/Repair,72,0,0.000000,0
+Golf Equipment,72,4,0.055556,0
+Tiki Bars,72,49,0.680556,0
+Bus Tours,71,13,0.183099,0
+Orthotics,71,0,0.000000,0
+Flea Markets,70,12,0.171429,0
+Aquariums,69,3,0.043478,0
+DUI Law,69,0,0.000000,0
+Pan Asian,69,69,1.000000,1
+Colombian,67,67,1.000000,1
+Ethiopian,67,67,1.000000,1
+Horseback Riding,67,5,0.074627,0
+Allergists,66,0,0.000000,0
+Mountain Biking,66,3,0.045455,0
+Saunas,66,4,0.060606,0
+Commercial Truck Repair,65,4,0.061538,0
+Furniture Assembly,65,0,0.000000,0
+Hydro-jetting,65,0,0.000000,0
+Patio Coverings,65,0,0.000000,0
+TV Mounting,65,1,0.015385,0
+Empanadas,64,64,1.000000,1
+Farming Equipment,63,1,0.015873,0
+Food Tours,62,31,0.500000,0
+Golf Lessons,62,10,0.161290,0
+Neurologist,62,1,0.016129,0
+Vocational & Technical School,62,1,0.016129,0
+Boat Tours,61,3,0.049180,0
+Christmas Trees,61,12,0.196721,0
+Guest Houses,61,5,0.081967,0
+Security Services,61,0,0.000000,0
+Botanical Gardens,60,4,0.066667,0
+Business Consulting,60,4,0.066667,0
+Driving Schools,60,0,0.000000,0
+Perfume,60,5,0.083333,0
+Salvadoran,60,60,1.000000,1
+Wholesalers,60,27,0.450000,0
+Climbing,59,1,0.016949,0
+Cultural Center,59,8,0.135593,0
+Hair Loss Centers,59,1,0.016949,0
+Shared Office Spaces,59,14,0.237288,0
+Alternative Medicine,58,5,0.086207,0
+Firearm Training,58,0,0.000000,0
+Hats,58,2,0.034483,0
+Psychics,58,0,0.000000,0
+Stucco Services,58,0,0.000000,0
+Professional Sports Teams,57,1,0.017544,0
+Auction Houses,56,1,0.017857,0
+Environmental Testing,56,0,0.000000,0
+RV Rental,56,0,0.000000,0
+Assisted Living Facilities,55,0,0.000000,0
+Popcorn Shops,55,55,1.000000,1
+Tutoring Centers,55,2,0.036364,0
+Business Law,54,1,0.018519,0
+Maternity Wear,54,2,0.037037,0
+Special Education,54,6,0.111111,0
+Axe Throwing,53,5,0.094340,0
+Cigar Bars,53,17,0.320755,0
+Furniture Repair,53,0,0.000000,0
+Macarons,53,53,1.000000,1
+Town Car Service,53,0,0.000000,0
+Auto Security,52,0,0.000000,0
+Beverage Store,52,52,1.000000,1
+Sleep Specialists,52,0,0.000000,0
+Sunglasses,52,0,0.000000,0
+Zoos,52,3,0.057692,0
+Beer Tours,51,33,0.647059,0
+Boat Dealers,51,0,0.000000,0
+Cardiologists,51,0,0.000000,0
+Diving,51,0,0.000000,0
+Home Network Installation,51,0,0.000000,0
+Bartenders,50,16,0.320000,0
+Challenge Courses,50,0,0.000000,0
+Environmental Abatement,50,0,0.000000,0
+Float Spa,50,0,0.000000,0
+Herbal Shops,50,19,0.380000,0
+Laser Tag,50,7,0.140000,0
+Brazilian Jiu-jitsu,49,0,0.000000,0
+Demolition Services,49,0,0.000000,0
+Employment Law,49,1,0.020408,0
+Kids Hair Salons,49,1,0.020408,0
+Moroccan,49,49,1.000000,1
+Estheticians,48,1,0.020833,0
+Haunted Houses,48,1,0.020833,0
+Hostels,48,3,0.062500,0
+IV Hydration,48,1,0.020833,0
+Laotian,48,48,1.000000,1
+Piano Bars,48,35,0.729167,0
+Service Stations,48,42,0.875000,0
+Venezuelan,48,48,1.000000,1
+Yelp Events,48,20,0.416667,0
+Acne Treatment,47,0,0.000000,0
+Art Museums,47,4,0.085106,0
+Brasseries,47,47,1.000000,1
+Brewing Supplies,47,37,0.787234,0
+Cafeteria,47,47,1.000000,1
+Fertility,47,0,0.000000,0
+Piano Services,47,0,0.000000,0
+Real Estate Law,47,1,0.021277,0
+Skilled Nursing,47,0,0.000000,0
+Tui Na,47,0,0.000000,0
+Private Tutors,46,1,0.021739,0
+Radio Stations,46,1,0.021739,0
+Aquarium Services,45,0,0.000000,0
+Bankruptcy Law,45,0,0.000000,0
+Blood & Plasma Donation Centers,45,0,0.000000,0
+Leisure Centers,45,7,0.155556,0
+Musicians,45,8,0.177778,0
+Afghan,44,44,1.000000,1
+Car Inspectors,44,0,0.000000,0
+Dominican,44,44,1.000000,1
+Home Staging,44,0,0.000000,0
+Midwives,44,0,0.000000,0
+Officiants,44,3,0.068182,0
+Payroll Services,44,0,0.000000,0
+Skate Shops,44,2,0.045455,0
+Tasting Classes,44,39,0.886364,1
+Used Bookstore,44,6,0.136364,0
+Aestheticians,43,0,0.000000,0
+Dental Hygienists,43,0,0.000000,0
+Kombucha,43,43,1.000000,1
+Polish,43,43,1.000000,1
+Pool & Billiards,43,7,0.162791,0
+Trailer Repair,43,1,0.023256,0
+Buses,42,0,0.000000,0
+Foundation Repair,42,0,0.000000,0
+Newspapers & Magazines,42,10,0.238095,0
+Russian,42,42,1.000000,1
+Firewood,41,1,0.024390,0
+Prosthodontists,41,0,0.000000,0
+Circuit Training Gyms,40,0,0.000000,0
+Grilling Equipment,40,4,0.100000,0
+Holiday Decorations,40,1,0.025000,0
+Hypnosis/Hypnotherapy,40,2,0.050000,0
+Lighting Stores,40,1,0.025000,0
+Local Fish Stores,40,0,0.000000,0
+Luggage,40,0,0.000000,0
+Persian/Iranian,40,40,1.000000,1
+Ski & Snowboard Shops,40,0,0.000000,0
+Vehicle Shipping,40,0,0.000000,0
+Basque,39,39,1.000000,1
+CSA,39,39,1.000000,1
+Day Camps,39,1,0.025641,0
+Farm Equipment Repair,39,0,0.000000,0
+Gastroenterologist,39,0,0.000000,0
+Hospice,39,0,0.000000,0
+Marinas,39,4,0.102564,0
+Roof Inspectors,39,0,0.000000,0
+Sugaring,39,0,0.000000,0
+& Probates,38,0,0.000000,0
+Check Cashing/Pay-day Loans,38,2,0.052632,0
+Excavation Services,38,0,0.000000,0
+Fire Protection Services,38,0,0.000000,0
+Go Karts,38,2,0.052632,0
+Henna Artists,38,0,0.000000,0
+Livestock Feed & Supply,38,4,0.105263,0
+Mobile Dent Repair,38,0,0.000000,0
+Osteopathic Physicians,38,1,0.026316,0
+Pet Transportation,38,0,0.000000,0
+Teppanyaki,38,38,1.000000,1
+Trusts,38,0,0.000000,0
+Wills,38,0,0.000000,0
+Boudoir Photography,37,0,0.000000,0
+Clothing Rental,37,1,0.027027,0
+Cryotherapy,37,0,0.000000,0
+Estate Liquidation,37,0,0.000000,0
+Olive Oil,37,37,1.000000,1
+Paint-Your-Own Pottery,37,1,0.027027,0
+Pet Cremation Services,37,0,0.000000,0
+Pet Hospice,37,0,0.000000,0
+Trailer Dealers,37,0,0.000000,0
+Travel Agents,37,1,0.027027,0
+Arabic,36,36,1.000000,1
+Archery,36,0,0.000000,0
+Audiologist,36,0,0.000000,0
+Mongolian,36,36,1.000000,1
+Race Tracks,36,3,0.083333,0
+Recording & Rehearsal Studios,36,2,0.055556,0
+Train Stations,36,1,0.027778,0
+Wedding Chapels,36,2,0.055556,0
+Awnings,35,0,0.000000,0
+Career Counseling,35,0,0.000000,0
+Dinner Theater,35,35,1.000000,1
+Engraving,35,0,0.000000,0
+Police Departments,35,0,0.000000,0
+Rock Climbing,35,0,0.000000,0
+Shoe Shine,35,0,0.000000,0
+Workers Compensation Law,35,0,0.000000,0
+Argentine,34,34,1.000000,1
+Dumpster Rental,34,0,0.000000,0
+Jet Skis,34,0,0.000000,0
+Scuba Diving,34,0,0.000000,0
+Strip Clubs,34,4,0.117647,0
+Bistros,33,33,1.000000,1
+Health Coach,33,4,0.121212,0
+Paintball,33,0,0.000000,0
+Portuguese,33,33,1.000000,1
+Prenatal/Perinatal Care,33,0,0.000000,0
+Psychologists,33,1,0.030303,0
+Test Preparation,33,0,0.000000,0
+Balloon Services,32,0,0.000000,0
+Bike tours,32,2,0.062500,0
+Community Centers,32,1,0.031250,0
+Ethnic Grocery,32,32,1.000000,1
+Real Estate Photography,32,0,0.000000,0
+Soccer,32,2,0.062500,0
+Spine Surgeons,32,0,0.000000,0
+Urologists,32,1,0.031250,0
+Commercial Truck Dealers,31,1,0.032258,0
+Doulas,31,0,0.000000,0
+Gemstones & Minerals,31,2,0.064516,0
+Knife Sharpening,31,5,0.161290,0
+Pop-up Shops,31,16,0.516129,0
+Television Stations,31,0,0.000000,0
+Wine Tasting Classes,31,27,0.870968,1
+Delicatessen,30,30,1.000000,1
+Lakes,30,0,0.000000,0
+Malaysian,30,30,1.000000,1
+Self-defense Classes,30,0,0.000000,0
+Speakeasies,30,15,0.500000,0
+Surfing,30,0,0.000000,0
+Cremation Services,29,0,0.000000,0
+Mobility Equipment Sales & Services,29,0,0.000000,0
+Personal Assistants,29,2,0.068966,0
+Pole Dancing Classes,29,0,0.000000,0
+Pumpkin Patches,29,13,0.448276,0
+Ticket Sales,29,5,0.172414,0
+Water Delivery,29,16,0.551724,0
+Airport Lounges,28,6,0.214286,0
+Bookkeepers,28,1,0.035714,0
+Eatertainment,28,17,0.607143,0
+Horse Boarding,28,1,0.035714,0
+Kitchen Supplies,28,8,0.285714,0
+Psychic Mediums,28,0,0.000000,0
+Skate Parks,28,2,0.071429,0
+Themed Cafes,28,28,1.000000,1
+Trailer Rental,28,0,0.000000,0
+Champagne Bars,27,16,0.592593,0
+Condominiums,27,0,0.000000,0
+CPR Classes,27,0,0.000000,0
+Fondue,27,27,1.000000,1
+Gunsmith,27,0,0.000000,0
+Hearing Aid Providers,27,0,0.000000,0
+High Fidelity Audio Equipment,27,0,0.000000,0
+Lactation Services,27,0,0.000000,0
+Bar Crawl,26,11,0.423077,0
+Cabaret,26,8,0.307692,0
+Machine & Tool Rental,26,0,0.000000,0
+Magicians,26,0,0.000000,0
+Medical Transportation,26,0,0.000000,0
+Pick Your Own Farms,26,22,0.846154,1
+Poutineries,26,26,1.000000,1
+Surf Shop,26,1,0.038462,0
+Attraction Farms,25,8,0.320000,0
+Batting Cages,25,2,0.080000,0
+Cideries,25,25,1.000000,1
+Clock Repair,25,0,0.000000,0
+Endocrinologists,25,0,0.000000,0
+Health Retreats,25,1,0.040000,0
+Medical Cannabis Referrals,25,1,0.040000,0
+Restaurant Supplies,25,12,0.480000,0
+Virtual Reality Centers,25,2,0.080000,0
+Architects,24,1,0.041667,0
+Artificial Turf,24,0,0.000000,0
+Belgian,24,24,1.000000,1
+Face Painting,24,1,0.041667,0
+Honduran,24,24,1.000000,1
+Karate,24,0,0.000000,0
+Reproductive Health Services,24,0,0.000000,0
+Shredding Services,24,1,0.041667,0
+Water Parks,24,0,0.000000,0
+Addiction Medicine,23,0,0.000000,0
+Bird Shops,23,0,0.000000,0
+Childbirth Education,23,0,0.000000,0
+Halotherapy,23,0,0.000000,0
+Indonesian,23,23,1.000000,1
+Medical Law,23,0,0.000000,0
+Outdoor Power Equipment Services,23,0,0.000000,0
+Personal Care Services,23,0,0.000000,0
+Public Markets,23,20,0.869565,1
+Religious Items,23,2,0.086957,0
+Trophy Shops,23,0,0.000000,0
+Disc Golf,22,1,0.045455,0
+Nurse Practitioner,22,0,0.000000,0
+Oncologist,22,0,0.000000,0
+Pet Photography,22,1,0.045455,0
+Races & Competitions,22,0,0.000000,0
+Shaved Snow,22,22,1.000000,1
+Structural Engineers,22,0,0.000000,0
+Basketball Courts,21,0,0.000000,0
+Dietitians,21,5,0.238095,0
+Himalayan/Nepalese,21,21,1.000000,1
+House Sitters,21,0,0.000000,0
+Memory Care,21,0,0.000000,0
+Airport Terminals,20,2,0.100000,0
+Children's Museums,20,0,0.000000,0
+Colonics,20,2,0.100000,0
+Haitian,20,20,1.000000,1
+Massage Schools,20,0,0.000000,0
+Muay Thai,20,0,0.000000,0
+Nanny Services,20,0,0.000000,0
+Public Art,20,1,0.050000,0
+Pulmonologist,20,0,0.000000,0
+Tai Chi,20,0,0.000000,0
+Well Drilling,20,1,0.050000,0
+Aerial Fitness,19,0,0.000000,0
+Car Share Services,19,1,0.052632,0
+Courthouses,19,2,0.105263,0
+Fingerprinting,19,0,0.000000,0
+Health Insurance Offices,19,0,0.000000,0
+Immigration Law,19,0,0.000000,0
+Motorsport Vehicle Repairs,19,0,0.000000,0
+Music Production Services,19,2,0.105263,0
+Powder Coating,19,0,0.000000,0
+Speech Therapists,19,0,0.000000,0
+Title Loans,19,0,0.000000,0
+Art Tours,18,3,0.166667,0
+Burmese,18,18,1.000000,1
+Cambodian,18,18,1.000000,1
+Flight Instruction,18,1,0.055556,0
+Honey,18,18,1.000000,1
+Motorcycle Rental,18,0,0.000000,0
+Party Bike Rentals,18,0,0.000000,0
+Safe Stores,18,0,0.000000,0
+Ukrainian,18,18,1.000000,1
+Valet Services,18,0,0.000000,0
+Concierge Medicine,17,1,0.058824,0
+Shanghainese,17,17,1.000000,1
+Skydiving,17,0,0.000000,0
+Talent Agencies,17,0,0.000000,0
+Trinidadian,17,17,1.000000,1
+Vacation Rental Agents,17,0,0.000000,0
+Wallpapering,17,0,0.000000,0
+Architectural Tours,16,0,0.000000,0
+Dive Shops,16,0,0.000000,0
+Egyptian,16,16,1.000000,1
+Holistic Animal Care,16,0,0.000000,0
+Hydrotherapy,16,0,0.000000,0
+Izakaya,16,16,1.000000,1
+Lice Services,16,0,0.000000,0
+Passport & Visa Services,16,0,0.000000,0
+Sicilian,16,16,1.000000,1
+Ultrasound Imaging Centers,16,0,0.000000,0
+Armenian,15,15,1.000000,1
+Bounce House Rentals,15,1,0.066667,0
+Crane Services,15,1,0.066667,0
+Emergency Medicine,15,0,0.000000,0
+Holiday Decorating Services,15,0,0.000000,0
+Installment Loans,15,0,0.000000,0
+Parenting Classes,15,0,0.000000,0
+Pet Breeders,15,0,0.000000,0
+Religious Schools,15,0,0.000000,0
+Bangladeshi,14,14,1.000000,1
+Baseball Fields,14,0,0.000000,0
+Car Brokers,14,0,0.000000,0
+Dance Wear,14,0,0.000000,0
+Debt Relief Services,14,0,0.000000,0
+Editorial Services,14,0,0.000000,0
+First Aid Classes,14,0,0.000000,0
+Golf Equipment Shops,14,0,0.000000,0
+Home Energy Auditors,14,0,0.000000,0
+Pancakes,14,14,1.000000,1
+Private Investigation,14,0,0.000000,0
+Rolfing,14,1,0.071429,0
+Snorkeling,14,0,0.000000,0
+Software Development,14,0,0.000000,0
+Solar Panel Cleaning,14,0,0.000000,0
+Vascular Medicine,14,0,0.000000,0
+Australian,13,13,1.000000,1
+Business Financing,13,0,0.000000,0
+Commissioned Artists,13,0,0.000000,0
+Japanese Curry,13,13,1.000000,1
+Matchmakers,13,0,0.000000,0
+Montessori Schools,13,0,0.000000,0
+Motorcycle Parts & Supplies,13,1,0.076923,0
+Preventive Medicine,13,0,0.000000,0
+Reptile Shops,13,0,0.000000,0
+Rheumatologists,13,0,0.000000,0
+Sailing,13,0,0.000000,0
+Scooter Rentals,13,0,0.000000,0
+Ski Resorts,13,2,0.153846,0
+Tableware,13,3,0.230769,0
+Taekwondo,13,0,0.000000,0
+Aerial Tours,12,0,0.000000,0
+Anesthesiologists,12,0,0.000000,0
+ATV Rentals/Tours,12,0,0.000000,0
+Audio/Visual Equipment Rental,12,1,0.083333,0
+Beach Equipment Rentals,12,0,0.000000,0
+Food Banks,12,4,0.333333,0
+Homeowner Association,12,2,0.166667,0
+Hot Air Balloons,12,0,0.000000,0
+Mobile Home Parks,12,0,0.000000,0
+Motorsport Vehicle Dealers,12,0,0.000000,0
+Piano Stores,12,0,0.000000,0
+Private Schools,12,0,0.000000,0
+Qi Gong,12,0,0.000000,0
+Safety Equipment,12,0,0.000000,0
+Social Security Law,12,0,0.000000,0
+Synagogues,12,0,0.000000,0
+Tubing,12,0,0.000000,0
+Water Stores,12,12,1.000000,0
+Ziplining,12,0,0.000000,0
+Car Auctions,11,0,0.000000,0
+Country Dance Halls,11,3,0.272727,0
+Diamond Buyers,11,0,0.000000,0
+Hockey Equipment,11,0,0.000000,0
+Home Developers,11,0,0.000000,0
+Military Surplus,11,0,0.000000,0
+Photography Classes,11,0,0.000000,0
+Prosthetics,11,0,0.000000,0
+Public Relations,11,0,0.000000,0
+Scandinavian,11,11,1.000000,1
+Tax Law,11,0,0.000000,0
+Traffic Ticketing Law,11,0,0.000000,0
+Trains,11,1,0.090909,0
+Art Restoration,10,0,0.000000,0
+Art Space Rentals,10,0,0.000000,0
+Ayurveda,10,0,0.000000,0
+Bail Bondsmen,10,0,0.000000,0
+Bartending Schools,10,0,0.000000,0
+Boat Parts & Supplies,10,0,0.000000,0
+Clowns,10,0,0.000000,0
+Drive-Thru Bars,10,5,0.500000,0
+Glass Blowing,10,0,0.000000,0
+Grill Services,10,2,0.200000,0
+Horse Racing,10,1,0.100000,0
+Hybrid Car Repair,10,0,0.000000,0
+Iberian,10,10,1.000000,1
+Junkyards,10,0,0.000000,0
+Language Schools,10,0,0.000000,0
+Machine Shops,10,0,0.000000,0
+Opera & Ballet,10,0,0.000000,0
+Pet Waste Removal,10,0,0.000000,0
+Rest Stops,10,2,0.200000,0
+Astrologers,9,0,0.000000,0
+Digitizing Services,9,0,0.000000,0
+EV Charging Stations,9,1,0.111111,0
+Fireworks,9,1,0.111111,0
+Hazardous Waste Disposal,9,0,0.000000,0
+Hydroponics,9,2,0.222222,0
+Mediators,9,0,0.000000,0
+Parasailing,9,0,0.000000,0
+Party Characters,9,3,0.333333,0
+Pet Insurance,9,0,0.000000,0
+Public Adjusters,9,0,0.000000,0
+Scavenger Hunts,9,0,0.000000,0
+Singaporean,9,9,1.000000,0
+Syrian,9,9,1.000000,0
+Teacher Supplies,9,0,0.000000,0
+Translation Services,9,0,0.000000,0
+Visitor Centers,9,2,0.222222,0
+Airsoft,8,0,0.000000,0
+Animal Physical Therapy,8,0,0.000000,0
+Bookbinding,8,0,0.000000,0
+Buddhist Temples,8,3,0.375000,0
+Cannabis Collective,8,0,0.000000,0
+Caricatures,8,0,0.000000,0
+Coffeeshops,8,8,1.000000,0
+Drive-In Theater,8,1,0.125000,0
+Flowers,8,0,0.000000,0
+Furniture Rental,8,0,0.000000,0
+Golf Cart Rentals,8,1,0.125000,0
+Horse Equipment Shops,8,0,0.000000,0
+Mobile Home Dealers,8,0,0.000000,0
+Petting Zoos,8,0,0.000000,0
+Retina Specialists,8,0,0.000000,0
+Scooter Tours,8,0,0.000000,0
+Surf Schools,8,0,0.000000,0
+Uzbek,8,8,1.000000,0
+Backflow Services,7,0,0.000000,0
+Behavior Analysts,7,0,0.000000,0
+Contract Law,7,1,0.142857,0
+Elder Care Planning,7,0,0.000000,0
+Free Diving,7,0,0.000000,0
+Golf Cart Dealers,7,0,0.000000,0
+International,7,7,1.000000,0
+LAN Centers,7,7,1.000000,0
+Mobile Home Repair,7,0,0.000000,0
+Observatories,7,0,0.000000,0
+Oxygen Bars,7,0,0.000000,0
+Planetarium,7,0,0.000000,0
+Process Servers,7,0,0.000000,0
+Ranches,7,0,0.000000,0
+Sandblasting,7,0,0.000000,0
+Taxidermy,7,1,0.142857,0
+Traditional Clothing,7,1,0.142857,0
+Tuscan,7,7,1.000000,0
+Whale Watching Tours,7,0,0.000000,0
+Bike Sharing,6,0,0.000000,0
+Bus Rental,6,0,0.000000,0
+Carpet Dyeing,6,0,0.000000,0
+Czech,6,6,1.000000,0
+Hong Kong Style Cafe,6,6,1.000000,0
+Hungarian,6,6,1.000000,0
+Indoor Landscaping,6,0,0.000000,0
+Nicaraguan,6,6,1.000000,0
+Placenta Encapsulations,6,0,0.000000,0
+Senegalese,6,6,1.000000,0
+Senior Centers,6,0,0.000000,0
+South African,6,6,1.000000,0
+Striptease Dancers,6,0,0.000000,0
+3D Printing,5,0,0.000000,0
+Austrian,5,5,1.000000,0
+Bicycles,5,0,0.000000,0
+Billing Services,5,1,0.200000,0
+Club Crawl,5,2,0.400000,0
+Coffee & Tea Supplies,5,5,1.000000,0
+Drones,5,0,0.000000,0
+Immunodermatologists,5,0,0.000000,0
+Land Surveying,5,0,0.000000,0
+Luggage Storage,5,0,0.000000,0
+Meaderies,5,5,1.000000,0
+Mortuary Services,5,0,0.000000,0
+Neurotologists,5,0,0.000000,0
+Private Jet Charter,5,0,0.000000,0
+Scottish,5,5,1.000000,0
+Spin Classes,5,0,0.000000,0
+Traffic Schools,5,0,0.000000,0
+Undersea/Hyperbaric Medicine,5,0,0.000000,0
+Adoption Services,4,0,0.000000,0
+Aircraft Repairs,4,0,0.000000,0
+Apartment Agents,4,0,0.000000,0
+Bingo Halls,4,0,0.000000,0
+Biohazard Cleanup,4,0,0.000000,0
+Bus Stations,4,0,0.000000,0
+Chinese Martial Arts,4,1,0.250000,0
+Currency Exchange,4,0,0.000000,0
+Disability Law,4,0,0.000000,0
+DIY Auto Shop,4,0,0.000000,0
+Drama Schools,4,0,0.000000,0
+Duplication Services,4,0,0.000000,0
+Ethical Grocery,4,4,1.000000,0
+Fur Clothing,4,0,0.000000,0
+Georgian,4,4,1.000000,0
+Gerontologists,4,0,0.000000,0
+Hang Gliding,4,0,0.000000,0
+Hindu Temples,4,1,0.250000,0
+Pedicabs,4,1,0.250000,0
+Phlebologists,4,0,0.000000,0
+Portable Toilet Services,4,0,0.000000,0
+Proctologists,4,0,0.000000,0
+Product Design,4,0,0.000000,0
+Racing Experience,4,0,0.000000,0
+Sardinian,4,4,1.000000,0
+Sex Therapists,4,0,0.000000,0
+Sports Betting,4,2,0.500000,0
+Tenant and Eviction Law,4,0,0.000000,0
+Trivia Hosts,4,1,0.250000,0
+Badminton,3,0,0.000000,0
+Bike Repair,3,0,0.000000,0
+Carousels,3,0,0.000000,0
+Childproofing,3,0,0.000000,0
+College Counseling,3,0,0.000000,0
+Community Gardens,3,1,0.333333,0
+Consumer Law,3,0,0.000000,0
+Crisis Pregnancy Centers,3,0,0.000000,0
+Elder Law,3,0,0.000000,0
+Electricity Suppliers,3,0,0.000000,0
+Elevator Services,3,0,0.000000,0
+Embassy,3,0,0.000000,0
+Ferries,3,0,0.000000,0
+Flyboarding,3,0,0.000000,0
+Game Truck Rental,3,0,0.000000,0
+Ice Delivery,3,2,0.666667,0
+IP & Internet Law,3,0,0.000000,0
+Jails & Prisons,3,1,0.333333,0
+Municipality,3,1,0.333333,0
+Neuropathologists,3,0,0.000000,0
+Nudist,3,0,0.000000,0
+Nursing Schools,3,0,0.000000,0
+Oriental,3,3,1.000000,0
+Playsets,3,0,0.000000,0
+Sheds & Outdoor Storage,3,0,0.000000,0
+Skiing,3,0,0.000000,0
+Squash,3,0,0.000000,0
+Sri Lankan,3,3,1.000000,0
+Supper Clubs,3,3,1.000000,0
+Unofficial Yelp Events,3,2,0.666667,0
+Art Consultants,2,0,0.000000,0
+Art Installation,2,0,0.000000,0
+Bicycle Paths,2,0,0.000000,0
+Bike Shop,2,0,0.000000,0
+Bocce Ball,2,2,1.000000,0
+Calligraphy,2,0,0.000000,0
+Cannabis Tours,2,1,0.500000,0
+Cheerleading,2,0,0.000000,0
+Cheese Tasting Classes,2,2,1.000000,0
+Concept Shops,2,0,0.000000,0
+Dumplings,2,2,1.000000,0
+Eastern European,2,2,1.000000,0
+Experiences,2,0,0.000000,0
+Fire Departments,2,1,0.500000,0
+General Festivals,2,0,0.000000,0
+Hakka,2,2,1.000000,0
+Homeless Shelters,2,0,0.000000,0
+Hotel bar,2,1,0.500000,0
+Infectious Disease Specialists,2,0,0.000000,0
+Israeli,2,2,1.000000,0
+Kitchen Incubators,2,2,1.000000,0
+Kiteboarding,2,0,0.000000,0
+Mosques,2,0,0.000000,0
+Nephrologists,2,0,0.000000,0
+Otologists,2,0,0.000000,0
+Outdoor Movies,2,0,0.000000,0
+Rodeo,2,0,0.000000,0
+Sauna Installation & Repair,2,0,0.000000,0
+Silent Disco,2,0,0.000000,0
+Ski Schools,2,0,0.000000,0
+Sledding,2,0,0.000000,0
+Somali,2,2,1.000000,0
+Sports Psychologists,2,0,0.000000,0
+Veterans Organizations,2,0,0.000000,0
+Vocal Coach,2,0,0.000000,0
+Waldorf Schools,2,0,0.000000,0
+Aircraft Dealers,1,0,0.000000,0
+Animal Assisted Therapy,1,0,0.000000,0
+Aviation Services,1,0,0.000000,0
+Beach Bars,1,1,1.000000,0
+Beer Hall,1,1,1.000000,0
+Bike Parking,1,0,0.000000,0
+Bubble Soccer,1,0,0.000000,0
+Calabrian,1,1,1.000000,0
+Ceremonial Clothing,1,0,0.000000,0
+Circus Schools,1,0,0.000000,0
+Conveyor Belt Sushi,1,1,1.000000,0
+Cucina campana,1,1,1.000000,0
+Dart Arenas,1,0,0.000000,0
+Dialysis Clinics,1,0,0.000000,0
+Donburi,1,1,1.000000,0
+DUI Schools,1,0,0.000000,0
+Faith-based Crisis Pregnancy Centers,1,0,0.000000,0
+Fencing Clubs,1,0,0.000000,0
+Foot Care,1,0,0.000000,0
+Fuel Docks,1,0,0.000000,0
+Fuzhou,1,1,1.000000,0
+Guamanian,1,1,1.000000,0
+Hainan,1,1,1.000000,0
+Halfway Houses,1,0,0.000000,0
+Hepatologists,1,0,0.000000,0
+Hospitalists,1,0,0.000000,0
+Housing Cooperatives,1,0,0.000000,0
+Interlock Systems,1,0,0.000000,0
+Karaoke Rental,1,0,0.000000,0
+Kiosk,1,1,1.000000,0
+Lahmacun,1,1,1.000000,0
+Makerspaces,1,0,0.000000,0
+Metal Detector Services,1,0,0.000000,0
+Mohels,1,0,0.000000,0
+Natural Gas Suppliers,1,0,0.000000,0
+Osteopaths,1,1,1.000000,0
+Paragliding,1,0,0.000000,0
+Parent Cafes,1,1,1.000000,0
+Parklets,1,0,0.000000,0
+Patent Law,1,0,0.000000,0
+Pathologists,1,0,0.000000,0
+Pickleball,1,0,0.000000,0
+Pita,1,1,1.000000,0
+Props,1,0,0.000000,0
+Roman,1,1,1.000000,0
+Serbo Croatian,1,1,1.000000,0
+Sperm Clinic,1,0,0.000000,0
+Sport Equipment Hire,1,0,0.000000,0
+Stonemasons,1,0,0.000000,0
+Storefront Clinics,1,0,0.000000,0
+Tonkatsu,1,1,1.000000,0
+Town Hall,1,0,0.000000,0
+Trade Fairs,1,0,0.000000,0
+Vermouth Bars,1,0,0.000000,0
+Water Suppliers,1,0,0.000000,0
+Wildlife Hunting Ranges,1,0,0.000000,0

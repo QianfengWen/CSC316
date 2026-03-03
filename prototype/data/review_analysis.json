@@ -1,0 +1,8087 @@
+{
+  "Afghan": {
+    "top_words": [
+      {
+        "word": "rice",
+        "count": 283
+      },
+      {
+        "word": "lamb",
+        "count": 246
+      },
+      {
+        "word": "afghan",
+        "count": 202
+      },
+      {
+        "word": "service",
+        "count": 199
+      },
+      {
+        "word": "chicken",
+        "count": 172
+      },
+      {
+        "word": "delicious",
+        "count": 165
+      },
+      {
+        "word": "ordered",
+        "count": 156
+      },
+      {
+        "word": "sauce",
+        "count": 123
+      },
+      {
+        "word": "dish",
+        "count": 119
+      },
+      {
+        "word": "kabob",
+        "count": 113
+      },
+      {
+        "word": "dishes",
+        "count": 101
+      },
+      {
+        "word": "meal",
+        "count": 101
+      },
+      {
+        "word": "salad",
+        "count": 97
+      },
+      {
+        "word": "nice",
+        "count": 96
+      },
+      {
+        "word": "definitely",
+        "count": 90
+      },
+      {
+        "word": "ive",
+        "count": 86
+      },
+      {
+        "word": "meat",
+        "count": 84
+      },
+      {
+        "word": "dont",
+        "count": 84
+      },
+      {
+        "word": "afghani",
+        "count": 84
+      },
+      {
+        "word": "can",
+        "count": 82
+      },
+      {
+        "word": "bread",
+        "count": 82
+      },
+      {
+        "word": "night",
+        "count": 81
+      },
+      {
+        "word": "little",
+        "count": 78
+      },
+      {
+        "word": "kabul",
+        "count": 75
+      },
+      {
+        "word": "experience",
+        "count": 73
+      },
+      {
+        "word": "served",
+        "count": 73
+      },
+      {
+        "word": "menu",
+        "count": 73
+      },
+      {
+        "word": "dinner",
+        "count": 73
+      },
+      {
+        "word": "first",
+        "count": 71
+      },
+      {
+        "word": "small",
+        "count": 70
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I came to Rittenhouse Sq recently. I happened to park across the street from here. \n\nOne of my favorite foods to eat is kebab. So this tempted me in a big way. I had to try it for lunch. \n\nOne...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I got the salmon kebabs and they are so good. I'm visiting from Cali and this was the best kebab place I've had in a while.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This is a great new addition to the neighborhood. Tonight was my second time trying this spot and it was just as delicious as the first. The yogurt dip is the best I have had in a very long time....",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Magical pickup wonders. Imagine being jasmine, on a Persian rug, flying through the currently soaking wet disgusting hair bashing low lying weather compartment, and picking up your meal in old...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "We just got delivery through GrubHub.  \n\nVery disappointed with the quality and value of food: \n* Salad was watery\n* Hummus was bitter and not creamy \n* Meatball entree was a joke with 3 meatballs...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "We stopped in to try some Afghan food on a whim. The restaurant drew us in due to the beautiful flower display outside and the promise of a new delight for our taste buds. Sweetheart ordered the...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.679,
+    "sentiment_distribution": {
+      "positive": 80.3,
+      "neutral": 11.5,
+      "negative": 8.2
+    },
+    "total_reviews_analyzed": 503
+  },
+  "Asian Fusion": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 14184
+      },
+      {
+        "word": "chicken",
+        "count": 13941
+      },
+      {
+        "word": "ordered",
+        "count": 11206
+      },
+      {
+        "word": "delicious",
+        "count": 10001
+      },
+      {
+        "word": "menu",
+        "count": 9964
+      },
+      {
+        "word": "rice",
+        "count": 9023
+      },
+      {
+        "word": "dumplings",
+        "count": 8741
+      },
+      {
+        "word": "soup",
+        "count": 8556
+      },
+      {
+        "word": "sushi",
+        "count": 8396
+      },
+      {
+        "word": "definitely",
+        "count": 8302
+      },
+      {
+        "word": "sauce",
+        "count": 8180
+      },
+      {
+        "word": "best",
+        "count": 8039
+      },
+      {
+        "word": "can",
+        "count": 7978
+      },
+      {
+        "word": "ive",
+        "count": 7853
+      },
+      {
+        "word": "fried",
+        "count": 7727
+      },
+      {
+        "word": "nice",
+        "count": 7554
+      },
+      {
+        "word": "spicy",
+        "count": 7380
+      },
+      {
+        "word": "dont",
+        "count": 7185
+      },
+      {
+        "word": "little",
+        "count": 6944
+      },
+      {
+        "word": "pork",
+        "count": 6892
+      },
+      {
+        "word": "pretty",
+        "count": 6726
+      },
+      {
+        "word": "dishes",
+        "count": 6311
+      },
+      {
+        "word": "didnt",
+        "count": 6306
+      },
+      {
+        "word": "love",
+        "count": 6297
+      },
+      {
+        "word": "amazing",
+        "count": 6198
+      },
+      {
+        "word": "dish",
+        "count": 6177
+      },
+      {
+        "word": "first",
+        "count": 6155
+      },
+      {
+        "word": "experience",
+        "count": 6071
+      },
+      {
+        "word": "thai",
+        "count": 5699
+      },
+      {
+        "word": "table",
+        "count": 5697
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "The $25 all you can eat is a great deal. Included is not just sushi but also appetizers (quality shrimp tempura). My only criticism is that the service wasn't that good, especially with so many...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Really the best ramen I've ever had. Definitely not traditional, but very delicious. The flavors were wonderfully put together even as strange as the combinations were at first glance. Matzoh...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Everything from the atmosphere and drinks to the food was phenomenal. We got the riot punch and the gin blossom which were great. The execution of the really unique grilled scallion rangoon filled...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Food is so-so for specializing in Malaysian cuisine.\n\nService can be rude at times... if you really want Malaysian food try Banana Leaf around the corner and save yourself the agony of tipping on...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went here this Friday and had Rendang. Okay food (worth the price). Horrible service. Servers took turn to rush us by constantly asking if we were finished while we clearly were not. When we were...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Overpriced and completely overwhelming.  Don't bother.",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.646,
+    "sentiment_distribution": {
+      "positive": 77.9,
+      "neutral": 13.9,
+      "negative": 8.2
+    },
+    "total_reviews_analyzed": 39592
+  },
+  "Brazilian": {
+    "top_words": [
+      {
+        "word": "meat",
+        "count": 3309
+      },
+      {
+        "word": "salad",
+        "count": 2299
+      },
+      {
+        "word": "bar",
+        "count": 2114
+      },
+      {
+        "word": "service",
+        "count": 1978
+      },
+      {
+        "word": "meats",
+        "count": 1267
+      },
+      {
+        "word": "fogo",
+        "count": 1196
+      },
+      {
+        "word": "experience",
+        "count": 1153
+      },
+      {
+        "word": "can",
+        "count": 1124
+      },
+      {
+        "word": "table",
+        "count": 1121
+      },
+      {
+        "word": "eat",
+        "count": 958
+      },
+      {
+        "word": "dont",
+        "count": 953
+      },
+      {
+        "word": "delicious",
+        "count": 938
+      },
+      {
+        "word": "brazilian",
+        "count": 835
+      },
+      {
+        "word": "amazing",
+        "count": 781
+      },
+      {
+        "word": "chicken",
+        "count": 775
+      },
+      {
+        "word": "dinner",
+        "count": 747
+      },
+      {
+        "word": "best",
+        "count": 736
+      },
+      {
+        "word": "steak",
+        "count": 731
+      },
+      {
+        "word": "first",
+        "count": 730
+      },
+      {
+        "word": "meal",
+        "count": 723
+      },
+      {
+        "word": "nice",
+        "count": 721
+      },
+      {
+        "word": "definitely",
+        "count": 697
+      },
+      {
+        "word": "chima",
+        "count": 666
+      },
+      {
+        "word": "little",
+        "count": 661
+      },
+      {
+        "word": "price",
+        "count": 661
+      },
+      {
+        "word": "didnt",
+        "count": 656
+      },
+      {
+        "word": "staff",
+        "count": 642
+      },
+      {
+        "word": "want",
+        "count": 607
+      },
+      {
+        "word": "around",
+        "count": 607
+      },
+      {
+        "word": "worth",
+        "count": 607
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "This was my first trip to a Brazilian steakhouse.  If I ever go back to one again I'm pretty sure it won't top this one.  My boyfriends boss took us out to dinner while we were at a convention in...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I came here for the first time with coworkers and friends for a group luncheon. I hear great reviews from friends that I have to try it for myself. \nI love food, especially steaks. There are so...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "The best service anywhere in Philly.  I went at lunch, and the wait staff were constantly buzzing about; filling water, coffee, taking plates.  Meat delivery was constant and they went out of...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Came out with my family on Easter Sunday. Had a very bad experience being that I go here all the time. The waitress we had was gossiping about other servers and not playing attention to the table....",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I really don't know how any body could actually give this place 5 stars!!!\nI must say that this place was beautiful. We went on a Monday night and the place was packed.  First we hit the salad bar...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "#FOGO NO GO\n\nI have never been so DISAPPOINTED  with the service that we received tonight 9/18/16.\nIt started with them only offering us ONLY chicken (came by 4x's) No Red meats came by for over...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.68,
+    "sentiment_distribution": {
+      "positive": 81.3,
+      "neutral": 11.4,
+      "negative": 7.3
+    },
+    "total_reviews_analyzed": 3454
+  },
+  "Burgers": {
+    "top_words": [
+      {
+        "word": "burger",
+        "count": 23092
+      },
+      {
+        "word": "fries",
+        "count": 16356
+      },
+      {
+        "word": "service",
+        "count": 12300
+      },
+      {
+        "word": "cheese",
+        "count": 12260
+      },
+      {
+        "word": "ordered",
+        "count": 9954
+      },
+      {
+        "word": "bar",
+        "count": 8357
+      },
+      {
+        "word": "dont",
+        "count": 8036
+      },
+      {
+        "word": "best",
+        "count": 8008
+      },
+      {
+        "word": "burgers",
+        "count": 7845
+      },
+      {
+        "word": "can",
+        "count": 7778
+      },
+      {
+        "word": "philly",
+        "count": 7553
+      },
+      {
+        "word": "ive",
+        "count": 7528
+      },
+      {
+        "word": "delicious",
+        "count": 7514
+      },
+      {
+        "word": "menu",
+        "count": 7384
+      },
+      {
+        "word": "chicken",
+        "count": 7205
+      },
+      {
+        "word": "nice",
+        "count": 7139
+      },
+      {
+        "word": "love",
+        "count": 6473
+      },
+      {
+        "word": "didnt",
+        "count": 6410
+      },
+      {
+        "word": "pretty",
+        "count": 6405
+      },
+      {
+        "word": "little",
+        "count": 6357
+      },
+      {
+        "word": "definitely",
+        "count": 6346
+      },
+      {
+        "word": "first",
+        "count": 6018
+      },
+      {
+        "word": "always",
+        "count": 5908
+      },
+      {
+        "word": "cheesesteak",
+        "count": 5628
+      },
+      {
+        "word": "people",
+        "count": 5530
+      },
+      {
+        "word": "sandwich",
+        "count": 5501
+      },
+      {
+        "word": "staff",
+        "count": 5434
+      },
+      {
+        "word": "beer",
+        "count": 5382
+      },
+      {
+        "word": "better",
+        "count": 5346
+      },
+      {
+        "word": "night",
+        "count": 5297
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "We happened upon this place late on a Friday night, we were hungry and tired of looking for a place to eat. This place was exactly what we needed. Not only could they make a perfect Black...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "If you are veggie, this is a Philly MUST! Had the cheesesteak and the Crispy HipCityRanch. The Ranch sandwich is a must. If you can only get one thing, get that. Very much like real chicken! Tons...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Really really great! I had a cheeseburger and my brother had the 500 burger both were spectacular.They are very filling despite looking smaller and the quality beats all other burger joints. It wa...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "It was first time visiting. and I didn't know what or how should I order my burger. but the cashier  didn't help me at all. She was so unkind and rude. I will never come back here again!!",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Terrible service, food came out cold even after waiting about 1 hour during lunch, way too pricey. Don't waste your time.",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I've been here a few times and always enjoy their diner-style hotdogs. The place is clean and has plenty of seating. I would certainly recommend giving Texas Wieners a try. \n\nMy one single issue:...",
+        "stars": 4,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.554,
+    "sentiment_distribution": {
+      "positive": 71.4,
+      "neutral": 16.5,
+      "negative": 12.1
+    },
+    "total_reviews_analyzed": 41865
+  },
+  "Cajun/Creole": {
+    "top_words": [
+      {
+        "word": "shrimp",
+        "count": 935
+      },
+      {
+        "word": "service",
+        "count": 832
+      },
+      {
+        "word": "ordered",
+        "count": 773
+      },
+      {
+        "word": "seafood",
+        "count": 735
+      },
+      {
+        "word": "cajun",
+        "count": 702
+      },
+      {
+        "word": "sauce",
+        "count": 664
+      },
+      {
+        "word": "fried",
+        "count": 620
+      },
+      {
+        "word": "chicken",
+        "count": 590
+      },
+      {
+        "word": "nice",
+        "count": 567
+      },
+      {
+        "word": "delicious",
+        "count": 562
+      },
+      {
+        "word": "crab",
+        "count": 555
+      },
+      {
+        "word": "gumbo",
+        "count": 527
+      },
+      {
+        "word": "definitely",
+        "count": 492
+      },
+      {
+        "word": "didnt",
+        "count": 490
+      },
+      {
+        "word": "crawfish",
+        "count": 488
+      },
+      {
+        "word": "dont",
+        "count": 478
+      },
+      {
+        "word": "can",
+        "count": 474
+      },
+      {
+        "word": "ive",
+        "count": 468
+      },
+      {
+        "word": "menu",
+        "count": 466
+      },
+      {
+        "word": "new",
+        "count": 454
+      },
+      {
+        "word": "best",
+        "count": 430
+      },
+      {
+        "word": "little",
+        "count": 419
+      },
+      {
+        "word": "bar",
+        "count": 404
+      },
+      {
+        "word": "cheese",
+        "count": 402
+      },
+      {
+        "word": "love",
+        "count": 389
+      },
+      {
+        "word": "first",
+        "count": 386
+      },
+      {
+        "word": "friendly",
+        "count": 376
+      },
+      {
+        "word": "pretty",
+        "count": 358
+      },
+      {
+        "word": "spicy",
+        "count": 356
+      },
+      {
+        "word": "fries",
+        "count": 352
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "The fried oyster po' boy and shrimp 'n crawfish etouffee brought me right back to New Orleans. This is the real deal cajun spot. Awesome y'all!",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Been hearing about this place for quite some time. A friend wanted the Three Devil's hot sauce they sell. Got the Gator Gumbo over the Jambalaya. It was bold and hearty. Definitely a good choice...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Got the shrimp platter with bread pudding for dessert. The dessert and the cornbread are the only reason this is getting stars. The shrimp her like rubber and the red beans and rice were way too...",
+        "stars": 2,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "We ordered the fried oyster and the catfish platter and sincerely speaking it was terrible. Incredibly greasy and please don't tell me it is because it is Cajun food. Moreover, the service is...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Cat fish poboy was full of fish and had ample filling-to-bread ratio. If only the fish was seasoned. At all. With anything. Bland and underwhelming :/",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "0 Star. Food poisoned. Friday 4/27 lunchtime. Ordered jambalaya topped with gumbo. It's easy to pinpoint what got me sick because it was the only thing I ate that day AND 5 hours later it all came...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.627,
+    "sentiment_distribution": {
+      "positive": 76.2,
+      "neutral": 14.5,
+      "negative": 9.2
+    },
+    "total_reviews_analyzed": 2564
+  },
+  "Cantonese": {
+    "top_words": [
+      {
+        "word": "duck",
+        "count": 2072
+      },
+      {
+        "word": "dim",
+        "count": 1790
+      },
+      {
+        "word": "sum",
+        "count": 1759
+      },
+      {
+        "word": "soup",
+        "count": 1675
+      },
+      {
+        "word": "dumplings",
+        "count": 1438
+      },
+      {
+        "word": "service",
+        "count": 1384
+      },
+      {
+        "word": "chinese",
+        "count": 1276
+      },
+      {
+        "word": "pork",
+        "count": 1211
+      },
+      {
+        "word": "shrimp",
+        "count": 1110
+      },
+      {
+        "word": "rice",
+        "count": 1089
+      },
+      {
+        "word": "ordered",
+        "count": 1076
+      },
+      {
+        "word": "dishes",
+        "count": 925
+      },
+      {
+        "word": "chicken",
+        "count": 923
+      },
+      {
+        "word": "fried",
+        "count": 891
+      },
+      {
+        "word": "sauce",
+        "count": 889
+      },
+      {
+        "word": "chinatown",
+        "count": 885
+      },
+      {
+        "word": "delicious",
+        "count": 819
+      },
+      {
+        "word": "ive",
+        "count": 777
+      },
+      {
+        "word": "best",
+        "count": 767
+      },
+      {
+        "word": "definitely",
+        "count": 765
+      },
+      {
+        "word": "menu",
+        "count": 751
+      },
+      {
+        "word": "noodles",
+        "count": 751
+      },
+      {
+        "word": "dish",
+        "count": 735
+      },
+      {
+        "word": "can",
+        "count": 729
+      },
+      {
+        "word": "dont",
+        "count": 682
+      },
+      {
+        "word": "peking",
+        "count": 660
+      },
+      {
+        "word": "nice",
+        "count": 640
+      },
+      {
+        "word": "pretty",
+        "count": 635
+      },
+      {
+        "word": "beef",
+        "count": 626
+      },
+      {
+        "word": "noodle",
+        "count": 603
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Dim sum and noodle is one of my favorite hidden gems in the neighborhood. Good service, reasonable prices, and excellent food.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Not impressed... They had such great review so tired... \nservice was great. They gave me warm wet towel as I walked in. \n\nI had their soup dumpling. Obviously they don't make it here and there...",
+        "stars": 2,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This place was really good! I had the steamed sui mai which I didn't love (just wasn't something I'm a big fan of, but other people liked them), but there were some other dumplings and dim sum...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "The food and service were sooo disappointing I felt compelled to join Yelp and write this review.  The food was exceedingly bland and flavorless.   I had the beef sate with chinese broccholi ...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The worst General Tso's chicken ever. It had a burnt taste and it was dry. They took about 2 hours to deliver that mess. The worst $16.00 ever spent.",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went to Kings Garden for my birthday dinner, let me say that I don't think I will ever go back there again.  When we first walked in I noticed only one family eating in the restaurant. Anyway we...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.611,
+    "sentiment_distribution": {
+      "positive": 75.2,
+      "neutral": 16.0,
+      "negative": 8.8
+    },
+    "total_reviews_analyzed": 3717
+  },
+  "Caribbean": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 2999
+      },
+      {
+        "word": "service",
+        "count": 2526
+      },
+      {
+        "word": "rice",
+        "count": 2112
+      },
+      {
+        "word": "delicious",
+        "count": 2057
+      },
+      {
+        "word": "ordered",
+        "count": 2031
+      },
+      {
+        "word": "jerk",
+        "count": 1741
+      },
+      {
+        "word": "definitely",
+        "count": 1439
+      },
+      {
+        "word": "ive",
+        "count": 1433
+      },
+      {
+        "word": "nice",
+        "count": 1400
+      },
+      {
+        "word": "drinks",
+        "count": 1388
+      },
+      {
+        "word": "menu",
+        "count": 1362
+      },
+      {
+        "word": "best",
+        "count": 1349
+      },
+      {
+        "word": "can",
+        "count": 1325
+      },
+      {
+        "word": "little",
+        "count": 1308
+      },
+      {
+        "word": "amazing",
+        "count": 1269
+      },
+      {
+        "word": "love",
+        "count": 1224
+      },
+      {
+        "word": "dont",
+        "count": 1189
+      },
+      {
+        "word": "dinner",
+        "count": 1144
+      },
+      {
+        "word": "didnt",
+        "count": 1114
+      },
+      {
+        "word": "first",
+        "count": 1086
+      },
+      {
+        "word": "meal",
+        "count": 1078
+      },
+      {
+        "word": "night",
+        "count": 1019
+      },
+      {
+        "word": "always",
+        "count": 997
+      },
+      {
+        "word": "jamaican",
+        "count": 995
+      },
+      {
+        "word": "cheese",
+        "count": 974
+      },
+      {
+        "word": "everything",
+        "count": 972
+      },
+      {
+        "word": "beans",
+        "count": 944
+      },
+      {
+        "word": "sauce",
+        "count": 929
+      },
+      {
+        "word": "pretty",
+        "count": 914
+      },
+      {
+        "word": "philly",
+        "count": 906
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I had not idea this little gem was in the neighborhood! It was like walking into a completely different world on the inside. I absolutely love the decor, it reminded me of a smaller Cuba Libre....",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Awesome.... we were a large group celebrating a birthday. The food was authentic. The service was prompt and friendly. Would definitely return.",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Great place for some real food - stopped in on our way to a show at Underground Arts- got the Pork ribs - the meat melted in my mouth- perfect! Great service - very polite and gracious hosts!...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I guess it would be necessary to state that I am of Jamaican descent, and as many of us know it is very hard to find food comparable to back home or equivalent to mom's cooking. Its been some time...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "RIPPED OFF!!!!\n\nTotal slime balls!!\n\nNote: there are no prices listed on the truck.  (At least not during the 2nd Street Festival in NoLibs.)\n\nMy friend went there and ordered the fried chicken...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I'm extremely disappointed. I went in here with my expired coupon and they wouldn't even let me use the value of the Groupon per the Groupon regulations. They said I had to bring a print out which...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.642,
+    "sentiment_distribution": {
+      "positive": 77.7,
+      "neutral": 13.4,
+      "negative": 8.8
+    },
+    "total_reviews_analyzed": 7287
+  },
+  "Cheesesteaks": {
+    "top_words": [
+      {
+        "word": "cheesesteak",
+        "count": 26675
+      },
+      {
+        "word": "cheese",
+        "count": 24108
+      },
+      {
+        "word": "philly",
+        "count": 20950
+      },
+      {
+        "word": "steak",
+        "count": 18238
+      },
+      {
+        "word": "sandwich",
+        "count": 14096
+      },
+      {
+        "word": "meat",
+        "count": 11464
+      },
+      {
+        "word": "best",
+        "count": 11140
+      },
+      {
+        "word": "pats",
+        "count": 10827
+      },
+      {
+        "word": "genos",
+        "count": 9448
+      },
+      {
+        "word": "fries",
+        "count": 9306
+      },
+      {
+        "word": "better",
+        "count": 8792
+      },
+      {
+        "word": "dont",
+        "count": 8377
+      },
+      {
+        "word": "cheesesteaks",
+        "count": 8318
+      },
+      {
+        "word": "onions",
+        "count": 7811
+      },
+      {
+        "word": "can",
+        "count": 7174
+      },
+      {
+        "word": "bread",
+        "count": 7110
+      },
+      {
+        "word": "line",
+        "count": 6994
+      },
+      {
+        "word": "ive",
+        "count": 6752
+      },
+      {
+        "word": "steaks",
+        "count": 6434
+      },
+      {
+        "word": "ordered",
+        "count": 6344
+      },
+      {
+        "word": "service",
+        "count": 6191
+      },
+      {
+        "word": "first",
+        "count": 5991
+      },
+      {
+        "word": "whiz",
+        "count": 5787
+      },
+      {
+        "word": "definitely",
+        "count": 5403
+      },
+      {
+        "word": "chicken",
+        "count": 5309
+      },
+      {
+        "word": "people",
+        "count": 5246
+      },
+      {
+        "word": "delicious",
+        "count": 5092
+      },
+      {
+        "word": "eat",
+        "count": 4817
+      },
+      {
+        "word": "little",
+        "count": 4811
+      },
+      {
+        "word": "didnt",
+        "count": 4676
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I just got back from lunch and I got a piece of Sicilian pizza and a salad for under 8 bucks.   I would have paid 20 for the pizza itself.  By far the best Sicilian pizza I have had in a long time.",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Quick service! Prepped and ready. Easy access through the window ordering. Never seen steak cooked to order and let me tell you, you can taste the difference! Had my cheese steak with American,...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "As tourist one of the things we knew was a must is a Philly cheese steak sandwich.  We ended up at George's and loved it!",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Worst roast pork sandwich I've ever had. The broccoli rabe was lifeless and freezing. It was so cold my cheese didn't melt. The bread was soggy and wet. Horrible. If I wasn't in an airport, I'd...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I ordered late at night a cheese steak w/ fried onions and it was really the blandest meat ive tasted in a while. seemed like frozen steak with absolutely no flavor and had a rubbery texture. The...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Bread tasted old and was dry. Beef had no flavor and there was hardly any provolone. This is a big disappointment and will definitely hurt the brand name over this airport excuse.",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.524,
+    "sentiment_distribution": {
+      "positive": 67.5,
+      "neutral": 20.3,
+      "negative": 12.2
+    },
+    "total_reviews_analyzed": 38161
+  },
+  "Chinese": {
+    "top_words": [
+      {
+        "word": "soup",
+        "count": 18019
+      },
+      {
+        "word": "service",
+        "count": 17520
+      },
+      {
+        "word": "chicken",
+        "count": 16481
+      },
+      {
+        "word": "chinese",
+        "count": 16212
+      },
+      {
+        "word": "dumplings",
+        "count": 14878
+      },
+      {
+        "word": "noodles",
+        "count": 14188
+      },
+      {
+        "word": "ordered",
+        "count": 13927
+      },
+      {
+        "word": "can",
+        "count": 13109
+      },
+      {
+        "word": "pork",
+        "count": 13005
+      },
+      {
+        "word": "rice",
+        "count": 11949
+      },
+      {
+        "word": "sauce",
+        "count": 11867
+      },
+      {
+        "word": "delicious",
+        "count": 11777
+      },
+      {
+        "word": "best",
+        "count": 11340
+      },
+      {
+        "word": "fried",
+        "count": 11069
+      },
+      {
+        "word": "dont",
+        "count": 10907
+      },
+      {
+        "word": "ive",
+        "count": 10537
+      },
+      {
+        "word": "menu",
+        "count": 10266
+      },
+      {
+        "word": "spicy",
+        "count": 10192
+      },
+      {
+        "word": "definitely",
+        "count": 10127
+      },
+      {
+        "word": "beef",
+        "count": 9996
+      },
+      {
+        "word": "dishes",
+        "count": 9793
+      },
+      {
+        "word": "hot",
+        "count": 9459
+      },
+      {
+        "word": "pretty",
+        "count": 9172
+      },
+      {
+        "word": "love",
+        "count": 9106
+      },
+      {
+        "word": "dish",
+        "count": 8658
+      },
+      {
+        "word": "eat",
+        "count": 8649
+      },
+      {
+        "word": "always",
+        "count": 8576
+      },
+      {
+        "word": "nice",
+        "count": 8386
+      },
+      {
+        "word": "little",
+        "count": 8344
+      },
+      {
+        "word": "shrimp",
+        "count": 8283
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "This place is deathly depressing. The whole -was going to be  a dance club- look and the upper level 'balcony' area that's never seen a customer because there haven't been more than half-a-dozen...",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I have been here a few times in the past and didn't care much for the food. The last month I have been here twice and couldn't resist getting the same thing because it is so good. Double fry...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Yummmy Shrimp Lo Mien Soup!!\nThe prices are great .\nThe service is a little dicey because this spot is crowded with customers . \nThey have a few large round tables to accommodate  small parties .",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Hated this place I went in to try an egg roll and get a sushi roll and both were bad the egg was horrible and the sushi was chewy so I wasnt surprised that I was the only one there",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The food is probably one of the more mediocre Chinese food I've had, but the main appeal of this place is renting a karaoke room for a large group of people and BYOing. The restaurant is...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Ok. I am not the type to complain, but I have been here twice and both times I have had terrible service at the bar. The first bartender served me but acted as if I was bothering him.  This second...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.6,
+    "sentiment_distribution": {
+      "positive": 74.1,
+      "neutral": 16.6,
+      "negative": 9.3
+    },
+    "total_reviews_analyzed": 56947
+  },
+  "Colombian": {
+    "top_words": [
+      {
+        "word": "colombian",
+        "count": 60
+      },
+      {
+        "word": "empanadas",
+        "count": 34
+      },
+      {
+        "word": "coffee",
+        "count": 33
+      },
+      {
+        "word": "ordered",
+        "count": 31
+      },
+      {
+        "word": "delicious",
+        "count": 27
+      },
+      {
+        "word": "fresh",
+        "count": 27
+      },
+      {
+        "word": "definitely",
+        "count": 26
+      },
+      {
+        "word": "service",
+        "count": 25
+      },
+      {
+        "word": "nice",
+        "count": 24
+      },
+      {
+        "word": "cheese",
+        "count": 24
+      },
+      {
+        "word": "chicken",
+        "count": 23
+      },
+      {
+        "word": "small",
+        "count": 23
+      },
+      {
+        "word": "amazing",
+        "count": 22
+      },
+      {
+        "word": "pan",
+        "count": 22
+      },
+      {
+        "word": "love",
+        "count": 21
+      },
+      {
+        "word": "friendly",
+        "count": 21
+      },
+      {
+        "word": "spanish",
+        "count": 21
+      },
+      {
+        "word": "staff",
+        "count": 21
+      },
+      {
+        "word": "can",
+        "count": 20
+      },
+      {
+        "word": "sweet",
+        "count": 20
+      },
+      {
+        "word": "breakfast",
+        "count": 20
+      },
+      {
+        "word": "wait",
+        "count": 19
+      },
+      {
+        "word": "rice",
+        "count": 18
+      },
+      {
+        "word": "bread",
+        "count": 18
+      },
+      {
+        "word": "super",
+        "count": 17
+      },
+      {
+        "word": "bono",
+        "count": 17
+      },
+      {
+        "word": "menu",
+        "count": 16
+      },
+      {
+        "word": "everything",
+        "count": 16
+      },
+      {
+        "word": "never",
+        "count": 16
+      },
+      {
+        "word": "first",
+        "count": 15
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "La Caleñita this morning made me beat anyone's 800# mark.  We picked up friends around 9:45 AM.  We all live in the Center City on this day a nice quite drive of about 15-20 minutes. It was a...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Delicious and authentic Colombian food, the service is great and the flavors are outstanding. The arepa de choclo with cheese and the beef empanadas are incredible. Definitely a go-to!",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Small shop offering authentic Columbian pastries. I go to them for my cravings and end up getting more than I planned because everything looks great in the case and no's prepared with skill. The...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Food was not worth the price at all. Flavor wasn't there at all, neither the presentation of the food. I ordered pechuga de pollo a la plancha for $18. Total came out to $22 on uberEats. Chicken...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "On Charcoal \n\nThis evening I decided to try this place, in search of a nice new restaurant in the Castor Gardens section. I ordered 2 quesadilla  and a Passionfruit smoothie. Well first my...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Waited 2 hours to get our average food while paying a high price. The service was terrible, as they took extended periods of time to bring out our food and take our plates, even though there was...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.641,
+    "sentiment_distribution": {
+      "positive": 77.8,
+      "neutral": 11.9,
+      "negative": 10.3
+    },
+    "total_reviews_analyzed": 126
+  },
+  "Cuban": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 2271
+      },
+      {
+        "word": "delicious",
+        "count": 1713
+      },
+      {
+        "word": "menu",
+        "count": 1637
+      },
+      {
+        "word": "drinks",
+        "count": 1593
+      },
+      {
+        "word": "ordered",
+        "count": 1465
+      },
+      {
+        "word": "dinner",
+        "count": 1307
+      },
+      {
+        "word": "meal",
+        "count": 1287
+      },
+      {
+        "word": "cuban",
+        "count": 1284
+      },
+      {
+        "word": "amazing",
+        "count": 1222
+      },
+      {
+        "word": "nice",
+        "count": 1203
+      },
+      {
+        "word": "night",
+        "count": 1202
+      },
+      {
+        "word": "best",
+        "count": 1154
+      },
+      {
+        "word": "definitely",
+        "count": 1112
+      },
+      {
+        "word": "dish",
+        "count": 1096
+      },
+      {
+        "word": "ive",
+        "count": 1089
+      },
+      {
+        "word": "cuba",
+        "count": 1075
+      },
+      {
+        "word": "little",
+        "count": 1069
+      },
+      {
+        "word": "can",
+        "count": 1039
+      },
+      {
+        "word": "experience",
+        "count": 1034
+      },
+      {
+        "word": "didnt",
+        "count": 961
+      },
+      {
+        "word": "table",
+        "count": 949
+      },
+      {
+        "word": "love",
+        "count": 942
+      },
+      {
+        "word": "first",
+        "count": 929
+      },
+      {
+        "word": "happy",
+        "count": 925
+      },
+      {
+        "word": "rice",
+        "count": 879
+      },
+      {
+        "word": "dont",
+        "count": 876
+      },
+      {
+        "word": "pretty",
+        "count": 845
+      },
+      {
+        "word": "mojitos",
+        "count": 829
+      },
+      {
+        "word": "atmosphere",
+        "count": 816
+      },
+      {
+        "word": "sweet",
+        "count": 815
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Probably the best wine pairing I've ever had! The staff was so knowledgeable and welcoming. The momster and I had the loveliest of times celebrating our birthdays here together!",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Arrived to philly and I had to show my friends what is Puertorican food about!!  Found this location inside a marked place, wonderful and full the menu has a lot to offer, we had a triplets, a...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "The food was good, the wait staff were fine, the restaurant  is pretty.  But frankly, I found it over-rated.  For its reputation, I was expecting to be overwhelmed by the taste of the food but I...",
+        "stars": 3,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Celebrate a special occasion here and you will not be disappointed with the experience.  The food is created with such skill and sophistication that it outshines any other restaurant in...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I wish i could give zero stars. Awful. This place is resting on its rep. They ran out of everything. It sucked and was way too expensive. Do not bother.\nWe were charged full price though they...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I was really excited for my dining experience at Vetri but left feeling unsatisfied.  The food did not blow me away though the service is definitely worth the visit.  I had the almond tortellini,...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.711,
+    "sentiment_distribution": {
+      "positive": 83.2,
+      "neutral": 10.5,
+      "negative": 6.3
+    },
+    "total_reviews_analyzed": 5363
+  },
+  "Dim Sum": {
+    "top_words": [
+      {
+        "word": "dumplings",
+        "count": 8983
+      },
+      {
+        "word": "soup",
+        "count": 7519
+      },
+      {
+        "word": "dim",
+        "count": 7158
+      },
+      {
+        "word": "sum",
+        "count": 7019
+      },
+      {
+        "word": "pork",
+        "count": 4857
+      },
+      {
+        "word": "service",
+        "count": 4642
+      },
+      {
+        "word": "chinese",
+        "count": 3183
+      },
+      {
+        "word": "ordered",
+        "count": 3031
+      },
+      {
+        "word": "fried",
+        "count": 2927
+      },
+      {
+        "word": "chicken",
+        "count": 2824
+      },
+      {
+        "word": "shrimp",
+        "count": 2689
+      },
+      {
+        "word": "delicious",
+        "count": 2651
+      },
+      {
+        "word": "best",
+        "count": 2637
+      },
+      {
+        "word": "dont",
+        "count": 2606
+      },
+      {
+        "word": "dishes",
+        "count": 2604
+      },
+      {
+        "word": "rice",
+        "count": 2572
+      },
+      {
+        "word": "duck",
+        "count": 2490
+      },
+      {
+        "word": "ive",
+        "count": 2477
+      },
+      {
+        "word": "can",
+        "count": 2454
+      },
+      {
+        "word": "sauce",
+        "count": 2382
+      },
+      {
+        "word": "pretty",
+        "count": 2308
+      },
+      {
+        "word": "definitely",
+        "count": 2240
+      },
+      {
+        "word": "menu",
+        "count": 2218
+      },
+      {
+        "word": "noodles",
+        "count": 2178
+      },
+      {
+        "word": "chinatown",
+        "count": 2163
+      },
+      {
+        "word": "table",
+        "count": 2022
+      },
+      {
+        "word": "little",
+        "count": 1970
+      },
+      {
+        "word": "didnt",
+        "count": 1923
+      },
+      {
+        "word": "meat",
+        "count": 1887
+      },
+      {
+        "word": "dish",
+        "count": 1875
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Good affordable eat in Chinatown. Food is delicious. Somewhat smaller portion compared to other restaurants but it's okay. Lots of good food to order. I recommend trying Fook's noodles to start....",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Bai Wei, previously Sakura popped up as one of the RESTAURANT WEEK options this winter. Bai Wei's restaurant week menu offered three courses plus dessert but we decided to order a la carte. The...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "It's hard to find a soup dumpling spot in the northeast, I randomly drove past this place at 12am and saw that it was still opened!! Ordered the soup dumplings, popcorn chicken and beef sandwich....",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "The food and service were sooo disappointing I felt compelled to join Yelp and write this review.  The food was exceedingly bland and flavorless.   I had the beef sate with chinese broccholi ...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went to try out the dim sum out after hearing about it from a friend of mine. I usually go to chinatown to eat there but would always get irritated about parking. First time here I must say its...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The most disgusting place ever!  The waitress was clipping her nails behind the wet bar during our whole entire meal and rubbing her nose.  The other one waitress was picking her ear. I understand...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.584,
+    "sentiment_distribution": {
+      "positive": 73.5,
+      "neutral": 16.4,
+      "negative": 10.1
+    },
+    "total_reviews_analyzed": 12016
+  },
+  "Ethiopian": {
+    "top_words": [
+      {
+        "word": "ethiopian",
+        "count": 1640
+      },
+      {
+        "word": "service",
+        "count": 621
+      },
+      {
+        "word": "injera",
+        "count": 565
+      },
+      {
+        "word": "bar",
+        "count": 509
+      },
+      {
+        "word": "delicious",
+        "count": 486
+      },
+      {
+        "word": "ive",
+        "count": 475
+      },
+      {
+        "word": "vegetarian",
+        "count": 409
+      },
+      {
+        "word": "can",
+        "count": 389
+      },
+      {
+        "word": "dont",
+        "count": 382
+      },
+      {
+        "word": "philly",
+        "count": 376
+      },
+      {
+        "word": "coffee",
+        "count": 369
+      },
+      {
+        "word": "ordered",
+        "count": 367
+      },
+      {
+        "word": "love",
+        "count": 352
+      },
+      {
+        "word": "nice",
+        "count": 351
+      },
+      {
+        "word": "little",
+        "count": 350
+      },
+      {
+        "word": "best",
+        "count": 349
+      },
+      {
+        "word": "people",
+        "count": 344
+      },
+      {
+        "word": "dishes",
+        "count": 341
+      },
+      {
+        "word": "first",
+        "count": 335
+      },
+      {
+        "word": "definitely",
+        "count": 332
+      },
+      {
+        "word": "combo",
+        "count": 328
+      },
+      {
+        "word": "platter",
+        "count": 323
+      },
+      {
+        "word": "friendly",
+        "count": 322
+      },
+      {
+        "word": "always",
+        "count": 316
+      },
+      {
+        "word": "meat",
+        "count": 298
+      },
+      {
+        "word": "eat",
+        "count": 294
+      },
+      {
+        "word": "pretty",
+        "count": 291
+      },
+      {
+        "word": "lamb",
+        "count": 275
+      },
+      {
+        "word": "meal",
+        "count": 270
+      },
+      {
+        "word": "never",
+        "count": 269
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Great dive bar and great food at an affordable price. Popular during quizzo but there is seating in the back (next to a a mural) and outside. \n\nFood can be a little inconsistent sometimes and...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I was here with a running/drinking club, on-on (bfm.phillyhash.com), and we had some beers, and some food which were all pretty good.  \n\nI had the ethipoian cheese steak, which was a spicer...",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Pretty good Ethiopian food option in North Philly on Poplar. Clearly the gentrifiers are taking over the bar area but the food is good and behind the bar area.",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I called up Queen of Sheba to place an order. \n\n\"Hello?\"\n\n\"Hi, is this Queen of Sheba?\"\n\n\"No.\"\n\nI apologized for calling the wrong number, checked a different source, then tried again....",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Awful...horrible..a bad idea!!!!\nhorrible food, me and my gf didnt even bother to eat even 25% of our entrees or to get the remaining 75% packed!\nService is horrible too!...nobody to check us in...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went in the late afternoon, about 4.30. The bartender was pleasant but said the chef wouldn't be in for a while so a meal was not to be had. Too bad.",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.652,
+    "sentiment_distribution": {
+      "positive": 78.3,
+      "neutral": 13.9,
+      "negative": 7.8
+    },
+    "total_reviews_analyzed": 1809
+  },
+  "Filipino": {
+    "top_words": [
+      {
+        "word": "filipino",
+        "count": 451
+      },
+      {
+        "word": "rice",
+        "count": 324
+      },
+      {
+        "word": "bar",
+        "count": 278
+      },
+      {
+        "word": "pork",
+        "count": 270
+      },
+      {
+        "word": "view",
+        "count": 238
+      },
+      {
+        "word": "menu",
+        "count": 236
+      },
+      {
+        "word": "delicious",
+        "count": 214
+      },
+      {
+        "word": "can",
+        "count": 214
+      },
+      {
+        "word": "chicken",
+        "count": 201
+      },
+      {
+        "word": "definitely",
+        "count": 197
+      },
+      {
+        "word": "dinner",
+        "count": 194
+      },
+      {
+        "word": "experience",
+        "count": 191
+      },
+      {
+        "word": "ordered",
+        "count": 189
+      },
+      {
+        "word": "bok",
+        "count": 183
+      },
+      {
+        "word": "fried",
+        "count": 181
+      },
+      {
+        "word": "meal",
+        "count": 181
+      },
+      {
+        "word": "service",
+        "count": 176
+      },
+      {
+        "word": "philly",
+        "count": 172
+      },
+      {
+        "word": "school",
+        "count": 169
+      },
+      {
+        "word": "nice",
+        "count": 167
+      },
+      {
+        "word": "amazing",
+        "count": 163
+      },
+      {
+        "word": "dish",
+        "count": 160
+      },
+      {
+        "word": "night",
+        "count": 158
+      },
+      {
+        "word": "city",
+        "count": 155
+      },
+      {
+        "word": "kamayan",
+        "count": 148
+      },
+      {
+        "word": "sauce",
+        "count": 142
+      },
+      {
+        "word": "best",
+        "count": 141
+      },
+      {
+        "word": "people",
+        "count": 136
+      },
+      {
+        "word": "small",
+        "count": 136
+      },
+      {
+        "word": "first",
+        "count": 136
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "My girlfriend and I came in on a whim. Meal started with salted butter and a Filipino dinner roll. Simple. But super good. \n\nWe shared the octopus starter which was solid but also fried. To be...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "AMAZING! This is a little gem. Hole in the wall - appropriate portion sizes and delicious food. The desserts are great! BYO u should go!",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Honestly amazing. Best restaurant I've ever dined at in Philly. I am not the type to leave reviews but the amazing customer service and absolutely delcious food that compelled me to review. Do...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Went for dinner, wanted to get a bite before catching the Peek-A-Boo revue at the Tin Angel -- not looking for a thrilling dining experience just something for our tummies.\n\nWe got a table quickly...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "This place was definitely overrated. I had high hopes for the concept but everything was way too pricey (we are in south philly - let's get real), and food was small portions and also overpriced...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Poor customer service - ended up talking to the manager after an incident with the customer service.  Multiple members of the the staff were rude and lied to my face.  Kind of poor experience...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.744,
+    "sentiment_distribution": {
+      "positive": 84.2,
+      "neutral": 11.7,
+      "negative": 4.0
+    },
+    "total_reviews_analyzed": 749
+  },
+  "French": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 8133
+      },
+      {
+        "word": "menu",
+        "count": 6290
+      },
+      {
+        "word": "delicious",
+        "count": 5948
+      },
+      {
+        "word": "nice",
+        "count": 4786
+      },
+      {
+        "word": "wine",
+        "count": 4649
+      },
+      {
+        "word": "french",
+        "count": 4619
+      },
+      {
+        "word": "ordered",
+        "count": 4536
+      },
+      {
+        "word": "dinner",
+        "count": 4335
+      },
+      {
+        "word": "meal",
+        "count": 4194
+      },
+      {
+        "word": "cheese",
+        "count": 3984
+      },
+      {
+        "word": "brunch",
+        "count": 3855
+      },
+      {
+        "word": "best",
+        "count": 3844
+      },
+      {
+        "word": "little",
+        "count": 3761
+      },
+      {
+        "word": "table",
+        "count": 3660
+      },
+      {
+        "word": "definitely",
+        "count": 3608
+      },
+      {
+        "word": "can",
+        "count": 3576
+      },
+      {
+        "word": "experience",
+        "count": 3530
+      },
+      {
+        "word": "ive",
+        "count": 3481
+      },
+      {
+        "word": "night",
+        "count": 3399
+      },
+      {
+        "word": "amazing",
+        "count": 3390
+      },
+      {
+        "word": "bread",
+        "count": 3373
+      },
+      {
+        "word": "love",
+        "count": 3240
+      },
+      {
+        "word": "dessert",
+        "count": 3130
+      },
+      {
+        "word": "first",
+        "count": 3048
+      },
+      {
+        "word": "salad",
+        "count": 3015
+      },
+      {
+        "word": "dish",
+        "count": 2998
+      },
+      {
+        "word": "didnt",
+        "count": 2981
+      },
+      {
+        "word": "dont",
+        "count": 2925
+      },
+      {
+        "word": "staff",
+        "count": 2762
+      },
+      {
+        "word": "small",
+        "count": 2720
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "We really enjoyed our experience at Townsend Restaurant. Love the French Cuisine on the menu, had a really romantic feel with great food and a good selection of wines on the menu and great cocktails.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "My fav restaurant in center city. I love their lunch menu and dinner menu. Lobster risotto is soooo good. The shrimp salad is also one of my fav, the shrimp is super fresh and of good quality. The...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Atmosphere is wonderful.  Food is average.  Bread is excellent.   If you are looking for a cafe in this neighborhood to have a nice long hang out lunch to catch up with friends, I would consider...",
+        "stars": 3,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "NEVER AGAIN. \n\nEW. \n\nThe food here was awful, the waiters acted like they had much better things to do and the clientele made me feel like I was eating in Penn's cafeteria. I didn't go to Penn for...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "We went there for July 4th dinner. The menu was fixed (and SERIOUSLY overpriced). We went there basically because we wanted a nice view of the fireworks. I might return when they are not on one of...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "It's just OK.  And I always forget it's there - but I have a friend who works in the design center - so we had soup 'n salad there for lunch.\n\nOh - and now they charge for bread.\n\nFood is OK,...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.72,
+    "sentiment_distribution": {
+      "positive": 83.6,
+      "neutral": 10.4,
+      "negative": 5.9
+    },
+    "total_reviews_analyzed": 18443
+  },
+  "German": {
+    "top_words": [
+      {
+        "word": "beer",
+        "count": 3433
+      },
+      {
+        "word": "german",
+        "count": 1813
+      },
+      {
+        "word": "beers",
+        "count": 1059
+      },
+      {
+        "word": "bar",
+        "count": 963
+      },
+      {
+        "word": "selection",
+        "count": 890
+      },
+      {
+        "word": "can",
+        "count": 774
+      },
+      {
+        "word": "nice",
+        "count": 712
+      },
+      {
+        "word": "service",
+        "count": 711
+      },
+      {
+        "word": "night",
+        "count": 654
+      },
+      {
+        "word": "menu",
+        "count": 604
+      },
+      {
+        "word": "pretty",
+        "count": 596
+      },
+      {
+        "word": "love",
+        "count": 583
+      },
+      {
+        "word": "friends",
+        "count": 565
+      },
+      {
+        "word": "dont",
+        "count": 563
+      },
+      {
+        "word": "hall",
+        "count": 559
+      },
+      {
+        "word": "table",
+        "count": 554
+      },
+      {
+        "word": "delicious",
+        "count": 528
+      },
+      {
+        "word": "people",
+        "count": 516
+      },
+      {
+        "word": "ive",
+        "count": 514
+      },
+      {
+        "word": "definitely",
+        "count": 508
+      },
+      {
+        "word": "pretzel",
+        "count": 507
+      },
+      {
+        "word": "tables",
+        "count": 505
+      },
+      {
+        "word": "didnt",
+        "count": 495
+      },
+      {
+        "word": "potato",
+        "count": 479
+      },
+      {
+        "word": "ordered",
+        "count": 473
+      },
+      {
+        "word": "atmosphere",
+        "count": 462
+      },
+      {
+        "word": "drink",
+        "count": 446
+      },
+      {
+        "word": "fun",
+        "count": 432
+      },
+      {
+        "word": "best",
+        "count": 428
+      },
+      {
+        "word": "frankford",
+        "count": 427
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Atmosphere: girls are in slutty/cute outfits. Place looks like an outdoor beer garden (tho it's inside). \n\nFood: (me) flatbread cheese pizza was simple with a lot of great garden fresh flavors....",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Full disclosure: I've never visited a beer hall in Germany. So, whether the Brauhaus accurately recreates the vibe, or Disneyfies it, I can't say. I will say the theme works; this is a fun place...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Most inventive and delicious German food in the city. The beer selection and knowledge of the bartenders is impressive. I just came back from Munich and the food here is just as good if not better...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Had a reservation tonight for a party of 18, however upon arrival we were told that our reservation was canceled due to a private party. We were never notified of the cancellation nor were we...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Beer garden with style. Not easy to find but you won't regret it when you do. You can pour your own beer with a 25 dollar beer key or get your bottles from the bar. The food selection is not bad...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went here on Friday at 1 pm. No seating was available except for the high tops, despite empty tables throughout the first floor. At prime lunch hour. Received cold coffee. My drink order included...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.657,
+    "sentiment_distribution": {
+      "positive": 78.1,
+      "neutral": 15.3,
+      "negative": 6.6
+    },
+    "total_reviews_analyzed": 2959
+  },
+  "Greek": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 4183
+      },
+      {
+        "word": "delicious",
+        "count": 3459
+      },
+      {
+        "word": "greek",
+        "count": 3350
+      },
+      {
+        "word": "ordered",
+        "count": 3029
+      },
+      {
+        "word": "menu",
+        "count": 2833
+      },
+      {
+        "word": "nice",
+        "count": 2607
+      },
+      {
+        "word": "salad",
+        "count": 2518
+      },
+      {
+        "word": "ive",
+        "count": 2402
+      },
+      {
+        "word": "chicken",
+        "count": 2365
+      },
+      {
+        "word": "love",
+        "count": 2255
+      },
+      {
+        "word": "can",
+        "count": 2253
+      },
+      {
+        "word": "best",
+        "count": 2201
+      },
+      {
+        "word": "night",
+        "count": 2201
+      },
+      {
+        "word": "definitely",
+        "count": 2179
+      },
+      {
+        "word": "little",
+        "count": 2173
+      },
+      {
+        "word": "dinner",
+        "count": 2109
+      },
+      {
+        "word": "cheese",
+        "count": 2099
+      },
+      {
+        "word": "dont",
+        "count": 2064
+      },
+      {
+        "word": "hummus",
+        "count": 2059
+      },
+      {
+        "word": "always",
+        "count": 2031
+      },
+      {
+        "word": "lamb",
+        "count": 2005
+      },
+      {
+        "word": "wine",
+        "count": 1983
+      },
+      {
+        "word": "table",
+        "count": 1899
+      },
+      {
+        "word": "pita",
+        "count": 1887
+      },
+      {
+        "word": "fresh",
+        "count": 1872
+      },
+      {
+        "word": "meal",
+        "count": 1846
+      },
+      {
+        "word": "amazing",
+        "count": 1842
+      },
+      {
+        "word": "pretty",
+        "count": 1789
+      },
+      {
+        "word": "small",
+        "count": 1759
+      },
+      {
+        "word": "didnt",
+        "count": 1729
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "On a train ride back home from a stressful weekend in NYC, I needed some comfort food - which for me means Middle Eastern cuisine. There are so many tasty places around Philly, but I hadn't tried...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Went here on a date Saturday night. Place was super busy, but the hostess squeezed us in after 30 or so minutes (several walk-ins after us were turned away.)\n\nI would recommend seating outside if...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Good food for an economically friendly meal in Rittenhouse, which is not the status quo in this area.\nPizza and deli style.  They also do steaks, pasta, salads, grill.. check out the website.\nGood...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I got the gyro \"platter\" for lunch, which was dry, uninspired, and nothing like a deconstructed gyro. Worst of all, it came with \"vegetables\" which looked more like poop. Tasted that way, too....",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Decent falafel wrap...but not exactly cheap. And the cave-like sitting area was cold and uninviting. There are better choices in Manayunk.",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Ordered a chicken gyro, a beef gyro, and grape leaves.\n\nIt took an hour and a half to arrive.  I live 0.9 miles away from Smiley's Cafe.  \n\nMy boyfriend was handed a sopping wet brown bag of what...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.665,
+    "sentiment_distribution": {
+      "positive": 79.8,
+      "neutral": 12.2,
+      "negative": 8.0
+    },
+    "total_reviews_analyzed": 11885
+  },
+  "Halal": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 4805
+      },
+      {
+        "word": "delicious",
+        "count": 2347
+      },
+      {
+        "word": "service",
+        "count": 2278
+      },
+      {
+        "word": "ordered",
+        "count": 2155
+      },
+      {
+        "word": "lamb",
+        "count": 2034
+      },
+      {
+        "word": "rice",
+        "count": 1851
+      },
+      {
+        "word": "indian",
+        "count": 1808
+      },
+      {
+        "word": "sauce",
+        "count": 1770
+      },
+      {
+        "word": "best",
+        "count": 1739
+      },
+      {
+        "word": "ive",
+        "count": 1688
+      },
+      {
+        "word": "definitely",
+        "count": 1629
+      },
+      {
+        "word": "can",
+        "count": 1588
+      },
+      {
+        "word": "nice",
+        "count": 1413
+      },
+      {
+        "word": "dont",
+        "count": 1405
+      },
+      {
+        "word": "amazing",
+        "count": 1329
+      },
+      {
+        "word": "love",
+        "count": 1311
+      },
+      {
+        "word": "fresh",
+        "count": 1297
+      },
+      {
+        "word": "friendly",
+        "count": 1275
+      },
+      {
+        "word": "philly",
+        "count": 1228
+      },
+      {
+        "word": "always",
+        "count": 1195
+      },
+      {
+        "word": "first",
+        "count": 1180
+      },
+      {
+        "word": "everything",
+        "count": 1062
+      },
+      {
+        "word": "little",
+        "count": 1061
+      },
+      {
+        "word": "spicy",
+        "count": 1059
+      },
+      {
+        "word": "meat",
+        "count": 1054
+      },
+      {
+        "word": "menu",
+        "count": 1036
+      },
+      {
+        "word": "meal",
+        "count": 1028
+      },
+      {
+        "word": "eat",
+        "count": 1017
+      },
+      {
+        "word": "never",
+        "count": 1005
+      },
+      {
+        "word": "recommend",
+        "count": 1005
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Best (but only) Indian food I've had in the Northeast! Like many reviews say, the interior isn't anything special or fancy. Basically tables in the middle of a little grocery shop. BUT the food is...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "The owner is so friendly, and giving he makes you feel welcomed. You can really taste the love in his cooking, highly recommend!",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This was my first time at Goree, and they definitely  did not disappoint. This was also my first encounter with traditional African cuisine, and I am now hooked! I had the Mafe which comes with...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Well, honestly if I could give zero star than I would; because it is extremely Americanized not close to being Indian. The items on the menu are a complete creation of the owner.  For example,...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Absolutely horrible. I ordered grubhub for lunch today. I ordered chicken tikka masala and garlic/cheese naan. My order arrived not even 15 minutes later, (I work about a 15 min walk away). This...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Deeply disappointed that this once vegetarian restaurant has started serving meat. At the same time, food quality in general seems to have taken a dip. I am grateful they still serve some vegan...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.657,
+    "sentiment_distribution": {
+      "positive": 78.3,
+      "neutral": 13.0,
+      "negative": 8.7
+    },
+    "total_reviews_analyzed": 8583
+  },
+  "Indian": {
+    "top_words": [
+      {
+        "word": "indian",
+        "count": 10221
+      },
+      {
+        "word": "chicken",
+        "count": 8775
+      },
+      {
+        "word": "service",
+        "count": 4473
+      },
+      {
+        "word": "ordered",
+        "count": 4083
+      },
+      {
+        "word": "delicious",
+        "count": 4027
+      },
+      {
+        "word": "naan",
+        "count": 3937
+      },
+      {
+        "word": "masala",
+        "count": 3292
+      },
+      {
+        "word": "ive",
+        "count": 3143
+      },
+      {
+        "word": "best",
+        "count": 3125
+      },
+      {
+        "word": "definitely",
+        "count": 2849
+      },
+      {
+        "word": "spicy",
+        "count": 2835
+      },
+      {
+        "word": "menu",
+        "count": 2779
+      },
+      {
+        "word": "can",
+        "count": 2740
+      },
+      {
+        "word": "rice",
+        "count": 2664
+      },
+      {
+        "word": "lamb",
+        "count": 2602
+      },
+      {
+        "word": "tikka",
+        "count": 2592
+      },
+      {
+        "word": "buffet",
+        "count": 2553
+      },
+      {
+        "word": "dont",
+        "count": 2517
+      },
+      {
+        "word": "nice",
+        "count": 2433
+      },
+      {
+        "word": "dishes",
+        "count": 2408
+      },
+      {
+        "word": "love",
+        "count": 2377
+      },
+      {
+        "word": "paneer",
+        "count": 2326
+      },
+      {
+        "word": "little",
+        "count": 2176
+      },
+      {
+        "word": "sauce",
+        "count": 2169
+      },
+      {
+        "word": "always",
+        "count": 2140
+      },
+      {
+        "word": "amazing",
+        "count": 2087
+      },
+      {
+        "word": "lunch",
+        "count": 2046
+      },
+      {
+        "word": "first",
+        "count": 2014
+      },
+      {
+        "word": "chaat",
+        "count": 2008
+      },
+      {
+        "word": "philly",
+        "count": 1996
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I've heard from people who know chaat that the \"chaat\" at Mood Cafe is not authentic at all.  The food is still good, though, so my advice for reducing cognitive dissonance in experienced...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Best dinner!! We didn't know what to expect but wanted to do a BYO and something other than pizza so this was great. Portions were huge and delicious.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "After a long day, I got back to my weekend rental in Washington Park, exhausted, hungry and no clue what I wanted. I searched right here on Yelp for options nearby and topping the list was Mumbai...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "One of the worst tika masalas I ever tasted and i've order it many times from numerous places in various cities. This place is americanized and unauthentic.",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Well, honestly if I could give zero star than I would; because it is extremely Americanized not close to being Indian. The items on the menu are a complete creation of the owner.  For example,...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "If this was more of a restaurant I would give it four stars but it's really more of a cafeteria.  You get food by the weight and they really only have a couple things to choose from.  Food wasn't...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.652,
+    "sentiment_distribution": {
+      "positive": 78.1,
+      "neutral": 13.1,
+      "negative": 8.8
+    },
+    "total_reviews_analyzed": 14704
+  },
+  "Indonesian": {
+    "top_words": [
+      {
+        "word": "indonesian",
+        "count": 860
+      },
+      {
+        "word": "rice",
+        "count": 563
+      },
+      {
+        "word": "chicken",
+        "count": 525
+      },
+      {
+        "word": "delicious",
+        "count": 498
+      },
+      {
+        "word": "fried",
+        "count": 484
+      },
+      {
+        "word": "beef",
+        "count": 456
+      },
+      {
+        "word": "sauce",
+        "count": 415
+      },
+      {
+        "word": "can",
+        "count": 370
+      },
+      {
+        "word": "dishes",
+        "count": 367
+      },
+      {
+        "word": "dish",
+        "count": 305
+      },
+      {
+        "word": "definitely",
+        "count": 301
+      },
+      {
+        "word": "ive",
+        "count": 289
+      },
+      {
+        "word": "spicy",
+        "count": 281
+      },
+      {
+        "word": "rendang",
+        "count": 281
+      },
+      {
+        "word": "ordered",
+        "count": 278
+      },
+      {
+        "word": "dont",
+        "count": 277
+      },
+      {
+        "word": "menu",
+        "count": 271
+      },
+      {
+        "word": "everything",
+        "count": 269
+      },
+      {
+        "word": "fish",
+        "count": 268
+      },
+      {
+        "word": "love",
+        "count": 267
+      },
+      {
+        "word": "curry",
+        "count": 267
+      },
+      {
+        "word": "service",
+        "count": 264
+      },
+      {
+        "word": "philly",
+        "count": 256
+      },
+      {
+        "word": "sweet",
+        "count": 255
+      },
+      {
+        "word": "little",
+        "count": 244
+      },
+      {
+        "word": "friendly",
+        "count": 242
+      },
+      {
+        "word": "soup",
+        "count": 233
+      },
+      {
+        "word": "best",
+        "count": 226
+      },
+      {
+        "word": "noodles",
+        "count": 225
+      },
+      {
+        "word": "cafe",
+        "count": 224
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Feels very authentic with old Indonesian guys hanging out front. Tons of selections, great for grabbing lunch on the way to work our a quick mask on the way home. Don't know if I'll ever have a...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "You can get almost anything indonesian disini, microwave ada, owner very friendly. But parking not easy.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This place brings a lot of memories for many Indonesians. They got a lot of ready-to-eat food, including some Indonesian snacks/chips.\n\nThe ready-to-eat food range includes many Indo street food...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "On oct 15 I ask my friends with her family to have dinner over there. She has a baby 20 months. First thing every thing is ok. Food ok. But we got bad attitude from server, when the baby start...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "At first, the neighborhood seemed a bit sketchy with young men hanging out at the corner. But, once inside, it was like I was in someone's home dining room, completely spotless, freshly painted...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "In October of 2015, we got some sad food news when Indonesian restaurant, Sky Cafe, shut down due to a fire at their location on Snyder Avenue. This year, many loyal fans like myself were happy to...",
+        "stars": 4,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.787,
+    "sentiment_distribution": {
+      "positive": 85.8,
+      "neutral": 11.2,
+      "negative": 3.1
+    },
+    "total_reviews_analyzed": 1343
+  },
+  "Irish": {
+    "top_words": [
+      {
+        "word": "bar",
+        "count": 3155
+      },
+      {
+        "word": "beer",
+        "count": 1958
+      },
+      {
+        "word": "service",
+        "count": 1745
+      },
+      {
+        "word": "wings",
+        "count": 1688
+      },
+      {
+        "word": "irish",
+        "count": 1661
+      },
+      {
+        "word": "night",
+        "count": 1569
+      },
+      {
+        "word": "pub",
+        "count": 1518
+      },
+      {
+        "word": "drinks",
+        "count": 1231
+      },
+      {
+        "word": "nice",
+        "count": 1176
+      },
+      {
+        "word": "pretty",
+        "count": 1159
+      },
+      {
+        "word": "can",
+        "count": 1088
+      },
+      {
+        "word": "people",
+        "count": 1036
+      },
+      {
+        "word": "fries",
+        "count": 989
+      },
+      {
+        "word": "drink",
+        "count": 979
+      },
+      {
+        "word": "always",
+        "count": 977
+      },
+      {
+        "word": "philly",
+        "count": 975
+      },
+      {
+        "word": "dont",
+        "count": 975
+      },
+      {
+        "word": "ive",
+        "count": 958
+      },
+      {
+        "word": "ordered",
+        "count": 927
+      },
+      {
+        "word": "friends",
+        "count": 923
+      },
+      {
+        "word": "friendly",
+        "count": 920
+      },
+      {
+        "word": "best",
+        "count": 901
+      },
+      {
+        "word": "chicken",
+        "count": 850
+      },
+      {
+        "word": "atmosphere",
+        "count": 836
+      },
+      {
+        "word": "menu",
+        "count": 832
+      },
+      {
+        "word": "definitely",
+        "count": 832
+      },
+      {
+        "word": "selection",
+        "count": 830
+      },
+      {
+        "word": "happy",
+        "count": 826
+      },
+      {
+        "word": "didnt",
+        "count": 790
+      },
+      {
+        "word": "beers",
+        "count": 789
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "My friend lived right around the corner from this place so we thought we should check it out. Being a bar, i didn't expect the food to be out of this world- but it was better than my expectations....",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This place has excellent burgers and fries but is noisy beyond belief. The servers are pretty efficient for a crowded place. If you go upstairs in the karaoke lounge, you will not have to compete...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "best. wings. ever!\n\ngood specials and friendly staff too! one of my favorite watering holes. ill see you there in a few hours.",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Went here before a show we were seeing in the University City area.  It is just across the street from 30th Street Station, and just down the street from Drexel University.  We we able to get...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I have wasted too many hours of my life in this \"Irish Pub\". It's basically a place where dumb business people, stranded travelers and suckers go to eat standard pub food that is overpriced and...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Food was okay for a bar. Medium size establishment. Doesn't seem to be a bad place for a quick drink after work.",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.581,
+    "sentiment_distribution": {
+      "positive": 72.0,
+      "neutral": 18.0,
+      "negative": 10.0
+    },
+    "total_reviews_analyzed": 5900
+  },
+  "Italian": {
+    "top_words": [
+      {
+        "word": "pizza",
+        "count": 44696
+      },
+      {
+        "word": "service",
+        "count": 28586
+      },
+      {
+        "word": "delicious",
+        "count": 21445
+      },
+      {
+        "word": "ordered",
+        "count": 20947
+      },
+      {
+        "word": "cheese",
+        "count": 20733
+      },
+      {
+        "word": "best",
+        "count": 18368
+      },
+      {
+        "word": "menu",
+        "count": 17414
+      },
+      {
+        "word": "sauce",
+        "count": 16460
+      },
+      {
+        "word": "nice",
+        "count": 16277
+      },
+      {
+        "word": "italian",
+        "count": 16163
+      },
+      {
+        "word": "philly",
+        "count": 15736
+      },
+      {
+        "word": "pasta",
+        "count": 15441
+      },
+      {
+        "word": "can",
+        "count": 15284
+      },
+      {
+        "word": "dont",
+        "count": 15024
+      },
+      {
+        "word": "ive",
+        "count": 15007
+      },
+      {
+        "word": "little",
+        "count": 14780
+      },
+      {
+        "word": "definitely",
+        "count": 14440
+      },
+      {
+        "word": "night",
+        "count": 14295
+      },
+      {
+        "word": "dinner",
+        "count": 13668
+      },
+      {
+        "word": "meal",
+        "count": 13395
+      },
+      {
+        "word": "amazing",
+        "count": 13070
+      },
+      {
+        "word": "table",
+        "count": 13050
+      },
+      {
+        "word": "bread",
+        "count": 12733
+      },
+      {
+        "word": "didnt",
+        "count": 12447
+      },
+      {
+        "word": "first",
+        "count": 12204
+      },
+      {
+        "word": "salad",
+        "count": 12184
+      },
+      {
+        "word": "love",
+        "count": 12112
+      },
+      {
+        "word": "wine",
+        "count": 11893
+      },
+      {
+        "word": "better",
+        "count": 11857
+      },
+      {
+        "word": "experience",
+        "count": 11848
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Great atmosphere and really well done brick over pizza. The dough was perfect and the toppings were delicious.  I also tried the beef tar tar. It was very tasty and high quality. I wish they had...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Excellent food and price ^_^ .... The place is all but coZy .... Waiter was nice ....I would definitely come back again",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Right down the street from our house, we didn't go here for months after moving in. Not sure why, but I just didn't think it would be good. \nLocation is strange, it's in our residential area of...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I had to write an order after coming here a couple of times because this place is just terrible. I tried their hoagies and they are so greasy i got nauseous after eating them... Then yesterday i...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Pros: \n- Convenient for when you're looking to feed an overworked sleep-deprived film crew at 6AM on a Sunday on a tight budget\n\nCons:\n- Food is so bad that even overworked sleep-deprived film...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Ok well I'd heard so much about this place i had to try it. Well NEVER AGAIN! Dirty Dirty Dirty! Rude service. Chicken parm outrageous over priced. N never in life had chicken parm covered in...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.633,
+    "sentiment_distribution": {
+      "positive": 77.0,
+      "neutral": 14.0,
+      "negative": 9.1
+    },
+    "total_reviews_analyzed": 82982
+  },
+  "Japanese": {
+    "top_words": [
+      {
+        "word": "sushi",
+        "count": 29797
+      },
+      {
+        "word": "ramen",
+        "count": 14593
+      },
+      {
+        "word": "service",
+        "count": 13150
+      },
+      {
+        "word": "roll",
+        "count": 12776
+      },
+      {
+        "word": "rolls",
+        "count": 10348
+      },
+      {
+        "word": "ordered",
+        "count": 9911
+      },
+      {
+        "word": "delicious",
+        "count": 8536
+      },
+      {
+        "word": "spicy",
+        "count": 8531
+      },
+      {
+        "word": "definitely",
+        "count": 8317
+      },
+      {
+        "word": "fresh",
+        "count": 7971
+      },
+      {
+        "word": "ive",
+        "count": 7896
+      },
+      {
+        "word": "can",
+        "count": 7743
+      },
+      {
+        "word": "menu",
+        "count": 7554
+      },
+      {
+        "word": "best",
+        "count": 7428
+      },
+      {
+        "word": "nice",
+        "count": 7354
+      },
+      {
+        "word": "chicken",
+        "count": 6587
+      },
+      {
+        "word": "dont",
+        "count": 6580
+      },
+      {
+        "word": "pretty",
+        "count": 6522
+      },
+      {
+        "word": "little",
+        "count": 6188
+      },
+      {
+        "word": "rice",
+        "count": 5997
+      },
+      {
+        "word": "love",
+        "count": 5984
+      },
+      {
+        "word": "tuna",
+        "count": 5970
+      },
+      {
+        "word": "first",
+        "count": 5825
+      },
+      {
+        "word": "fish",
+        "count": 5810
+      },
+      {
+        "word": "didnt",
+        "count": 5674
+      },
+      {
+        "word": "amazing",
+        "count": 5456
+      },
+      {
+        "word": "always",
+        "count": 5451
+      },
+      {
+        "word": "lunch",
+        "count": 5396
+      },
+      {
+        "word": "experience",
+        "count": 5395
+      },
+      {
+        "word": "soup",
+        "count": 5365
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Everything from the atmosphere and drinks to the food was phenomenal. We got the riot punch and the gin blossom which were great. The execution of the really unique grilled scallion rangoon filled...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Considering that it's located in a strip mall in NE Philly, To-Kai exceeded my expectations. \nSpecialty rolls are kind of expensive but for $15, you can get a sushi combo with 3 simple rolls, miso...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Plates: Beef and Rice Dumplings with Miso Ramen Bowl and Brisket Bowl.\n\nReally enjoyed the service we had here at CheU as it was our first time here. The food was very delicious and different...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I am sort of a sushi snob. \n\nI'm going to be honest. This was literally the worst sushi Ive ever had.  It was warm... WARM! (and NO! it wasn't tempura).\n\nI also paid $3 for a side salad which was...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Hated this place I went in to try an egg roll and get a sushi roll and both were bad the egg was horrible and the sushi was chewy so I wasnt surprised that I was the only one there",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I live in the neighborhood and used to order at least once a week and pick up.  The last last few times I have had to wait from 10 to 15 minutes as the team scrambles around trying to find change....",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.66,
+    "sentiment_distribution": {
+      "positive": 78.6,
+      "neutral": 13.6,
+      "negative": 7.7
+    },
+    "total_reviews_analyzed": 37398
+  },
+  "Korean": {
+    "top_words": [
+      {
+        "word": "korean",
+        "count": 7962
+      },
+      {
+        "word": "chicken",
+        "count": 7555
+      },
+      {
+        "word": "spicy",
+        "count": 4850
+      },
+      {
+        "word": "service",
+        "count": 4609
+      },
+      {
+        "word": "wings",
+        "count": 4087
+      },
+      {
+        "word": "can",
+        "count": 3519
+      },
+      {
+        "word": "fried",
+        "count": 3466
+      },
+      {
+        "word": "hot",
+        "count": 3451
+      },
+      {
+        "word": "rice",
+        "count": 3368
+      },
+      {
+        "word": "ordered",
+        "count": 3327
+      },
+      {
+        "word": "delicious",
+        "count": 3170
+      },
+      {
+        "word": "sauce",
+        "count": 3112
+      },
+      {
+        "word": "definitely",
+        "count": 2960
+      },
+      {
+        "word": "bbq",
+        "count": 2925
+      },
+      {
+        "word": "ive",
+        "count": 2776
+      },
+      {
+        "word": "dont",
+        "count": 2741
+      },
+      {
+        "word": "nice",
+        "count": 2717
+      },
+      {
+        "word": "best",
+        "count": 2639
+      },
+      {
+        "word": "pretty",
+        "count": 2581
+      },
+      {
+        "word": "little",
+        "count": 2510
+      },
+      {
+        "word": "love",
+        "count": 2425
+      },
+      {
+        "word": "menu",
+        "count": 2417
+      },
+      {
+        "word": "meat",
+        "count": 2263
+      },
+      {
+        "word": "didnt",
+        "count": 2234
+      },
+      {
+        "word": "eat",
+        "count": 2218
+      },
+      {
+        "word": "pork",
+        "count": 2148
+      },
+      {
+        "word": "first",
+        "count": 2070
+      },
+      {
+        "word": "dishes",
+        "count": 2060
+      },
+      {
+        "word": "better",
+        "count": 1936
+      },
+      {
+        "word": "always",
+        "count": 1929
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "A treasure in the wasteland of north Philly. An oasis of really good food.\nThe soft mushroom veg tofu was even better than the pork soft tofu. The ribs were good, but probably not worth $17. Stick...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Nice. For apps we had pork dumplings and Brussels sprouts and fish ribs-- all Awsome. Then curried noodles. The curry may have been created by the chef, certainly the dish was, with cilantro hot...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Wow!\nTo date, I would say this is the best tofu soup I have ever had--and I was born in korea!\n\nIt is hot and delicious, and the price is just so reasonable.  The steamy rice that comes in the hot...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "The buttermilk chicken and the donut they give you with it were both disgusting. Couldn't even finish it. Maybe I ordered the wrong thing. Idk.",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Not sure why it's so popular.. the happy hour is not bad but all the female servers there were just so unpleasant..... went in for ramen another time and there were barely broth in the bowl and...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Gross permutations of ramen. I would just go traditional with the ramen joint in China town. This is coming from someone who has been to ramen places in Tokyo and Fukuoka. I don't understand the...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.652,
+    "sentiment_distribution": {
+      "positive": 77.8,
+      "neutral": 14.6,
+      "negative": 7.6
+    },
+    "total_reviews_analyzed": 13989
+  },
+  "Latin American": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 4536
+      },
+      {
+        "word": "delicious",
+        "count": 4050
+      },
+      {
+        "word": "ordered",
+        "count": 3722
+      },
+      {
+        "word": "menu",
+        "count": 3602
+      },
+      {
+        "word": "drinks",
+        "count": 2832
+      },
+      {
+        "word": "nice",
+        "count": 2778
+      },
+      {
+        "word": "definitely",
+        "count": 2699
+      },
+      {
+        "word": "little",
+        "count": 2540
+      },
+      {
+        "word": "amazing",
+        "count": 2540
+      },
+      {
+        "word": "chicken",
+        "count": 2486
+      },
+      {
+        "word": "night",
+        "count": 2435
+      },
+      {
+        "word": "ive",
+        "count": 2372
+      },
+      {
+        "word": "dinner",
+        "count": 2326
+      },
+      {
+        "word": "best",
+        "count": 2280
+      },
+      {
+        "word": "can",
+        "count": 2253
+      },
+      {
+        "word": "tacos",
+        "count": 2241
+      },
+      {
+        "word": "didnt",
+        "count": 2235
+      },
+      {
+        "word": "love",
+        "count": 2229
+      },
+      {
+        "word": "meal",
+        "count": 2176
+      },
+      {
+        "word": "dont",
+        "count": 2172
+      },
+      {
+        "word": "bar",
+        "count": 2165
+      },
+      {
+        "word": "first",
+        "count": 2070
+      },
+      {
+        "word": "rice",
+        "count": 2003
+      },
+      {
+        "word": "table",
+        "count": 1960
+      },
+      {
+        "word": "happy",
+        "count": 1952
+      },
+      {
+        "word": "pretty",
+        "count": 1943
+      },
+      {
+        "word": "everything",
+        "count": 1937
+      },
+      {
+        "word": "dish",
+        "count": 1860
+      },
+      {
+        "word": "sauce",
+        "count": 1708
+      },
+      {
+        "word": "experience",
+        "count": 1690
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Enchiladas and empanadas to die for!\nGood chips/dip!\n'nuff said.\n\nThe sauces here are very strong so if you good at shoveling carbs and meat down your throat but wary of foreign flavors...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This is the type of place I love to see doing so well. The owner truly cares for the customers and his restaurant. The food was tasty. They have an extensive menu including breakfast! It's a BYOB...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Lonely hungry traveler looking for a decent meal. Turned out to be more than decent. Chips are not spectacular but the green salsa is yummy. 'pack and take home' good. Adobo sauce pork and tacos...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "This place is terrible. I ordered delivery through Grub Hub. The grilled fish tacos were cold and soggy. The enfrijolados were ok but cold! The salad was mediocre and wilted. I would not recommend...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "if i could give this place no stars i would.They over charged me and didn't give my money back!!  my burrito bowl was $15 dollars and only gave me 3 pieces of meat and it was disgusting tough. I...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went to this dive last week. Service was horrendous . Waited an hour before our food was served. Seemed like there was not enough waiting staff to handle our party. Beef tacos were subpar. And...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.695,
+    "sentiment_distribution": {
+      "positive": 82.1,
+      "neutral": 10.7,
+      "negative": 7.1
+    },
+    "total_reviews_analyzed": 12715
+  },
+  "Malaysian": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 1574
+      },
+      {
+        "word": "roti",
+        "count": 1219
+      },
+      {
+        "word": "rice",
+        "count": 1073
+      },
+      {
+        "word": "service",
+        "count": 986
+      },
+      {
+        "word": "dish",
+        "count": 906
+      },
+      {
+        "word": "sauce",
+        "count": 875
+      },
+      {
+        "word": "curry",
+        "count": 847
+      },
+      {
+        "word": "thai",
+        "count": 828
+      },
+      {
+        "word": "malaysian",
+        "count": 824
+      },
+      {
+        "word": "ordered",
+        "count": 814
+      },
+      {
+        "word": "dishes",
+        "count": 790
+      },
+      {
+        "word": "canai",
+        "count": 714
+      },
+      {
+        "word": "penang",
+        "count": 703
+      },
+      {
+        "word": "delicious",
+        "count": 691
+      },
+      {
+        "word": "menu",
+        "count": 678
+      },
+      {
+        "word": "fried",
+        "count": 600
+      },
+      {
+        "word": "noodles",
+        "count": 589
+      },
+      {
+        "word": "beef",
+        "count": 561
+      },
+      {
+        "word": "ive",
+        "count": 543
+      },
+      {
+        "word": "spicy",
+        "count": 501
+      },
+      {
+        "word": "can",
+        "count": 483
+      },
+      {
+        "word": "dont",
+        "count": 483
+      },
+      {
+        "word": "always",
+        "count": 475
+      },
+      {
+        "word": "pretty",
+        "count": 469
+      },
+      {
+        "word": "definitely",
+        "count": 448
+      },
+      {
+        "word": "love",
+        "count": 437
+      },
+      {
+        "word": "shrimp",
+        "count": 429
+      },
+      {
+        "word": "little",
+        "count": 421
+      },
+      {
+        "word": "banana",
+        "count": 415
+      },
+      {
+        "word": "nice",
+        "count": 408
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I've never been to Malaysia so I don't know if it's \"authentic\" but it's very tasty. The Indian bread dip (I forget the name) is out of this world. Awesome ambience, great food, and inexpensive...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Came here the first time for lunch to meet someone who is a regular. Friendly atmosphere, nice staff, and the inside decor feels like a modern, industrial museum or gallery. The vibe looks and...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I had absolutely no idea that Penang was a chain. This is one of my favorite restaurants in Phila. The food is very affordable and the menu is huge. The peanut sauce that comes with the Chicken...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Food is so-so for specializing in Malaysian cuisine.\n\nService can be rude at times... if you really want Malaysian food try Banana Leaf around the corner and save yourself the agony of tipping on...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Went here this Friday and had Rendang. Okay food (worth the price). Horrible service. Servers took turn to rush us by constantly asking if we were finished while we clearly were not. When we were...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Let me start by saying that the food was was a solid 4stars.  Portions as well.  I enjoyed my basil chicken while my date had peppered beef which was a tad bland for my liking. The only reason for...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.611,
+    "sentiment_distribution": {
+      "positive": 75.1,
+      "neutral": 15.7,
+      "negative": 9.3
+    },
+    "total_reviews_analyzed": 2506
+  },
+  "Mediterranean": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 9723
+      },
+      {
+        "word": "delicious",
+        "count": 9355
+      },
+      {
+        "word": "ordered",
+        "count": 7201
+      },
+      {
+        "word": "menu",
+        "count": 6858
+      },
+      {
+        "word": "chicken",
+        "count": 6262
+      },
+      {
+        "word": "nice",
+        "count": 6210
+      },
+      {
+        "word": "definitely",
+        "count": 6202
+      },
+      {
+        "word": "salad",
+        "count": 6088
+      },
+      {
+        "word": "best",
+        "count": 5873
+      },
+      {
+        "word": "amazing",
+        "count": 5802
+      },
+      {
+        "word": "ive",
+        "count": 5686
+      },
+      {
+        "word": "can",
+        "count": 5576
+      },
+      {
+        "word": "little",
+        "count": 5229
+      },
+      {
+        "word": "meal",
+        "count": 5190
+      },
+      {
+        "word": "dont",
+        "count": 5091
+      },
+      {
+        "word": "fresh",
+        "count": 5091
+      },
+      {
+        "word": "love",
+        "count": 4825
+      },
+      {
+        "word": "hummus",
+        "count": 4780
+      },
+      {
+        "word": "night",
+        "count": 4744
+      },
+      {
+        "word": "dinner",
+        "count": 4718
+      },
+      {
+        "word": "table",
+        "count": 4693
+      },
+      {
+        "word": "falafel",
+        "count": 4605
+      },
+      {
+        "word": "everything",
+        "count": 4605
+      },
+      {
+        "word": "first",
+        "count": 4363
+      },
+      {
+        "word": "didnt",
+        "count": 4315
+      },
+      {
+        "word": "sauce",
+        "count": 4309
+      },
+      {
+        "word": "small",
+        "count": 4262
+      },
+      {
+        "word": "experience",
+        "count": 4210
+      },
+      {
+        "word": "friendly",
+        "count": 4065
+      },
+      {
+        "word": "pizza",
+        "count": 4044
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Sometimes I don't feel Caucasian enough to visit places like this--I'm also not a big coffee person.  However, this is a block from my house.  They also sell Israeli Ice Cream.    I've been going...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Coming here for me has always been like visiting a sort of mafia den of good food.  You come to this random door on a side alley (they didn't used to have a sign... damn sign) and you knock on...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Smiley's Cafe will leave you with a smiley face. \n\n As I walked into Smiley's Cafe, I was greeted by a gentleman named Smiley. Smiley speaks in third person. He says things like \"Don't worry,...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I got the gyro \"platter\" for lunch, which was dry, uninspired, and nothing like a deconstructed gyro. Worst of all, it came with \"vegetables\" which looked more like poop. Tasted that way, too....",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Decent falafel wrap...but not exactly cheap. And the cave-like sitting area was cold and uninviting. There are better choices in Manayunk.",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Terrible selection, even worse quality. Big mistake. Skip this place. Not worth the price!",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.698,
+    "sentiment_distribution": {
+      "positive": 81.9,
+      "neutral": 11.1,
+      "negative": 7.0
+    },
+    "total_reviews_analyzed": 29504
+  },
+  "Mexican": {
+    "top_words": [
+      {
+        "word": "tacos",
+        "count": 23583
+      },
+      {
+        "word": "mexican",
+        "count": 14648
+      },
+      {
+        "word": "service",
+        "count": 12466
+      },
+      {
+        "word": "delicious",
+        "count": 10733
+      },
+      {
+        "word": "ordered",
+        "count": 10060
+      },
+      {
+        "word": "chicken",
+        "count": 9014
+      },
+      {
+        "word": "ive",
+        "count": 8731
+      },
+      {
+        "word": "chips",
+        "count": 8348
+      },
+      {
+        "word": "menu",
+        "count": 8333
+      },
+      {
+        "word": "can",
+        "count": 8307
+      },
+      {
+        "word": "best",
+        "count": 7961
+      },
+      {
+        "word": "burrito",
+        "count": 7933
+      },
+      {
+        "word": "definitely",
+        "count": 7892
+      },
+      {
+        "word": "taco",
+        "count": 7872
+      },
+      {
+        "word": "dont",
+        "count": 7724
+      },
+      {
+        "word": "nice",
+        "count": 7315
+      },
+      {
+        "word": "love",
+        "count": 7298
+      },
+      {
+        "word": "drinks",
+        "count": 7234
+      },
+      {
+        "word": "pretty",
+        "count": 7223
+      },
+      {
+        "word": "little",
+        "count": 7103
+      },
+      {
+        "word": "salsa",
+        "count": 7005
+      },
+      {
+        "word": "guacamole",
+        "count": 6678
+      },
+      {
+        "word": "margaritas",
+        "count": 6404
+      },
+      {
+        "word": "amazing",
+        "count": 6365
+      },
+      {
+        "word": "fresh",
+        "count": 6319
+      },
+      {
+        "word": "always",
+        "count": 6255
+      },
+      {
+        "word": "didnt",
+        "count": 6222
+      },
+      {
+        "word": "night",
+        "count": 5963
+      },
+      {
+        "word": "happy",
+        "count": 5693
+      },
+      {
+        "word": "bar",
+        "count": 5469
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Cactus has by far the best burritos in the city. Bartender Tony is the best.... Specials every day of the week...Oh yea don't forget about the tequila flights ....",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "great, clean place. I got the nachos and carnitas tacos, both phenomenal. the staff is friendly and helpful, accommodated my friends picky eating! Definitely a new go-to as a local",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I won't give five stars only because this was our first time but I could have gone there.  Except for the tortilla soup being a little shy on that authentic flavor (I've had better, but this was...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "My friend and I came here around 2pm on a Monday. It happened by default, as most of the restaurants on Main Street were closed. We sat ourselves down at the bar and got to drinking. After a few...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "At first I thought the prices here were pretty decent, but then I realized that they charge for every add on- chips/salsa, rice and beans, etc. I would be fine with this if the food was...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I got Cactus delivered. The salsa tastes like there's BBQ sauce in it, which to me is gross. The queso fundido was paste like and was hard to reheat. The chorizo reminded me of a regular pork...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.642,
+    "sentiment_distribution": {
+      "positive": 77.5,
+      "neutral": 13.7,
+      "negative": 8.8
+    },
+    "total_reviews_analyzed": 42210
+  },
+  "Middle Eastern": {
+    "top_words": [
+      {
+        "word": "hummus",
+        "count": 8298
+      },
+      {
+        "word": "service",
+        "count": 5786
+      },
+      {
+        "word": "delicious",
+        "count": 5718
+      },
+      {
+        "word": "falafel",
+        "count": 5650
+      },
+      {
+        "word": "chicken",
+        "count": 5496
+      },
+      {
+        "word": "best",
+        "count": 4804
+      },
+      {
+        "word": "menu",
+        "count": 4653
+      },
+      {
+        "word": "lamb",
+        "count": 4478
+      },
+      {
+        "word": "pita",
+        "count": 4249
+      },
+      {
+        "word": "ive",
+        "count": 4043
+      },
+      {
+        "word": "ordered",
+        "count": 4029
+      },
+      {
+        "word": "can",
+        "count": 3977
+      },
+      {
+        "word": "amazing",
+        "count": 3694
+      },
+      {
+        "word": "definitely",
+        "count": 3671
+      },
+      {
+        "word": "salad",
+        "count": 3530
+      },
+      {
+        "word": "meal",
+        "count": 3419
+      },
+      {
+        "word": "dont",
+        "count": 3374
+      },
+      {
+        "word": "fresh",
+        "count": 3246
+      },
+      {
+        "word": "nice",
+        "count": 3160
+      },
+      {
+        "word": "everything",
+        "count": 3088
+      },
+      {
+        "word": "love",
+        "count": 2981
+      },
+      {
+        "word": "sauce",
+        "count": 2973
+      },
+      {
+        "word": "little",
+        "count": 2884
+      },
+      {
+        "word": "experience",
+        "count": 2708
+      },
+      {
+        "word": "always",
+        "count": 2643
+      },
+      {
+        "word": "first",
+        "count": 2617
+      },
+      {
+        "word": "small",
+        "count": 2596
+      },
+      {
+        "word": "philly",
+        "count": 2561
+      },
+      {
+        "word": "rice",
+        "count": 2531
+      },
+      {
+        "word": "zahav",
+        "count": 2440
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I had an amazing experience at Suraya. This restaurant offers incredible brunch options. I ordered a mimosa and a chai latter. Both were exceptional. Highly recommend everyone to give it a try....",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "My friend and I had been wanting to try Suraya and were pleasantly surprised to score a reservation on a Saturday night. \n\nAfter checking in we did have to wait a few minutes for our table which...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Each wait will be at least 30 minutes. You'll realize the time spend is well worth it. There is absolutely nothing like this food\n\nYou stand in line, no need to order because he only make 1 item...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Terrible selection, even worse quality. Big mistake. Skip this place. Not worth the price!",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Pro: \n\n- decent food\n- busy, buzzy atmosphere\n\nCon:\n\n- on the loud side\n- service (10pm reservation on a Friday; still waited 30 min for table. No comp drink, no apology even)\n- cocktails were...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Just stopped in to give this place a try. GF got the veggie bowl with the falafel and I got the bowl with steak. I have to say this was more like a bowl of salt with sides of other things. The...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.711,
+    "sentiment_distribution": {
+      "positive": 82.3,
+      "neutral": 11.3,
+      "negative": 6.4
+    },
+    "total_reviews_analyzed": 18373
+  },
+  "Moroccan": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 730
+      },
+      {
+        "word": "course",
+        "count": 697
+      },
+      {
+        "word": "meal",
+        "count": 658
+      },
+      {
+        "word": "experience",
+        "count": 628
+      },
+      {
+        "word": "lamb",
+        "count": 565
+      },
+      {
+        "word": "delicious",
+        "count": 537
+      },
+      {
+        "word": "service",
+        "count": 531
+      },
+      {
+        "word": "moroccan",
+        "count": 506
+      },
+      {
+        "word": "first",
+        "count": 427
+      },
+      {
+        "word": "dont",
+        "count": 401
+      },
+      {
+        "word": "amazing",
+        "count": 397
+      },
+      {
+        "word": "eat",
+        "count": 392
+      },
+      {
+        "word": "dinner",
+        "count": 389
+      },
+      {
+        "word": "menu",
+        "count": 387
+      },
+      {
+        "word": "can",
+        "count": 383
+      },
+      {
+        "word": "people",
+        "count": 377
+      },
+      {
+        "word": "hands",
+        "count": 372
+      },
+      {
+        "word": "night",
+        "count": 363
+      },
+      {
+        "word": "little",
+        "count": 363
+      },
+      {
+        "word": "dish",
+        "count": 359
+      },
+      {
+        "word": "courses",
+        "count": 345
+      },
+      {
+        "word": "group",
+        "count": 338
+      },
+      {
+        "word": "marrakesh",
+        "count": 337
+      },
+      {
+        "word": "best",
+        "count": 334
+      },
+      {
+        "word": "definitely",
+        "count": 333
+      },
+      {
+        "word": "friends",
+        "count": 319
+      },
+      {
+        "word": "nice",
+        "count": 318
+      },
+      {
+        "word": "ive",
+        "count": 311
+      },
+      {
+        "word": "belly",
+        "count": 299
+      },
+      {
+        "word": "table",
+        "count": 298
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Very warm and friendly service. Delicious food in a comfortable atmosphere. Great for groups.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I went here for my birthday a year or so ago. Definitely an experience to remember although the waitstaff seemed to ignore us for another table of \"regulars.\" We did the 8 course prix fixe meal...",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This place is wonderful. The first time I came here years ago, I had a great time, and when I returned again recently, I was pleased to discover that it hadn't changed at all. It's a place that...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I went to Fez on a Thursday night.  The vibe and the environment was cozy.  The service was decent but the food was very mediocre, the portions were small and the price was expensive for the food...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "that the place was cold (no heat) and empty should have been a warning sign: don't eat here.\nvery expensive, almost no food served, very unsatisfying\nthe mint tea is watered down\nthe portions are...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Can't recommend this place.  Went with a group of 7. They were unorganized and really seemed to have a ton of trouble getting it together to even take our order. \n\nThe place is very dark and even...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.687,
+    "sentiment_distribution": {
+      "positive": 82.1,
+      "neutral": 10.8,
+      "negative": 7.1
+    },
+    "total_reviews_analyzed": 1543
+  },
+  "Peruvian": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 686
+      },
+      {
+        "word": "peruvian",
+        "count": 518
+      },
+      {
+        "word": "menu",
+        "count": 460
+      },
+      {
+        "word": "service",
+        "count": 451
+      },
+      {
+        "word": "ceviche",
+        "count": 432
+      },
+      {
+        "word": "chifa",
+        "count": 423
+      },
+      {
+        "word": "rice",
+        "count": 398
+      },
+      {
+        "word": "delicious",
+        "count": 387
+      },
+      {
+        "word": "sauce",
+        "count": 366
+      },
+      {
+        "word": "dishes",
+        "count": 339
+      },
+      {
+        "word": "pork",
+        "count": 337
+      },
+      {
+        "word": "dish",
+        "count": 335
+      },
+      {
+        "word": "ordered",
+        "count": 321
+      },
+      {
+        "word": "little",
+        "count": 265
+      },
+      {
+        "word": "first",
+        "count": 265
+      },
+      {
+        "word": "didnt",
+        "count": 261
+      },
+      {
+        "word": "fried",
+        "count": 258
+      },
+      {
+        "word": "amazing",
+        "count": 257
+      },
+      {
+        "word": "meal",
+        "count": 256
+      },
+      {
+        "word": "best",
+        "count": 256
+      },
+      {
+        "word": "definitely",
+        "count": 256
+      },
+      {
+        "word": "can",
+        "count": 251
+      },
+      {
+        "word": "nice",
+        "count": 237
+      },
+      {
+        "word": "buns",
+        "count": 233
+      },
+      {
+        "word": "dont",
+        "count": 226
+      },
+      {
+        "word": "everything",
+        "count": 226
+      },
+      {
+        "word": "ive",
+        "count": 222
+      },
+      {
+        "word": "small",
+        "count": 221
+      },
+      {
+        "word": "table",
+        "count": 218
+      },
+      {
+        "word": "experience",
+        "count": 210
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I haven't try all of their selections,but their food looks really yummy!!\nWhen ,I first went there I was confused,and overwhelm by the huge menu that they have. However, I try the grilled...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "great portion size and friendly service. i will definitely be back.",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "On a good day, the food is great.  That being said, the food quality and portions have varied from each visit.  Meats under or over cooked, skimpy portions vs full portions, etc.  More recently,...",
+        "stars": 3,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I am originally from Peru and was looking forward to this restaurant in spite of the mixed reviews I had received.  Yes, the dishes offered had similar names to some traditional Peruvian dishes...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I'm just gonna go ahead and say that, if you want haute cuisine in Philadelphia and it's more about the food than the experience (ahem, Mr. Starr), then go to a Garces restaurant. Final Word. \n\nI...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I'm gonna get blasted for this review, but I just don't care.  I like all of the other Jose Garces concepts.  Glad someone finally brought Tapas (complete with really well executed cuisine) to...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.662,
+    "sentiment_distribution": {
+      "positive": 81.0,
+      "neutral": 11.2,
+      "negative": 7.8
+    },
+    "total_reviews_analyzed": 1228
+  },
+  "Pizza": {
+    "top_words": [
+      {
+        "word": "pizza",
+        "count": 81384
+      },
+      {
+        "word": "cheese",
+        "count": 20277
+      },
+      {
+        "word": "ordered",
+        "count": 18744
+      },
+      {
+        "word": "service",
+        "count": 17875
+      },
+      {
+        "word": "best",
+        "count": 14485
+      },
+      {
+        "word": "delicious",
+        "count": 14261
+      },
+      {
+        "word": "ive",
+        "count": 13239
+      },
+      {
+        "word": "sauce",
+        "count": 12842
+      },
+      {
+        "word": "dont",
+        "count": 12689
+      },
+      {
+        "word": "can",
+        "count": 12146
+      },
+      {
+        "word": "philly",
+        "count": 11570
+      },
+      {
+        "word": "nice",
+        "count": 11407
+      },
+      {
+        "word": "chicken",
+        "count": 10924
+      },
+      {
+        "word": "definitely",
+        "count": 10416
+      },
+      {
+        "word": "little",
+        "count": 10082
+      },
+      {
+        "word": "menu",
+        "count": 10057
+      },
+      {
+        "word": "always",
+        "count": 10015
+      },
+      {
+        "word": "love",
+        "count": 9864
+      },
+      {
+        "word": "crust",
+        "count": 9805
+      },
+      {
+        "word": "never",
+        "count": 9499
+      },
+      {
+        "word": "didnt",
+        "count": 9278
+      },
+      {
+        "word": "pretty",
+        "count": 9258
+      },
+      {
+        "word": "night",
+        "count": 9219
+      },
+      {
+        "word": "delivery",
+        "count": 9031
+      },
+      {
+        "word": "first",
+        "count": 8938
+      },
+      {
+        "word": "salad",
+        "count": 8605
+      },
+      {
+        "word": "people",
+        "count": 8477
+      },
+      {
+        "word": "amazing",
+        "count": 8300
+      },
+      {
+        "word": "fresh",
+        "count": 8118
+      },
+      {
+        "word": "better",
+        "count": 8107
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Ok so I went to this place several months ago, maybe January? And can't believe I haven't left a review yet. To be honest I don't remember the exact name of my dish but it was some type of truffle...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Something I wish I had known prior to arriving here (which is super helpful to know) is that the non-pizza items here are somewhat tapas style. So that being said, this place ends up being...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Wow! A really nice pizza place just one block away from where I live..how did I not try it before?! Oh well better late than never. \n\nMy husband and I ordered a take out from here recently. We got...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I had to write an order after coming here a couple of times because this place is just terrible. I tried their hoagies and they are so greasy i got nauseous after eating them... Then yesterday i...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Pros: \n- Convenient for when you're looking to feed an overworked sleep-deprived film crew at 6AM on a Sunday on a tight budget\n\nCons:\n- Food is so bad that even overworked sleep-deprived film...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Definitely should have read the reviews first.   Ordered $100 worth of pizza for a 13 year Olds birthday.  Gave then 2 hours notice.  The pizza still showed up an hour late, cold and tasteless. ...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.575,
+    "sentiment_distribution": {
+      "positive": 72.6,
+      "neutral": 16.1,
+      "negative": 11.3
+    },
+    "total_reviews_analyzed": 68523
+  },
+  "Polish": {
+    "top_words": [
+      {
+        "word": "polish",
+        "count": 377
+      },
+      {
+        "word": "pierogies",
+        "count": 327
+      },
+      {
+        "word": "potato",
+        "count": 288
+      },
+      {
+        "word": "delicious",
+        "count": 220
+      },
+      {
+        "word": "pierogi",
+        "count": 207
+      },
+      {
+        "word": "cabbage",
+        "count": 179
+      },
+      {
+        "word": "stuffed",
+        "count": 160
+      },
+      {
+        "word": "cheese",
+        "count": 152
+      },
+      {
+        "word": "kielbasa",
+        "count": 149
+      },
+      {
+        "word": "best",
+        "count": 139
+      },
+      {
+        "word": "little",
+        "count": 136
+      },
+      {
+        "word": "can",
+        "count": 134
+      },
+      {
+        "word": "pierogis",
+        "count": 127
+      },
+      {
+        "word": "crepe",
+        "count": 122
+      },
+      {
+        "word": "pancakes",
+        "count": 122
+      },
+      {
+        "word": "love",
+        "count": 116
+      },
+      {
+        "word": "ordered",
+        "count": 114
+      },
+      {
+        "word": "home",
+        "count": 113
+      },
+      {
+        "word": "definitely",
+        "count": 108
+      },
+      {
+        "word": "dont",
+        "count": 105
+      },
+      {
+        "word": "everything",
+        "count": 101
+      },
+      {
+        "word": "service",
+        "count": 100
+      },
+      {
+        "word": "ive",
+        "count": 98
+      },
+      {
+        "word": "nice",
+        "count": 97
+      },
+      {
+        "word": "menu",
+        "count": 97
+      },
+      {
+        "word": "soup",
+        "count": 95
+      },
+      {
+        "word": "amazing",
+        "count": 93
+      },
+      {
+        "word": "lunch",
+        "count": 91
+      },
+      {
+        "word": "pierogie",
+        "count": 88
+      },
+      {
+        "word": "onions",
+        "count": 87
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Went here for lunch and it was really great. The staff is very kind and the place is very clean. The menu has a lot of variety and everything is delicious. We ordered the kielbasa combo platter,...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Such a intimate little dinning room that puts you right in eastern Europe. Incredibly friendly staff and really delicious food.  Loved it.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I have read a few negative reviews for this place, but my daughter visited & said she was satisfied so I tried it myself. I wasn't blown away, but I was pleasantly surprised. The pierogies were...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I would have given the purveyor of these little pockets of Polish potato paradise a higher rating, but consistency has become an issue. As a neighbor of the Kitchen you can imagine the number of...",
+        "stars": 4,
+        "sentiment": -1.0
+      },
+      {
+        "text": "There is a complete lack of any Polish or Slavic food in the city line area, and this place is a welcome treat.  I was just going to get a half dozen pierogies, but decided on the PK Stacker...and...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Made stop here on a day trip to Philadelphia. Looked at their web page and showed up at the store ready to order. Only 1 type of desert pierogi was available and out of the entire menu, less than...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.789,
+    "sentiment_distribution": {
+      "positive": 86.8,
+      "neutral": 10.1,
+      "negative": 3.1
+    },
+    "total_reviews_analyzed": 646
+  },
+  "Portuguese": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 251
+      },
+      {
+        "word": "portuguese",
+        "count": 242
+      },
+      {
+        "word": "delicious",
+        "count": 235
+      },
+      {
+        "word": "menu",
+        "count": 189
+      },
+      {
+        "word": "ordered",
+        "count": 183
+      },
+      {
+        "word": "chicken",
+        "count": 179
+      },
+      {
+        "word": "dish",
+        "count": 178
+      },
+      {
+        "word": "sauce",
+        "count": 172
+      },
+      {
+        "word": "definitely",
+        "count": 154
+      },
+      {
+        "word": "can",
+        "count": 151
+      },
+      {
+        "word": "rice",
+        "count": 150
+      },
+      {
+        "word": "shrimp",
+        "count": 145
+      },
+      {
+        "word": "steak",
+        "count": 144
+      },
+      {
+        "word": "amazing",
+        "count": 143
+      },
+      {
+        "word": "dont",
+        "count": 143
+      },
+      {
+        "word": "little",
+        "count": 139
+      },
+      {
+        "word": "brunch",
+        "count": 137
+      },
+      {
+        "word": "friendly",
+        "count": 136
+      },
+      {
+        "word": "meal",
+        "count": 134
+      },
+      {
+        "word": "nice",
+        "count": 131
+      },
+      {
+        "word": "fried",
+        "count": 131
+      },
+      {
+        "word": "hot",
+        "count": 131
+      },
+      {
+        "word": "dishes",
+        "count": 129
+      },
+      {
+        "word": "seafood",
+        "count": 126
+      },
+      {
+        "word": "porto",
+        "count": 123
+      },
+      {
+        "word": "love",
+        "count": 121
+      },
+      {
+        "word": "didnt",
+        "count": 121
+      },
+      {
+        "word": "best",
+        "count": 119
+      },
+      {
+        "word": "staff",
+        "count": 118
+      },
+      {
+        "word": "everything",
+        "count": 116
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Sorry to be writing this review post-closing, but I just made it in under the wire.  I had always heard great things about Koo Zee Doo from my friends, but didn't make it until I heard they were...",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "When 3 people bust out 3.5 bottles at the BYO, you know you're in for a great night.  And that's exactly what transpired.\n\nOwner Carla opened our wines and answered questions about the menu, while...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Great place. Lots of lovely combinations of small and large plates to share or eat by yourself. I had ridiculously awesome chicken gizzards and last night my roommate and I had a flawless lamb...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "This place truly has some amazingly authentic Portuguese food. It's such a cute spot for any kind of date, friend date, family date, an actual date. The service is a bit on the slow side, but it's...",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Sluttiest bartenders pricey andbi don't like being check when I walkt in waitress took forever half naked slutty looking bad service kerioky was funny but after half an hour of a screaming drunk...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The quirky atmosphere is fun but it is super tiny. The food was mediocre. I've had a lot better at other restaurants around the city",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.725,
+    "sentiment_distribution": {
+      "positive": 84.0,
+      "neutral": 10.2,
+      "negative": 5.8
+    },
+    "total_reviews_analyzed": 708
+  },
+  "Ramen": {
+    "top_words": [
+      {
+        "word": "ramen",
+        "count": 12922
+      },
+      {
+        "word": "pork",
+        "count": 3074
+      },
+      {
+        "word": "broth",
+        "count": 3033
+      },
+      {
+        "word": "noodles",
+        "count": 2539
+      },
+      {
+        "word": "service",
+        "count": 2502
+      },
+      {
+        "word": "sushi",
+        "count": 2128
+      },
+      {
+        "word": "spicy",
+        "count": 1959
+      },
+      {
+        "word": "delicious",
+        "count": 1869
+      },
+      {
+        "word": "ordered",
+        "count": 1821
+      },
+      {
+        "word": "definitely",
+        "count": 1757
+      },
+      {
+        "word": "ive",
+        "count": 1630
+      },
+      {
+        "word": "can",
+        "count": 1605
+      },
+      {
+        "word": "bowl",
+        "count": 1578
+      },
+      {
+        "word": "nice",
+        "count": 1449
+      },
+      {
+        "word": "best",
+        "count": 1439
+      },
+      {
+        "word": "chicken",
+        "count": 1429
+      },
+      {
+        "word": "wait",
+        "count": 1369
+      },
+      {
+        "word": "pretty",
+        "count": 1361
+      },
+      {
+        "word": "little",
+        "count": 1288
+      },
+      {
+        "word": "egg",
+        "count": 1271
+      },
+      {
+        "word": "miso",
+        "count": 1265
+      },
+      {
+        "word": "menu",
+        "count": 1253
+      },
+      {
+        "word": "dont",
+        "count": 1226
+      },
+      {
+        "word": "terakawa",
+        "count": 1168
+      },
+      {
+        "word": "philly",
+        "count": 1150
+      },
+      {
+        "word": "flavor",
+        "count": 1148
+      },
+      {
+        "word": "didnt",
+        "count": 1129
+      },
+      {
+        "word": "love",
+        "count": 1116
+      },
+      {
+        "word": "small",
+        "count": 1104
+      },
+      {
+        "word": "bar",
+        "count": 1100
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "My friend and i went to chinatown to look for the best ramen restaurant. of course i had to follow yelp and Naoki ramen was the best option at the time. there were many options for the ramen so we...",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Philly is doing it right with this place. Had recommended drinks that were delicious (bourbon with the daily made apple/ginger juice - awesome!) and we got the specials of the day as well. Glass...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Really excellent food. I had the chicken ramen and the noodles were outstanding, chicken was tender and broth was flavorful. Service was outstanding and prices so reasonable.",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Not sure why it's so popular.. the happy hour is not bad but all the female servers there were just so unpleasant..... went in for ramen another time and there were barely broth in the bowl and...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Gross permutations of ramen. I would just go traditional with the ramen joint in China town. This is coming from someone who has been to ramen places in Tokyo and Fukuoka. I don't understand the...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "If you can get an egg on it... get an egg on it.\nI've never had a bad thing here. When the Fishtown one opens I will be promptly gaining 100 lbs. \nThe Super Gogeta of noodles - power level...",
+        "stars": 5,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.658,
+    "sentiment_distribution": {
+      "positive": 78.4,
+      "neutral": 14.1,
+      "negative": 7.5
+    },
+    "total_reviews_analyzed": 7268
+  },
+  "Salvadoran": {
+    "top_words": [
+      {
+        "word": "pupusas",
+        "count": 131
+      },
+      {
+        "word": "delicious",
+        "count": 129
+      },
+      {
+        "word": "churros",
+        "count": 105
+      },
+      {
+        "word": "churro",
+        "count": 98
+      },
+      {
+        "word": "definitely",
+        "count": 85
+      },
+      {
+        "word": "service",
+        "count": 84
+      },
+      {
+        "word": "ordered",
+        "count": 79
+      },
+      {
+        "word": "menu",
+        "count": 77
+      },
+      {
+        "word": "amazing",
+        "count": 76
+      },
+      {
+        "word": "everything",
+        "count": 71
+      },
+      {
+        "word": "cheese",
+        "count": 70
+      },
+      {
+        "word": "friendly",
+        "count": 68
+      },
+      {
+        "word": "corn",
+        "count": 68
+      },
+      {
+        "word": "fresh",
+        "count": 66
+      },
+      {
+        "word": "chips",
+        "count": 62
+      },
+      {
+        "word": "chicken",
+        "count": 61
+      },
+      {
+        "word": "little",
+        "count": 61
+      },
+      {
+        "word": "nice",
+        "count": 60
+      },
+      {
+        "word": "merkury",
+        "count": 59
+      },
+      {
+        "word": "love",
+        "count": 58
+      },
+      {
+        "word": "pupusa",
+        "count": 58
+      },
+      {
+        "word": "pork",
+        "count": 56
+      },
+      {
+        "word": "can",
+        "count": 54
+      },
+      {
+        "word": "sweet",
+        "count": 53
+      },
+      {
+        "word": "philly",
+        "count": 53
+      },
+      {
+        "word": "meal",
+        "count": 53
+      },
+      {
+        "word": "recommend",
+        "count": 51
+      },
+      {
+        "word": "cream",
+        "count": 51
+      },
+      {
+        "word": "ive",
+        "count": 50
+      },
+      {
+        "word": "side",
+        "count": 50
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "This place is a freakin' gem. Enough said.\n\nVery unassuming little corner spot on East Passyunk with INSANE flavor through simple, hearty and HUGE portions. The food here is outstanding and...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Was told about this place by an acquaintance after I smelled their pupusa and had to ask where it was from. Got pupusa revueltas (bean cheese and pork) and sweet plantains for takeout and I'm not...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Found this place on a Yelp list, and I'm so glad I decided to stop by! After salivating over the menu, I walked down to Passyunk and found the little restaurant quite easily, nestled between 7th...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I've been working my way through the menu, and have yet to be disappointed. I usually just get a bunch of things from the appetizer menu to get some variety. The owners are really nice and...",
+        "stars": 4,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I've debated leaving a review, but maybe I just need to come back. My food was just okay, but I think it was the time I went. Friday at lunch time gets busy, the place isn't huge, and I don't...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Where do I even begin? I came here during lunch with my friend to pick up a \"quick treat.\" I ordered the 3 Leches gourmet churro and my friend ordered the Galletas Abue. \n\nWe waited a whole 30...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.839,
+    "sentiment_distribution": {
+      "positive": 90.5,
+      "neutral": 6.2,
+      "negative": 3.4
+    },
+    "total_reviews_analyzed": 325
+  },
+  "Seafood": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 19750
+      },
+      {
+        "word": "ordered",
+        "count": 13032
+      },
+      {
+        "word": "delicious",
+        "count": 11656
+      },
+      {
+        "word": "can",
+        "count": 11459
+      },
+      {
+        "word": "best",
+        "count": 10514
+      },
+      {
+        "word": "nice",
+        "count": 10498
+      },
+      {
+        "word": "menu",
+        "count": 10299
+      },
+      {
+        "word": "dont",
+        "count": 9663
+      },
+      {
+        "word": "bar",
+        "count": 9643
+      },
+      {
+        "word": "definitely",
+        "count": 9329
+      },
+      {
+        "word": "ive",
+        "count": 8794
+      },
+      {
+        "word": "little",
+        "count": 8652
+      },
+      {
+        "word": "didnt",
+        "count": 8534
+      },
+      {
+        "word": "fresh",
+        "count": 8524
+      },
+      {
+        "word": "crab",
+        "count": 8500
+      },
+      {
+        "word": "table",
+        "count": 8499
+      },
+      {
+        "word": "dinner",
+        "count": 8445
+      },
+      {
+        "word": "love",
+        "count": 8360
+      },
+      {
+        "word": "experience",
+        "count": 8335
+      },
+      {
+        "word": "seafood",
+        "count": 8319
+      },
+      {
+        "word": "lobster",
+        "count": 8315
+      },
+      {
+        "word": "philly",
+        "count": 8187
+      },
+      {
+        "word": "first",
+        "count": 8170
+      },
+      {
+        "word": "amazing",
+        "count": 8159
+      },
+      {
+        "word": "night",
+        "count": 8099
+      },
+      {
+        "word": "chicken",
+        "count": 8062
+      },
+      {
+        "word": "shrimp",
+        "count": 7771
+      },
+      {
+        "word": "meal",
+        "count": 7737
+      },
+      {
+        "word": "sauce",
+        "count": 7734
+      },
+      {
+        "word": "pretty",
+        "count": 7331
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Reopened under new owners, I liked my cheese steak and fries, the cheese sauce with old bay in it is really good",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Excellent steak perfectly cooked staff was extremely pleasant the side dishes can use some work but, over all I would go back to this place even though it's very over priced for what it is. Some...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Food was really good. Me and my boyfriend were both really happy with our steaks, and the side dishes were also very tasty (we ordered mashed potatoes, Mac and cheese, and Brussels sprouts). The...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "While I generally support independent restaurants over chain places,I still don't buy into the overpriced center city Phila hype. The place was actually roomier than the south Philly closets we...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "do not eat here. my husband, two friends and i went out for restaurant week to marmont steakhouse on saturday, january 26, 2013; our experience was horrific.  the four of us ordered the crab...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The food is probably one of the more mediocre Chinese food I've had, but the main appeal of this place is renting a karaoke room for a large group of people and BYOing. The restaurant is...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.619,
+    "sentiment_distribution": {
+      "positive": 75.9,
+      "neutral": 14.7,
+      "negative": 9.4
+    },
+    "total_reviews_analyzed": 53422
+  },
+  "Soul Food": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 6217
+      },
+      {
+        "word": "fried",
+        "count": 3212
+      },
+      {
+        "word": "donuts",
+        "count": 3114
+      },
+      {
+        "word": "cheese",
+        "count": 2740
+      },
+      {
+        "word": "mac",
+        "count": 2303
+      },
+      {
+        "word": "ordered",
+        "count": 2284
+      },
+      {
+        "word": "service",
+        "count": 2207
+      },
+      {
+        "word": "delicious",
+        "count": 1733
+      },
+      {
+        "word": "dont",
+        "count": 1641
+      },
+      {
+        "word": "best",
+        "count": 1617
+      },
+      {
+        "word": "ive",
+        "count": 1550
+      },
+      {
+        "word": "didnt",
+        "count": 1549
+      },
+      {
+        "word": "wings",
+        "count": 1545
+      },
+      {
+        "word": "wait",
+        "count": 1485
+      },
+      {
+        "word": "donut",
+        "count": 1484
+      },
+      {
+        "word": "can",
+        "count": 1474
+      },
+      {
+        "word": "hot",
+        "count": 1396
+      },
+      {
+        "word": "definitely",
+        "count": 1365
+      },
+      {
+        "word": "sweet",
+        "count": 1360
+      },
+      {
+        "word": "love",
+        "count": 1339
+      },
+      {
+        "word": "first",
+        "count": 1312
+      },
+      {
+        "word": "nice",
+        "count": 1238
+      },
+      {
+        "word": "little",
+        "count": 1198
+      },
+      {
+        "word": "fresh",
+        "count": 1185
+      },
+      {
+        "word": "amazing",
+        "count": 1152
+      },
+      {
+        "word": "greens",
+        "count": 1136
+      },
+      {
+        "word": "never",
+        "count": 1094
+      },
+      {
+        "word": "philly",
+        "count": 1085
+      },
+      {
+        "word": "taste",
+        "count": 1062
+      },
+      {
+        "word": "ramen",
+        "count": 1062
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I love the fish sandwich!!! I go often for it. I would recommend to anyone who loves fish and wants to try something different from maybe your standard Philly cheesesteak. It's very filling! Food...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I love dinning out in Roxborough because there are a lot of nice spots to eat without all the pretentious atmoshere found in other sectons of Philly.  I was excited when I saw a nice BYOB Soulfood...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Of course, it must be stated that the food is GREAT! However, this review is only three stars because there were so many issues inside that can easily be fixed so I hope they read the reviews....",
+        "stars": 3,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Some of the food was cold, they didn't have any of the sides I wanted, there were flies everywhere while eating. I wouldn't recommend dining maybe just take out , wouldn't dine here again....",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Visiting from out of town I was excited to visit Chef Milly's newly opened restaurant.  It was a sore DISAPPOINTMENT. Waited even w/a reservation and tried to be patient since they had just...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Issa NO for me! The dining room was cold. The food was meh. They pile it on here, but I'll take quality over quantity anyday. The ice tea and lemonade were not homemade. They tasted like the...",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.567,
+    "sentiment_distribution": {
+      "positive": 72.3,
+      "neutral": 16.2,
+      "negative": 11.4
+    },
+    "total_reviews_analyzed": 7905
+  },
+  "Southern": {
+    "top_words": [
+      {
+        "word": "chicken",
+        "count": 4135
+      },
+      {
+        "word": "service",
+        "count": 3410
+      },
+      {
+        "word": "cheese",
+        "count": 2694
+      },
+      {
+        "word": "ordered",
+        "count": 2661
+      },
+      {
+        "word": "menu",
+        "count": 2467
+      },
+      {
+        "word": "delicious",
+        "count": 2313
+      },
+      {
+        "word": "fried",
+        "count": 2132
+      },
+      {
+        "word": "nice",
+        "count": 1972
+      },
+      {
+        "word": "wait",
+        "count": 1869
+      },
+      {
+        "word": "ive",
+        "count": 1850
+      },
+      {
+        "word": "brunch",
+        "count": 1831
+      },
+      {
+        "word": "didnt",
+        "count": 1729
+      },
+      {
+        "word": "can",
+        "count": 1723
+      },
+      {
+        "word": "little",
+        "count": 1695
+      },
+      {
+        "word": "definitely",
+        "count": 1689
+      },
+      {
+        "word": "best",
+        "count": 1640
+      },
+      {
+        "word": "dont",
+        "count": 1618
+      },
+      {
+        "word": "love",
+        "count": 1587
+      },
+      {
+        "word": "amazing",
+        "count": 1556
+      },
+      {
+        "word": "bar",
+        "count": 1492
+      },
+      {
+        "word": "mac",
+        "count": 1487
+      },
+      {
+        "word": "first",
+        "count": 1445
+      },
+      {
+        "word": "dinner",
+        "count": 1438
+      },
+      {
+        "word": "table",
+        "count": 1437
+      },
+      {
+        "word": "meal",
+        "count": 1434
+      },
+      {
+        "word": "pretty",
+        "count": 1393
+      },
+      {
+        "word": "friendly",
+        "count": 1338
+      },
+      {
+        "word": "night",
+        "count": 1326
+      },
+      {
+        "word": "drinks",
+        "count": 1315
+      },
+      {
+        "word": "staff",
+        "count": 1300
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "This is my absolute favorite breakfast spot in all of Philadelphia!!! The food is DELICIOUS and fresh, the service is great, and the overall atmosphere of the place is warm and inviting. I wake up...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "My favorite breakfast joint in Philly - I usually ask my sis to go there whenever I visit.  The only detracting factor is the wait.  But I looooooove their food, so it's worth it to me.  We just...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "From away and randomly chose this restaurant without any prior knowledge.  This place was amazing.  Had the pulled pork sandwich and it was the best one of my life.  My dining companion had their...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Ordered lunch for delivery to Rittenhouse via Eat24. Took about an hour as estimated. Food needed more flavoring and seasoning, but not bad.",
+        "stars": 5,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Stopped in on a Saturday night that wasn't particularly crowded.  Service was definitely slow - 45+ minutes for entrees.  Our table was overflowing with empty glasses and plates - not bus service...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "They kept us waiting and waiting with our three kids without telling us anything. \nBeside that, the food wasn't bad but really nothing exceptional especially for the price!",
+        "stars": 2,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.633,
+    "sentiment_distribution": {
+      "positive": 77.7,
+      "neutral": 13.1,
+      "negative": 9.2
+    },
+    "total_reviews_analyzed": 9237
+  },
+  "Spanish": {
+    "top_words": [
+      {
+        "word": "tapas",
+        "count": 3049
+      },
+      {
+        "word": "service",
+        "count": 2924
+      },
+      {
+        "word": "menu",
+        "count": 2828
+      },
+      {
+        "word": "cheese",
+        "count": 2712
+      },
+      {
+        "word": "wine",
+        "count": 2580
+      },
+      {
+        "word": "delicious",
+        "count": 2571
+      },
+      {
+        "word": "ordered",
+        "count": 2178
+      },
+      {
+        "word": "nice",
+        "count": 1844
+      },
+      {
+        "word": "definitely",
+        "count": 1806
+      },
+      {
+        "word": "bar",
+        "count": 1780
+      },
+      {
+        "word": "dishes",
+        "count": 1753
+      },
+      {
+        "word": "amazing",
+        "count": 1745
+      },
+      {
+        "word": "little",
+        "count": 1722
+      },
+      {
+        "word": "night",
+        "count": 1717
+      },
+      {
+        "word": "dish",
+        "count": 1683
+      },
+      {
+        "word": "best",
+        "count": 1639
+      },
+      {
+        "word": "small",
+        "count": 1586
+      },
+      {
+        "word": "everything",
+        "count": 1555
+      },
+      {
+        "word": "love",
+        "count": 1535
+      },
+      {
+        "word": "can",
+        "count": 1533
+      },
+      {
+        "word": "meal",
+        "count": 1532
+      },
+      {
+        "word": "amada",
+        "count": 1522
+      },
+      {
+        "word": "first",
+        "count": 1465
+      },
+      {
+        "word": "ive",
+        "count": 1451
+      },
+      {
+        "word": "table",
+        "count": 1447
+      },
+      {
+        "word": "dinner",
+        "count": 1441
+      },
+      {
+        "word": "didnt",
+        "count": 1408
+      },
+      {
+        "word": "experience",
+        "count": 1379
+      },
+      {
+        "word": "dont",
+        "count": 1332
+      },
+      {
+        "word": "spanish",
+        "count": 1203
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "After seeing Jose Garces on Iron Chef America recently, I was psyched to visit Philly for a business trip this week.  Amada was not around when I lived in Philly, so it was new to me, and I was...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Went to Amada on a date with the wife.  The decor and atmosphere were great.  We had an early reservation 6 p.m. and was nice because we had pretty much the entire room to ourselves, and added to...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This is a lovely establishment. Hip part of town, hip decor and hip all around. Lots of staff keeping busy and tending to our needs. So funny, the place is currently packed, but we arrived before...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Terrible service!  We had a reservation at 8:45 and couldn't get seated until around 9:10.  Once there, we waited 45 minutes for chips and guacamole to come - it never did.  We ended just getting...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Horrible service. Called to make a reservation and was told they don't take reservations and that it was just walk ins. Arrived and was TURNED AWAY because we didn't have a reservation?? I have...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "This food is the worst I have ever had. Chipotle and 7/11 offer a better bang for your buck.",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.735,
+    "sentiment_distribution": {
+      "positive": 84.6,
+      "neutral": 10.2,
+      "negative": 5.2
+    },
+    "total_reviews_analyzed": 7914
+  },
+  "Sushi Bars": {
+    "top_words": [
+      {
+        "word": "sushi",
+        "count": 31535
+      },
+      {
+        "word": "roll",
+        "count": 13353
+      },
+      {
+        "word": "rolls",
+        "count": 11050
+      },
+      {
+        "word": "service",
+        "count": 10772
+      },
+      {
+        "word": "ordered",
+        "count": 8348
+      },
+      {
+        "word": "fresh",
+        "count": 7448
+      },
+      {
+        "word": "delicious",
+        "count": 6523
+      },
+      {
+        "word": "menu",
+        "count": 6369
+      },
+      {
+        "word": "ive",
+        "count": 6243
+      },
+      {
+        "word": "definitely",
+        "count": 6233
+      },
+      {
+        "word": "nice",
+        "count": 6200
+      },
+      {
+        "word": "tuna",
+        "count": 6006
+      },
+      {
+        "word": "fish",
+        "count": 5920
+      },
+      {
+        "word": "spicy",
+        "count": 5906
+      },
+      {
+        "word": "can",
+        "count": 5795
+      },
+      {
+        "word": "best",
+        "count": 5716
+      },
+      {
+        "word": "rice",
+        "count": 5175
+      },
+      {
+        "word": "pretty",
+        "count": 5174
+      },
+      {
+        "word": "dont",
+        "count": 5115
+      },
+      {
+        "word": "little",
+        "count": 4802
+      },
+      {
+        "word": "lunch",
+        "count": 4694
+      },
+      {
+        "word": "love",
+        "count": 4565
+      },
+      {
+        "word": "didnt",
+        "count": 4479
+      },
+      {
+        "word": "salmon",
+        "count": 4466
+      },
+      {
+        "word": "night",
+        "count": 4379
+      },
+      {
+        "word": "always",
+        "count": 4377
+      },
+      {
+        "word": "first",
+        "count": 4326
+      },
+      {
+        "word": "amazing",
+        "count": 4255
+      },
+      {
+        "word": "experience",
+        "count": 4235
+      },
+      {
+        "word": "special",
+        "count": 4182
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "First off, I gotta say how happy I am they moved to their new location. We used to go to their NE location when we could, but given the drive, it made it hard to enjoy their BYOB option. Now that...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Stopped here for lunch on the Friday of Pope weekend in Philly. I had a few sushi rolls which were all excellent. Wife had general tsaos chicken - said it was great but refused to share.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Amazing service.  Amazing food. Airport prices but it's sushi, so it actually makes sense.   Anytime I'm @ philly airport I hope to go here.",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "I am sort of a sushi snob. \n\nI'm going to be honest. This was literally the worst sushi Ive ever had.  It was warm... WARM! (and NO! it wasn't tempura).\n\nI also paid $3 for a side salad which was...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Cheap food and large selection. Unfortunately, they forgot our order, we waited 15 minutes and they were not even sorry about it. Bad customer service.",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I live in the neighborhood and used to order at least once a week and pick up.  The last last few times I have had to wait from 10 to 15 minutes as the team scrambles around trying to find change....",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.66,
+    "sentiment_distribution": {
+      "positive": 78.7,
+      "neutral": 13.4,
+      "negative": 7.9
+    },
+    "total_reviews_analyzed": 29555
+  },
+  "Szechuan": {
+    "top_words": [
+      {
+        "word": "dan",
+        "count": 5540
+      },
+      {
+        "word": "spicy",
+        "count": 4535
+      },
+      {
+        "word": "noodles",
+        "count": 3789
+      },
+      {
+        "word": "chicken",
+        "count": 3152
+      },
+      {
+        "word": "service",
+        "count": 3099
+      },
+      {
+        "word": "ordered",
+        "count": 2571
+      },
+      {
+        "word": "chinese",
+        "count": 2549
+      },
+      {
+        "word": "dishes",
+        "count": 2518
+      },
+      {
+        "word": "dish",
+        "count": 2447
+      },
+      {
+        "word": "sauce",
+        "count": 2217
+      },
+      {
+        "word": "menu",
+        "count": 2033
+      },
+      {
+        "word": "delicious",
+        "count": 1980
+      },
+      {
+        "word": "han",
+        "count": 1962
+      },
+      {
+        "word": "hot",
+        "count": 1860
+      },
+      {
+        "word": "pork",
+        "count": 1859
+      },
+      {
+        "word": "can",
+        "count": 1772
+      },
+      {
+        "word": "definitely",
+        "count": 1707
+      },
+      {
+        "word": "soup",
+        "count": 1673
+      },
+      {
+        "word": "dumplings",
+        "count": 1657
+      },
+      {
+        "word": "spice",
+        "count": 1600
+      },
+      {
+        "word": "ive",
+        "count": 1589
+      },
+      {
+        "word": "rice",
+        "count": 1551
+      },
+      {
+        "word": "best",
+        "count": 1549
+      },
+      {
+        "word": "dont",
+        "count": 1540
+      },
+      {
+        "word": "chili",
+        "count": 1516
+      },
+      {
+        "word": "nice",
+        "count": 1492
+      },
+      {
+        "word": "oil",
+        "count": 1488
+      },
+      {
+        "word": "dry",
+        "count": 1472
+      },
+      {
+        "word": "dynasty",
+        "count": 1456
+      },
+      {
+        "word": "beef",
+        "count": 1428
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Good food and good service but the portions are on the smaller side. I like the quality over the quantity. The prices are decent for craft draft beers and food.",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This is definitely one of my favorite spots to eat at in University City. It is pretty close by to the campus area, which I love. Prices are affordable and portion sizes are decent as well.\n\nI...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I don't think this location is as good as the Olde City location, but it's still pretty good.\nI came here once when I had gone out to dinner with someone to Zavino and they were unsatisfied with...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Ok. I am not the type to complain, but I have been here twice and both times I have had terrible service at the bar. The first bartender served me but acted as if I was bothering him.  This second...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I was here before once. Didn't have much of an impression. I went back again this week with my friends. We were very disappointed. We ordered this grilled whole fish. It came out in a big pot with...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I've been a few times, usually with colleagues from the Science Center in the same building. I know this place has fans, but I just don't get it. It just seems like fairly average, overpriced...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.575,
+    "sentiment_distribution": {
+      "positive": 75.0,
+      "neutral": 16.1,
+      "negative": 8.9
+    },
+    "total_reviews_analyzed": 8013
+  },
+  "Taiwanese": {
+    "top_words": [
+      {
+        "word": "tea",
+        "count": 2081
+      },
+      {
+        "word": "dan",
+        "count": 1776
+      },
+      {
+        "word": "chicken",
+        "count": 1389
+      },
+      {
+        "word": "ordered",
+        "count": 1061
+      },
+      {
+        "word": "noodles",
+        "count": 1038
+      },
+      {
+        "word": "service",
+        "count": 992
+      },
+      {
+        "word": "definitely",
+        "count": 862
+      },
+      {
+        "word": "pork",
+        "count": 841
+      },
+      {
+        "word": "spicy",
+        "count": 819
+      },
+      {
+        "word": "soup",
+        "count": 807
+      },
+      {
+        "word": "delicious",
+        "count": 773
+      },
+      {
+        "word": "taiwanese",
+        "count": 761
+      },
+      {
+        "word": "rice",
+        "count": 722
+      },
+      {
+        "word": "fried",
+        "count": 703
+      },
+      {
+        "word": "bubble",
+        "count": 687
+      },
+      {
+        "word": "menu",
+        "count": 683
+      },
+      {
+        "word": "pretty",
+        "count": 678
+      },
+      {
+        "word": "sauce",
+        "count": 677
+      },
+      {
+        "word": "can",
+        "count": 660
+      },
+      {
+        "word": "milk",
+        "count": 647
+      },
+      {
+        "word": "sushi",
+        "count": 647
+      },
+      {
+        "word": "dish",
+        "count": 646
+      },
+      {
+        "word": "nice",
+        "count": 644
+      },
+      {
+        "word": "beef",
+        "count": 634
+      },
+      {
+        "word": "ive",
+        "count": 634
+      },
+      {
+        "word": "dumplings",
+        "count": 602
+      },
+      {
+        "word": "flavor",
+        "count": 596
+      },
+      {
+        "word": "love",
+        "count": 595
+      },
+      {
+        "word": "drinks",
+        "count": 591
+      },
+      {
+        "word": "dont",
+        "count": 585
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Food is not the best. Took for ever to get menus after getting seating. Only odered fried dumpling, soup dumpling and a rice bowl. Rice bowl came out. Took the soup dumplings a while to come and...",
+        "stars": 1,
+        "sentiment": 1.0
+      },
+      {
+        "text": "The angry dragon sushi roll was AMAZING!! I tasted my boyfriends spicy noodle and that was delicious too. I can't wait to go back and try the bubble tea. I just didn't have anymore more  room in...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Really good shrimp Temporel . It's was cooked perfect . the bubble tea it is excellent and well done atmosphere is very nice quick with the service",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Ordered Pork Chop rice which is the typical, symbolic & easy cooked Taiwanese dish that any Taiwanese chef won't get it wrong, but the dish I got has no ground pork savory sauce on rice so the...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Small place, cheap, not bad. They have Taiwanese cuisine! beef noodle soup!",
+        "stars": 4,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The worst beef noodle soup I have ever had. The beef was rough, dry, and cardboard like. The picked veggies was away too sweet. Soup was too salty and full of MSG. It is not Taiwan styles beef...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.643,
+    "sentiment_distribution": {
+      "positive": 76.5,
+      "neutral": 16.5,
+      "negative": 7.0
+    },
+    "total_reviews_analyzed": 3457
+  },
+  "Tapas/Small Plates": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 6839
+      },
+      {
+        "word": "menu",
+        "count": 6075
+      },
+      {
+        "word": "ordered",
+        "count": 5008
+      },
+      {
+        "word": "delicious",
+        "count": 4928
+      },
+      {
+        "word": "bar",
+        "count": 4783
+      },
+      {
+        "word": "nice",
+        "count": 4088
+      },
+      {
+        "word": "drinks",
+        "count": 4072
+      },
+      {
+        "word": "definitely",
+        "count": 3909
+      },
+      {
+        "word": "happy",
+        "count": 3732
+      },
+      {
+        "word": "night",
+        "count": 3655
+      },
+      {
+        "word": "small",
+        "count": 3458
+      },
+      {
+        "word": "hour",
+        "count": 3376
+      },
+      {
+        "word": "table",
+        "count": 3351
+      },
+      {
+        "word": "amazing",
+        "count": 3328
+      },
+      {
+        "word": "dinner",
+        "count": 3303
+      },
+      {
+        "word": "little",
+        "count": 3252
+      },
+      {
+        "word": "experience",
+        "count": 3211
+      },
+      {
+        "word": "didnt",
+        "count": 3152
+      },
+      {
+        "word": "best",
+        "count": 3090
+      },
+      {
+        "word": "can",
+        "count": 3012
+      },
+      {
+        "word": "chicken",
+        "count": 3006
+      },
+      {
+        "word": "ive",
+        "count": 2922
+      },
+      {
+        "word": "dish",
+        "count": 2892
+      },
+      {
+        "word": "first",
+        "count": 2856
+      },
+      {
+        "word": "everything",
+        "count": 2783
+      },
+      {
+        "word": "pretty",
+        "count": 2758
+      },
+      {
+        "word": "dont",
+        "count": 2742
+      },
+      {
+        "word": "meal",
+        "count": 2733
+      },
+      {
+        "word": "love",
+        "count": 2705
+      },
+      {
+        "word": "dishes",
+        "count": 2692
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Cheu is a must go to.  Their ramen and Brisket noodles are divine!  I could eat either of these dishes once a week, easily.  I'm a bit sad they removed the Bahn Mi but I will live.  The mix and...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Stopped here before a concert with some friends friday night. Place was nicely packed, but we were able to get seated when we got there. Great selection of local craft beers on draft and bottled....",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Whoop whoop! Another Top Chef restaurant experienced. Kevin Sbraga's The Fat Ham is one that I've been eyeing every time I walk home from downtown. It's a random location, yet it's so incredibly...",
+        "stars": 3,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Not sure why it's so popular.. the happy hour is not bad but all the female servers there were just so unpleasant..... went in for ramen another time and there were barely broth in the bowl and...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Gross permutations of ramen. I would just go traditional with the ramen joint in China town. This is coming from someone who has been to ramen places in Tokyo and Fukuoka. I don't understand the...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Food was OK but the serivce at the bar is horrible the girl took forever to take the order I'm staring her I'm the face like I'm ready and she act like she didn't see anyone...then when I was...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.689,
+    "sentiment_distribution": {
+      "positive": 81.6,
+      "neutral": 11.4,
+      "negative": 7.0
+    },
+    "total_reviews_analyzed": 16636
+  },
+  "Thai": {
+    "top_words": [
+      {
+        "word": "thai",
+        "count": 14005
+      },
+      {
+        "word": "chicken",
+        "count": 7619
+      },
+      {
+        "word": "service",
+        "count": 6167
+      },
+      {
+        "word": "curry",
+        "count": 5922
+      },
+      {
+        "word": "ordered",
+        "count": 5694
+      },
+      {
+        "word": "rice",
+        "count": 5646
+      },
+      {
+        "word": "pad",
+        "count": 5544
+      },
+      {
+        "word": "delicious",
+        "count": 4789
+      },
+      {
+        "word": "menu",
+        "count": 4200
+      },
+      {
+        "word": "ive",
+        "count": 4094
+      },
+      {
+        "word": "sauce",
+        "count": 4025
+      },
+      {
+        "word": "spicy",
+        "count": 3925
+      },
+      {
+        "word": "fried",
+        "count": 3916
+      },
+      {
+        "word": "dish",
+        "count": 3725
+      },
+      {
+        "word": "definitely",
+        "count": 3661
+      },
+      {
+        "word": "noodles",
+        "count": 3634
+      },
+      {
+        "word": "soup",
+        "count": 3608
+      },
+      {
+        "word": "best",
+        "count": 3468
+      },
+      {
+        "word": "dishes",
+        "count": 3439
+      },
+      {
+        "word": "nice",
+        "count": 3429
+      },
+      {
+        "word": "shrimp",
+        "count": 3275
+      },
+      {
+        "word": "can",
+        "count": 3261
+      },
+      {
+        "word": "love",
+        "count": 3162
+      },
+      {
+        "word": "little",
+        "count": 3155
+      },
+      {
+        "word": "pretty",
+        "count": 3058
+      },
+      {
+        "word": "dont",
+        "count": 2987
+      },
+      {
+        "word": "always",
+        "count": 2880
+      },
+      {
+        "word": "didnt",
+        "count": 2650
+      },
+      {
+        "word": "lunch",
+        "count": 2572
+      },
+      {
+        "word": "beef",
+        "count": 2525
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "Love this place!  The food is great and the service is quick. They are extremely friendly there too.  I love that it is close to my work and they know people are on a rush for lunch time.  I get...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This is one of my favorite Thai places in philly! I love their Pad Kee Mao, it was perfectly flavored and left me wanting more. \n\nThe only thing is that it's not the cheapest dinner option, but...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "There isn't a physical wait at this place but you might be sitting waiting for up to 15 minutes because this place seems to always be crowded for dinner. Food is delicious, props to the waiter for...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "Hated this place I went in to try an egg roll and get a sushi roll and both were bad the egg was horrible and the sushi was chewy so I wasnt surprised that I was the only one there",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I have walked by this restaurant countless times, so sweetheart and I finally ventured in.  First observation was that only 2 small tables were full when we arrived, yet I needed a haircut by the...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Food is so-so for specializing in Malaysian cuisine.\n\nService can be rude at times... if you really want Malaysian food try Banana Leaf around the corner and save yourself the agony of tipping on...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.641,
+    "sentiment_distribution": {
+      "positive": 77.7,
+      "neutral": 13.7,
+      "negative": 8.7
+    },
+    "total_reviews_analyzed": 18232
+  },
+  "Turkish": {
+    "top_words": [
+      {
+        "word": "turkish",
+        "count": 885
+      },
+      {
+        "word": "service",
+        "count": 682
+      },
+      {
+        "word": "lamb",
+        "count": 541
+      },
+      {
+        "word": "delicious",
+        "count": 537
+      },
+      {
+        "word": "ordered",
+        "count": 495
+      },
+      {
+        "word": "chicken",
+        "count": 390
+      },
+      {
+        "word": "nice",
+        "count": 380
+      },
+      {
+        "word": "definitely",
+        "count": 347
+      },
+      {
+        "word": "kebab",
+        "count": 315
+      },
+      {
+        "word": "salad",
+        "count": 310
+      },
+      {
+        "word": "meal",
+        "count": 308
+      },
+      {
+        "word": "best",
+        "count": 295
+      },
+      {
+        "word": "menu",
+        "count": 286
+      },
+      {
+        "word": "friendly",
+        "count": 285
+      },
+      {
+        "word": "hummus",
+        "count": 279
+      },
+      {
+        "word": "can",
+        "count": 279
+      },
+      {
+        "word": "rice",
+        "count": 269
+      },
+      {
+        "word": "fresh",
+        "count": 266
+      },
+      {
+        "word": "staff",
+        "count": 264
+      },
+      {
+        "word": "amazing",
+        "count": 264
+      },
+      {
+        "word": "ive",
+        "count": 262
+      },
+      {
+        "word": "dont",
+        "count": 261
+      },
+      {
+        "word": "everything",
+        "count": 258
+      },
+      {
+        "word": "recommend",
+        "count": 251
+      },
+      {
+        "word": "night",
+        "count": 248
+      },
+      {
+        "word": "baklava",
+        "count": 248
+      },
+      {
+        "word": "little",
+        "count": 246
+      },
+      {
+        "word": "didnt",
+        "count": 244
+      },
+      {
+        "word": "first",
+        "count": 238
+      },
+      {
+        "word": "dinner",
+        "count": 237
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I'm glad we decided to walk down here for brunch rather than get your typical American fare. The food was great and had good flavor. Perfect portions and healthy options at a reasonable price. We...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Excellent little restaurant for coffee, pastry, sandwiches ect. Very accommodating for children. Sandwiches made fresh.",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "This place is a GREAT breakfast / brunch find!  Very reasonable for terrific coffee and delicious, reasonably priced food.  The inside is spartan, but they have tables outside on a quiet alley and...",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "This is now closed but was here last summer and was disappointed. Looking forward to what is coming at this location",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I've been here now several times.  The food is consistently mediocre, albeit reasonable.  I might be spoiled, however, from spending a lot of time in Turkey.\n\nThe more serious problem here is the...",
+        "stars": 2,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I wasn't blown away by the food here.  Actually, it almost tasted microwaved to me.  Also, none of the staff seemed to want to take responsibility for anything without the manager actually telling...",
+        "stars": 3,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.68,
+    "sentiment_distribution": {
+      "positive": 80.4,
+      "neutral": 11.5,
+      "negative": 8.1
+    },
+    "total_reviews_analyzed": 1662
+  },
+  "Vegan": {
+    "top_words": [
+      {
+        "word": "vegan",
+        "count": 12023
+      },
+      {
+        "word": "delicious",
+        "count": 7324
+      },
+      {
+        "word": "service",
+        "count": 6242
+      },
+      {
+        "word": "menu",
+        "count": 6155
+      },
+      {
+        "word": "ive",
+        "count": 5826
+      },
+      {
+        "word": "love",
+        "count": 5748
+      },
+      {
+        "word": "can",
+        "count": 5637
+      },
+      {
+        "word": "ordered",
+        "count": 5337
+      },
+      {
+        "word": "dont",
+        "count": 4973
+      },
+      {
+        "word": "definitely",
+        "count": 4804
+      },
+      {
+        "word": "chicken",
+        "count": 4685
+      },
+      {
+        "word": "best",
+        "count": 4630
+      },
+      {
+        "word": "nice",
+        "count": 4623
+      },
+      {
+        "word": "salad",
+        "count": 4516
+      },
+      {
+        "word": "little",
+        "count": 4427
+      },
+      {
+        "word": "amazing",
+        "count": 4349
+      },
+      {
+        "word": "philly",
+        "count": 3989
+      },
+      {
+        "word": "staff",
+        "count": 3988
+      },
+      {
+        "word": "everything",
+        "count": 3829
+      },
+      {
+        "word": "friendly",
+        "count": 3767
+      },
+      {
+        "word": "didnt",
+        "count": 3764
+      },
+      {
+        "word": "sauce",
+        "count": 3752
+      },
+      {
+        "word": "always",
+        "count": 3667
+      },
+      {
+        "word": "pretty",
+        "count": 3654
+      },
+      {
+        "word": "first",
+        "count": 3654
+      },
+      {
+        "word": "eat",
+        "count": 3429
+      },
+      {
+        "word": "cheese",
+        "count": 3426
+      },
+      {
+        "word": "fresh",
+        "count": 3359
+      },
+      {
+        "word": "bar",
+        "count": 3351
+      },
+      {
+        "word": "sweet",
+        "count": 3292
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I love this place, I go in here all the time and it's close to Rittenhouse Square. They have all such as kale which is really good!! The staff is very nice and helpful. \nWant something green and...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Found Taj-India when looking for a place via Yelp iPhone app :)\n\nI love Indian food, especially trying new places, so I checked it out. The location is in a strip mall, maybe not too inviting, but...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I go to red hook primarily for the \"4th on 4th\" openings, but I have been there a few times just for coffee/sammies, and it's been delicious every time.",
+        "stars": 5,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "This is the worst take out I've had.  All I wanted was a large salad tonight and I'm so mad I just wasted $20.  I tied ordering a taco salad and when I asked the girl for an add on of chicken, she...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Ok, loving the fact that when I wanna satisfy the taste for cheesesteak but since I don't eat meat I can get one that taste like the real thing and not some bland veggie version.  It's a dump...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "The worst place to get food delivered from. I would suggest starving over ordering here!! So they charge you for the food you order followed by never showing up for it (in the next 1:45 hrs) and...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.705,
+    "sentiment_distribution": {
+      "positive": 81.6,
+      "neutral": 12.4,
+      "negative": 6.0
+    },
+    "total_reviews_analyzed": 26134
+  },
+  "Vegetarian": {
+    "top_words": [
+      {
+        "word": "service",
+        "count": 11579
+      },
+      {
+        "word": "delicious",
+        "count": 11055
+      },
+      {
+        "word": "menu",
+        "count": 10805
+      },
+      {
+        "word": "ordered",
+        "count": 9039
+      },
+      {
+        "word": "can",
+        "count": 8463
+      },
+      {
+        "word": "ive",
+        "count": 8459
+      },
+      {
+        "word": "vegan",
+        "count": 8267
+      },
+      {
+        "word": "chicken",
+        "count": 8040
+      },
+      {
+        "word": "love",
+        "count": 7585
+      },
+      {
+        "word": "best",
+        "count": 7506
+      },
+      {
+        "word": "definitely",
+        "count": 7313
+      },
+      {
+        "word": "dont",
+        "count": 7288
+      },
+      {
+        "word": "nice",
+        "count": 6879
+      },
+      {
+        "word": "salad",
+        "count": 6787
+      },
+      {
+        "word": "amazing",
+        "count": 6693
+      },
+      {
+        "word": "little",
+        "count": 6569
+      },
+      {
+        "word": "wait",
+        "count": 5936
+      },
+      {
+        "word": "always",
+        "count": 5893
+      },
+      {
+        "word": "meal",
+        "count": 5877
+      },
+      {
+        "word": "everything",
+        "count": 5842
+      },
+      {
+        "word": "first",
+        "count": 5594
+      },
+      {
+        "word": "philly",
+        "count": 5526
+      },
+      {
+        "word": "didnt",
+        "count": 5507
+      },
+      {
+        "word": "pretty",
+        "count": 5493
+      },
+      {
+        "word": "staff",
+        "count": 5458
+      },
+      {
+        "word": "sauce",
+        "count": 5357
+      },
+      {
+        "word": "friendly",
+        "count": 5290
+      },
+      {
+        "word": "fresh",
+        "count": 5163
+      },
+      {
+        "word": "eat",
+        "count": 5086
+      },
+      {
+        "word": "dish",
+        "count": 4950
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "I think Zio deserves a 5-star. This is not a mind blowing pizza/sub/grill shop. It is also older looking on the inside. Push that aside and take Zio for who they are; a grab and go shop. I got a...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Food: Timeless meal. They have everything from simple food (my personal favorites #1 or #9 -- if you really want food coma) to chicken and waffles to their signature sandwiches at the bottom of...",
+        "stars": 5,
+        "sentiment": 1.0
+      },
+      {
+        "text": "We stopped here as part of an impromptu food crawl as our dinner did not quite fill us up....we were looking for a veggie friendly place and saw that EVERY dog is available vegetarian style!...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "This is the worst take out I've had.  All I wanted was a large salad tonight and I'm so mad I just wasted $20.  I tied ordering a taco salad and when I asked the girl for an add on of chicken, she...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Why did it just take over 5 minutes for me to get only a medium coffee?  Because there wasn't any coffee made in a coffee establishment, that's why. In addition, there are non-customers sitting in...",
+        "stars": 1,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I've been to Hot Diggity twice: once the week it opened, and today, to bring my friends.  I like hot dogs, but I'm a vegetarian; which is why I'm a fan of this place - they have 2 dog options:...",
+        "stars": 4,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.697,
+    "sentiment_distribution": {
+      "positive": 81.3,
+      "neutral": 12.2,
+      "negative": 6.5
+    },
+    "total_reviews_analyzed": 38024
+  },
+  "Vietnamese": {
+    "top_words": [
+      {
+        "word": "pho",
+        "count": 15329
+      },
+      {
+        "word": "vietnamese",
+        "count": 5487
+      },
+      {
+        "word": "service",
+        "count": 5011
+      },
+      {
+        "word": "chicken",
+        "count": 4468
+      },
+      {
+        "word": "broth",
+        "count": 4029
+      },
+      {
+        "word": "pork",
+        "count": 3807
+      },
+      {
+        "word": "delicious",
+        "count": 3791
+      },
+      {
+        "word": "ive",
+        "count": 3775
+      },
+      {
+        "word": "best",
+        "count": 3500
+      },
+      {
+        "word": "ordered",
+        "count": 3487
+      },
+      {
+        "word": "can",
+        "count": 3398
+      },
+      {
+        "word": "banh",
+        "count": 3360
+      },
+      {
+        "word": "dont",
+        "count": 3234
+      },
+      {
+        "word": "rolls",
+        "count": 3222
+      },
+      {
+        "word": "noodles",
+        "count": 3012
+      },
+      {
+        "word": "rice",
+        "count": 2904
+      },
+      {
+        "word": "definitely",
+        "count": 2882
+      },
+      {
+        "word": "beef",
+        "count": 2879
+      },
+      {
+        "word": "menu",
+        "count": 2855
+      },
+      {
+        "word": "love",
+        "count": 2852
+      },
+      {
+        "word": "soup",
+        "count": 2849
+      },
+      {
+        "word": "always",
+        "count": 2741
+      },
+      {
+        "word": "sauce",
+        "count": 2728
+      },
+      {
+        "word": "philly",
+        "count": 2638
+      },
+      {
+        "word": "nice",
+        "count": 2637
+      },
+      {
+        "word": "pretty",
+        "count": 2632
+      },
+      {
+        "word": "fresh",
+        "count": 2623
+      },
+      {
+        "word": "meat",
+        "count": 2621
+      },
+      {
+        "word": "bowl",
+        "count": 2599
+      },
+      {
+        "word": "little",
+        "count": 2580
+      }
+    ],
+    "positive_excerpts": [
+      {
+        "text": "We came here for lunch but we did not have enough time for the lunch deal so we ordered some soup and the steamed dumplings and spring rolls. The staff is friendly and the food was out pretty...",
+        "stars": 3,
+        "sentiment": 1.0
+      },
+      {
+        "text": "I love this place.  They always have a great selection of beers and switch up the menu to keep it fresh and seasonal. \nIn fact, it would be an easy 5 stars but I have it 4 because although I love...",
+        "stars": 4,
+        "sentiment": 1.0
+      },
+      {
+        "text": "Quantity over quality. Big portions of pho but average tasting. While there is some sheen there isn't that delicious fatty sheen on really good pho. This place is like a chipotle for pho except...",
+        "stars": 4,
+        "sentiment": 1.0
+      }
+    ],
+    "negative_excerpts": [
+      {
+        "text": "We ordered the pork roll spring rolls and were extremely disappointed with their dry consistency and suspicious contents (primarily tendon?). Overall, the pho was mediocre, but does not compare to...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "Not sure why it's so popular.. the happy hour is not bad but all the female servers there were just so unpleasant..... went in for ramen another time and there were barely broth in the bowl and...",
+        "stars": 3,
+        "sentiment": -1.0
+      },
+      {
+        "text": "I've been to a lot of Pho Restaurant but this is the worst one.... \nI've been to this restaurant 2 times.... \nFirst experience, I would like to try the new place after porkie the Korean BBQ...",
+        "stars": 1,
+        "sentiment": -1.0
+      }
+    ],
+    "avg_sentiment": 0.659,
+    "sentiment_distribution": {
+      "positive": 78.2,
+      "neutral": 14.5,
+      "negative": 7.3
+    },
+    "total_reviews_analyzed": 16071
+  }
+}

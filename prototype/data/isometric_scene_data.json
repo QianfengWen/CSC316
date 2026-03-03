@@ -1,0 +1,178 @@
+[
+  {
+    "name": "El Bocado",
+    "cuisine": "Salvadoran",
+    "stars": 5.0,
+    "review_count": 104,
+    "lat": 39.936367,
+    "lng": -75.155403,
+    "review_excerpts": [
+      "This place is game changer for the neighborhood. We got some take out tonight and the food was absolutely  delicious.  I'm really stoked they...",
+      "This place is a hidden gem! Wonderful pupusas, fresh natural juice, sweet plantain, chicken tamales, you name it. Everything in this place is so...",
+      "Don't let the amount of reviews turn you away!  This place is a gem! Went there after looking for kitchen lighting at Ikea on a whem. I had the..."
+    ],
+    "top_dishes": [
+      "pupusas",
+      "delicious",
+      "churros",
+      "churro",
+      "definitely"
+    ],
+    "gem_score": 0.7798,
+    "gem_rank": 1
+  },
+  {
+    "name": "Bleu Sushi",
+    "cuisine": "Tapas/Small Plates",
+    "stars": 4.5,
+    "review_count": 938,
+    "lat": 39.9463986271,
+    "lng": -75.157800703,
+    "review_excerpts": [
+      "After trying a few ramen places with crazy variety in their selections and stellar broth, I was not too excited about the ramen I got at Cheu. ...",
+      "Second visit even better than the first!!  Loved the butternut squash and goat cheese Rangoons, and the delightfully filling mushroom yakisoba....",
+      "I came here with a group of four and had a great experience. There are tons of interesting appetizers to try--we had dumplings with corn and..."
+    ],
+    "top_dishes": [
+      "service",
+      "menu",
+      "ordered",
+      "delicious",
+      "nice"
+    ],
+    "gem_score": 0.7385,
+    "gem_rank": 2
+  },
+  {
+    "name": "Penang",
+    "cuisine": "Malaysian",
+    "stars": 3.5,
+    "review_count": 1112,
+    "lat": 39.954044,
+    "lng": -75.15598,
+    "review_excerpts": [
+      "Absolutely wonderful food & service! Go there for lunch/dinner with my boyfriend at least once every two weeks. Prices are very much reasonable....",
+      "I've been coming to this place for years now, and even though I now live in Colorado, I come back here every time I'm in Philadelphia for work...",
+      "The Penang chicken with the chicken flavor infused white rice will always be one of my favorite meals. Wether in Boston or in Philly, the quality..."
+    ],
+    "top_dishes": [
+      "chicken",
+      "roti",
+      "rice",
+      "service",
+      "dish"
+    ],
+    "gem_score": 0.729,
+    "gem_rank": 3
+  },
+  {
+    "name": "Chifa",
+    "cuisine": "Peruvian",
+    "stars": 4.0,
+    "review_count": 444,
+    "lat": 39.949786,
+    "lng": -75.152623,
+    "review_excerpts": [
+      "Very dissapointed at the amount of food at the table. As a scholar of Latin dishes, Garces would expect to have some sort of understanding about...",
+      "Went here for NYE, I was equally impressed by the friendly staff, AWESOME FOOD, and tasty drinks. Both ceviches we had were excellent, crab...",
+      "Went here for restaurant week, and it was probably one of the top five dinners I've ever had.\n\nThe duck tacos were freaking unreal - I didn't know..."
+    ],
+    "top_dishes": [
+      "chicken",
+      "peruvian",
+      "menu",
+      "service",
+      "ceviche"
+    ],
+    "gem_score": 0.7227,
+    "gem_rank": 4
+  },
+  {
+    "name": "Dan Dan",
+    "cuisine": "Taiwanese",
+    "stars": 4.0,
+    "review_count": 860,
+    "lat": 39.950247,
+    "lng": -75.167598,
+    "review_excerpts": [
+      "Really solid place. Pretty good value, but not quite as good a value as Ting Wong, M Kee, Nan Zhou. \n\nSalt and pepper chicken wings- Very good,...",
+      "Overall good food and an enjoyable dinner.  One of the few places I've come across that allows you to get fried rice along with lomein in their...",
+      "For appetizers, we had the scallion pancakes and the seafood soup. They were delicious.  I wanted the Peking Noodles, but the sauce contained..."
+    ],
+    "top_dishes": [
+      "chicken",
+      "ordered",
+      "noodles",
+      "service",
+      "definitely"
+    ],
+    "gem_score": 0.706,
+    "gem_rank": 5
+  },
+  {
+    "name": "Hardena/Waroeng Surabaya Restaurant",
+    "cuisine": "Indonesian",
+    "stars": 4.5,
+    "review_count": 383,
+    "lat": 39.9284359,
+    "lng": -75.1712655,
+    "review_excerpts": [
+      "Great spot. Spicy here is spicy... be careful... but definitely enjoyed the spicy fish. We also did the fried wontons, good but nothing crazy...",
+      "GO HERE NOW.\n\nI highly suggest ordering the Mie BBQ Pork.  The BBQ pork tastes just like my mom's and that's what I like most about it.   Along...",
+      "A new Indonesian restaurant established in the heart of South Philly with the touch of Medan taste. Sky Cafe has a small menu with popular dishes...."
+    ],
+    "top_dishes": [
+      "indonesian",
+      "rice",
+      "chicken",
+      "delicious",
+      "fried"
+    ],
+    "gem_score": 0.6995,
+    "gem_rank": 6
+  },
+  {
+    "name": "Mom Mom's Kitchen and Polish Food Cart",
+    "cuisine": "Polish",
+    "stars": 5.0,
+    "review_count": 91,
+    "lat": 39.9439859,
+    "lng": -75.167449,
+    "review_excerpts": [
+      "Hungry hungry! Still hungry!\n\nVery cute and nice to get a table immediately after giving up on monks hour+ wait. The only redeeming attribute for...",
+      "The food is nothing short of spectacular. Everything and I do mean everything cause I've had the whole menu is great. The staff is super chill and...",
+      "It should be 4.5 stars. A nice young couple, Ryan and Kaitlin make their own pierogies, learning from the Ukrainian ladies at the Cathedral parish..."
+    ],
+    "top_dishes": [
+      "polish",
+      "pierogies",
+      "potato",
+      "delicious",
+      "pierogi"
+    ],
+    "gem_score": 0.6752,
+    "gem_rank": 7
+  },
+  {
+    "name": "Terakawa Ramen",
+    "cuisine": "Ramen",
+    "stars": 4.5,
+    "review_count": 1693,
+    "lat": 39.955402,
+    "lng": -75.154484,
+    "review_excerpts": [
+      "After trying a few ramen places with crazy variety in their selections and stellar broth, I was not too excited about the ramen I got at Cheu. ...",
+      "Second visit even better than the first!!  Loved the butternut squash and goat cheese Rangoons, and the delightfully filling mushroom yakisoba....",
+      "I came here with a group of four and had a great experience. There are tons of interesting appetizers to try--we had dumplings with corn and..."
+    ],
+    "top_dishes": [
+      "ramen",
+      "pork",
+      "broth",
+      "noodles",
+      "service"
+    ],
+    "gem_score": 0.6497,
+    "gem_rank": 8
+  }
+]

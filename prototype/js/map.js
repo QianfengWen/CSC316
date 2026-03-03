@@ -49,11 +49,20 @@
     "Moroccan":     "#e74c3c",
   };
 
+  // Default gem cuisines (overridden by data-driven definition when available)
   var GEM_CUISINES = [
     "Ethiopian","Indonesian","Polish","Taiwanese","Salvadoran",
     "Vegan","Ramen","French","Korean","Vietnamese",
     "Moroccan","Afghan","Colombian","Cuban","Filipino","Portuguese",
   ];
+
+  // Check for data-driven gem definition from main.js
+  function getGemCuisines() {
+    if (window.__gemDefinition && window.__gemDefinition.gem_cuisines) {
+      return window.__gemDefinition.gem_cuisines;
+    }
+    return GEM_CUISINES;
+  }
 
   // Top cuisines shown as filter buttons (after "All" and "Hidden Gems")
   var TOP_FILTER_CUISINES = [
@@ -71,8 +80,9 @@
   }
 
   function isGem(restaurant) {
+    var gems = getGemCuisines();
     return restaurant.cuisines.some(function (c) {
-      return GEM_CUISINES.indexOf(c) !== -1;
+      return gems.indexOf(c) !== -1;
     });
   }
 
@@ -463,7 +473,8 @@
       data.forEach(function (d) {
         sumStars += d.stars;
         d.cuisines.forEach(function (c) { cuisineSet[c] = true; });
-        if (d.cuisines.some(function (c) { return GEM_CUISINES.indexOf(c) !== -1; })) {
+        var gems = getGemCuisines();
+        if (d.cuisines.some(function (c) { return gems.indexOf(c) !== -1; })) {
           gemCount++;
         }
       });

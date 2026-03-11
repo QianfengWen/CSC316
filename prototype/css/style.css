@@ -1472,6 +1472,73 @@ footer a {
   border-radius: 12px;
 }
 
+.terrain-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(58, 140, 92, 0.08) 0%, rgba(232, 168, 56, 0.08) 100%);
+  border: 1px solid rgba(122, 110, 95, 0.18);
+}
+
+.terrain-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.terrain-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terrain-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.terrain-dot-height {
+  background: linear-gradient(180deg, #f4e4bf 0%, #b1773e 100%);
+}
+
+.terrain-dot-density {
+  background: linear-gradient(90deg, #3a8c5c 0%, #e8a838 55%, #d4503a 100%);
+}
+
+.terrain-dot-hotspot {
+  background: #f0c040;
+  box-shadow: 0 0 8px rgba(240, 192, 64, 0.7);
+}
+
+#terrain-3d-wrapper {
+  background-color: #faf6f0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+}
+
+#terrain-3d-wrapper canvas {
+  height: 460px !important;
+}
+
+#terrain-tooltip {
+  display: none;
+  min-width: 180px;
+  border: 1px solid rgba(232, 168, 56, 0.35);
+  background: rgba(26, 20, 16, 0.92);
+}
+
 .three-tooltip {
   position: absolute;
   background: var(--bg-dark);

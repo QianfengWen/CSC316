@@ -109,6 +109,9 @@
     // V2: 3D toggle logic
     setup3DToggles(cuisines, restaurants);
 
+    // Novel Visualization: Cuisine opportunity terrain
+    setupCuisineTerrain(cuisines, restaurants);
+
     setupScrollAnimations();
     setupNavDots();
     setupJourneyRecap();
@@ -521,6 +524,48 @@
         }
       });
     });
+  }
+
+
+  // ── Novel Visualization: 3D Cuisine Terrain ───────────────
+  function setupCuisineTerrain(cuisines, restaurants) {
+    var section = document.getElementById("section-terrain");
+    if (!section || !window.CuisineTerrain) return;
+
+    var initialized = false;
+    var attempts = 0;
+    var maxAttempts = 30;
+
+    function tryInit() {
+      if (initialized) return true;
+      if (typeof THREE === "undefined" || !window.CuisineTerrain || !window.CuisineTerrain.init) return false;
+      try {
+        window.CuisineTerrain.init({
+          canvasId: "terrain-3d-canvas",
+          selectId: "terrain-cuisine-select",
+          resetBtnId: "terrain-reset-view",
+          tooltipId: "terrain-tooltip",
+          cuisines: cuisines,
+          restaurants: restaurants
+        });
+        initialized = true;
+        return true;
+      } catch (e) {
+        console.warn("Cuisine terrain init error:", e);
+        return false;
+      }
+    }
+
+    // Try immediately first
+    if (tryInit()) return;
+
+    // Fallback for slow script loading
+    var timer = setInterval(function () {
+      attempts++;
+      if (tryInit() || attempts >= maxAttempts) {
+        clearInterval(timer);
+      }
+    }, 400);
   }
 
 

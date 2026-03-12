@@ -69,6 +69,263 @@
     return Math.max(min, Math.min(max, val));
   }
 
+  // ── DETECTIVE MODE ────────────────────────────────────────
+  var detectiveState = {
+    active: false,
+    correct: 0,
+    total: 0,
+    reviewData: null,
+    currentCuisine: null,
+    reviewQueue: [],
+    currentIdx: 0
+  };
+
+  function sentimentCategory(value) {
+    if (value > 0.2)  return "positive";
+    if (value < -0.2) return "negative";
+    return "neutral";
+  }
+
+  function injectDetectiveToggle() {
+    if (document.getElementById("detective-toggle-input")) return;
+    // Insert a full-width challenge banner *above* the review carousel
+    var carousel = document.getElementById("review-carousel");
+    if (!carousel) return;
+
+    var banner = document.createElement("div");
+    banner.className = "detective-banner";
+    banner.innerHTML =
+      '<div class="detective-banner-left">' +
+        '<span class="detective-banner-icon">\uD83D\uDD75\uFE0F</span>' +
+        '<div class="detective-banner-copy">' +
+          '<div class="detective-banner-title">Sentiment Detective <span class="detective-difficulty-tag">5 rounds</span></div>' +
+          '<div class="detective-banner-desc">Sentiment algorithms read emotion better than most humans \u2014 <strong>or do they?</strong> Read a real review and guess the vibe before the data reveals it.</div>' +
+          '<div class="detective-banner-stat">\uD83D\uDCC8 Most players score under 70% \u2014 where do you rank?</div>' +
+        '</div>' +
+      '</div>' +
+      '<label class="detective-start-label">' +
+        '<input type="checkbox" id="detective-toggle-input" style="display:none">' +
+        '<span class="detective-start-btn" id="detective-start-btn-text">' +
+          '<span class="dsb-main">\uD83D\uDD0D Test Your Instincts</span>' +
+          '<span class="dsb-sub">Can you beat 70%? \u2192</span>' +
+        '</span>' +
+      '</label>';
+
+    carousel.parentNode.insertBefore(banner, carousel);
+
+    document.getElementById("detective-toggle-input").addEventListener("change", function () {
+      var btn = document.getElementById("detective-start-btn-text");
+      detectiveState.active = this.checked;
+      if (detectiveState.active) {
+        banner.classList.add("detective-banner-active");
+        if (btn) btn.innerHTML = '<span class="dsb-main">\u2715 Exit Detective</span>';
+        startDetectiveRound();
+      } else {
+        banner.classList.remove("detective-banner-active");
+        if (btn) btn.innerHTML = '<span class="dsb-main">\uD83D\uDD0D Test Your Instincts</span><span class="dsb-sub">Can you beat 70%? \u2192</span>';
+        exitDetectiveMode();
+      }
+    });
+  }
+
+  function startDetectiveRound() {
+    if (!detectiveState.reviewData || !detectiveState.currentCuisine) return;
+    var data = detectiveState.reviewData[detectiveState.currentCuisine];
+    if (!data) return;
+
+    detectiveState.correct = 0;
+    detectiveState.total   = 0;
+
+    var pool = [];
+    if (data.positive_excerpts) pool = pool.concat(data.positive_excerpts.map(function (r) { return Object.assign({}, r); }));
+    if (data.negative_excerpts) pool = pool.concat(data.negative_excerpts.map(function (r) { return Object.assign({}, r); }));
+    // Shuffle
+    for (var si = pool.length - 1; si > 0; si--) {
+      var sj = Math.floor(Math.random() * (si + 1));
+      var tmp = pool[si]; pool[si] = pool[sj]; pool[sj] = tmp;
+    }
+    detectiveState.reviewQueue = pool.slice(0, Math.min(5, pool.length));
+    detectiveState.currentIdx  = 0;
+    renderDetectiveCard();
+  }
+
+  function exitDetectiveMode() {
+    detectiveState.active = false;
+    var tog = document.getElementById("detective-toggle-input");
+    if (tog) tog.checked = false;
+    var btn = document.getElementById("detective-start-btn-text");
+    if (btn) btn.innerHTML = '<span class="dsb-main">\uD83D\uDD0D Test Your Instincts</span><span class="dsb-sub">Can you beat 70%? \u2192</span>';
+    var banner = document.querySelector(".detective-banner");
+    if (banner) banner.classList.remove("detective-banner-active");
+
+    var container = d3.select("#review-carousel");
+    if (container.empty()) return;
+    if (detectiveState.reviewData && detectiveState.currentCuisine) {
+      var data = detectiveState.reviewData[detectiveState.currentCuisine];
+      if (data) {
+        var reviews = [];
+        if (data.positive_excerpts) reviews = reviews.concat(data.positive_excerpts);
+        if (data.negative_excerpts) reviews = reviews.concat(data.negative_excerpts);
+        reviews.sort(function (a, b) { return b.sentiment - a.sentiment; });
+        renderReviewCarousel(container, reviews);
+      }
+    }
+  }
+
+  function renderDetectiveCard() {
+    var container = d3.select("#review-carousel");
+    if (container.empty()) return;
+    container.html("");
+
+    var queue = detectiveState.reviewQueue;
+    var maxRounds = Math.min(5, queue.length);
+
+    if (detectiveState.currentIdx >= maxRounds || detectiveState.currentIdx >= queue.length) {
+      renderDetectiveSummary();
+      return;
+    }
+
+    var review  = queue[detectiveState.currentIdx];
+    var wrapper = container.append("div").attr("class", "detective-wrapper");
+
+    // Progress bar row
+    var progRow = wrapper.append("div").attr("class", "detective-progress-row");
+    progRow.append("span").attr("class", "detective-progress-text")
+      .text("Case " + (detectiveState.total + 1) + " of " + maxRounds);
+    var track = progRow.append("div").attr("class", "detective-progress-track");
+    track.append("div").attr("class", "detective-progress-fill")
+      .style("width", (detectiveState.total / maxRounds * 100) + "%");
+    progRow.append("span").attr("class", "detective-score-badge")
+      .text(detectiveState.correct + "/" + detectiveState.total + " correct");
+
+    // Review card — stars and sentiment hidden behind "CLASSIFIED" overlay
+    var card = wrapper.append("div").attr("class", "detective-review-card");
+
+    var classified = card.append("div").attr("class", "detective-classified-row");
+    classified.append("div").attr("class", "classified-stars-mask").text("\u2605 \u2605 \u2605 \u2605 \u2605");
+    classified.append("div").attr("class", "classified-stamp").text("CLASSIFIED");
+
+    card.append("div").attr("class", "detective-review-text")
+      .text("\u201C" + review.text + "\u201D");
+
+    card.append("div").attr("class", "detective-prompt-text")
+      .text("What does this diner really feel?");
+
+    // Verdict buttons
+    var btnsRow = wrapper.append("div").attr("class", "verdict-buttons-row");
+    var choices = [
+      { key: "positive", emoji: "\uD83D\uDE0D", label: "Positive" },
+      { key: "neutral",  emoji: "\uD83D\uDE10", label: "Neutral"  },
+      { key: "negative", emoji: "\uD83D\uDE20", label: "Negative" }
+    ];
+
+    choices.forEach(function (choice) {
+      btnsRow.append("button")
+        .attr("class", "verdict-btn verdict-" + choice.key)
+        .html('<span class="verdict-emoji">' + choice.emoji + '</span><span class="verdict-label">' + choice.label + '</span>')
+        .on("click", function () {
+          var actual  = sentimentCategory(review.sentiment);
+          var correct = choice.key === actual;
+          detectiveState.total++;
+          if (correct) detectiveState.correct++;
+          doReveal(card, btnsRow, review, choice.key, actual, correct, function () {
+            detectiveState.currentIdx++;
+            if (detectiveState.total >= maxRounds) {
+              setTimeout(renderDetectiveSummary, 800);
+            } else {
+              setTimeout(renderDetectiveCard, 900);
+            }
+          });
+        });
+    });
+  }
+
+  function doReveal(card, btnsRow, review, chosen, actual, correct, onDone) {
+    // Disable buttons
+    btnsRow.selectAll(".verdict-btn").property("disabled", true);
+
+    // Highlight correct / wrong buttons
+    btnsRow.selectAll(".verdict-btn")
+      .classed("verdict-btn-correct", function () { return d3.select(this).classed("verdict-" + actual); })
+      .classed("verdict-btn-wrong",   function () {
+        return !d3.select(this).classed("verdict-" + actual) &&
+                d3.select(this).classed("verdict-" + chosen);
+      });
+
+    // Reveal stars + sentiment (replace classified row)
+    var starCount = Math.round(review.stars) || 3;
+    var starStr = "";
+    for (var s = 0; s < 5; s++) starStr += (s < starCount ? "\u2605" : "\u2606");
+    var sentColors = { positive: "#3a8c5c", neutral: "#7a6e5f", negative: "#d4503a" };
+    var sentColor  = sentColors[actual] || "#7a6e5f";
+
+    card.select(".detective-classified-row")
+      .classed("classified-revealed", true)
+      .html(
+        '<div class="revealed-stars" style="color:#e8a838;">' + starStr + ' ' + (review.stars || "?") + '</div>' +
+        '<div class="revealed-sentiment" style="color:' + sentColor + '; font-weight:700;">' +
+          (actual.charAt(0).toUpperCase() + actual.slice(1)) +
+          ' <span style="font-weight:400; font-size:0.82em;">(' + (review.sentiment !== undefined ? review.sentiment.toFixed(2) : "?") + ')</span>' +
+        '</div>'
+      );
+
+    // Floating feedback badge
+    var feedback = card.append("div")
+      .attr("class", "verdict-feedback " + (correct ? "feedback-correct" : "feedback-wrong"))
+      .text(correct ? "+1  Correct!" : "Nope \u2014 data says " + actual);
+
+    setTimeout(function () {
+      feedback.style("opacity", "0");
+      setTimeout(onDone, 350);
+    }, 1500);
+  }
+
+  function renderDetectiveSummary() {
+    var container = d3.select("#review-carousel");
+    if (container.empty()) return;
+    container.html("");
+
+    var pct   = detectiveState.total > 0 ? Math.round(detectiveState.correct / detectiveState.total * 100) : 0;
+    var grade = pct >= 80 ? "\uD83D\uDD2C Expert Analyst" :
+                pct >= 60 ? "\uD83D\uDD75 Sharp Detective" :
+                pct >= 40 ? "\uD83D\uDCCB Trainee Analyst" :
+                            "\uD83C\uDF93 Still Learning";
+
+    var wrap = container.append("div").attr("class", "detective-summary");
+    wrap.append("div").attr("class", "summary-title").text("CASE CLOSED");
+    wrap.append("div").attr("class", "summary-grade").text(grade);
+    wrap.append("div").attr("class", "summary-score-text")
+      .html("You got <strong>" + detectiveState.correct + " / " + detectiveState.total + "</strong> correct (" + pct + "%)");
+
+    var meter = wrap.append("div").attr("class", "summary-meter-row");
+    meter.append("div").attr("class", "summary-meter-track")
+      .append("div").attr("class", "summary-meter-fill")
+      .style("width", "0%")
+      .transition().duration(1000).style("width", pct + "%");
+
+    var msgs = {
+      80: "Impressive! You read emotion as well as the algorithm.",
+      60: "Solid instincts. Some reviews are genuinely ambiguous.",
+      40: "Sentiment is subtle \u2014 that\u2019s exactly why we need data.",
+      0:  "Even algorithms struggle with sarcasm and nuance!"
+    };
+    var msg = pct >= 80 ? msgs[80] : pct >= 60 ? msgs[60] : pct >= 40 ? msgs[40] : msgs[0];
+    wrap.append("div").attr("class", "summary-msg").text(msg);
+
+    var btnRow = wrap.append("div").attr("class", "summary-btn-row");
+    btnRow.append("button").attr("class", "summary-retry-btn")
+      .text("Try Again \u2192")
+      .on("click", function () { startDetectiveRound(); });
+    btnRow.append("button").attr("class", "summary-exit-btn")
+      .text("Exit Detective Mode")
+      .on("click", function () {
+        var tog = document.getElementById("detective-toggle-input");
+        if (tog) { tog.checked = false; }
+        detectiveState.active = false;
+        exitDetectiveMode();
+      });
+  }
+
 
   // ── 1. WORD CLOUD ────────────────────────────────────────
 
@@ -857,10 +1114,11 @@
       return;
     }
 
-    // Sort cuisines alphabetically for the dropdown
     cuisines.sort();
 
-    // Populate the cuisine select dropdown
+    // Store for detective mode
+    detectiveState.reviewData = reviewData;
+
     var selectEl = document.getElementById("review-cuisine-select");
     if (selectEl) {
       selectEl.innerHTML = "";
@@ -871,36 +1129,36 @@
         selectEl.appendChild(option);
       });
 
-      // Wire up change handler
       selectEl.addEventListener("change", function () {
+        detectiveState.currentCuisine = selectEl.value;
         updateReviewVisualizations(selectEl.value, reviewData);
       });
     }
 
-    // Render the sentiment comparison chart (all cuisines, always visible)
     var compContainer = d3.select("#sentiment-comparison");
     if (!compContainer.empty()) {
       renderSentimentComparison(compContainer, reviewData, cuisines);
     }
 
-    // Lazy render: wait until review section is scrolled into view
-    // so container has real dimensions for word cloud placement
     var initialCuisine = cuisines[0];
     if (selectEl) selectEl.value = initialCuisine;
+    detectiveState.currentCuisine = initialCuisine;
 
     var reviewSection = document.getElementById("section-reviews");
     if (reviewSection) {
-      var lazyObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+      var lazyObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             lazyObserver.disconnect();
+            // Inject detective toggle after section is visible
+            injectDetectiveToggle();
             updateReviewVisualizations(initialCuisine, reviewData);
           }
         });
       }, { threshold: 0.1 });
       lazyObserver.observe(reviewSection);
     } else {
-      // Fallback if section not found
+      injectDetectiveToggle();
       updateReviewVisualizations(initialCuisine, reviewData);
     }
   }
@@ -909,6 +1167,7 @@
    * Update all per-cuisine visualizations when the dropdown changes.
    */
   function updateReviewVisualizations(cuisine, reviewData) {
+    detectiveState.currentCuisine = cuisine;
     var data = reviewData[cuisine];
     if (!data) return;
 
@@ -918,20 +1177,18 @@
       renderWordCloud(cloudContainer, data.top_words || []);
     }
 
-    // Review carousel: combine positive and negative excerpts
-    var allReviews = [];
-    if (data.positive_excerpts) {
-      allReviews = allReviews.concat(data.positive_excerpts);
-    }
-    if (data.negative_excerpts) {
-      allReviews = allReviews.concat(data.negative_excerpts);
-    }
-    // Sort by sentiment descending (positive first)
-    allReviews.sort(function (a, b) { return b.sentiment - a.sentiment; });
-
-    var carouselContainer = d3.select("#review-carousel");
-    if (!carouselContainer.empty()) {
-      renderReviewCarousel(carouselContainer, allReviews);
+    // Carousel: if detective mode is active re-start the round; otherwise normal carousel
+    if (detectiveState.active) {
+      startDetectiveRound();
+    } else {
+      var allReviews = [];
+      if (data.positive_excerpts) allReviews = allReviews.concat(data.positive_excerpts);
+      if (data.negative_excerpts) allReviews = allReviews.concat(data.negative_excerpts);
+      allReviews.sort(function (a, b) { return b.sentiment - a.sentiment; });
+      var carouselContainer = d3.select("#review-carousel");
+      if (!carouselContainer.empty()) {
+        renderReviewCarousel(carouselContainer, allReviews);
+      }
     }
 
     // Sentiment gauge

@@ -207,109 +207,296 @@
   }
 
 
-  // ── V2: GEM DEFINITION SECTION ────────────────────────────
+  // ── V2: GEM DEFINITION SECTION — Interactive Formula Lab ──
   function setupGemDefinition(gemData, cuisines) {
     var chartEl = document.getElementById("gem-ranking-chart");
     if (!chartEl) return;
 
-    var rankings = gemData.rankings;
+    var originalRankings = gemData.rankings;
     var threshold = gemData.threshold;
 
-    // Render horizontal bar chart of gem scores
-    var margin = { top: 10, right: 60, bottom: 40, left: 140 };
-    var barHeight = 20;
-    var gap = 4;
-    var totalBars = rankings.length;
-    var svgHeight = totalBars * (barHeight + gap) + margin.top + margin.bottom;
-    var svgWidth = Math.min(700, chartEl.clientWidth || 700);
-    var w = svgWidth - margin.left - margin.right;
+    // Mutable working copy
+    var rankings = originalRankings.map(function (d) {
+      return { cuisine: d.cuisine, gem_score: d.gem_score, components: d.components, original_score: d.gem_score };
+    });
 
-    var svg = d3.select("#gem-ranking-chart")
-      .append("svg")
+    var weights = {
+      low_competition: gemData.weights.low_competition,
+      quality:         gemData.weights.quality,
+      stability:       gemData.weights.stability,
+      demand:          gemData.weights.demand
+    };
+    var originalWeights = { low_competition: 0.3, quality: 0.3, stability: 0.2, demand: 0.2 };
+
+    var weightKeys   = ["low_competition", "quality", "stability", "demand"];
+    var weightLabels = ["Low Competition", "Quality", "Stability", "Demand"];
+    var weightColors = ["#5b8cbe", "#3a8c5c", "#2a8a8a", "#e8a838"];
+
+    function recompute() {
+      rankings.forEach(function (d) {
+        var c = d.components || {};
+        d.gem_score =
+          weights.low_competition * (c.low_competition || 0) +
+          weights.quality         * (c.quality         || 0) +
+          weights.stability       * (c.stability        || 0) +
+          weights.demand          * (c.demand           || 0);
+      });
+      // Publish live scores so Section 6 bubbles & invest reveal stay in sync
+      window.__liveGemScores = {};
+      rankings.forEach(function (d) {
+        window.__liveGemScores[d.cuisine] = {
+          gem_score: d.gem_score,
+          is_gem: d.gem_score >= threshold
+        };
+      });
+      if (typeof window.__updateBubbleColors === "function") {
+        window.__updateBubbleColors();
+      }
+    }
+    recompute(); // Initialize live scores on page load
+
+    // ── Slider UI ─────────────────────────────────────────────
+    var sliderWrapper = document.createElement("div");
+    sliderWrapper.className = "formula-slider-wrapper";
+    sliderWrapper.innerHTML =
+      '<div class="formula-lab-header">' +
+        '<span class="formula-lab-icon">\uD83E\uDDEA</span>' +
+        '<div>' +
+          '<div class="formula-lab-title">Try the Formula Lab</div>' +
+          '<div class="formula-lab-hint">Drag any slider \u2014 watch the bar chart re-rank live \u2193</div>' +
+        '</div>' +
+      '</div>';
+
+    var sliderEls = {};
+    var valueEls  = {};
+
+    weightKeys.forEach(function (key, i) {
+      var group = document.createElement("div");
+      group.className = "formula-slider-group";
+
+      var header = document.createElement("div");
+      header.className = "formula-slider-header";
+
+      var label = document.createElement("span");
+      label.className = "formula-slider-label";
+      label.style.color = weightColors[i];
+      label.textContent = weightLabels[i];
+
+      var valSpan = document.createElement("span");
+      valSpan.className = "formula-slider-value";
+      valSpan.style.color = weightColors[i];
+      valSpan.textContent = Math.round(weights[key] * 100) + "%";
+      valueEls[key] = valSpan;
+
+      header.appendChild(label);
+      header.appendChild(valSpan);
+      group.appendChild(header);
+
+      var input = document.createElement("input");
+      input.type = "range";
+      input.min = "0";
+      input.max = "100";
+      input.step = "1";
+      input.value = Math.round(weights[key] * 100);
+      input.className = "formula-weight-slider";
+      input.setAttribute("data-color", weightColors[i]);
+      sliderEls[key] = input;
+
+      group.appendChild(input);
+      sliderWrapper.appendChild(group);
+    });
+
+    // One-shot wiggle on the first slider to signal draggability
+    setTimeout(function () {
+      var firstSlider = sliderEls[weightKeys[0]];
+      if (firstSlider) {
+        firstSlider.classList.add("formula-slider-wiggle");
+        firstSlider.addEventListener("animationend", function () {
+          firstSlider.classList.remove("formula-slider-wiggle");
+        }, { once: true });
+      }
+    }, 900);
+
+    var resetBtn = document.createElement("button");
+    resetBtn.className = "formula-reset-btn";
+    resetBtn.textContent = "\u21BA Restore Data Formula";
+    sliderWrapper.appendChild(resetBtn);
+
+    chartEl.appendChild(sliderWrapper);
+
+    // Constrained redistribution: moving one slider adjusts others proportionally
+    weightKeys.forEach(function (changedKey) {
+      sliderEls[changedKey].addEventListener("input", function () {
+        var newVal = parseInt(sliderEls[changedKey].value) / 100;
+        var delta  = newVal - weights[changedKey];
+        weights[changedKey] = newVal;
+
+        var others      = weightKeys.filter(function (k) { return k !== changedKey; });
+        var totalOthers = others.reduce(function (s, k) { return s + weights[k]; }, 0);
+        if (totalOthers > 0) {
+          others.forEach(function (k) {
+            weights[k] = Math.max(0, weights[k] - delta * (weights[k] / totalOthers));
+          });
+        }
+
+        // Renormalize to exactly 1.0
+        var total = weightKeys.reduce(function (s, k) { return s + weights[k]; }, 0);
+        if (total > 0) { weightKeys.forEach(function (k) { weights[k] /= total; }); }
+
+        weightKeys.forEach(function (k) {
+          sliderEls[k].value = Math.round(weights[k] * 100);
+          valueEls[k].textContent = Math.round(weights[k] * 100) + "%";
+        });
+
+        recompute();
+        updateChart();
+        updateCompareCard();
+      });
+    });
+
+    resetBtn.addEventListener("click", function () {
+      weightKeys.forEach(function (k) {
+        weights[k] = originalWeights[k];
+        sliderEls[k].value = Math.round(weights[k] * 100);
+        valueEls[k].textContent = Math.round(weights[k] * 100) + "%";
+      });
+      recompute();
+      updateChart();
+      compareCard.style.display = "none";
+    });
+
+    // Compare card (shown when user ranking diverges from data ranking)
+    var compareCard = document.createElement("div");
+    compareCard.className = "formula-compare-card";
+    compareCard.style.display = "none";
+    chartEl.appendChild(compareCard);
+
+    // ── SVG bar chart ─────────────────────────────────────────
+    var svgWrapper = document.createElement("div");
+    chartEl.appendChild(svgWrapper);
+
+    var margin    = { top: 16, right: 80, bottom: 40, left: 148 };
+    var barHeight = 18;
+    var gap       = 3;
+    var svgHeight = rankings.length * (barHeight + gap) + margin.top + margin.bottom;
+    var svgWidth  = Math.min(700, svgWrapper.clientWidth || 700);
+    var w         = svgWidth - margin.left - margin.right;
+    var maxScore  = (d3.max(originalRankings, function (d) { return d.gem_score; }) || 1) * 1.1;
+    var xScale    = d3.scaleLinear().domain([0, maxScore]).range([0, w]);
+
+    var svg = d3.select(svgWrapper).append("svg")
       .attr("viewBox", "0 0 " + svgWidth + " " + svgHeight)
       .attr("preserveAspectRatio", "xMidYMid meet")
-      .style("width", "100%")
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .style("width", "100%");
 
-    var maxScore = d3.max(rankings, function (d) { return d.gem_score; }) || 1;
-    var xScale = d3.scaleLinear()
-      .domain([0, maxScore * 1.05])
-      .range([0, w]);
+    var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // Threshold line
-    svg.append("line")
-      .attr("x1", xScale(threshold))
-      .attr("y1", 0)
-      .attr("x2", xScale(threshold))
-      .attr("y2", svgHeight - margin.bottom)
-      .attr("stroke", COLORS.gold)
-      .attr("stroke-width", 2)
-      .attr("stroke-dasharray", "6 4");
-
-    svg.append("text")
-      .attr("x", xScale(threshold) + 4)
-      .attr("y", -2)
-      .attr("fill", COLORS.gold)
-      .style("font-size", "10px")
-      .style("font-weight", "700")
+    // Fixed threshold line
+    g.append("line")
+      .attr("x1", xScale(threshold)).attr("y1", 0)
+      .attr("x2", xScale(threshold)).attr("y2", svgHeight - margin.bottom)
+      .attr("stroke", COLORS.gold).attr("stroke-width", 2).attr("stroke-dasharray", "6 4");
+    g.append("text")
+      .attr("x", xScale(threshold) + 4).attr("y", -4)
+      .attr("fill", COLORS.gold).style("font-size", "10px").style("font-weight", "700")
       .text("GEM THRESHOLD");
 
-    // Axis
-    svg.append("g")
-      .attr("class", "axis")
+    g.append("g").attr("class", "axis")
       .attr("transform", "translate(0," + (svgHeight - margin.bottom) + ")")
-      .call(d3.axisBottom(xScale).ticks(6).tickFormat(function (d) { return d.toFixed(2); }))
-      .append("text")
-      .attr("x", w / 2).attr("y", 32)
-      .attr("fill", COLORS.muted)
-      .attr("text-anchor", "middle")
-      .style("font-size", "11px")
-      .text("Gem Score \u2192");
+      .call(d3.axisBottom(xScale).ticks(5).tickFormat(function (d) { return d.toFixed(2); }))
+      .append("text").attr("x", w / 2).attr("y", 32)
+      .attr("fill", COLORS.muted).attr("text-anchor", "middle")
+      .style("font-size", "11px").text("Gem Score \u2192");
 
-    rankings.forEach(function (d, i) {
-      var yPos = i * (barHeight + gap);
-      var isGem = d.is_gem;
-      var color = isGem ? COLORS.green : COLORS.muted;
+    function getSorted() {
+      return rankings.slice().sort(function (a, b) { return b.gem_score - a.gem_score; });
+    }
 
-      // Label
-      svg.append("text")
-        .attr("x", -8)
-        .attr("y", yPos + barHeight / 2 + 4)
-        .attr("text-anchor", "end")
-        .attr("fill", isGem ? COLORS.dark : COLORS.muted)
-        .style("font-size", "10px")
-        .style("font-weight", isGem ? "700" : "400")
-        .text(d.cuisine);
+    // Initial keyed data join
+    var barGroups = g.selectAll(".gem-bar-group")
+      .data(getSorted(), function (d) { return d.cuisine; })
+      .enter().append("g")
+      .attr("class", "gem-bar-group")
+      .attr("transform", function (d, i) { return "translate(0," + (i * (barHeight + gap)) + ")"; });
 
-      // Background track
-      svg.append("rect")
-        .attr("x", 0).attr("y", yPos)
-        .attr("width", w).attr("height", barHeight)
-        .attr("fill", "#f0ebe3").attr("rx", barHeight / 2);
+    barGroups.append("text").attr("class", "gem-bar-label")
+      .attr("x", -8).attr("y", barHeight / 2 + 4).attr("text-anchor", "end")
+      .style("font-size", "10px")
+      .attr("fill", function (d) { return d.original_score >= threshold ? COLORS.dark : COLORS.muted; })
+      .style("font-weight", function (d) { return d.original_score >= threshold ? "700" : "400"; })
+      .text(function (d) { return d.cuisine; });
 
-      // Bar
-      svg.append("rect")
-        .attr("x", 0).attr("y", yPos)
-        .attr("width", 0).attr("height", barHeight)
-        .attr("fill", color)
-        .attr("opacity", isGem ? 0.75 : 0.35)
-        .attr("rx", barHeight / 2)
-        .transition().duration(800).delay(i * 20)
-        .attr("width", xScale(d.gem_score));
+    barGroups.append("rect").attr("class", "gem-bar-track")
+      .attr("x", 0).attr("y", 0).attr("width", w).attr("height", barHeight)
+      .attr("fill", "#f0ebe3").attr("rx", barHeight / 2);
 
-      // Score label
-      svg.append("text")
-        .attr("x", xScale(d.gem_score) + 6)
-        .attr("y", yPos + barHeight / 2 + 4)
-        .style("font-size", "9px")
-        .style("font-weight", "700")
-        .attr("fill", isGem ? COLORS.green : COLORS.muted)
-        .text(d.gem_score.toFixed(3))
-        .attr("opacity", 0)
-        .transition().duration(400).delay(800 + i * 20)
-        .attr("opacity", 1);
-    });
+    barGroups.append("rect").attr("class", "gem-bar-fill")
+      .attr("x", 0).attr("y", 0).attr("width", 0).attr("height", barHeight)
+      .attr("fill", function (d) { return d.original_score >= threshold ? COLORS.green : COLORS.muted; })
+      .attr("opacity", function (d) { return d.original_score >= threshold ? 0.75 : 0.35; })
+      .attr("rx", barHeight / 2)
+      .transition().duration(800).delay(function (d, i) { return i * 15; })
+      .attr("width", function (d) { return xScale(d.gem_score); });
+
+    barGroups.append("text").attr("class", "gem-bar-score")
+      .attr("x", function (d) { return xScale(d.gem_score) + 5; })
+      .attr("y", barHeight / 2 + 4)
+      .style("font-size", "9px").style("font-weight", "700")
+      .attr("fill", function (d) { return d.original_score >= threshold ? COLORS.green : COLORS.muted; })
+      .attr("opacity", 0).text(function (d) { return d.gem_score.toFixed(3); })
+      .transition().duration(400).delay(function (d, i) { return 800 + i * 15; })
+      .attr("opacity", 1);
+
+    // Live chart update on slider drag
+    function updateChart() {
+      var newSorted = getSorted();
+      g.selectAll(".gem-bar-group")
+        .data(newSorted, function (d) { return d.cuisine; })
+        .each(function (d, i) {
+          var grp = d3.select(this);
+          var isGemNow = d.gem_score >= threshold;
+          grp.transition().duration(400).ease(d3.easeCubicInOut)
+            .attr("transform", "translate(0," + (i * (barHeight + gap)) + ")");
+          grp.select(".gem-bar-fill").transition().duration(350)
+            .attr("width", Math.max(0, xScale(d.gem_score)))
+            .attr("fill",    isGemNow ? COLORS.green : COLORS.muted)
+            .attr("opacity", isGemNow ? 0.75 : 0.35);
+          grp.select(".gem-bar-score")
+            .text(d.gem_score.toFixed(3))
+            .transition().duration(350).attr("x", xScale(d.gem_score) + 5)
+            .attr("fill", isGemNow ? COLORS.green : COLORS.muted);
+          grp.select(".gem-bar-label")
+            .attr("fill", isGemNow ? COLORS.dark : COLORS.muted)
+            .style("font-weight", isGemNow ? "700" : "400");
+        });
+    }
+
+    // Compare card: appears when user's top-3 diverges from data formula's top-3
+    function updateCompareCard() {
+      var userTop3 = getSorted().slice(0, 3).map(function (d) { return d.cuisine; });
+      var dataTop3 = originalRankings.slice(0, 3).map(function (d) { return d.cuisine; });
+      var isDiff   = userTop3.some(function (c, i) { return c !== dataTop3[i]; });
+
+      if (!isDiff) { compareCard.style.display = "none"; return; }
+
+      var html = '<div class="compare-card-title">Your Formula vs. The Data Formula</div><div class="compare-split">';
+      html += '<div class="compare-col"><div class="compare-col-header" style="color:#5b8cbe">Your Top 3</div>';
+      userTop3.forEach(function (cuisine, i) {
+        var sc = rankings.find(function (r) { return r.cuisine === cuisine; });
+        html += '<div class="compare-row"><span class="compare-rank">#' + (i + 1) + '</span>' +
+          '<strong>' + cuisine + '</strong><span class="compare-score">' + (sc ? sc.gem_score.toFixed(3) : "") + '</span></div>';
+      });
+      html += '</div><div class="compare-col"><div class="compare-col-header" style="color:' + COLORS.gold + '">Data Formula Top 3</div>';
+      dataTop3.forEach(function (cuisine, i) {
+        var sc = originalRankings.find(function (r) { return r.cuisine === cuisine; });
+        html += '<div class="compare-row"><span class="compare-rank">#' + (i + 1) + '</span>' +
+          '<strong>' + cuisine + '</strong><span class="compare-score">' + (sc ? sc.gem_score.toFixed(3) : "") + '</span></div>';
+      });
+      html += '</div></div><div class="compare-footnote">Try \u21BA Restore to see why the data chose these weights</div>';
+
+      compareCard.innerHTML = html;
+      compareCard.style.display = "block";
+    }
   }
 
 
@@ -1138,6 +1325,10 @@
     }
 
     function isGemCuisine(d) {
+      // Prefer the live formula-adjusted scores when available
+      if (window.__liveGemScores && window.__liveGemScores[d.cuisine] !== undefined) {
+        return window.__liveGemScores[d.cuisine].is_gem;
+      }
       if (Object.keys(gemCuisineSet).length > 0) return !!gemCuisineSet[d.cuisine];
       return d.count < 80 && d.avg_rating > 3.7;
     }
@@ -1244,10 +1435,17 @@
         tooltip.classed("visible", false);
       });
 
-    // Click → zoom into cuisine's individual restaurants (Level 2)
+    // ── INVEST MODE state ─────────────────────────────────────
+    var investState = { chips: [], activeChipIndex: null, revealed: false };
+
+    // Click → if a chip is active, invest it; otherwise zoom into cuisine
     bubbles.on("click", function (event, d) {
       event.stopPropagation();
-      zoomToCuisine(d);
+      if (investState.activeChipIndex !== null && !investState.revealed) {
+        placeInvestChip(d, d3.select(this));
+      } else if (!investState.revealed) {
+        zoomToCuisine(d);
+      }
     });
 
     function zoomToCuisine(d) {
@@ -1362,6 +1560,16 @@
         .attr("opacity", function (d) { return filterPredicate(d) ? 0.9 : 0.1; });
     }
 
+    // Expose callback so formula slider changes propagate to bubble gold-ring highlights
+    window.__updateBubbleColors = function () {
+      bubbles.select("circle")
+        .attr("stroke", function (d) { return isGemCuisine(d) ? COLORS.gold : "#fff"; })
+        .attr("stroke-width", function (d) { return isGemCuisine(d) ? 2.5 : 1; });
+      bubbles.each(function (d) {
+        d3.select(this).select("circle").classed("gem-pulse-ring", isGemCuisine(d));
+      });
+    };
+
     var filterBtns = document.querySelectorAll("#matrix-controls .control-btn");
     filterBtns.forEach(function (btn) {
       btn.addEventListener("click", function () {
@@ -1372,7 +1580,321 @@
       });
     });
 
-    // ── "Rating Decision Meter" — top recommended cuisines visual strip ──
+    // ── INVEST MODE UI ────────────────────────────────────────
+    var investDiv = document.createElement("div");
+    investDiv.className = "invest-mode-wrapper";
+    container.appendChild(investDiv);
+
+    investDiv.innerHTML =
+      '<div class="invest-header">' +
+        '<div class="invest-title">\uD83D\uDCB0 INVEST MODE \u2014 Which cuisines are Hidden Gems?</div>' +
+        '<div class="invest-subtitle">You have 3 chips. Bet on the cuisines you think the data rates highest \u2014 then reveal your portfolio.</div>' +
+      '</div>' +
+      '<div class="invest-steps">' +
+        '<div class="invest-step invest-step-active" id="invest-step-1">' +
+          '<span class="step-num">1</span>' +
+          '<span class="step-text">Click a chip \u2193</span>' +
+        '</div>' +
+        '<div class="invest-step-arrow">\u2192</div>' +
+        '<div class="invest-step" id="invest-step-2">' +
+          '<span class="step-num">2</span>' +
+          '<span class="step-text">Click a bubble above</span>' +
+        '</div>' +
+        '<div class="invest-step-arrow">\u2192</div>' +
+        '<div class="invest-step" id="invest-step-3">' +
+          '<span class="step-num">3</span>' +
+          '<span class="step-text">Hit Reveal Portfolio</span>' +
+        '</div>' +
+      '</div>';
+
+    var chipTray = document.createElement("div");
+    chipTray.className = "chip-tray";
+    investDiv.appendChild(chipTray);
+
+    var chipEls = [];
+    for (var ci = 0; ci < 3; ci++) {
+      (function (idx) {
+        var chip = document.createElement("div");
+        chip.className = "invest-chip";
+        chip.innerHTML =
+          '<div class="chip-inner">' +
+            '<div class="chip-dollar">$</div>' +
+            '<div class="chip-num">' + (idx + 1) + '</div>' +
+          '</div>';
+        chip.addEventListener("click", function () {
+          if (investState.revealed) return;
+          if (investState.chips[idx] && investState.chips[idx].cuisine) return;
+          var wasActive = investState.activeChipIndex === idx;
+          chipEls.forEach(function (c) { c.classList.remove("chip-active"); });
+          investState.activeChipIndex = wasActive ? null : idx;
+          if (!wasActive) {
+            chip.classList.add("chip-active");
+            // Step 1 → Step 2: chip selected, now click a bubble
+            var s1 = document.getElementById("invest-step-1");
+            var s2 = document.getElementById("invest-step-2");
+            if (s1) s1.classList.remove("invest-step-active");
+            if (s2) s2.classList.add("invest-step-active");
+          } else {
+            // Chip deselected, back to step 1
+            var s1 = document.getElementById("invest-step-1");
+            var s2 = document.getElementById("invest-step-2");
+            if (s1) s1.classList.add("invest-step-active");
+            if (s2) s2.classList.remove("invest-step-active");
+          }
+        });
+        chipTray.appendChild(chip);
+        chipEls.push(chip);
+      })(ci);
+    }
+
+    var investActions = document.createElement("div");
+    investActions.className = "invest-actions";
+    investDiv.appendChild(investActions);
+
+    var revealBtn = document.createElement("button");
+    revealBtn.className = "reveal-portfolio-btn";
+    revealBtn.textContent = "REVEAL PORTFOLIO \u2192";
+    revealBtn.style.display = "none";
+    investActions.appendChild(revealBtn);
+
+    var resetInvestBtn = document.createElement("button");
+    resetInvestBtn.className = "invest-reset-btn";
+    resetInvestBtn.textContent = "\u21BA Reset Bets";
+    resetInvestBtn.style.display = "none";
+    investActions.appendChild(resetInvestBtn);
+
+    var resultCards = document.createElement("div");
+    resultCards.className = "invest-result-cards";
+    resultCards.style.display = "none";
+    investDiv.appendChild(resultCards);
+
+    var portfolioGrade = document.createElement("div");
+    portfolioGrade.className = "portfolio-grade-wrapper";
+    portfolioGrade.style.display = "none";
+    investDiv.appendChild(portfolioGrade);
+
+    function placeInvestChip(d, bubbleGroup) {
+      var idx = investState.activeChipIndex;
+      var alreadyInvested = investState.chips.some(function (c) { return c && c.cuisine === d.cuisine; });
+      if (alreadyInvested) { return; }
+
+      investState.chips[idx] = { cuisine: d.cuisine, data: d };
+      chipEls[idx].classList.remove("chip-active");
+      chipEls[idx].classList.add("chip-placed");
+      chipEls[idx].innerHTML =
+        '<div class="chip-inner chip-placed-inner">' +
+          '<div class="chip-check">\u2713</div>' +
+          '<div class="chip-placed-name">' + d.cuisine.substring(0, 9) + '</div>' +
+        '</div>';
+      investState.activeChipIndex = null;
+
+      // Step feedback: back to step 1 (pick next chip) unless all placed
+      var _s1 = document.getElementById("invest-step-1");
+      var _s2 = document.getElementById("invest-step-2");
+      if (_s1) _s1.classList.add("invest-step-active");
+      if (_s2) _s2.classList.remove("invest-step-active");
+
+      // Gold dashed ring around invested bubble
+      var bubbleR = r(d.median_reviews);
+      bubbleGroup.insert("circle", ":first-child")
+        .attr("class", "invest-ring")
+        .attr("r", bubbleR + 9)
+        .attr("fill", "none")
+        .attr("stroke", COLORS.gold)
+        .attr("stroke-width", 3)
+        .attr("stroke-dasharray", "8 4")
+        .attr("opacity", 0)
+        .transition().duration(400).attr("opacity", 1);
+
+      bubbleGroup.append("text")
+        .attr("class", "invest-chip-emoji")
+        .attr("text-anchor", "middle")
+        .attr("dy", -(bubbleR + 16))
+        .style("font-size", "15px")
+        .style("pointer-events", "none")
+        .text("\uD83D\uDCB0");
+
+      var placedCount = investState.chips.filter(Boolean).length;
+      if (placedCount >= 3) {
+        revealBtn.style.display = "inline-block";
+        resetInvestBtn.style.display = "inline-block";
+        setTimeout(function () { revealBtn.classList.add("reveal-pulse"); }, 100);
+        // All chips placed → Step 3
+        var _sa = document.getElementById("invest-step-1");
+        var _sb = document.getElementById("invest-step-2");
+        var _sc = document.getElementById("invest-step-3");
+        if (_sa) _sa.classList.remove("invest-step-active");
+        if (_sb) _sb.classList.remove("invest-step-active");
+        if (_sc) _sc.classList.add("invest-step-active");
+      }
+    }
+
+    function resetInvest() {
+      investState.chips = [];
+      investState.activeChipIndex = null;
+      investState.revealed = false;
+      chipEls.forEach(function (c, i) {
+        c.classList.remove("chip-active", "chip-placed");
+        c.innerHTML =
+          '<div class="chip-inner">' +
+            '<div class="chip-dollar">$</div>' +
+            '<div class="chip-num">' + (i + 1) + '</div>' +
+          '</div>';
+      });
+      g.selectAll(".invest-ring").remove();
+      g.selectAll(".invest-chip-emoji").remove();
+      g.selectAll(".sunburst-ray").remove();
+      revealBtn.style.display = "none";
+      revealBtn.classList.remove("reveal-pulse");
+      resetInvestBtn.style.display = "none";
+      resultCards.style.display = "none";
+      resultCards.innerHTML = "";
+      portfolioGrade.style.display = "none";
+      portfolioGrade.innerHTML = "";
+      // Reset step indicator
+      var rs1 = document.getElementById("invest-step-1");
+      var rs2 = document.getElementById("invest-step-2");
+      var rs3 = document.getElementById("invest-step-3");
+      if (rs1) rs1.classList.add("invest-step-active");
+      if (rs2) rs2.classList.remove("invest-step-active");
+      if (rs3) rs3.classList.remove("invest-step-active");
+
+      applyFilter();
+    }
+
+    resetInvestBtn.addEventListener("click", resetInvest);
+
+    revealBtn.addEventListener("click", function () {
+      if (investState.revealed) return;
+      investState.revealed = true;
+      revealBtn.classList.remove("reveal-pulse");
+      revealBtn.style.display = "none";
+      resultCards.style.display = "flex";
+
+      var placed = investState.chips.filter(Boolean);
+
+      // Fade all non-invested bubbles
+      bubbles.each(function (d) {
+        var inv = placed.some(function (p) { return p.cuisine === d.cuisine; });
+        d3.select(this).select("circle").transition().duration(500).attr("opacity", inv ? 1 : 0.07);
+        d3.select(this).selectAll("text").transition().duration(500).attr("opacity", inv ? 1 : 0.04);
+      });
+
+      function revealOne(idx) {
+        if (idx >= placed.length) { showPortfolioGrade(placed); return; }
+        var item   = placed[idx];
+        var liveEntry = window.__liveGemScores && window.__liveGemScores[item.cuisine];
+        var isGem  = liveEntry ? liveEntry.is_gem : isGemCuisine(item.data);
+
+        // Bubble pop
+        var thisBubble = bubbles.filter(function (d) { return d.cuisine === item.cuisine; });
+        thisBubble.select("circle")
+          .transition().duration(500)
+          .attr("r", r(item.data.median_reviews) * 1.9)
+          .attr("stroke", isGem ? COLORS.gold : COLORS.red)
+          .attr("stroke-width", 4)
+          .transition().duration(300)
+          .attr("r", r(item.data.median_reviews) * 1.4);
+
+        // Sunburst rays for gem cuisines
+        if (isGem) {
+          var txStr = thisBubble.attr("transform");
+          var tx = parseFloat(txStr.replace("translate(", "").split(",")[0]);
+          var ty = parseFloat(txStr.split(",")[1]);
+          for (var ri = 0; ri < 12; ri++) {
+            var ang = (ri / 12) * Math.PI * 2;
+            var br  = r(item.data.median_reviews) + 9;
+            g.append("line").attr("class", "sunburst-ray")
+              .attr("x1", tx + Math.cos(ang) * br)
+              .attr("y1", ty + Math.sin(ang) * br)
+              .attr("x2", tx + Math.cos(ang) * br)
+              .attr("y2", ty + Math.sin(ang) * br)
+              .attr("stroke", COLORS.gold).attr("stroke-width", 2.5).attr("opacity", 0.9)
+              .transition().duration(700)
+              .attr("x2", tx + Math.cos(ang) * (br + 38))
+              .attr("y2", ty + Math.sin(ang) * (br + 38))
+              .attr("opacity", 0);
+          }
+        }
+
+        // Build result card
+        setTimeout(function () {
+          var card = document.createElement("div");
+          card.className = "invest-result-card" + (isGem ? " result-gem" : " result-trap");
+
+          var liveScore = window.__liveGemScores && window.__liveGemScores[item.cuisine];
+          var scoreVal = liveScore ? liveScore.gem_score : 0;
+          var scorePct = Math.round(scoreVal * 100);
+
+          card.innerHTML =
+            '<div class="result-verdict-icon">' + (isGem ? "\u2713" : "\u2717") + '</div>' +
+            '<div class="result-verdict-text">' + (isGem ? "GEM CONFIRMED" : "HIGH COMPETITION") + '</div>' +
+            '<div class="result-cuisine-name">' + item.cuisine + '</div>' +
+            '<div class="result-stats-row">' +
+              '<span>' + item.data.count + ' rivals</span>' +
+              '<span>\u2605 ' + item.data.avg_rating.toFixed(1) + '</span>' +
+            '</div>' +
+            '<div class="result-bar-track">' +
+              '<div class="result-bar-fill' + (isGem ? ' gem-fill' : '') + '" style="width:' + scorePct + '%"></div>' +
+            '</div>' +
+            '<div class="result-score">Gem Score: ' + scoreVal.toFixed(2) + '</div>' +
+            '<div class="result-advice">' +
+              (isGem
+                ? '\u2192 Blue ocean \u2014 low rivalry, strong reputation'
+                : '\u2192 You\'d be rival #' + (item.data.count + 1)) +
+            '</div>';
+
+          resultCards.appendChild(card);
+          requestAnimationFrame(function () { card.classList.add("result-card-visible"); });
+          setTimeout(function () { revealOne(idx + 1); }, 1700);
+        }, 600);
+      }
+
+      revealOne(0);
+    });
+
+    function showPortfolioGrade(placed) {
+      var gemCount  = placed.filter(function (p) {
+        var live = window.__liveGemScores && window.__liveGemScores[p.cuisine];
+        return live ? live.is_gem : isGemCuisine(p.data);
+      }).length;
+      var gradeMap  = [
+        { grade: "F",  color: COLORS.red,   msg: "Better luck next time \u2014 trust the data!" },
+        { grade: "C",  color: COLORS.gold,  msg: "One gem found. Good start!" },
+        { grade: "B+", color: COLORS.teal,  msg: "Two gems! Strong instincts." },
+        { grade: "A",  color: COLORS.green, msg: "All gems! You think like a data scientist." }
+      ];
+      var gr = gradeMap[Math.min(gemCount, 3)];
+
+      var bestPick = placed.slice().sort(function (a, b) {
+        function gs(p) {
+          var live = window.__liveGemScores && window.__liveGemScores[p.cuisine];
+          if (live) return live.gem_score;
+          if (!window.__gemDefinition) return 0;
+          var e = window.__gemDefinition.rankings.find(function (r) { return r.cuisine === p.cuisine; });
+          return e ? e.gem_score : 0;
+        }
+        return gs(b) - gs(a);
+      })[0];
+
+      portfolioGrade.style.display = "block";
+      portfolioGrade.innerHTML =
+        '<div class="grade-letter" style="color:' + gr.color + '">' + gr.grade + '</div>' +
+        '<div class="grade-count">' + gemCount + ' / 3 Hidden Gems found</div>' +
+        '<div class="grade-msg">' + gr.msg + '</div>' +
+        '<div class="grade-actions">' +
+          '<button class="grade-explore-btn">Explore ' + bestPick.cuisine + ' \u2192</button>' +
+          '<button class="grade-retry-btn">Try Again</button>' +
+        '</div>';
+
+      portfolioGrade.querySelector(".grade-explore-btn").addEventListener("click", function () {
+        resetInvest();
+        setTimeout(function () { zoomToCuisine(bestPick.data); }, 120);
+      });
+      portfolioGrade.querySelector(".grade-retry-btn").addEventListener("click", resetInvest);
+    }
+
+    // ── Rating Decider Strip (existing) ──────────────────────
     var deciderDiv = document.createElement("div");
     deciderDiv.className = "rating-decider-strip";
     container.appendChild(deciderDiv);

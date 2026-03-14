@@ -17,18 +17,40 @@
 
 <body>
 
+  <a href="#hero" class="skip-link">Skip to main content</a>
+
+  <!-- ============ Mobile Navigation ============ -->
+  <div class="mobile-nav" role="navigation" aria-label="Section navigation (mobile)">
+    <span class="mobile-nav-label">Navigate</span>
+    <select class="mobile-nav-select" id="mobile-nav-select" aria-label="Jump to section">
+      <option value="hero">Start</option>
+      <option value="section-hook">The Assumption</option>
+      <option value="section-gem-definition">Defining Gems</option>
+      <option value="section-map">Explore Philly</option>
+      <option value="section-terrain">Opportunity Terrain</option>
+      <option value="section-market">Market DNA</option>
+      <option value="section-reviews">Reviews</option>
+      <option value="section-opportunity">Opportunities</option>
+      <option value="section-restaurant">Restaurant</option>
+      <option value="cta">Conclusion</option>
+    </select>
+  </div>
+
   <!-- ============ Navigation Dots (9 sections) ============ -->
-  <nav id="nav-dots">
-    <div class="nav-dot active" data-target="hero"><span class="dot-label">Start</span></div>
-    <div class="nav-dot" data-target="section-hook"><span class="dot-label">The Assumption</span></div>
-    <div class="nav-dot" data-target="section-gem-definition"><span class="dot-label">Defining Gems</span></div>
-    <div class="nav-dot" data-target="section-map"><span class="dot-label">Explore Philly</span></div>
-    <div class="nav-dot" data-target="section-market"><span class="dot-label">Market DNA</span></div>
-    <div class="nav-dot" data-target="section-reviews"><span class="dot-label">Reviews</span></div>
-    <div class="nav-dot" data-target="section-opportunity"><span class="dot-label">Opportunities</span></div>
-    <div class="nav-dot" data-target="section-restaurant"><span class="dot-label">Restaurant</span></div>
-    <div class="nav-dot" data-target="cta"><span class="dot-label">Conclusion</span></div>
+  <nav id="nav-dots" aria-label="Section navigation">
+    <button class="nav-dot active" data-target="hero" aria-label="Start"><span class="dot-label">Start</span></button>
+    <button class="nav-dot" data-target="section-hook" aria-label="The Assumption"><span class="dot-label">The Assumption</span></button>
+    <button class="nav-dot" data-target="section-gem-definition" aria-label="Defining Gems"><span class="dot-label">Defining Gems</span></button>
+    <button class="nav-dot" data-target="section-map" aria-label="Explore Philly"><span class="dot-label">Explore Philly</span></button>
+    <button class="nav-dot" data-target="section-terrain" aria-label="Opportunity Terrain"><span class="dot-label">Terrain</span></button>
+    <button class="nav-dot" data-target="section-market" aria-label="Market DNA"><span class="dot-label">Market DNA</span></button>
+    <button class="nav-dot" data-target="section-reviews" aria-label="Reviews"><span class="dot-label">Reviews</span></button>
+    <button class="nav-dot" data-target="section-opportunity" aria-label="Opportunities"><span class="dot-label">Opportunities</span></button>
+    <button class="nav-dot" data-target="section-restaurant" aria-label="Restaurant"><span class="dot-label">Restaurant</span></button>
+    <button class="nav-dot" data-target="cta" aria-label="Conclusion"><span class="dot-label">Conclusion</span></button>
   </nav>
+
+  <main>
 
   <!-- ============ HERO ============ -->
   <section id="hero" class="section">
@@ -148,7 +170,7 @@
     </div>
     <div class="scroll-indicator">
       Scroll to explore
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M12 5v14M5 12l7 7 7-7" />
       </svg>
     </div>
@@ -186,7 +208,7 @@
       </div>
 
       <div class="insight-box fade-in">
-        <div class="insight-icon" style="font-size:1.5rem;">?</div>
+        <div class="insight-icon" style="font-size:1.5rem;" aria-hidden="true">?</div>
         <div>
           <h4>But is popularity the same as opportunity?</h4>
           <p>The most popular cuisines may also have the fiercest competition. Let's look at the data to find out what's
@@ -200,7 +222,7 @@
   <section id="section-gem-definition" class="section story-section">
     <div class="section-inner">
       <div class="section-header fade-in">
-        <div class="section-tag" style="background:rgba(58,140,92,0.1); color:var(--accent-green);">Methodology</div>
+        <div class="section-tag section-tag--green">Methodology</div>
         <h2>What Makes a <span style="color:var(--accent-gold)">Hidden Gem</span>?</h2>
         <p>Before we go further, let's define exactly what we mean. We built a data-driven formula to identify the best
           restaurant opportunities.</p>
@@ -298,6 +320,7 @@
           <div class="viz-container" style="padding:16px;">
             <div class="map-controls-top">
               <div class="map-search-wrapper">
+                <label for="map-search" class="sr-only">Search cuisines or restaurants</label>
                 <input type="text" id="map-search" class="map-search" placeholder="Search cuisines or restaurants..." />
               </div>
               <div class="map-view-toggles">
@@ -348,7 +371,7 @@
   <section id="section-terrain" class="section story-section">
     <div class="section-inner">
       <div class="section-header fade-in">
-        <div class="section-tag" style="background:rgba(232,168,56,0.12); color:var(--accent-gold);">Novel Visualization</div>
+        <div class="section-tag section-tag--gold">Novel Visualization</div>
         <h2>Philadelphia Restaurant <span style="color:var(--accent-gold);">Opportunity Terrain</span></h2>
         <p>We all have our go-to comfort foods, but for restaurant owners, popular means crowded.</p>
       </div>
@@ -358,7 +381,7 @@
         <div class="viz-subtitle">Switch cuisine/category to compare spatial competition patterns</div>
 
         <div class="terrain-controls">
-          <span class="control-label">Cuisine / Category:</span>
+          <label for="terrain-cuisine-select" class="control-label">Cuisine / Category:</label>
           <select id="terrain-cuisine-select" class="cuisine-select"></select>
           <button id="terrain-reset-view" class="control-btn">Reset Camera</button>
         </div>
@@ -385,8 +408,7 @@
   <section id="section-market" class="section story-section">
     <div class="section-inner">
       <div class="section-header fade-in">
-        <div class="section-tag" style="background:rgba(42,138,138,0.1); color:var(--accent-teal);">Market Deep Dive
-        </div>
+        <div class="section-tag section-tag--teal">Market Deep Dive</div>
         <h2>Cuisine <span style="color:var(--accent-teal)">DNA</span> Fingerprints</h2>
         <p>Every cuisine has a unique "fingerprint" across five key dimensions. These radar charts reveal which cuisines
           truly stand out — and which are all hype.</p>
@@ -426,7 +448,7 @@
 
         <!-- Expanded radar detail (shown on click) -->
         <div id="radar-expanded" class="radar-expanded" style="display:none;">
-          <button class="close-detail" id="close-radar">&times;</button>
+          <button class="close-detail" id="close-radar" aria-label="Close radar detail">&times;</button>
           <div id="radar-expanded-content"></div>
         </div>
 
@@ -435,9 +457,9 @@
           <div class="viz-title" style="font-size:1rem;">Compare Two Cuisines</div>
           <div class="viz-subtitle">Overlaid radar + distribution histograms</div>
           <div class="chart-controls">
-            <span class="control-label">Cuisine 1:</span>
+            <label for="radar-compare-1" class="control-label">Cuisine 1:</label>
             <select id="radar-compare-1" class="cuisine-select"></select>
-            <span class="control-label" style="margin-left:16px;">Cuisine 2:</span>
+            <label for="radar-compare-2" class="control-label" style="margin-left:16px;">Cuisine 2:</label>
             <select id="radar-compare-2" class="cuisine-select"></select>
           </div>
           <div id="radar-comparison"></div>
@@ -458,7 +480,7 @@
 
       <div class="viz-container fade-in">
         <div class="review-controls">
-          <span class="control-label">Select cuisine:</span>
+          <label for="review-cuisine-select" class="control-label">Select cuisine:</label>
           <select id="review-cuisine-select" class="cuisine-select"></select>
         </div>
 
@@ -503,8 +525,7 @@
     style="background: linear-gradient(180deg, #f0ebe3 0%, #faf6f0 100%);">
     <div class="section-inner">
       <div class="section-header fade-in">
-        <div class="section-tag" style="background:rgba(58,140,92,0.1); color:var(--accent-green);">The Opportunity
-          Landscape</div>
+        <div class="section-tag section-tag--green">The Opportunity Landscape</div>
         <h2>Where the <span style="color:var(--accent-gold)">Hidden Gems</span> Live</h2>
         <p>Sentiment confirms quality. Now where do the real opportunities hide? Click any cuisine bubble to zoom into
           its individual restaurants.</p>
@@ -554,13 +575,13 @@
         <div id="opportunity-matrix"></div>
         <!-- Zoom level 2: individual restaurants (shown on cuisine click) -->
         <div id="opportunity-zoom" style="display:none;">
-          <button class="control-btn" id="zoom-back-btn" style="margin-bottom:12px;">&#8592; Back to all
+          <button class="control-btn" id="zoom-back-btn" style="margin-bottom:12px;" aria-label="Back to all cuisines">&#8592; Back to all
             cuisines</button>
           <div class="viz-title" id="zoom-cuisine-title"></div>
           <div id="zoom-scatter"></div>
         </div>
         <div class="cuisine-detail-card" id="cuisine-detail" style="display:none;">
-          <button class="close-detail" id="close-cuisine-detail">&times;</button>
+          <button class="close-detail" id="close-cuisine-detail" aria-label="Close cuisine detail">&times;</button>
           <h3 id="detail-cuisine-name"></h3>
           <div id="detail-content"></div>
         </div>
@@ -574,7 +595,7 @@
       </div>
 
       <div class="insight-box fade-in" style="margin-top:32px; border-color: var(--accent-gold);">
-        <div class="insight-icon" style="font-size:1.5rem; color:var(--accent-gold);">*</div>
+        <div class="insight-icon" style="font-size:1.5rem; color:var(--accent-gold);" aria-hidden="true">*</div>
         <div>
           <h4>The best opportunities are hidden in the top-left quadrant</h4>
           <p>Cuisines like <strong>Ethiopian, Indonesian, Polish, and Taiwanese</strong> have very few competitors but
@@ -587,21 +608,14 @@
   <!-- ============ SECTION 7: Isometric Restaurant Scene ============ -->
   <section id="section-restaurant" class="section story-section iso-dark-section">
     <div class="section-inner">
-      <div class="narration fade-in iso-narration">
-        <span class="narrator">The Entrepreneur</span>
-        "I've found the hidden gems. Let me step inside one and see what makes it special..."
-      </div>
-      <div class="section-header fade-in">
-        <div class="section-tag iso-tag">Creative Finale</div>
-        <h2 class="iso-heading">Step Inside a <span style="color:var(--accent-gold)">Hidden Gem</span></h2>
-        <p class="iso-subtitle">Explore interactive 3D restaurant interiors. Each cuisine creates a unique space — from
-          Japanese ramen bars to Polish kitchens.</p>
+      <div class="section-header fade-in iso-compact-header">
+        <h2>Step Inside a <span style="color:var(--accent-gold)">Hidden Gem</span></h2>
       </div>
 
       <div class="isometric-dashboard fade-in">
         <div class="isometric-main">
           <div class="isometric-controls">
-            <span class="control-label iso-control-label">Choose a restaurant:</span>
+            <label for="isometric-cuisine-select" class="control-label iso-control-label">Choose a restaurant:</label>
             <select id="isometric-cuisine-select" class="cuisine-select iso-select"></select>
           </div>
           <!-- Cuisine preview strip -->
@@ -613,12 +627,12 @@
               <div id="isometric-fallback-content"></div>
             </div>
             <canvas id="isometric-canvas"></canvas>
-            <div class="isometric-hint">Click on tables, customers, and food to explore data</div>
+            <div class="isometric-hint" id="isometric-hint">Click on tables, customers, and food to explore data</div>
           </div>
         </div>
         <div class="isometric-info-panel" id="isometric-info-panel">
           <div class="iso-info-placeholder">
-            <div class="iso-placeholder-icon">
+            <div class="iso-placeholder-icon" aria-hidden="true">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="24" r="23" stroke="#e8a838" stroke-width="2" stroke-dasharray="4 3" opacity="0.5" />
                 <path d="M24 14v10l6 6" stroke="#e8a838" stroke-width="2.5" stroke-linecap="round" opacity="0.7" />
@@ -630,6 +644,11 @@
               art inside the 3D scene.</p>
           </div>
         </div>
+      </div>
+
+      <div class="narration fade-in" style="margin-top:24px;">
+        <span class="narrator">The Entrepreneur</span>
+        "Each restaurant tells a different story through its food, ambiance, and customers. Click around to discover what makes these hidden gems special."
       </div>
     </div>
   </section>
@@ -764,10 +783,12 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ============ Footer ============ -->
   <footer>
     <p>CSC 316 — Data Visualization Final Project | Philadelphia Restaurant Market Analysis</p>
-    <p style="margin-top:8px;">Data source: <a href="https://www.yelp.com/dataset" target="_blank">Yelp Open Dataset</a>
+    <p style="margin-top:8px;">Data source: <a href="https://www.yelp.com/dataset" target="_blank" rel="noopener noreferrer">Yelp Open Dataset</a>
     </p>
   </footer>
 
@@ -782,7 +803,7 @@
   <!-- Core visualization scripts -->
   <script src="js/terrain.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="js/map.js"></script>
+  <script src="js/map.js" defer></script>
   <script src="js/reviews.js" defer></script>
   <script src="js/stats.js" defer></script>
   <script src="js/three-charts.js" defer></script>

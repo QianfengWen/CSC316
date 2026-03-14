@@ -610,6 +610,9 @@
     window.__CUISINE_BADGE_COLORS = CUISINE_BADGE_COLORS;
     window.__isoSceneData = sceneData;
 
+    // Hint bar auto-fade after 6 seconds of section visibility
+    var hintEl = document.getElementById("isometric-hint");
+
     // Wait for Three.js to load, then initialize
     var checkThree = setInterval(function () {
       if (window.IsometricModule && typeof THREE !== "undefined") {
@@ -622,6 +625,25 @@
                 observer.disconnect();
                 try {
                   window.IsometricModule.init(canvas, sceneData);
+
+                  // Phase 2: Auto-select the #1 gem restaurant on first load
+                  if (select && sceneData.length > 0) {
+                    var topGem = sceneData[0]; // El Bocado (gem_rank #1)
+                    for (var i = 0; i < select.options.length; i++) {
+                      if (select.options[i].value === topGem.cuisine) {
+                        select.selectedIndex = i;
+                        select.dispatchEvent(new Event("change"));
+                        break;
+                      }
+                    }
+                  }
+
+                  // Phase 5: Fade hint after 6 seconds
+                  if (hintEl) {
+                    setTimeout(function () {
+                      hintEl.classList.add("faded");
+                    }, 6000);
+                  }
                 } catch (e) {
                   console.warn("Isometric scene init error:", e);
                 }
@@ -1408,7 +1430,6 @@
         '<div class="tt-row"><span class="tt-label">Avg Rating</span><span class="tt-value">\u2605 ' + d.avg_rating + '</span></div>' +
         '<div class="tt-row"><span class="tt-label">Stability</span><span class="tt-value">' + (d.std_rating < 0.5 ? "Very Stable" : d.std_rating < 0.7 ? "Moderate" : "Volatile") + ' (\u03C3 ' + d.std_rating + ')</span></div>' +
         '<div class="tt-row"><span class="tt-label">Median Reviews</span><span class="tt-value">' + d.median_reviews + '</span></div>' +
-        '<div class="tt-row"><span class="tt-label">Opportunity</span><span class="tt-value">' + d.opportunity + '</span></div>' +
         (isGem ? '<div class="gem-badge">\u2666 Hidden Gem</div>' : '') +
         '<div style="margin-top:6px; font-size:0.7rem; color:#b8a890;">Click to zoom into restaurants</div>'
       ).classed("visible", true);
@@ -1960,6 +1981,7 @@
   // ── Navigation Dots ───────────────────────────────────────
   function setupNavDots() {
     var dots = document.querySelectorAll(".nav-dot");
+    var mobileSelect = document.getElementById("mobile-nav-select");
     var sections = [];
 
     dots.forEach(function (dot) {
@@ -1970,13 +1992,25 @@
       });
     });
 
+    // Mobile nav select handler
+    if (mobileSelect) {
+      mobileSelect.addEventListener("change", function () {
+        var target = document.getElementById(mobileSelect.value);
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             dots.forEach(function (d) { d.classList.remove("active"); });
             var match = sections.find(function (s) { return s.target === entry.target; });
-            if (match) match.dot.classList.add("active");
+            if (match) {
+              match.dot.classList.add("active");
+              // Sync mobile nav select
+              if (mobileSelect) mobileSelect.value = match.dot.dataset.target;
+            }
           }
         });
       },

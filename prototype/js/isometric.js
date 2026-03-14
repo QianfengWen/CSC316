@@ -2073,8 +2073,6 @@
           '<div class="iso-info-stat-label">Gem Rank</div>' +
           '</div>' +
           '</div>';
-        // Rating gauge figure
-        html += buildRatingGaugeSvg(r.stars);
         html += '<div class="iso-info-rank">' +
           '<svg width="16" height="16" viewBox="0 0 16 16" style="vertical-align:-3px; margin-right:4px;"><polygon points="8,1 10,6 16,6.5 11.5,10.5 12.9,16 8,13 3.1,16 4.5,10.5 0,6.5 6,6" fill="#e8a838"/></svg>' +
           'Score: <strong>' + r.gem_score.toFixed(2) + '</strong>' +
@@ -2093,32 +2091,53 @@
       case "food":
         var dish = data.dish || "specialty";
         var rest = data.restaurant;
-        var foodImgPath = rest ? getCuisineImagePath(rest.cuisine) : null;
-        var foodThemeColor = rest ? (CUISINE_THEME_COLORS[rest.cuisine] || "#e8a838") : "#e8a838";
+        var dishIndex = data.dishIndex || 0;
+
+        // Look up actual dish photo from restaurant's image list
+        var dishImageList = rest ? (RESTAURANT_DISH_IMAGES[rest.name] || []) : [];
+        var dishImagePath = dishImageList.length > 0
+          ? dishImageList[dishIndex % dishImageList.length]
+          : null;
+        // Fall back to cuisine category image
+        if (!dishImagePath && rest) {
+          dishImagePath = getCuisineImagePath(rest.cuisine);
+        }
+
+        var dishCardInfo = getDishCardInfoByImage(dishImagePath, dish);
 
         html = '<div class="iso-info-card">';
-        // Cuisine image header for dish context
-        if (foodImgPath) {
-          html += '<div class="iso-info-image"><img src="' + foodImgPath + '" alt="' + (rest ? rest.cuisine : '') + ' cuisine"/></div>';
+        // Dish photo header
+        if (dishImagePath) {
+          html += '<div class="iso-info-image"><img src="' + dishImagePath + '" alt="' + dishCardInfo.title + '"/></div>';
         }
         html += '<div class="iso-info-tag" style="background:#e67e22;">Popular Dish</div>' +
-          '<h3 class="iso-info-name">' + dish.charAt(0).toUpperCase() + dish.slice(1) + '</h3>' +
+          '<h3 class="iso-info-name">' + dishCardInfo.title + '</h3>' +
           '<div class="iso-info-meta">' +
           'Served at <strong>' + (rest ? rest.name : "this restaurant") + '</strong>' +
           (rest ? ' &middot; <span style="color:#e8a838;">\u2605 ' + rest.stars + '</span>' : '') +
           '</div>';
-        // Dish plate illustration SVG
-        html += buildDishSvg(dish, foodThemeColor);
+        // Dish description
+        html += '<div class="iso-info-divider"></div>' +
+          '<div class="iso-info-meta" style="font-size:0.88rem; line-height:1.7;">' +
+          dishCardInfo.description +
+          '</div>';
+        // Ingredients
+        if (dishCardInfo.ingredients && dishCardInfo.ingredients.length > 0) {
+          html += '<div class="iso-info-divider"></div>' +
+            '<div class="iso-info-dishes">' +
+            '<strong>Ingredients:</strong><br/>' +
+            dishCardInfo.ingredients.map(function (item) {
+              return '<span class="iso-pill">' + item + '</span>';
+            }).join('') +
+            '</div>';
+        }
+        // Menu highlights
         if (rest && rest.top_dishes) {
           html += '<div class="iso-info-divider"></div>' +
             '<div class="iso-info-dishes">' +
-            '<strong>Full menu highlights:</strong><br/>' +
-            rest.top_dishes.map(function (d, i) {
-              return '<span style="display:inline-block; padding:3px 10px; margin:3px 3px 0 0; background:' +
-                (d === dish ? 'rgba(232,168,56,0.15)' : '#f0ebe3') +
-                '; border-radius:12px; font-size:0.78rem;' +
-                (d === dish ? ' font-weight:700; border:1px solid #e8a838;' : '') +
-                '">' + d + '</span>';
+            '<strong>Menu highlights:</strong><br/>' +
+            rest.top_dishes.map(function (d) {
+              return '<span class="iso-pill' + (d === dish ? ' iso-pill--active' : '') + '">' + d + '</span>';
             }).join('') +
             '</div>';
         }
@@ -2146,8 +2165,6 @@
           '<h3 class="iso-info-name">Dining at ' + restName + '</h3>' +
           '<div class="iso-info-stars">' + reviewStars + ' <span class="iso-rating-num">' + rating + '</span></div>' +
           '<div style="display:inline-block; padding:2px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; background:' + sentimentColor + '20; color:' + sentimentColor + '; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">' + sentimentLabel + '</div>';
-        // Rating gauge for review
-        html += buildRatingGaugeSvg(rating);
         html += '<div class="iso-info-quote">' + review + '</div>' +
           '</div>';
         break;
@@ -2183,9 +2200,7 @@
               '<div class="iso-info-dishes">' +
               '<strong>Ingredients:</strong><br/>' +
               cardInfo.ingredients.map(function (item) {
-                return '<span style="display:inline-block; padding:3px 10px; margin:3px 3px 0 0; background:#f0ebe3; border-radius:12px; font-size:0.78rem;">' +
-                    item +
-                    '</span>';
+                return '<span class="iso-pill">' + item + '</span>';
               }).join('') +
               '</div>';
         }
@@ -2236,12 +2251,14 @@
 
       galleryHtml += '<div class="iso-gallery-card" data-cuisine="' + d.cuisine + '">' +
         '<div class="iso-gallery-img">' +
-        (img ? '<img src="' + img + '" alt="' + d.cuisine + '" />' : '') +
+        (img ? '<img src="' + img + '" alt="" />' : '') +
         '</div>' +
         '<div class="iso-gallery-details">' +
         '<div class="iso-gallery-name">' + d.name + '</div>' +
-        '<div class="iso-gallery-cuisine" style="color:' + color + ';">' + d.cuisine + '</div>' +
-        '<div class="iso-gallery-stars">' + starsStr + ' ' + d.stars + '</div>' +
+        '<div class="iso-gallery-meta-row">' +
+        '<span class="iso-gallery-cuisine" style="color:' + color + ';">' + d.cuisine + '</span>' +
+        '<span class="iso-gallery-stars">' + starsStr + ' ' + d.stars + '</span>' +
+        '</div>' +
         '</div>' +
         '</div>';
     });
@@ -2254,8 +2271,9 @@
       '<path d="M9 22V12h6v10" stroke="#e8a838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
       '</svg> ' +
       '<span>Hidden Gems</span>' +
+      ' <span style="font-size:0.7rem; opacity:0.5; font-weight:400;">' + sceneData.length + ' restaurants</span>' +
       '</div>' +
-      '<p class="iso-gallery-intro">Pick a restaurant to step into its unique 3D interior.</p>' +
+      '<p class="iso-gallery-intro">Pick a restaurant to step into its unique 3D interior. Scroll to see all.</p>' +
       '<div class="iso-gallery-grid">' + galleryHtml + '</div>' +
       '</div>';
 

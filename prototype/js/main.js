@@ -207,296 +207,220 @@
   }
 
 
-  // ── V2: GEM DEFINITION SECTION — Interactive Formula Lab ──
+  // ── V2: GEM DEFINITION SECTION — Crystal Heights ──
   function setupGemDefinition(gemData, cuisines) {
     var chartEl = document.getElementById("gem-ranking-chart");
     if (!chartEl) return;
 
-    var originalRankings = gemData.rankings;
+    var rankings  = gemData.rankings;
     var threshold = gemData.threshold;
 
-    // Mutable working copy
-    var rankings = originalRankings.map(function (d) {
-      return { cuisine: d.cuisine, gem_score: d.gem_score, components: d.components, original_score: d.gem_score };
+    // Publish live scores so downstream sections stay in sync
+    window.__liveGemScores = {};
+    rankings.forEach(function (d) {
+      window.__liveGemScores[d.cuisine] = {
+        gem_score: d.gem_score,
+        is_gem:    d.gem_score >= threshold
+      };
     });
-
-    var weights = {
-      low_competition: gemData.weights.low_competition,
-      quality:         gemData.weights.quality,
-      stability:       gemData.weights.stability,
-      demand:          gemData.weights.demand
-    };
-    var originalWeights = { low_competition: 0.3, quality: 0.3, stability: 0.2, demand: 0.2 };
-
-    var weightKeys   = ["low_competition", "quality", "stability", "demand"];
-    var weightLabels = ["Low Competition", "Quality", "Stability", "Demand"];
-    var weightColors = ["#5b8cbe", "#3a8c5c", "#2a8a8a", "#e8a838"];
-
-    function recompute() {
-      rankings.forEach(function (d) {
-        var c = d.components || {};
-        d.gem_score =
-          weights.low_competition * (c.low_competition || 0) +
-          weights.quality         * (c.quality         || 0) +
-          weights.stability       * (c.stability        || 0) +
-          weights.demand          * (c.demand           || 0);
-      });
-      // Publish live scores so Section 6 bubbles & invest reveal stay in sync
-      window.__liveGemScores = {};
-      rankings.forEach(function (d) {
-        window.__liveGemScores[d.cuisine] = {
-          gem_score: d.gem_score,
-          is_gem: d.gem_score >= threshold
-        };
-      });
-      if (typeof window.__updateBubbleColors === "function") {
-        window.__updateBubbleColors();
-      }
+    if (typeof window.__updateBubbleColors === "function") {
+      window.__updateBubbleColors();
     }
-    recompute(); // Initialize live scores on page load
 
-    // ── Slider UI ─────────────────────────────────────────────
-    var sliderWrapper = document.createElement("div");
-    sliderWrapper.className = "formula-slider-wrapper";
-    sliderWrapper.innerHTML =
-      '<div class="formula-lab-header">' +
-        '<span class="formula-lab-icon">\uD83E\uDDEA</span>' +
-        '<div>' +
-          '<div class="formula-lab-title">Try the Formula Lab</div>' +
-          '<div class="formula-lab-hint">Drag any slider \u2014 watch the bar chart re-rank live \u2193</div>' +
-        '</div>' +
-      '</div>';
+    // Sort descending and draw
+    var sorted = rankings.slice().sort(function (a, b) { return b.gem_score - a.gem_score; });
+    drawCrystalChart(chartEl, sorted, threshold);
+  }
 
-    var sliderEls = {};
-    var valueEls  = {};
-
-    weightKeys.forEach(function (key, i) {
-      var group = document.createElement("div");
-      group.className = "formula-slider-group";
-
-      var header = document.createElement("div");
-      header.className = "formula-slider-header";
-
-      var label = document.createElement("span");
-      label.className = "formula-slider-label";
-      label.style.color = weightColors[i];
-      label.textContent = weightLabels[i];
-
-      var valSpan = document.createElement("span");
-      valSpan.className = "formula-slider-value";
-      valSpan.style.color = weightColors[i];
-      valSpan.textContent = Math.round(weights[key] * 100) + "%";
-      valueEls[key] = valSpan;
-
-      header.appendChild(label);
-      header.appendChild(valSpan);
-      group.appendChild(header);
-
-      var input = document.createElement("input");
-      input.type = "range";
-      input.min = "0";
-      input.max = "100";
-      input.step = "1";
-      input.value = Math.round(weights[key] * 100);
-      input.className = "formula-weight-slider";
-      input.setAttribute("data-color", weightColors[i]);
-      sliderEls[key] = input;
-
-      group.appendChild(input);
-      sliderWrapper.appendChild(group);
-    });
-
-    // One-shot wiggle on the first slider to signal draggability
-    setTimeout(function () {
-      var firstSlider = sliderEls[weightKeys[0]];
-      if (firstSlider) {
-        firstSlider.classList.add("formula-slider-wiggle");
-        firstSlider.addEventListener("animationend", function () {
-          firstSlider.classList.remove("formula-slider-wiggle");
-        }, { once: true });
-      }
-    }, 900);
-
-    var resetBtn = document.createElement("button");
-    resetBtn.className = "formula-reset-btn";
-    resetBtn.textContent = "\u21BA Restore Data Formula";
-    sliderWrapper.appendChild(resetBtn);
-
-    chartEl.appendChild(sliderWrapper);
-
-    // Constrained redistribution: moving one slider adjusts others proportionally
-    weightKeys.forEach(function (changedKey) {
-      sliderEls[changedKey].addEventListener("input", function () {
-        var newVal = parseInt(sliderEls[changedKey].value) / 100;
-        var delta  = newVal - weights[changedKey];
-        weights[changedKey] = newVal;
-
-        var others      = weightKeys.filter(function (k) { return k !== changedKey; });
-        var totalOthers = others.reduce(function (s, k) { return s + weights[k]; }, 0);
-        if (totalOthers > 0) {
-          others.forEach(function (k) {
-            weights[k] = Math.max(0, weights[k] - delta * (weights[k] / totalOthers));
-          });
-        }
-
-        // Renormalize to exactly 1.0
-        var total = weightKeys.reduce(function (s, k) { return s + weights[k]; }, 0);
-        if (total > 0) { weightKeys.forEach(function (k) { weights[k] /= total; }); }
-
-        weightKeys.forEach(function (k) {
-          sliderEls[k].value = Math.round(weights[k] * 100);
-          valueEls[k].textContent = Math.round(weights[k] * 100) + "%";
-        });
-
-        recompute();
-        updateChart();
-        updateCompareCard();
-      });
-    });
-
-    resetBtn.addEventListener("click", function () {
-      weightKeys.forEach(function (k) {
-        weights[k] = originalWeights[k];
-        sliderEls[k].value = Math.round(weights[k] * 100);
-        valueEls[k].textContent = Math.round(weights[k] * 100) + "%";
-      });
-      recompute();
-      updateChart();
-      compareCard.style.display = "none";
-    });
-
-    // Compare card (shown when user ranking diverges from data ranking)
-    var compareCard = document.createElement("div");
-    compareCard.className = "formula-compare-card";
-    compareCard.style.display = "none";
-    chartEl.appendChild(compareCard);
-
-    // ── SVG bar chart ─────────────────────────────────────────
-    var svgWrapper = document.createElement("div");
-    chartEl.appendChild(svgWrapper);
-
-    var margin    = { top: 16, right: 80, bottom: 40, left: 148 };
-    var barHeight = 18;
+  function drawCrystalChart(chartEl, sorted, threshold) {
+    var n         = sorted.length;
+    var crystalW  = 10;
     var gap       = 3;
-    var svgHeight = rankings.length * (barHeight + gap) + margin.top + margin.bottom;
-    var svgWidth  = Math.min(700, svgWrapper.clientWidth || 700);
-    var w         = svgWidth - margin.left - margin.right;
-    var maxScore  = (d3.max(originalRankings, function (d) { return d.gem_score; }) || 1) * 1.1;
-    var xScale    = d3.scaleLinear().domain([0, maxScore]).range([0, w]);
+    var pitch     = crystalW + gap;
+    var chartAreaW = n * pitch;
 
-    var svg = d3.select(svgWrapper).append("svg")
-      .attr("viewBox", "0 0 " + svgWidth + " " + svgHeight)
+    var maxScore  = d3.max(sorted, function (d) { return d.gem_score; });
+    var maxH      = 150;
+    var hScale    = d3.scaleLinear().domain([0, maxScore * 1.05]).range([0, maxH]);
+    var thresholdH = hScale(threshold);
+    var thresholdY = maxH - thresholdH;
+
+    var lMargin = 16, rMargin = 82, tMargin = 38, bMargin = 52;
+    var svgW = lMargin + chartAreaW + rMargin;
+    var svgH = tMargin + maxH + bMargin;
+
+    // Tooltip
+    var tooltip = document.createElement("div");
+    tooltip.className = "crystal-tooltip";
+    chartEl.style.position = "relative";
+    chartEl.appendChild(tooltip);
+
+    var svg = d3.select(chartEl).append("svg")
+      .attr("viewBox", "0 0 " + svgW + " " + svgH)
       .attr("preserveAspectRatio", "xMidYMid meet")
-      .style("width", "100%");
+      .style("width", "100%")
+      .style("overflow", "visible");
 
-    var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // Glow filter
+    var defs   = svg.append("defs");
+    var filter = defs.append("filter")
+      .attr("id", "crystal-glow")
+      .attr("x", "-60%").attr("y", "-60%")
+      .attr("width", "220%").attr("height", "220%");
+    filter.append("feGaussianBlur").attr("stdDeviation", "2.5").attr("result", "blur");
+    var merge = filter.append("feMerge");
+    merge.append("feMergeNode").attr("in", "blur");
+    merge.append("feMergeNode").attr("in", "SourceGraphic");
 
-    // Fixed threshold line
+    var g = svg.append("g").attr("transform", "translate(" + lMargin + "," + tMargin + ")");
+
+    // Threshold line
     g.append("line")
-      .attr("x1", xScale(threshold)).attr("y1", 0)
-      .attr("x2", xScale(threshold)).attr("y2", svgHeight - margin.bottom)
-      .attr("stroke", COLORS.gold).attr("stroke-width", 2).attr("stroke-dasharray", "6 4");
+      .attr("x1", 0).attr("y1", thresholdY)
+      .attr("x2", chartAreaW).attr("y2", thresholdY)
+      .attr("stroke", COLORS.gold).attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "5 3").attr("opacity", 0.85);
     g.append("text")
-      .attr("x", xScale(threshold) + 4).attr("y", -4)
-      .attr("fill", COLORS.gold).style("font-size", "10px").style("font-weight", "700")
-      .text("GEM THRESHOLD");
+      .attr("x", chartAreaW + 6).attr("y", thresholdY - 5)
+      .attr("fill", COLORS.gold).style("font-size", "8.5px").style("font-weight", "700")
+      .text("GEM");
+    g.append("text")
+      .attr("x", chartAreaW + 6).attr("y", thresholdY + 6)
+      .attr("fill", COLORS.gold).style("font-size", "8.5px").style("font-weight", "700")
+      .text("THRESHOLD");
+    g.append("text")
+      .attr("x", chartAreaW / 2).attr("y", thresholdY - 7)
+      .attr("text-anchor", "middle")
+      .attr("fill", COLORS.gold).style("font-size", "8px").style("font-weight", "700")
+      .attr("opacity", 0.6).text("\u2726  GEM ZONE  \u2726");
 
-    g.append("g").attr("class", "axis")
-      .attr("transform", "translate(0," + (svgHeight - margin.bottom) + ")")
-      .call(d3.axisBottom(xScale).ticks(5).tickFormat(function (d) { return d.toFixed(2); }))
-      .append("text").attr("x", w / 2).attr("y", 32)
-      .attr("fill", COLORS.muted).attr("text-anchor", "middle")
-      .style("font-size", "11px").text("Gem Score \u2192");
+    // Component config (bottom → top draw order)
+    var segOrder   = ["demand", "stability", "quality", "low_competition"];
+    var segWeights = { low_competition: 0.3, quality: 0.3, stability: 0.2, demand: 0.2 };
+    var segColors  = { low_competition: "#5b8cbe", quality: "#3a8c5c", stability: "#2a8a8a", demand: "#e8a838" };
+    var segLabels  = { low_competition: "Low Competition", quality: "Quality Rating", stability: "Rating Stability", demand: "Customer Demand" };
 
-    function getSorted() {
-      return rankings.slice().sort(function (a, b) { return b.gem_score - a.gem_score; });
-    }
+    // Draw crystals
+    sorted.forEach(function (d, i) {
+      var x      = i * pitch;
+      var totalH = hScale(d.gem_score);
+      var tipH   = Math.max(5, totalH * 0.18);
+      var bodyH  = totalH - tipH;
+      var isGem  = d.gem_score >= threshold;
+      var baseY  = maxH;
 
-    // Initial keyed data join
-    var barGroups = g.selectAll(".gem-bar-group")
-      .data(getSorted(), function (d) { return d.cuisine; })
-      .enter().append("g")
-      .attr("class", "gem-bar-group")
-      .attr("transform", function (d, i) { return "translate(0," + (i * (barHeight + gap)) + ")"; });
+      var grp = g.append("g").attr("class", "crystal-col");
+      if (isGem) { grp.style("filter", "url(#crystal-glow)"); }
 
-    barGroups.append("text").attr("class", "gem-bar-label")
-      .attr("x", -8).attr("y", barHeight / 2 + 4).attr("text-anchor", "end")
-      .style("font-size", "10px")
-      .attr("fill", function (d) { return d.original_score >= threshold ? COLORS.dark : COLORS.muted; })
-      .style("font-weight", function (d) { return d.original_score >= threshold ? "700" : "400"; })
-      .text(function (d) { return d.cuisine; });
-
-    barGroups.append("rect").attr("class", "gem-bar-track")
-      .attr("x", 0).attr("y", 0).attr("width", w).attr("height", barHeight)
-      .attr("fill", "#f0ebe3").attr("rx", barHeight / 2);
-
-    barGroups.append("rect").attr("class", "gem-bar-fill")
-      .attr("x", 0).attr("y", 0).attr("width", 0).attr("height", barHeight)
-      .attr("fill", function (d) { return d.original_score >= threshold ? COLORS.green : COLORS.muted; })
-      .attr("opacity", function (d) { return d.original_score >= threshold ? 0.75 : 0.35; })
-      .attr("rx", barHeight / 2)
-      .transition().duration(800).delay(function (d, i) { return i * 15; })
-      .attr("width", function (d) { return xScale(d.gem_score); });
-
-    barGroups.append("text").attr("class", "gem-bar-score")
-      .attr("x", function (d) { return xScale(d.gem_score) + 5; })
-      .attr("y", barHeight / 2 + 4)
-      .style("font-size", "9px").style("font-weight", "700")
-      .attr("fill", function (d) { return d.original_score >= threshold ? COLORS.green : COLORS.muted; })
-      .attr("opacity", 0).text(function (d) { return d.gem_score.toFixed(3); })
-      .transition().duration(400).delay(function (d, i) { return 800 + i * 15; })
-      .attr("opacity", 1);
-
-    // Live chart update on slider drag
-    function updateChart() {
-      var newSorted = getSorted();
-      g.selectAll(".gem-bar-group")
-        .data(newSorted, function (d) { return d.cuisine; })
-        .each(function (d, i) {
-          var grp = d3.select(this);
-          var isGemNow = d.gem_score >= threshold;
-          grp.transition().duration(400).ease(d3.easeCubicInOut)
-            .attr("transform", "translate(0," + (i * (barHeight + gap)) + ")");
-          grp.select(".gem-bar-fill").transition().duration(350)
-            .attr("width", Math.max(0, xScale(d.gem_score)))
-            .attr("fill",    isGemNow ? COLORS.green : COLORS.muted)
-            .attr("opacity", isGemNow ? 0.75 : 0.35);
-          grp.select(".gem-bar-score")
-            .text(d.gem_score.toFixed(3))
-            .transition().duration(350).attr("x", xScale(d.gem_score) + 5)
-            .attr("fill", isGemNow ? COLORS.green : COLORS.muted);
-          grp.select(".gem-bar-label")
-            .attr("fill", isGemNow ? COLORS.dark : COLORS.muted)
-            .style("font-weight", isGemNow ? "700" : "400");
-        });
-    }
-
-    // Compare card: appears when user's top-3 diverges from data formula's top-3
-    function updateCompareCard() {
-      var userTop3 = getSorted().slice(0, 3).map(function (d) { return d.cuisine; });
-      var dataTop3 = originalRankings.slice(0, 3).map(function (d) { return d.cuisine; });
-      var isDiff   = userTop3.some(function (c, i) { return c !== dataTop3[i]; });
-
-      if (!isDiff) { compareCard.style.display = "none"; return; }
-
-      var html = '<div class="compare-card-title">Your Formula vs. The Data Formula</div><div class="compare-split">';
-      html += '<div class="compare-col"><div class="compare-col-header" style="color:#5b8cbe">Your Top 3</div>';
-      userTop3.forEach(function (cuisine, i) {
-        var sc = rankings.find(function (r) { return r.cuisine === cuisine; });
-        html += '<div class="compare-row"><span class="compare-rank">#' + (i + 1) + '</span>' +
-          '<strong>' + cuisine + '</strong><span class="compare-score">' + (sc ? sc.gem_score.toFixed(3) : "") + '</span></div>';
+      // Stacked body segments
+      var curY = baseY;
+      segOrder.forEach(function (k) {
+        var contrib = d.gem_score > 0
+          ? (d.components[k] * segWeights[k]) / d.gem_score * bodyH
+          : bodyH / 4;
+        var col = isGem ? segColors[k] : "#9a9090";
+        var opa = isGem ? 0.88 : 0.28;
+        // Left facet (darker)
+        grp.append("rect")
+          .attr("x", x).attr("y", curY - contrib)
+          .attr("width", crystalW * 0.42).attr("height", Math.max(0.5, contrib))
+          .attr("fill", col).attr("opacity", opa * 0.6);
+        // Right facet (brighter)
+        grp.append("rect")
+          .attr("x", x + crystalW * 0.42).attr("y", curY - contrib)
+          .attr("width", crystalW * 0.58).attr("height", Math.max(0.5, contrib))
+          .attr("fill", col).attr("opacity", opa);
+        curY -= contrib;
       });
-      html += '</div><div class="compare-col"><div class="compare-col-header" style="color:' + COLORS.gold + '">Data Formula Top 3</div>';
-      dataTop3.forEach(function (cuisine, i) {
-        var sc = originalRankings.find(function (r) { return r.cuisine === cuisine; });
-        html += '<div class="compare-row"><span class="compare-rank">#' + (i + 1) + '</span>' +
-          '<strong>' + cuisine + '</strong><span class="compare-score">' + (sc ? sc.gem_score.toFixed(3) : "") + '</span></div>';
-      });
-      html += '</div></div><div class="compare-footnote">Try \u21BA Restore to see why the data chose these weights</div>';
 
-      compareCard.innerHTML = html;
-      compareCard.style.display = "block";
-    }
+      // Crystal tip (pointed triangle)
+      var tipTopY  = baseY - totalH;
+      var tipBaseY = tipTopY + tipH;
+      grp.append("polygon")
+        .attr("points",
+          (x + crystalW / 2) + "," + tipTopY + " " +
+          x + "," + tipBaseY + " " +
+          (x + crystalW) + "," + tipBaseY)
+        .attr("fill", isGem ? "#f0dfa0" : "#c8c0b8")
+        .attr("opacity", isGem ? 0.95 : 0.28);
+
+      // Gold sparkle above gem tip
+      if (isGem) {
+        grp.append("text")
+          .attr("x", x + crystalW / 2).attr("y", tipTopY - 3)
+          .attr("text-anchor", "middle")
+          .style("font-size", "7px")
+          .attr("fill", COLORS.gold).attr("opacity", 0.9)
+          .text("\u2726");
+      }
+
+      // Invisible hover hit area
+      grp.append("rect")
+        .attr("x", x - 1).attr("y", baseY - totalH - 12)
+        .attr("width", crystalW + 2).attr("height", totalH + 12)
+        .attr("fill", "transparent").style("cursor", "pointer")
+        .on("mouseover", function (event) {
+          var breakdown = segOrder.slice().reverse().map(function (k) {
+            return '<div class="ct-row">' +
+              '<span style="color:' + segColors[k] + '">\u25cf ' + segLabels[k] + '</span>' +
+              '<span class="ct-val">' + ((d.components[k] || 0) * segWeights[k]).toFixed(3) + '</span>' +
+              '</div>';
+          }).join("");
+          tooltip.innerHTML =
+            '<div class="ct-name" style="color:' + (isGem ? COLORS.gold : "#ccc") + '">' +
+            (isGem ? "\u2726 " : "") + d.cuisine + (isGem ? " \u2726" : "") + '</div>' +
+            '<div class="ct-score">Gem Score: <strong>' + d.gem_score.toFixed(3) + '</strong>' +
+            (isGem ? ' <span class="ct-badge">Hidden Gem</span>' : "") + '</div>' +
+            '<div class="ct-divider"></div>' +
+            '<div class="ct-breakdown">' + breakdown + '</div>';
+          tooltip.style.display = "block";
+
+          var svgNode = svg.node();
+          var svgRect = svgNode.getBoundingClientRect();
+          var elRect  = chartEl.getBoundingClientRect();
+          var scaleX  = svgRect.width  / svgW;
+          var scaleY  = svgRect.height / svgH;
+          var pixX    = (svgRect.left - elRect.left) + (lMargin + x + crystalW / 2) * scaleX;
+          var pixY    = (svgRect.top  - elRect.top)  + (tMargin + baseY - totalH - 14) * scaleY;
+          var ttW     = tooltip.offsetWidth  || 180;
+          var ttH     = tooltip.offsetHeight || 120;
+          var ttLeft  = Math.max(0, pixX - ttW / 2);
+          var ttTop   = pixY - ttH - 6;
+          if (ttTop < 0) { ttTop = pixY + 18; }
+          tooltip.style.left = ttLeft + "px";
+          tooltip.style.top  = ttTop  + "px";
+        })
+        .on("mouseout", function () { tooltip.style.display = "none"; });
+    });
+
+    // Color legend
+    var legendItems = [
+      { label: "Low Competition", color: segColors.low_competition },
+      { label: "Quality Rating",  color: segColors.quality },
+      { label: "Rating Stability",color: segColors.stability },
+      { label: "Customer Demand", color: segColors.demand }
+    ];
+    var legendG = g.append("g").attr("transform", "translate(0," + (maxH + 16) + ")");
+    var colW    = chartAreaW / legendItems.length;
+    legendItems.forEach(function (item, i) {
+      legendG.append("rect")
+        .attr("x", i * colW).attr("y", 0)
+        .attr("width", 9).attr("height", 9)
+        .attr("fill", item.color).attr("rx", 2);
+      legendG.append("text")
+        .attr("x", i * colW + 13).attr("y", 8)
+        .style("font-size", "9px").attr("fill", COLORS.muted)
+        .text(item.label);
+    });
+
+    // Gem count annotation
+    var gemCount = sorted.filter(function (d) { return d.gem_score >= threshold; }).length;
+    g.append("text")
+      .attr("x", chartAreaW / 2).attr("y", maxH + 38)
+      .attr("text-anchor", "middle")
+      .attr("fill", COLORS.gold).style("font-size", "9.5px").style("font-weight", "600")
+      .text(gemCount + " cuisines qualify as Hidden Gems \u00b7 hover any crystal to explore");
+
   }
 
 

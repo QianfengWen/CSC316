@@ -955,87 +955,6 @@
   }
 
   /**
-   * Build wall decorations (frames on walls)
-   */
-  function buildWallDecorations(scene, sceneData) {
-    var decoGroup = new THREE.Group();
-    var halfLen = 16.8 / 2;
-    var wallZ = -halfLen + 0.2;
-    var wallX = halfLen - 0.2;
-
-    // Frames on back wall
-    var framePositions = [
-      { x: -5.0, y: 3.8, wall: "back" },
-      { x: -2.5, y: 4.0, wall: "back" },
-      { x: 4.5, y: 3.6, wall: "back" },
-      { x: 6.0, y: 4.2, wall: "back" }
-    ];
-
-    // Frames on right wall
-    var rightFramePositions = [
-      { z: -4.0, y: 3.5, wall: "right" },
-      { z: -1.5, y: 4.1, wall: "right" },
-      { z: 2.0, y: 3.8, wall: "right" },
-      { z: 5.0, y: 3.6, wall: "right" }
-    ];
-
-    var cuisineKeys = Object.keys(CUISINE_THEME_COLORS);
-
-    function createFrame(px, py, pz, rotY, index) {
-      var frameGroup = new THREE.Group();
-      var fw = 0.8 + seededRandom(index * 13) * 0.4;
-      var fh = 0.6 + seededRandom(index * 17) * 0.3;
-
-      // Frame border
-      var border = new THREE.Mesh(
-        new THREE.BoxGeometry(fw + 0.1, fh + 0.1, 0.05),
-        makeToon(FRAME_COLOR)
-      );
-      frameGroup.add(border);
-
-      // Canvas/image area
-      var cuisineIdx = index % cuisineKeys.length;
-      var canvasColor = getCuisineThreeColor(cuisineKeys[cuisineIdx]);
-      var canvas = new THREE.Mesh(
-        new THREE.BoxGeometry(fw - 0.04, fh - 0.04, 0.06),
-        makeToon(canvasColor, { emissive: canvasColor, emissiveIntensity: 0.15 })
-      );
-      canvas.position.z = 0.01;
-      frameGroup.add(canvas);
-
-      frameGroup.position.set(px, py, pz);
-      frameGroup.rotation.y = rotY;
-
-      // Tag for interaction
-      var cuisineName = cuisineKeys[cuisineIdx];
-      var cuisineData = null;
-      if (sceneData && sceneData.length > 0) {
-        cuisineData = sceneData.find(function (d) { return d.cuisine === cuisineName; });
-      }
-      tagObject(frameGroup, "wall_decoration", {
-        cuisine: cuisineName,
-        cuisineData: cuisineData,
-        frameIndex: index
-      });
-
-      return frameGroup;
-    }
-
-    framePositions.forEach(function (fp, i) {
-      var frame = createFrame(fp.x, fp.y, wallZ, 0, i);
-      decoGroup.add(frame);
-    });
-
-    rightFramePositions.forEach(function (fp, i) {
-      var frame = createFrame(wallX, fp.y, fp.z, -Math.PI / 2, i + framePositions.length);
-      decoGroup.add(frame);
-    });
-
-    scene.add(decoGroup);
-    return decoGroup;
-  }
-
-  /**
    * Build floating gold rating stars above entrance
    */
   function buildRatingStars(scene, avgRating) {
@@ -1051,6 +970,7 @@
       var outerR = 0.2;
       var innerR = 0.08;
       var points = 5;
+
       for (var p = 0; p < points * 2; p++) {
         var angle = (p * Math.PI) / points - Math.PI / 2;
         var r = p % 2 === 0 ? outerR : innerR;
@@ -1064,22 +984,31 @@
       }
       starShape.closePath();
 
-      var extrudeSettings = { depth: 0.06, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelSegments: 2 };
+      var extrudeSettings = {
+        depth: 0.06,
+        bevelEnabled: true,
+        bevelThickness: 0.02,
+        bevelSize: 0.02,
+        bevelSegments: 2
+      };
+
       var starGeo = new THREE.ExtrudeGeometry(starShape, extrudeSettings);
-      var starMat = makeToon(GOLD_COLOR, { emissive: 0xdaa520, emissiveIntensity: 0.4 });
+      var starMat = makeToon(GOLD_COLOR, {
+        emissive: 0xdaa520,
+        emissiveIntensity: 0.4
+      });
       var starMesh = new THREE.Mesh(starGeo, starMat);
 
       starMesh.castShadow = true;
       starGroup.add(starMesh);
 
-      // Position above the entrance area (front-left corner)
+      // Position above the entrance/front area
       starGroup.position.set(
-        -halfLen + 2.0 + i * 0.7,
-        5.2 + seededRandom(i * 31) * 0.3,
-        halfLen - 1.5
+          -halfLen + 2.0 + i * 0.7,
+          5.2 + seededRandom(i * 31) * 0.3,
+          halfLen - 1.5
       );
 
-      // Store original Y for animation
       starGroup.userData.baseY = starGroup.position.y;
       starGroup.userData.animPhase = i * 0.8;
 
@@ -1088,6 +1017,101 @@
 
     scene.add(starsGroup);
     return starsGroup;
+  }
+
+  /**
+   * Build wall decorations (frames on walls)
+   */
+  function buildWallDecorations(scene, sceneData) {
+    var decoGroup = new THREE.Group();
+    var halfLen = 16.8 / 2;
+    var wallZ = -halfLen + 0.2;
+    var wallX = halfLen - 0.2;
+
+    // Keep the existing visual structure:
+    // 4 frames on back wall + 4 frames on right wall
+    var framePositions = [
+      { x: -5.0, y: 3.8, wall: "back" },
+      { x: -2.5, y: 4.0, wall: "back" },
+      { x: 4.5, y: 3.6, wall: "back" },
+      { x: 6.0, y: 4.2, wall: "back" }
+    ];
+
+    var rightFramePositions = [
+      { z: -4.0, y: 3.5, wall: "right" },
+      { z: -1.5, y: 4.1, wall: "right" },
+      { z: 2.0, y: 3.8, wall: "right" },
+      { z: 5.0, y: 3.6, wall: "right" }
+    ];
+
+    var restaurant = (sceneData && sceneData.length > 0) ? sceneData[0] : null;
+    if (!restaurant) {
+      scene.add(decoGroup);
+      return decoGroup;
+    }
+
+    var wallDishEntries = getRestaurantWallDishEntries(restaurant);
+    var textureLoader = new THREE.TextureLoader();
+
+    function createFrame(px, py, pz, rotY, index) {
+      var frameGroup = new THREE.Group();
+      var fw = 0.95 + seededRandom(index * 13) * 0.35;
+      var fh = 0.72 + seededRandom(index * 17) * 0.22;
+
+      var dishEntry = wallDishEntries[index % wallDishEntries.length];
+
+      // Outer frame
+      var border = new THREE.Mesh(
+        new THREE.BoxGeometry(fw + 0.10, fh + 0.10, 0.05),
+        makeToon(FRAME_COLOR)
+      );
+      frameGroup.add(border);
+
+      // Inner image plane
+      var artMaterial;
+      if (dishEntry && dishEntry.image) {
+        var texture = textureLoader.load(dishEntry.image);
+        if (THREE.SRGBColorSpace) {
+          texture.colorSpace = THREE.SRGBColorSpace;
+        } else if (texture.encoding !== undefined) {
+          texture.encoding = THREE.sRGBEncoding;
+        }
+        artMaterial = new THREE.MeshBasicMaterial({ map: texture });
+      } else {
+        artMaterial = makeToon(0xd9d2c3);
+      }
+
+      var canvas = new THREE.Mesh(
+        new THREE.PlaneGeometry(fw - 0.04, fh - 0.04),
+        artMaterial
+      );
+      canvas.position.z = 0.031;
+      frameGroup.add(canvas);
+
+      frameGroup.position.set(px, py, pz);
+      frameGroup.rotation.y = rotY;
+
+      tagObject(frameGroup, "wall_decoration", {
+        restaurant: restaurant,
+        cuisine: restaurant.cuisine,
+        dish: dishEntry ? dishEntry.dish : "signature dish",
+        image: dishEntry ? dishEntry.image : null,
+        frameIndex: index
+      });
+
+      return frameGroup;
+    }
+
+    framePositions.forEach(function (fp, i) {
+      decoGroup.add(createFrame(fp.x, fp.y, wallZ, 0, i));
+    });
+
+    rightFramePositions.forEach(function (fp, i) {
+      decoGroup.add(createFrame(wallX, fp.y, fp.z, -Math.PI / 2, i + framePositions.length));
+    });
+
+    scene.add(decoGroup);
+    return decoGroup;
   }
 
   // ── Themed Decorations ─────────────────────────────────────
@@ -1363,17 +1387,168 @@
 
   /**
    * Table layout definitions with positions
+   * More reviews -> a few more tables, but capped so the room doesn't get crowded.
    */
-  function getTableLayouts() {
+  function getTableCountFromReviews(reviewCount) {
+    if (reviewCount <= 150) return 4;
+    if (reviewCount <= 450) return 5;
+    if (reviewCount <= 900) return 6;
+    if (reviewCount <= 1300) return 7;
+    return 8;
+  }
+
+  /**
+   * Fallback layout templates by table count.
+   * These are deterministic and slightly more spread out.
+   */
+  function getLayoutTemplateByCount(tableCount) {
+    var templates = {
+      4: [
+        { x: -3.75, z: -2.75, seats: 4 },
+        { x:  1.45, z: -3.00, seats: 2 },
+        { x: -2.25, z:  0.35, seats: 2 },
+        { x:  2.85, z:  1.40, seats: 4 }
+      ],
+      5: [
+        { x: -3.95, z: -2.95, seats: 4 },
+        { x: -0.25, z: -2.35, seats: 2 },
+        { x:  3.00, z: -3.05, seats: 4 },
+        { x: -2.35, z:  0.35, seats: 2 },
+        { x:  1.85, z:  1.45, seats: 4 }
+      ],
+      6: [
+        { x: -4.05, z: -3.05, seats: 2 },
+        { x: -1.05, z: -2.35, seats: 4 },
+        { x:  2.45, z: -3.10, seats: 2 },
+        { x: -3.10, z:  0.15, seats: 4 },
+        { x:  0.55, z:  1.10, seats: 2 },
+        { x:  3.20, z:  1.35, seats: 4 }
+      ],
+      7: [
+        { x: -4.10, z: -3.15, seats: 2 },
+        { x: -1.35, z: -2.35, seats: 4 },
+        { x:  1.55, z: -3.05, seats: 2 },
+        { x:  4.00, z: -2.00, seats: 2 },
+        { x: -3.10, z:  0.20, seats: 4 },
+        { x:  0.15, z:  1.20, seats: 2 },
+        { x:  2.95, z:  0.85, seats: 4 }
+      ],
+      8: [
+        { x: -4.15, z: -3.15, seats: 2 },
+        { x: -1.95, z: -2.30, seats: 4 },
+        { x:  0.95, z: -3.20, seats: 2 },
+        { x:  3.85, z: -2.45, seats: 4 },
+        { x: -3.90, z:  0.00, seats: 2 },
+        { x: -0.95, z:  0.95, seats: 4 },
+        { x:  2.00, z:  1.40, seats: 2 },
+        { x:  4.05, z:  0.45, seats: 2 }
+      ]
+    };
+
+    return templates[tableCount] || templates[6];
+  }
+
+  /**
+   * Fixed layout for each restaurant.
+   * Table count depends on review_count, but positions are hand-tuned and deterministic.
+   */
+  function getTableLayoutsForRestaurant(restaurant) {
+    var name = restaurant && restaurant.name ? restaurant.name : "";
+    var reviewCount = restaurant && restaurant.review_count ? restaurant.review_count : 0;
+    var tableCount = getTableCountFromReviews(reviewCount);
+
+    var layoutsByRestaurant = {
+      "El Bocado": [
+        { x: -3.85, z: -2.75, seats: 4 },
+        { x:  1.55, z: -2.95, seats: 2 },
+        { x: -2.35, z:  0.35, seats: 2 },
+        { x:  2.95, z:  1.45, seats: 4 }
+      ],
+
+      "Mom Mom's Kitchen and Polish Food Cart": [
+        { x: -3.55, z: -2.95, seats: 2 },
+        { x:  1.35, z: -2.35, seats: 4 },
+        { x: -2.15, z:  0.65, seats: 2 },
+        { x:  2.65, z:  1.55, seats: 2 }
+      ],
+
+      "Hardena/Waroeng Surabaya Restaurant": [
+        { x: -3.95, z: -2.75, seats: 4 },
+        { x:  0.15, z: -3.15, seats: 2 },
+        { x:  3.05, z: -1.95, seats: 4 },
+        { x: -2.45, z:  0.35, seats: 2 },
+        { x:  1.85, z:  1.55, seats: 4 }
+      ],
+
+      "Chifa": [
+        { x: -4.05, z: -3.05, seats: 2 },
+        { x: -0.95, z: -3.35, seats: 4 },
+        { x:  2.45, z: -2.35, seats: 2 },
+        { x: -3.15, z:  0.35, seats: 4 },
+        { x:  0.95, z:  1.35, seats: 2 }
+      ],
+
+      "Dan Dan": [
+        { x: -4.10, z: -3.15, seats: 2 },
+        { x: -1.15, z: -2.45, seats: 4 },
+        { x:  2.15, z: -3.10, seats: 2 },
+        { x:  4.10, z: -1.95, seats: 2 },
+        { x: -3.05, z:  0.35, seats: 4 },
+        { x:  0.85, z:  1.45, seats: 2 }
+      ],
+
+      "Bleu Sushi": [
+        { x: -4.05, z: -2.65, seats: 2 },
+        { x: -1.45, z: -3.20, seats: 2 },
+        { x:  1.95, z: -2.35, seats: 4 },
+        { x:  3.95, z: -3.05, seats: 2 },
+        { x: -3.05, z:  0.25, seats: 4 },
+        { x:  0.75, z:  1.55, seats: 2 }
+      ],
+
+      "Penang": [
+        { x: -4.15, z: -3.05, seats: 4 },
+        { x: -1.55, z: -2.35, seats: 2 },
+        { x:  1.75, z: -3.15, seats: 4 },
+        { x:  3.95, z: -2.05, seats: 2 },
+        { x: -3.15, z:  0.15, seats: 2 },
+        { x:  0.35, z:  1.35, seats: 4 },
+        { x:  3.05, z:  0.65, seats: 2 }
+      ],
+
+      "Terakawa Ramen": [
+        { x: -4.15, z: -3.10, seats: 2 },
+        { x: -1.85, z: -2.25, seats: 2 },
+        { x:  1.15, z: -3.25, seats: 4 },
+        { x:  3.75, z: -2.35, seats: 2 },
+        { x: -3.85, z:  0.05, seats: 2 },
+        { x: -0.95, z:  0.95, seats: 4 },
+        { x:  2.05, z:  1.45, seats: 2 },
+        { x:  4.05, z:  0.45, seats: 2 }
+      ]
+    };
+
+    if (layoutsByRestaurant[name]) {
+      return layoutsByRestaurant[name];
+    }
+
+    return getLayoutTemplateByCount(tableCount);
+  }
+
+  /**
+   * Shared overview layout for multi-restaurant mode.
+   * Keep this fixed so the gallery/overview view stays consistent.
+   */
+  function getOverviewTableLayouts() {
     return [
       { x: -4.5, z: -3.0, seats: 4 },
       { x: -1.5, z: -4.5, seats: 2 },
-      { x: 2.0, z: -3.0, seats: 4 },
-      { x: 5.0, z: -4.0, seats: 2 },
-      { x: -3.5, z: 1.5, seats: 4 },
-      { x: 0.5, z: 2.0, seats: 2 },
-      { x: 3.5, z: 1.0, seats: 4 },
-      { x: -1.0, z: 5.0, seats: 2 }
+      { x:  2.0, z: -3.0, seats: 4 },
+      { x:  5.0, z: -4.0, seats: 2 },
+      { x: -3.5, z:  1.5, seats: 4 },
+      { x:  0.5, z:  2.0, seats: 2 },
+      { x:  3.5, z:  1.0, seats: 4 },
+      { x: -1.0, z:  5.0, seats: 2 }
     ];
   }
 
@@ -1463,16 +1638,23 @@
     buildCounter(scene);
 
     // Table layouts
-    var layouts = getTableLayouts();
-
-    // If only 1 restaurant, fill the scene with multiple tables for it
+    var layouts = [];
     var expandedData = sceneData;
+
+    // Single-restaurant mode:
+    // use that restaurant's own fixed layout, with deterministic table count
+    // derived from review_count.
     if (sceneData.length === 1) {
-      expandedData = [];
-      for (var ei = 0; ei < Math.min(6, layouts.length); ei++) {
-        expandedData.push(sceneData[0]);
-      }
+      layouts = getTableLayoutsForRestaurant(sceneData[0]);
+      expandedData = layouts.map(function () {
+        return sceneData[0];
+      });
+    } else {
+      // Multi-restaurant overview mode:
+      // keep one shared overview layout so the gallery scene still works.
+      layouts = getOverviewTableLayouts();
     }
+
     var restaurantCount = Math.min(expandedData.length, layouts.length);
 
     // Compute average rating for stars
@@ -1630,6 +1812,171 @@
     return null;
   }
 
+  var RESTAURANT_DISH_IMAGES = {
+    "El Bocado": [
+      "data/dishesImage/ElBocado1.jpg",
+      "data/dishesImage/ElBocado2.jpg"
+    ],
+    "Bleu Sushi": [
+      "data/dishesImage/BleuSushi1.jpg",
+      "data/dishesImage/BleuSushi2.jpg"
+    ],
+    "Penang": [
+      "data/dishesImage/Penang1.jpg",
+      "data/dishesImage/Penang2.jpg"
+    ],
+    "Chifa": [
+      "data/dishesImage/Chifa1.jpg",
+      "data/dishesImage/Chifa2.jpg"
+    ],
+    "Dan Dan": [
+      "data/dishesImage/DanDan1.jpg",
+      "data/dishesImage/DanDan2.jpg"
+    ],
+    "Hardena/Waroeng Surabaya Restaurant": [
+      "data/dishesImage/Hardena1.jpg",
+      "data/dishesImage/Hardena2.jpg"
+    ],
+    "Terakawa Ramen": [
+      "data/dishesImage/Terakawa1.jpg",
+      "data/dishesImage/Terakawa2.jpg"
+    ],
+    "Mom Mom's Kitchen and Polish Food Cart": []
+  };
+
+  var DISH_CARD_INFO = {
+    "data/dishesImage/BleuSushi1.jpg": {
+      title: "Signature Sushi Platter",
+      description: "A colorful assortment of specialty sushi rolls layered with fresh seafood, creamy avocado, and vibrant toppings. Each bite combines delicate rice, umami-rich fish, and bright sauces for a balanced and elegant flavor.",
+      ingredients: ["sushi rice", "nori", "salmon", "tuna", "avocado", "tobiko", "spicy mayo", "soy sauce"]
+    },
+
+    "data/dishesImage/BleuSushi2.jpg": {
+      title: "Avocado Roll",
+      description: "A smooth avocado-topped sushi roll with a creamy texture and subtle sweetness. Finished with sesame and fresh herbs, it delivers a light and refreshing bite.",
+      ingredients: ["sushi rice", "avocado", "nori", "sesame seeds", "cucumber", "spicy tuna filling", "soy sauce"]
+    },
+
+    "data/dishesImage/Chifa1.jpg": {
+      title: "Crispy Fried Wontons",
+      description: "Golden fried wontons with crisp, bubbly wrappers and a savory filling inside. Served with a sweet soy dipping sauce that adds a perfect balance of sweetness and saltiness.",
+      ingredients: ["wonton wrappers", "ground pork", "green onion", "garlic", "soy sauce", "sesame oil", "sweet chili sauce"]
+    },
+
+    "data/dishesImage/Chifa2.jpg": {
+      title: "Orange Chicken Combo",
+      description: "Crispy battered chicken tossed in a glossy sweet-and-spicy sauce. Served alongside fried rice and crunchy wontons for a comforting Chinese-American classic.",
+      ingredients: ["chicken", "cornstarch batter", "orange sauce", "garlic", "soy sauce", "fried rice", "egg", "green onion"]
+    },
+
+    "data/dishesImage/DanDan1.jpg": {
+      title: "Taiwanese Popcorn Chicken",
+      description: "Taiwanese popcorn chicken fried until crispy and tossed with garlic and dried chilies. The dish delivers a bold combination of crunch, spice, and savory umami.",
+      ingredients: ["chicken thigh", "garlic", "dried chili peppers", "soy sauce", "five spice", "scallions", "sesame seeds"]
+    },
+
+    "data/dishesImage/DanDan2.jpg": {
+      title: "Savory Wheat Noodles",
+      description: "Springy wheat noodles tossed in a light savory sauce. A simple yet satisfying dish highlighting the chewy texture of freshly cooked noodles.",
+      ingredients: ["wheat noodles", "soy sauce", "garlic", "sesame oil", "green onion", "vegetable oil"]
+    },
+
+    "data/dishesImage/ElBocado1.jpg": {
+      title: "Peruvian Fried Fish Plate",
+      description: "Crispy fried fish served with seasoned rice and creamy beans. A hearty Peruvian comfort dish finished with fresh lime for brightness.",
+      ingredients: ["whole fish", "rice", "beans", "lime", "garlic", "vegetable oil", "Peruvian spices"]
+    },
+
+    "data/dishesImage/ElBocado2.jpg": {
+      title: "Loaded Nachos",
+      description: "Crunchy tortilla chips layered with beans, cheese, and savory toppings. Served with vibrant sauces that add tangy and spicy flavors to each bite.",
+      ingredients: ["tortilla chips", "black beans", "cheese", "salsa", "green chili sauce", "jalapeno", "tomato"]
+    },
+
+    "data/dishesImage/Hardena1.jpg": {
+      title: "Nasi Campur Plate",
+      description: "A vibrant Indonesian rice plate featuring multiple flavorful side dishes. Rich curries, vegetables, and fried items combine to create a deeply aromatic meal.",
+      ingredients: ["rice", "beef curry", "tofu", "eggplant", "greens", "chili sambal", "spices"]
+    },
+
+    "data/dishesImage/Hardena2.jpg": {
+      title: "Spiced Indonesian Curry Plate",
+      description: "Slow-cooked Indonesian meats coated in a rich, spiced coconut curry sauce. The bold flavors of chili, garlic, and lemongrass create a deeply satisfying dish.",
+      ingredients: ["beef", "chicken", "coconut milk", "lemongrass", "garlic", "chili", "turmeric", "rice"]
+    },
+
+    "data/dishesImage/Penang1.jpg": {
+      title: "Roti with Curry",
+      description: "Flaky Malaysian flatbread served with a warm, fragrant curry dipping sauce. The crispy layers soak up the rich spices for a comforting bite.",
+      ingredients: ["roti prata", "flour", "butter", "curry sauce", "coconut milk", "garlic", "spices"]
+    },
+
+    "data/dishesImage/Penang2.jpg": {
+      title: "Crispy Roti with Curry",
+      description: "A towering crispy flatbread served with a rich, savory curry dipping sauce. The dish combines flaky texture with warm aromatic spices, making it a comforting and interactive Malaysian-style appetizer.",
+      ingredients: ["roti flatbread", "flour", "butter", "curry sauce", "coconut milk", "garlic", "spices"]
+    },
+
+    "data/dishesImage/Terakawa1.jpg": {
+      title: "Braised Pork Bao",
+      description: "Soft steamed bao buns filled with tender braised pork and fresh vegetables. The fluffy bread and savory filling create a perfect balance of texture and flavor.",
+      ingredients: ["bao bun", "braised pork", "cucumber", "cilantro", "soy sauce", "hoisin sauce"]
+    },
+
+    "data/dishesImage/Terakawa2.jpg": {
+      title: "Tonkotsu Ramen",
+      description: "A rich tonkotsu ramen with slow-simmered pork bone broth and springy noodles. Topped with chashu pork, soft egg, and scallions for deep savory flavor.",
+      ingredients: ["ramen noodles", "pork broth", "chashu pork", "soft egg", "scallions", "bamboo shoots", "soy sauce"]
+    }
+  };
+
+  function getDishCardInfoByImage(imagePath, fallbackDishName) {
+    var info = DISH_CARD_INFO[imagePath];
+    if (info) return info;
+
+    return {
+      title: capitalizeDishName(fallbackDishName || "Signature Dish"),
+      description: "A popular dish highlighted from this restaurant's menu. It reflects the flavor and style that make this hidden gem memorable.",
+      ingredients: ["chef special", "house sauce", "seasoning"]
+    };
+  }
+
+  function capitalizeDishName(name) {
+    if (!name) return "Signature Dish";
+    return name
+      .split(" ")
+      .map(function (part) {
+        if (!part) return part;
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      })
+      .join(" ");
+  }
+
+  function getRestaurantWallDishEntries(restaurant) {
+    if (!restaurant) return [];
+
+    var imageList = RESTAURANT_DISH_IMAGES[restaurant.name] || [];
+    var topDishes = restaurant.top_dishes || [];
+    var fallbackCuisineImage = getCuisineImagePath(restaurant.cuisine);
+
+    var entries = [];
+    var totalSlots = 3;
+
+    for (var i = 0; i < totalSlots; i++) {
+      var dishName = topDishes[i] || ("dish " + (i + 1));
+      var imagePath = imageList[i] || imageList[imageList.length - 1] || fallbackCuisineImage;
+
+      entries.push({
+        restaurant: restaurant,
+        dish: dishName,
+        image: imagePath,
+        slotIndex: i
+      });
+    }
+
+    return entries;
+  }
+
   // Helper: build a rating gauge SVG
   function buildRatingGaugeSvg(rating, maxRating) {
     maxRating = maxRating || 5;
@@ -1726,8 +2073,6 @@
           '<div class="iso-info-stat-label">Gem Rank</div>' +
           '</div>' +
           '</div>';
-        // Rating gauge figure
-        html += buildRatingGaugeSvg(r.stars);
         html += '<div class="iso-info-rank">' +
           '<svg width="16" height="16" viewBox="0 0 16 16" style="vertical-align:-3px; margin-right:4px;"><polygon points="8,1 10,6 16,6.5 11.5,10.5 12.9,16 8,13 3.1,16 4.5,10.5 0,6.5 6,6" fill="#e8a838"/></svg>' +
           'Score: <strong>' + r.gem_score.toFixed(2) + '</strong>' +
@@ -1746,32 +2091,53 @@
       case "food":
         var dish = data.dish || "specialty";
         var rest = data.restaurant;
-        var foodImgPath = rest ? getCuisineImagePath(rest.cuisine) : null;
-        var foodThemeColor = rest ? (CUISINE_THEME_COLORS[rest.cuisine] || "#e8a838") : "#e8a838";
+        var dishIndex = data.dishIndex || 0;
+
+        // Look up actual dish photo from restaurant's image list
+        var dishImageList = rest ? (RESTAURANT_DISH_IMAGES[rest.name] || []) : [];
+        var dishImagePath = dishImageList.length > 0
+          ? dishImageList[dishIndex % dishImageList.length]
+          : null;
+        // Fall back to cuisine category image
+        if (!dishImagePath && rest) {
+          dishImagePath = getCuisineImagePath(rest.cuisine);
+        }
+
+        var dishCardInfo = getDishCardInfoByImage(dishImagePath, dish);
 
         html = '<div class="iso-info-card">';
-        // Cuisine image header for dish context
-        if (foodImgPath) {
-          html += '<div class="iso-info-image"><img src="' + foodImgPath + '" alt="' + (rest ? rest.cuisine : '') + ' cuisine"/></div>';
+        // Dish photo header
+        if (dishImagePath) {
+          html += '<div class="iso-info-image"><img src="' + dishImagePath + '" alt="' + dishCardInfo.title + '"/></div>';
         }
         html += '<div class="iso-info-tag" style="background:#e67e22;">Popular Dish</div>' +
-          '<h3 class="iso-info-name">' + dish.charAt(0).toUpperCase() + dish.slice(1) + '</h3>' +
+          '<h3 class="iso-info-name">' + dishCardInfo.title + '</h3>' +
           '<div class="iso-info-meta">' +
           'Served at <strong>' + (rest ? rest.name : "this restaurant") + '</strong>' +
           (rest ? ' &middot; <span style="color:#e8a838;">\u2605 ' + rest.stars + '</span>' : '') +
           '</div>';
-        // Dish plate illustration SVG
-        html += buildDishSvg(dish, foodThemeColor);
+        // Dish description
+        html += '<div class="iso-info-divider"></div>' +
+          '<div class="iso-info-meta" style="font-size:0.88rem; line-height:1.7;">' +
+          dishCardInfo.description +
+          '</div>';
+        // Ingredients
+        if (dishCardInfo.ingredients && dishCardInfo.ingredients.length > 0) {
+          html += '<div class="iso-info-divider"></div>' +
+            '<div class="iso-info-dishes">' +
+            '<strong>Ingredients:</strong><br/>' +
+            dishCardInfo.ingredients.map(function (item) {
+              return '<span class="iso-pill">' + item + '</span>';
+            }).join('') +
+            '</div>';
+        }
+        // Menu highlights
         if (rest && rest.top_dishes) {
           html += '<div class="iso-info-divider"></div>' +
             '<div class="iso-info-dishes">' +
-            '<strong>Full menu highlights:</strong><br/>' +
-            rest.top_dishes.map(function (d, i) {
-              return '<span style="display:inline-block; padding:3px 10px; margin:3px 3px 0 0; background:' +
-                (d === dish ? 'rgba(232,168,56,0.15)' : '#f0ebe3') +
-                '; border-radius:12px; font-size:0.78rem;' +
-                (d === dish ? ' font-weight:700; border:1px solid #e8a838;' : '') +
-                '">' + d + '</span>';
+            '<strong>Menu highlights:</strong><br/>' +
+            rest.top_dishes.map(function (d) {
+              return '<span class="iso-pill' + (d === dish ? ' iso-pill--active' : '') + '">' + d + '</span>';
             }).join('') +
             '</div>';
         }
@@ -1799,49 +2165,62 @@
           '<h3 class="iso-info-name">Dining at ' + restName + '</h3>' +
           '<div class="iso-info-stars">' + reviewStars + ' <span class="iso-rating-num">' + rating + '</span></div>' +
           '<div style="display:inline-block; padding:2px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; background:' + sentimentColor + '20; color:' + sentimentColor + '; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">' + sentimentLabel + '</div>';
-        // Rating gauge for review
-        html += buildRatingGaugeSvg(rating);
         html += '<div class="iso-info-quote">' + review + '</div>' +
           '</div>';
         break;
 
       case "wall_decoration":
-        var cuisine = data.cuisine;
-        var cd = data.cuisineData;
-        var wallTagColor = CUISINE_THEME_COLORS[cuisine] || "#5b8cbe";
-        var wallImgPath = getCuisineImagePath(cuisine);
+        var wallRestaurant = data.restaurant;
+        var wallDish = data.dish || "signature dish";
+        var wallDishImage = data.image || null;
+        var cardInfo = getDishCardInfoByImage(wallDishImage, wallDish);
 
         html = '<div class="iso-info-card">';
-        if (wallImgPath) {
-          html += '<div class="iso-info-image"><img src="' + wallImgPath + '" alt="' + cuisine + ' cuisine"/></div>';
+
+        if (wallDishImage) {
+          html += '<div class="iso-info-image"><img src="' + wallDishImage + '" alt="' + cardInfo.title + '"/></div>';
         }
-        html += '<div class="iso-info-tag" style="background:' + wallTagColor + ';">Cuisine Spotlight</div>' +
-          '<h3 class="iso-info-name">' + cuisine + '</h3>';
-        // Culture pattern figure
-        html += buildCulturePatternSvg(cuisine, wallTagColor);
-        if (cd) {
-          html += '<div class="iso-info-stats-grid">' +
-            '<div class="iso-info-stat-box">' +
-            '<div class="iso-info-stat-value">' + (cd.count || "N/A") + '</div>' +
-            '<div class="iso-info-stat-label">Restaurants</div>' +
-            '</div>' +
-            '<div class="iso-info-stat-box">' +
-            '<div class="iso-info-stat-value" style="color:#e8a838;">\u2605 ' + (cd.avg_rating || "N/A") + '</div>' +
-            '<div class="iso-info-stat-label">Avg Rating</div>' +
-            '</div>' +
+
+        html += '<div class="iso-info-tag" style="background:#e67e22;">Popular Dish</div>' +
+            '<h3 class="iso-info-name">' + cardInfo.title + '</h3>' +
+            '<div class="iso-info-meta">' +
+            'Served at <strong>' + (wallRestaurant ? wallRestaurant.name : 'this restaurant') + '</strong>' +
+            (wallRestaurant ? ' &middot; <span style="color:#e8a838;">\u2605 ' + wallRestaurant.stars + '</span>' : '') +
             '</div>';
-          if (cd.gem_score !== undefined) {
-            var gs = cd.gem_score;
-            var gsColor = gs >= 0.55 ? "#3a8c5c" : gs >= 0.45 ? "#e8a838" : "#7a6e5f";
-            html += buildRatingGaugeSvg(cd.avg_rating || 0);
-            html += '<div class="iso-info-rank" style="border-left-color:' + gsColor + ';">' +
-              'Gem Score: <strong style="color:' + gsColor + ';">' + gs.toFixed(2) + '</strong>' +
-              (gs >= 0.55 ? ' &middot; <span style="color:#3a8c5c; font-weight:700;">\u2666 Hidden Gem</span>' : '') +
+
+        // Intro of Dishes
+        html += '<div class="iso-info-divider"></div>' +
+            '<div class="iso-info-meta" style="font-size:0.9rem; line-height:1.7;">' +
+            cardInfo.description +
+            '</div>';
+
+        // ingredients bubbles
+        if (cardInfo.ingredients && cardInfo.ingredients.length > 0) {
+          html += '<div class="iso-info-divider"></div>' +
+              '<div class="iso-info-dishes">' +
+              '<strong>Ingredients:</strong><br/>' +
+              cardInfo.ingredients.map(function (item) {
+                return '<span class="iso-pill">' + item + '</span>';
+              }).join('') +
               '</div>';
-          }
-        } else {
-          html += '<div class="iso-info-meta">A celebrated culinary tradition represented in Philadelphia\'s vibrant food scene.</div>';
         }
+
+        // Keep menu highlights
+        // if (wallRestaurant && wallRestaurant.top_dishes && wallRestaurant.top_dishes.length > 0) {
+        //   html += '<div class="iso-info-divider"></div>' +
+        //       '<div class="iso-info-dishes">' +
+        //       '<strong>Full menu highlights:</strong><br/>' +
+        //       wallRestaurant.top_dishes.map(function (d) {
+        //         var isMain = d === wallDish;
+        //         return '<span style="display:inline-block; padding:3px 10px; margin:3px 3px 0 0; background:' +
+        //             (isMain ? 'rgba(232,168,56,0.15)' : '#f0ebe3') +
+        //             '; border-radius:12px; font-size:0.78rem;' +
+        //             (isMain ? ' font-weight:700; border:1px solid #e8a838;' : '') +
+        //             '">' + d + '</span>';
+        //       }).join('') +
+        //       '</div>';
+        // }
+
         html += '</div>';
         break;
 
@@ -1872,12 +2251,14 @@
 
       galleryHtml += '<div class="iso-gallery-card" data-cuisine="' + d.cuisine + '">' +
         '<div class="iso-gallery-img">' +
-        (img ? '<img src="' + img + '" alt="' + d.cuisine + '" />' : '') +
+        (img ? '<img src="' + img + '" alt="" />' : '') +
         '</div>' +
         '<div class="iso-gallery-details">' +
         '<div class="iso-gallery-name">' + d.name + '</div>' +
-        '<div class="iso-gallery-cuisine" style="color:' + color + ';">' + d.cuisine + '</div>' +
-        '<div class="iso-gallery-stars">' + starsStr + ' ' + d.stars + '</div>' +
+        '<div class="iso-gallery-meta-row">' +
+        '<span class="iso-gallery-cuisine" style="color:' + color + ';">' + d.cuisine + '</span>' +
+        '<span class="iso-gallery-stars">' + starsStr + ' ' + d.stars + '</span>' +
+        '</div>' +
         '</div>' +
         '</div>';
     });
@@ -1890,8 +2271,9 @@
       '<path d="M9 22V12h6v10" stroke="#e8a838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
       '</svg> ' +
       '<span>Hidden Gems</span>' +
+      ' <span style="font-size:0.7rem; opacity:0.5; font-weight:400;">' + sceneData.length + ' restaurants</span>' +
       '</div>' +
-      '<p class="iso-gallery-intro">Pick a restaurant to step into its unique 3D interior.</p>' +
+      '<p class="iso-gallery-intro">Pick a restaurant to step into its unique 3D interior. Scroll to see all.</p>' +
       '<div class="iso-gallery-grid">' + galleryHtml + '</div>' +
       '</div>';
 

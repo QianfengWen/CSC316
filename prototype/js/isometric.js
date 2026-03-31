@@ -1761,6 +1761,7 @@
           var interactive = getInteractiveParent(hit);
           if (interactive) {
             handleInteraction(interactive.userData.interactiveType, interactive.userData.interactiveData, infoPanel);
+            document.dispatchEvent(new CustomEvent("iso:interaction"));
             return;
           }
         }

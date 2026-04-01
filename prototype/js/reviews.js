@@ -339,6 +339,16 @@
   function renderWordCloud(container, words) {
     container.html("");
 
+    // Add drag hint
+    var containerNode = container.node();
+    var existingHint = containerNode.querySelector('.wc-drag-hint');
+    if (!existingHint) {
+      var hint = document.createElement('div');
+      hint.className = 'wc-drag-hint';
+      hint.textContent = '\u2194 Drag to explore';
+      containerNode.appendChild(hint);
+    }
+
     if (!words || words.length === 0) {
       container.append("p")
         .style("color", COLORS.muted)
@@ -500,6 +510,61 @@
         .style("font-size", d.fontSize + "px")
         .style("opacity", 0.9);
     });
+
+    // ── Drag-to-pan ──
+    var svgNode = svg.node();
+    var vb = { x: 0, y: 0, w: width, h: height };
+    var dragState = { active: false, startX: 0, startY: 0, startVBx: 0, startVBy: 0 };
+
+    function updateViewBox() {
+      svgNode.setAttribute("viewBox", vb.x + " " + vb.y + " " + vb.w + " " + vb.h);
+    }
+
+    function onPointerDown(e) {
+      if (e.button && e.button !== 0) return;
+      dragState.active = true;
+      dragState.startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+      dragState.startY = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+      dragState.startVBx = vb.x;
+      dragState.startVBy = vb.y;
+      svgNode.classList.add("wc-dragging");
+      e.preventDefault();
+    }
+
+    function onPointerMove(e) {
+      if (!dragState.active) return;
+      var cx = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+      var cy = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+      var rect = svgNode.getBoundingClientRect();
+      var scaleX = vb.w / rect.width;
+      var scaleY = vb.h / rect.height;
+      var dx = (dragState.startX - cx) * scaleX;
+      var dy = (dragState.startY - cy) * scaleY;
+      // Bound: keep at least 50% of content visible
+      var maxPan = width * 0.4;
+      vb.x = clamp(dragState.startVBx + dx, -maxPan, maxPan);
+      vb.y = clamp(dragState.startVBy + dy, -maxPan, maxPan);
+      updateViewBox();
+      e.preventDefault();
+
+      // Hide hint on first drag
+      var hint = containerNode.querySelector('.wc-drag-hint');
+      if (hint && !hint.classList.contains('hidden')) {
+        hint.classList.add('hidden');
+      }
+    }
+
+    function onPointerUp() {
+      dragState.active = false;
+      svgNode.classList.remove("wc-dragging");
+    }
+
+    svgNode.addEventListener("mousedown", onPointerDown);
+    svgNode.addEventListener("touchstart", onPointerDown, { passive: false });
+    window.addEventListener("mousemove", onPointerMove);
+    window.addEventListener("touchmove", onPointerMove, { passive: false });
+    window.addEventListener("mouseup", onPointerUp);
+    window.addEventListener("touchend", onPointerUp);
 
     // Add count tooltip on hover
     texts.append("title")

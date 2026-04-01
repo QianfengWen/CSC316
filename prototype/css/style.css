@@ -1325,6 +1325,32 @@ footer a {
   justify-content: center;
 }
 
+.word-cloud-box svg {
+  cursor: grab;
+}
+
+.word-cloud-box svg.wc-dragging {
+  cursor: grabbing;
+}
+
+.wc-drag-hint {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.65rem;
+  color: #8a7a60;
+  background: rgba(250,246,240,0.9);
+  padding: 2px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+}
+
+.wc-drag-hint.hidden {
+  opacity: 0;
+}
+
 .review-carousel-box {
   position: relative;
   min-height: 260px;

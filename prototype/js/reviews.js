@@ -96,18 +96,17 @@
     banner.className = "detective-banner";
     banner.innerHTML =
       '<div class="detective-banner-left">' +
-        '<span class="detective-banner-icon">\uD83D\uDD75\uFE0F</span>' +
+        '<span class="detective-banner-icon">\uD83D\uDD0D</span>' +
         '<div class="detective-banner-copy">' +
-          '<div class="detective-banner-title">Sentiment Detective <span class="detective-difficulty-tag">5 rounds</span></div>' +
-          '<div class="detective-banner-desc">Sentiment algorithms read emotion better than most humans \u2014 <strong>or do they?</strong> Read a real review and guess the vibe before the data reveals it.</div>' +
+          '<div class="detective-banner-title">Sentiment Detective <span class="detective-difficulty-tag">5 cases</span></div>' +
+          '<div class="detective-banner-desc">Can you read between the lines? Guess the sentiment before the data reveals it.</div>' +
           '<div class="detective-banner-stat">\uD83D\uDCC8 Most players score under 70% \u2014 where do you rank?</div>' +
         '</div>' +
       '</div>' +
       '<label class="detective-start-label">' +
         '<input type="checkbox" id="detective-toggle-input" style="display:none">' +
         '<span class="detective-start-btn" id="detective-start-btn-text">' +
-          '<span class="dsb-main">\uD83D\uDD0D Test Your Instincts</span>' +
-          '<span class="dsb-sub">Can you beat 70%? \u2192</span>' +
+          '<span class="dsb-main">Play \u2192</span>' +
         '</span>' +
       '</label>';
 
@@ -122,7 +121,7 @@
         startDetectiveRound();
       } else {
         banner.classList.remove("detective-banner-active");
-        if (btn) btn.innerHTML = '<span class="dsb-main">\uD83D\uDD0D Test Your Instincts</span><span class="dsb-sub">Can you beat 70%? \u2192</span>';
+        if (btn) btn.innerHTML = '<span class="dsb-main">Play \u2192</span>';
         exitDetectiveMode();
       }
     });
@@ -154,7 +153,7 @@
     var tog = document.getElementById("detective-toggle-input");
     if (tog) tog.checked = false;
     var btn = document.getElementById("detective-start-btn-text");
-    if (btn) btn.innerHTML = '<span class="dsb-main">\uD83D\uDD0D Test Your Instincts</span><span class="dsb-sub">Can you beat 70%? \u2192</span>';
+    if (btn) btn.innerHTML = '<span class="dsb-main">Play \u2192</span>';
     var banner = document.querySelector(".detective-banner");
     if (banner) banner.classList.remove("detective-banner-active");
 

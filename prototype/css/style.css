@@ -1501,6 +1501,260 @@ footer a {
   color: #fff;
 }
 
+/* ---------- Terrain Section — Polished Redesign ---------- */
+
+.terrain-intro-text {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.terrain-intro-text em {
+  color: var(--accent-gold);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.terrain-viz-container {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  border: 1px solid rgba(122, 110, 95, 0.12);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+}
+
+.terrain-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.terrain-header-text .viz-title {
+  margin-bottom: 2px;
+}
+
+.terrain-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.terrain-cuisine-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 8px 32px 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(122, 110, 95, 0.25);
+  background: var(--bg-section) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a6e5f'/%3E%3C/svg%3E") no-repeat right 12px center;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-width: 180px;
+}
+.terrain-cuisine-dropdown:hover {
+  border-color: var(--accent-gold);
+}
+.terrain-cuisine-dropdown:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(232, 168, 56, 0.15);
+}
+
+.terrain-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  border: 1px solid rgba(122, 110, 95, 0.25);
+  border-radius: 8px;
+  background: var(--bg-section);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.terrain-reset-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--text-main);
+  background: #fff;
+}
+
+/* Legend bar */
+.terrain-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(58,140,92,0.05) 0%, rgba(232,168,56,0.07) 50%, rgba(212,80,58,0.05) 100%);
+  border: 1px solid rgba(122, 110, 95, 0.10);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.terrain-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.terrain-legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.terrain-swatch-height {
+  background: linear-gradient(180deg, #d4503a 0%, #e8a838 40%, #3a8c5c 100%);
+  border-radius: 4px 4px 2px 2px;
+  clip-path: polygon(20% 100%, 50% 0%, 80% 100%);
+  width: 16px;
+  height: 18px;
+}
+.terrain-swatch-gradient {
+  width: 40px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #3a8c5c 0%, #e8a838 50%, #d4503a 100%);
+}
+.terrain-swatch-peak {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f0c040 40%, rgba(240,192,64,0.3) 100%);
+  box-shadow: 0 0 6px rgba(240,192,64,0.5);
+}
+.legend-arrow {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* Canvas wrapper */
+.terrain-canvas-wrapper {
+  position: relative;
+  background: #f5f0e6;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(180, 165, 140, 0.18);
+  box-shadow: 0 4px 24px rgba(120, 100, 70, 0.08), 0 1px 3px rgba(0,0,0,0.04);
+}
+.terrain-canvas-wrapper canvas {
+  width: 100% !important;
+  height: 480px !important;
+  display: block;
+}
+
+/* Compass labels */
+.terrain-axis-label {
+  position: absolute;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(122, 110, 95, 0.45);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.terrain-axis-north { top: 10px; left: 50%; transform: translateX(-50%); }
+.terrain-axis-south { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.terrain-axis-east  { right: 12px; top: 50%; transform: translateY(-50%); }
+.terrain-axis-west  { left: 12px; top: 50%; transform: translateY(-50%); }
+
+/* Tooltip */
+.three-tooltip {
+  position: absolute;
+  background: rgba(26, 20, 16, 0.94);
+  color: #faf6f0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 20;
+  max-width: 260px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(232, 168, 56, 0.25);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.15s;
+  line-height: 1.5;
+}
+.three-tooltip.visible {
+  opacity: 1;
+}
+#terrain-tooltip {
+  display: none;
+}
+
+/* Insight strip below the terrain */
+.terrain-insight-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+.terrain-insight-card {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--bg-section);
+  border: 1px solid rgba(122, 110, 95, 0.10);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.terrain-insight-card strong {
+  color: var(--text-main);
+}
+.terrain-insight-icon {
+  font-size: 1.1rem;
+  color: var(--accent-red);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Neighborhood labels projected from 3D */
+.terrain-hood-label {
+  position: absolute;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(44, 36, 24, 0.58);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: rgba(250, 246, 240, 0.72);
+  padding: 2px 8px;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  z-index: 5;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(200, 194, 184, 0.35);
+}
+
+/* Tooltip inner typography */
+.tt-lbl {
+  opacity: 0.5;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.tt-val {
+  font-size: 1rem;
+}
+
+/* Hide compass labels (map texture provides orientation) */
+.terrain-axis-label { display: none; }
+
+/* Three.js container legacy compat */
 .three-container {
   position: relative;
   width: 100%;
@@ -1508,98 +1762,11 @@ footer a {
   overflow: hidden;
   margin-top: 16px;
 }
-
 .three-container canvas {
   width: 100% !important;
   height: 450px !important;
   display: block;
   border-radius: 12px;
-}
-
-.terrain-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, rgba(58, 140, 92, 0.08) 0%, rgba(232, 168, 56, 0.08) 100%);
-  border: 1px solid rgba(122, 110, 95, 0.18);
-}
-
-.terrain-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-bottom: 14px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.terrain-legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.terrain-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-.terrain-dot-height {
-  background: linear-gradient(180deg, #f4e4bf 0%, #b1773e 100%);
-}
-
-.terrain-dot-density {
-  background: linear-gradient(90deg, #3a8c5c 0%, #e8a838 55%, #d4503a 100%);
-}
-
-.terrain-dot-hotspot {
-  background: #f0c040;
-  box-shadow: 0 0 8px rgba(240, 192, 64, 0.7);
-}
-
-#terrain-3d-wrapper {
-  background-color: #faf6f0;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
-}
-
-#terrain-3d-wrapper canvas {
-  height: 460px !important;
-}
-
-#terrain-tooltip {
-  display: none;
-  min-width: 180px;
-  border: 1px solid rgba(232, 168, 56, 0.35);
-  background: rgba(26, 20, 16, 0.92);
-}
-
-.three-tooltip {
-  position: absolute;
-  background: var(--bg-dark);
-  color: #faf6f0;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  pointer-events: none;
-  opacity: 0;
-  z-index: 20;
-  max-width: 240px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.15s;
-}
-
-.three-tooltip.visible {
-  opacity: 1;
 }
 
 /* ---------- Isometric Restaurant Scene ---------- */
@@ -2937,7 +3104,7 @@ footer a {
 
 
 /* ============================================================
-   DISCOVERABILITY — DETECTIVE BANNER
+   DETECTIVE BANNER
    ============================================================ */
 
 .detective-banner {
@@ -2946,16 +3113,18 @@ footer a {
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  background: linear-gradient(135deg, rgba(91, 140, 190, 0.08) 0%, rgba(58, 140, 92, 0.05) 100%);
-  border: 1.5px solid rgba(91, 140, 190, 0.25);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #faf6f0, #f0ebe0);
+  border: 1.5px solid #d4c9b0;
+  border-radius: 12px;
   margin-bottom: 16px;
-  transition: border-color 0.3s, background 0.3s;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .detective-banner.detective-banner-active {
-  border-color: #5b8cbe;
-  background: linear-gradient(135deg, rgba(91, 140, 190, 0.14) 0%, rgba(58, 140, 92, 0.08) 100%);
+  border-color: #e8a838;
+  background: linear-gradient(135deg, #faf6f0, #f5ede0);
+  box-shadow: 0 2px 12px rgba(232,168,56,0.12);
 }
 
 .detective-banner-left {
@@ -2967,7 +3136,14 @@ footer a {
 }
 
 .detective-banner-icon {
-  font-size: 1.8rem;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #e8a838, #d4503a);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
 
@@ -2979,14 +3155,14 @@ footer a {
 .detective-banner-title {
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin-bottom: 3px;
+  font-weight: 700;
+  color: #2c2418;
+  margin-bottom: 2px;
 }
 
 .detective-banner-desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: #6a5d4d;
   line-height: 1.5;
 }
 
@@ -2994,8 +3170,8 @@ footer a {
   display: inline-block;
   padding: 1px 8px;
   border-radius: 8px;
-  background: rgba(91, 140, 190, 0.15);
-  color: #5b8cbe;
+  background: rgba(232,168,56,0.15);
+  color: #b8860b;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -3006,9 +3182,9 @@ footer a {
 
 .detective-banner-stat {
   font-size: 0.75rem;
-  color: #5b8cbe;
+  color: #8a7a60;
   font-weight: 600;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .detective-start-label {
@@ -3016,43 +3192,37 @@ footer a {
   cursor: pointer;
 }
 
-@keyframes detectivePulse {
-  0%, 100% { box-shadow: 0 4px 14px rgba(91, 140, 190, 0.35); }
-  50%       { box-shadow: 0 4px 28px rgba(91, 140, 190, 0.7), 0 0 0 6px rgba(91, 140, 190, 0.12); }
-}
-
 .detective-start-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 13px 22px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #5b8cbe 0%, #3a6fa0 100%);
-  color: #fff;
+  gap: 2px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  background: #2c2418;
+  color: #faf6f0;
   font-family: inherit;
   white-space: nowrap;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   user-select: none;
-  animation: detectivePulse 2s ease-in-out infinite;
 }
 
 .detective-start-label:hover .detective-start-btn {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(91, 140, 190, 0.5);
-  animation: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(44,36,24,0.25);
+  background: #3d3020;
 }
 
 .dsb-main {
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.2px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .dsb-sub {
-  font-size: 0.7rem;
-  font-weight: 600;
-  opacity: 0.85;
+  font-size: 0.68rem;
+  font-weight: 500;
+  opacity: 0.7;
   letter-spacing: 0.3px;
 }
 
@@ -3656,8 +3826,32 @@ footer a {
     height: 280px !important;
   }
 
-  #terrain-3d-wrapper canvas {
+  #terrain-3d-wrapper canvas,
+  .terrain-canvas-wrapper canvas {
     height: 300px !important;
+  }
+
+  .terrain-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .terrain-insight-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .terrain-legend-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .terrain-cuisine-dropdown {
+    min-width: 140px;
+  }
+
+  .terrain-hood-label {
+    font-size: 0.5rem;
+    padding: 1px 5px;
   }
 
   .isometric-canvas-wrapper canvas {

@@ -1751,19 +1751,20 @@ footer a {
 .terrain-hood-label {
   position: absolute;
   font-size: 0.6rem;
-  font-weight: 700;
-  color: rgba(44, 36, 24, 0.58);
+  font-weight: 600;
+  color: #6a5d4d;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  background: rgba(250, 246, 240, 0.72);
+  letter-spacing: 0.12em;
+  font-variant: small-caps;
+  background: rgba(250, 246, 240, 0.55);
   padding: 2px 8px;
   border-radius: 4px;
   transform: translate(-50%, -50%);
   white-space: nowrap;
   z-index: 5;
   pointer-events: none;
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(200, 194, 184, 0.35);
+  backdrop-filter: blur(1px);
+  border: 1px solid rgba(200, 194, 184, 0.2);
 }
 
 /* Tooltip inner typography */

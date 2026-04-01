@@ -112,7 +112,7 @@
     ctx.putImageData(imageData, 0, 0);
 
     // 3. Build smoothed density field from grid
-    var field = smoothDensityField(grid, maxCount, SIZE);
+    var field = smoothDensityField(grid, maxCount);
 
     // 4. Zone coloring — soft radial fills based on density
     for (var gx = 0; gx < GRID_RES; gx++) {
@@ -382,7 +382,12 @@
       state.groundPlane.material.dispose();
     }
     if (state.groundBorder) {
-      state.scene.remove(state.groundBorder);
+      var borders = Array.isArray(state.groundBorder) ? state.groundBorder : [state.groundBorder];
+      borders.forEach(function(b) {
+        state.scene.remove(b);
+        if (b.geometry) b.geometry.dispose();
+        if (b.material) b.material.dispose();
+      });
     }
 
     var geo = new THREE.PlaneGeometry(GEO_SIZE, GEO_SIZE);
@@ -420,7 +425,7 @@
     shadow2.position.y = -0.1;
     state.scene.add(shadow2);
 
-    state.groundBorder = shadow; // track for cleanup
+    state.groundBorder = [shadow, shadow2]; // track for cleanup
   }
 
   /* ── Columns ────────────────────────────────────────── */

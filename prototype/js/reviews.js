@@ -337,6 +337,9 @@
    * @param {Array}        words      Array of {word, count} objects (max 30)
    */
   function renderWordCloud(container, words) {
+    // Clean up previous drag listeners
+    if (container._wcCleanup) container._wcCleanup();
+
     container.html("");
 
     // Add drag hint
@@ -541,9 +544,10 @@
       var dx = (dragState.startX - cx) * scaleX;
       var dy = (dragState.startY - cy) * scaleY;
       // Bound: keep at least 50% of content visible
-      var maxPan = width * 0.4;
-      vb.x = clamp(dragState.startVBx + dx, -maxPan, maxPan);
-      vb.y = clamp(dragState.startVBy + dy, -maxPan, maxPan);
+      var maxPanX = width * 0.4;
+      var maxPanY = height * 0.4;
+      vb.x = clamp(dragState.startVBx + dx, -maxPanX, maxPanX);
+      vb.y = clamp(dragState.startVBy + dy, -maxPanY, maxPanY);
       updateViewBox();
       e.preventDefault();
 
@@ -565,6 +569,14 @@
     window.addEventListener("touchmove", onPointerMove, { passive: false });
     window.addEventListener("mouseup", onPointerUp);
     window.addEventListener("touchend", onPointerUp);
+
+    // Store cleanup function for next render
+    container._wcCleanup = function() {
+      window.removeEventListener("mousemove", onPointerMove);
+      window.removeEventListener("touchmove", onPointerMove);
+      window.removeEventListener("mouseup", onPointerUp);
+      window.removeEventListener("touchend", onPointerUp);
+    };
 
     // Add count tooltip on hover
     texts.append("title")

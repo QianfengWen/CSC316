@@ -125,9 +125,9 @@
         var radius = SIZE / GRID_RES * 2.5 * Math.max(0.5, Math.sqrt(ratio));
 
         var zoneColor;
-        if (ratio > 0.55)     zoneColor = "rgba(212,80,58,0.12)";
-        else if (ratio > 0.2) zoneColor = "rgba(232,168,56,0.10)";
-        else                  zoneColor = "rgba(39,174,96,0.08)";
+        if (ratio > 0.55)     zoneColor = "rgba(212,80,58,0.30)";
+        else if (ratio > 0.2) zoneColor = "rgba(232,168,56,0.25)";
+        else                  zoneColor = "rgba(39,174,96,0.20)";
 
         var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
         grad.addColorStop(0, zoneColor);
@@ -142,7 +142,7 @@
 
     // 6. Vignette
     var vcx = SIZE / 2, vcy = SIZE / 2;
-    var innerR = SIZE * 0.32, outerR = SIZE * 0.52;
+    var innerR = SIZE * 0.42, outerR = SIZE * 0.58;
     var vig = ctx.createRadialGradient(vcx, vcy, innerR, vcx, vcy, outerR);
     vig.addColorStop(0, "rgba(245,240,230,0)");
     vig.addColorStop(0.7, "rgba(245,240,230,0.25)");
@@ -225,7 +225,7 @@
 
   function drawContourLines(ctx, field, size) {
     var thresholds = [0.08, 0.18, 0.35, 0.55];
-    var lineWidths = [0.6, 0.8, 1.0, 1.2];
+    var lineWidths = [1.0, 1.4, 1.8, 2.2];
     var step = 4;
 
     var gridW = Math.floor(size / step);
@@ -242,7 +242,7 @@
       samples.push(srow);
     }
 
-    ctx.strokeStyle = "rgba(138,122,96,0.22)";
+    ctx.strokeStyle = "rgba(120,100,70,0.45)";
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
 
@@ -307,7 +307,7 @@
 
     var scene = new THREE.Scene();
     scene.background = new THREE.Color("#f5f0e6");
-    scene.fog = new THREE.FogExp2("#f5f0e6", 0.0035);
+    scene.fog = new THREE.FogExp2("#f5f0e6", 0.002);
 
     var d = 52;
     var camera = new THREE.OrthographicCamera(-d * asp, d * asp, d, -d, 1, 1000);

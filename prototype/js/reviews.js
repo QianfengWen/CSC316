@@ -285,16 +285,16 @@
     container.html("");
 
     var pct   = detectiveState.total > 0 ? Math.round(detectiveState.correct / detectiveState.total * 100) : 0;
-    var grade = pct >= 80 ? "\uD83D\uDD2C Expert Analyst" :
-                pct >= 60 ? "\uD83D\uDD75 Sharp Detective" :
-                pct >= 40 ? "\uD83D\uDCCB Trainee Analyst" :
-                            "\uD83C\uDF93 Still Learning";
+    var grade = pct >= 80 ? "Expert Analyst" :
+                pct >= 60 ? "Sharp Detective" :
+                pct >= 40 ? "Trainee Analyst" :
+                            "Still Learning";
 
     var wrap = container.append("div").attr("class", "detective-summary");
     wrap.append("div").attr("class", "summary-title").text("CASE CLOSED");
     wrap.append("div").attr("class", "summary-grade").text(grade);
     wrap.append("div").attr("class", "summary-score-text")
-      .html("You got <strong>" + detectiveState.correct + " / " + detectiveState.total + "</strong> correct (" + pct + "%)");
+      .text(detectiveState.correct + " / " + detectiveState.total);
 
     var meter = wrap.append("div").attr("class", "summary-meter-row");
     meter.append("div").attr("class", "summary-meter-track")

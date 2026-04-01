@@ -534,8 +534,39 @@
     window.__CUISINE_BADGE_COLORS = CUISINE_BADGE_COLORS;
     window.__isoSceneData = sceneData;
 
-    // Hint bar auto-fade after 6 seconds of section visibility
+    // Tips + hint behavior
     var hintEl = document.getElementById("isometric-hint");
+    var onboardingEl = document.getElementById("iso-onboarding");
+    var startExploringBtn = document.getElementById("iso-start-exploring");
+    var showTipsBtn = document.getElementById("iso-show-tips");
+
+    function hideIsoTips() {
+      if (onboardingEl) onboardingEl.classList.add("hidden");
+      if (hintEl) hintEl.classList.remove("faded");
+      window.__isoTipsDismissed = true;
+      setTimeout(function () {
+        if (hintEl) hintEl.classList.add("faded");
+      }, 5000);
+    }
+
+    function showIsoTips() {
+      if (onboardingEl) onboardingEl.classList.remove("hidden");
+      if (hintEl) hintEl.classList.remove("faded");
+      window.__isoTipsDismissed = false;
+    }
+
+    if (startExploringBtn) {
+      startExploringBtn.addEventListener("click", hideIsoTips);
+    }
+    if (showTipsBtn) {
+      showTipsBtn.addEventListener("click", showIsoTips);
+    }
+
+    document.addEventListener("iso:interaction", function () {
+      if (!window.__isoTipsDismissed) {
+        hideIsoTips();
+      }
+    });
 
     // Wait for Three.js to load, then initialize
     var checkThree = setInterval(function () {
@@ -550,9 +581,9 @@
                 try {
                   window.IsometricModule.init(canvas, sceneData);
 
-                  // Phase 2: Auto-select the #1 gem restaurant on first load
+                  // Keep the original working scene behavior: load the top gem first
                   if (select && sceneData.length > 0) {
-                    var topGem = sceneData[0]; // El Bocado (gem_rank #1)
+                    var topGem = sceneData[0];
                     for (var i = 0; i < select.options.length; i++) {
                       if (select.options[i].value === topGem.cuisine) {
                         select.selectedIndex = i;
@@ -562,11 +593,10 @@
                     }
                   }
 
-                  // Phase 5: Fade hint after 6 seconds
-                  if (hintEl) {
-                    setTimeout(function () {
-                      hintEl.classList.add("faded");
-                    }, 6000);
+                  // Show onboarding on first view while the restaurant is already visible underneath
+                  if (onboardingEl) {
+                    onboardingEl.classList.remove("hidden");
+                    window.__isoTipsDismissed = false;
                   }
                 } catch (e) {
                   console.warn("Isometric scene init error:", e);

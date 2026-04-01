@@ -626,8 +626,28 @@
               <p>3D scene requires a larger screen. Here are the top hidden gem restaurants:</p>
               <div id="isometric-fallback-content"></div>
             </div>
+            <button class="iso-tips-button" id="iso-show-tips" type="button">Show tips</button>
             <canvas id="isometric-canvas"></canvas>
-            <div class="isometric-hint" id="isometric-hint">Click on tables, customers, and food to explore data</div>
+            <div class="iso-onboarding" id="iso-onboarding">
+              <div class="iso-callout iso-callout-left">
+                <div class="iso-callout-icon">↔</div>
+                <div class="iso-callout-text"><strong>Drag left or right</strong><span>Rotate the restaurant and explore different angles.</span></div>
+              </div>
+              <div class="iso-callout iso-callout-right">
+                <div class="iso-callout-icon">⌕</div>
+                <div class="iso-callout-text"><strong>Scroll to zoom</strong><span>Move closer to tables, dishes, and wall details.</span></div>
+              </div>
+              <div class="iso-callout iso-callout-bottom">
+                <div class="iso-callout-icon">✦</div>
+                <div class="iso-callout-text"><strong>Click the scene</strong><span>Tables, customers, food, and wall art all reveal extra details.</span></div>
+              </div>
+              <div class="iso-onboarding-center">
+                <div class="iso-onboarding-title">How to explore this 3D restaurant</div>
+                <div class="iso-onboarding-subtitle">Use the scene like a small interactive tour before choosing another hidden gem.</div>
+                <button class="iso-onboarding-start" id="iso-start-exploring" type="button">Start exploring</button>
+              </div>
+            </div>
+            <div class="isometric-hint" id="isometric-hint">Click on tables, customers, food, and wall art to explore data</div>
           </div>
         </div>
         <div class="isometric-info-panel" id="isometric-info-panel">

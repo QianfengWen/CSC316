@@ -2127,15 +2127,15 @@ footer a {
 /* ---------- Cuisine DNA Radar Grid ---------- */
 .radar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 12px;
-  margin-top: 16px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .radar-cell {
   background: var(--bg-section);
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 8px;
+  padding: 5px;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
@@ -2151,17 +2151,17 @@ footer a {
   position: relative;
   background: var(--bg-card);
   border: 2px solid var(--accent-gold);
-  border-radius: 16px;
-  padding: 24px;
-  margin-top: 24px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------- Compare Widget ---------- */
 .compare-widget {
   background: var(--bg-section);
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 10px;
+  padding: 16px;
 }
 
 /* ---------- Opportunity Zoom (Level 2) ---------- */
@@ -2205,12 +2205,12 @@ footer a {
 .radar-gem-badge {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.65rem;
+  gap: 3px;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--accent-gold);
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 2px;
   animation: badgeFadeIn 0.6s ease both;
 }
 
@@ -2227,10 +2227,10 @@ footer a {
 }
 
 .radar-heat-strip {
-  height: 4px;
+  height: 3px;
   background: var(--bg-section);
   border-radius: 2px;
-  margin: 6px 8px 2px;
+  margin: 3px 6px 1px;
   overflow: hidden;
 }
 
@@ -2243,16 +2243,16 @@ footer a {
 .radar-houses {
   display: flex;
   justify-content: center;
-  gap: 1px;
-  margin-top: 2px;
+  gap: 0px;
+  margin-top: 1px;
   opacity: 0.6;
   flex-wrap: nowrap;
   overflow: hidden;
 }
 
 .radar-houses svg {
-  width: 10px;
-  height: 12px;
+  width: 8px;
+  height: 10px;
   flex-shrink: 0;
 }
 
@@ -2360,15 +2360,15 @@ footer a {
 /* ---------- Icon Legend ---------- */
 .icon-legend {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  padding: 8px 12px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  padding: 5px 10px;
   background: var(--bg-section);
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid #e8e2d8;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   align-items: center;
 }

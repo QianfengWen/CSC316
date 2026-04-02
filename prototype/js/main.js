@@ -996,7 +996,7 @@
           showExpandedRadar(d);
         });
         gridEl.appendChild(cell);
-        drawRadar(cell, d, 160);
+        drawRadar(cell, d, 130);
 
         // Creative enhancements below the radar SVG
 
@@ -1045,13 +1045,13 @@
 
       // Large radar
       var radarDiv = document.createElement("div");
-      radarDiv.style.maxWidth = "400px";
+      radarDiv.style.maxWidth = "280px";
       radarDiv.style.margin = "0 auto";
       contentEl.appendChild(radarDiv);
-      drawRadar(radarDiv, d, 360);
+      drawRadar(radarDiv, d, 260);
 
       // Stats detail
-      var statsHtml = '<div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; font-size:0.85rem;">';
+      var statsHtml = '<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; font-size:0.8rem;">';
       statsHtml += '<div><strong>Restaurants:</strong> ' + fmt(d.count) + '</div>';
       statsHtml += '<div><strong>Avg Rating:</strong> \u2605 ' + d.avg_rating.toFixed(2) + '</div>';
       statsHtml += '<div><strong>Stability (\u03C3):</strong> ' + d.std_rating.toFixed(3) + '</div>';
@@ -1066,12 +1066,12 @@
       var compLevel = volatilityLevel(d.std_rating);
       var compRatio = Math.min(d.count / maxCount, 1);
       var pepperCount = Math.max(1, Math.min(5, Math.ceil(compRatio * 5)));
-      statsHtml += '<div style="margin-top:16px; display:flex; align-items:center; gap:12px;">';
-      statsHtml += '<div style="font-size:0.82rem; font-weight:700; color:' + COLORS.dark + ';">Competition Intensity:</div>';
-      statsHtml += '<div style="display:flex; gap:2px;">';
+      statsHtml += '<div style="margin-top:10px; display:flex; align-items:center; gap:8px;">';
+      statsHtml += '<div style="font-size:0.78rem; font-weight:700; color:' + COLORS.dark + ';">Competition Intensity:</div>';
+      statsHtml += '<div style="display:flex; gap:1px;">';
       for (var pi = 0; pi < 5; pi++) {
         var pepperActive = pi < pepperCount;
-        statsHtml += '<svg width="20" height="24" viewBox="0 0 20 24">' +
+        statsHtml += '<svg width="16" height="20" viewBox="0 0 20 24">' +
           '<path d="M10 2 Q8 0 10 0 Q12 0 10 2" fill="' + (pepperActive ? '#27ae60' : '#ddd') + '" stroke="none"/>' +
           '<path d="M6 6 Q3 10 4 16 Q5 22 10 23 Q15 22 16 16 Q17 10 14 6 Q12 3 10 3 Q8 3 6 6Z" ' +
           'fill="' + (pepperActive ? (pi < 3 ? '#e67e22' : '#d4503a') : '#e0dcd5') + '"/>' +
@@ -1079,19 +1079,19 @@
           '</svg>';
       }
       statsHtml += '</div>';
-      statsHtml += '<span style="font-size:0.78rem; color:' + COLORS.muted + ';">' + d.count + ' restaurants</span>';
+      statsHtml += '<span style="font-size:0.72rem; color:' + COLORS.muted + ';">' + d.count + ' restaurants</span>';
       statsHtml += '</div>';
 
       // Visual opportunity score meter
       var gemScore = gemEntry ? gemEntry.gem_score : 0;
       var meterPct = Math.min((gemScore / maxGem) * 100, 100);
       var meterColor = gemEntry && gemEntry.is_gem ? COLORS.green : (gemScore > gemThreshold * 0.8 ? COLORS.gold : COLORS.muted);
-      statsHtml += '<div style="margin-top:12px;">';
-      statsHtml += '<div style="display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; margin-bottom:4px;">';
+      statsHtml += '<div style="margin-top:8px;">';
+      statsHtml += '<div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; margin-bottom:3px;">';
       statsHtml += '<span style="font-weight:700; color:' + COLORS.dark + ';">Opportunity Score</span>';
       statsHtml += '<span style="font-weight:700; color:' + meterColor + ';">' + (gemScore > 0 ? gemScore.toFixed(3) : 'N/A') + '</span>';
       statsHtml += '</div>';
-      statsHtml += '<div style="height:12px; background:' + COLORS.light + '; border-radius:6px; overflow:hidden; position:relative;">';
+      statsHtml += '<div style="height:10px; background:' + COLORS.light + '; border-radius:5px; overflow:hidden; position:relative;">';
       statsHtml += '<div style="height:100%; width:' + meterPct + '%; background: linear-gradient(90deg, ' + COLORS.teal + ', ' + meterColor + '); border-radius:6px; transition:width 0.8s ease;"></div>';
       if (gemThreshold > 0) {
         var threshPct = Math.min((gemThreshold / maxGem) * 100, 100);
@@ -1104,7 +1104,7 @@
       // CI whiskers if stats available
       if (statsData && statsData[d.cuisine]) {
         var sd = statsData[d.cuisine];
-        statsHtml += '<div style="margin-top:16px; padding:12px; background:' + COLORS.light + '; border-radius:8px; font-size:0.82rem;">';
+        statsHtml += '<div style="margin-top:10px; padding:8px 10px; background:' + COLORS.light + '; border-radius:6px; font-size:0.78rem;">';
         statsHtml += '<strong>95% Confidence Interval:</strong> [' + sd.ci_lower.toFixed(3) + ', ' + sd.ci_upper.toFixed(3) + ']';
         if (sd.p_value !== undefined) {
           statsHtml += ' | <strong>p-value:</strong> ' + (sd.p_value < 0.001 ? "< 0.001" : sd.p_value.toFixed(3));
@@ -1171,7 +1171,7 @@
       var wrapper = document.createElement("div");
       wrapper.style.display = "grid";
       wrapper.style.gridTemplateColumns = "1fr 1fr";
-      wrapper.style.gap = "24px";
+      wrapper.style.gap = "16px";
       wrapper.style.alignItems = "start";
       compContainer.appendChild(wrapper);
 
@@ -1199,7 +1199,7 @@
         ];
       }
 
-      var size = 300, center = size / 2, radius = size / 2 - 30;
+      var size = 240, center = size / 2, radius = size / 2 - 24;
       var svg = d3.select(radarDiv).append("svg")
         .attr("viewBox", "0 0 " + size + " " + size)
         .style("width", "100%");
@@ -1260,8 +1260,8 @@
       var pct2 = stars.map(function (s) { return total2 > 0 ? ((d2.histogram[s] || 0) / total2) * 100 : 0; });
       var maxPct = Math.max(d3.max(pct1), d3.max(pct2)) * 1.15;
 
-      var margin = { top: 30, right: 10, bottom: 30, left: 35 };
-      var w = 260, h = 200;
+      var margin = { top: 24, right: 8, bottom: 24, left: 30 };
+      var w = 220, h = 170;
       var svg = d3.select(container).append("svg")
         .attr("viewBox", "0 0 " + w + " " + h)
         .style("width", "100%")

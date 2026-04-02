@@ -1,0 +1,66 @@
+PRESENTATION SCRIPT — 5 MINUTES
+================================
+
+SLIDE 1: Title (15 sec)
+-----------------------
+"Our project is called The Entrepreneur's Data-Driven Restaurant Journey. Imagine you want to open a restaurant in Philadelphia. There are over 7,000 restaurants, 170 cuisine types, and millions of reviews. How do you figure out where the real opportunity is? That's what our project helps answer — through interactive data storytelling."
+
+
+SLIDE 2: The Problem (45 sec)
+-----------------------------
+"Most people assume that popular food equals a good business opportunity. Like — everyone loves pizza, so opening a pizzeria should be a safe bet, right?
+
+But here's the reality: Philadelphia already has over 400 pizza places. You'd be entering the most crowded market in the city.
+
+So we defined what we call 'hidden gems' — cuisines that have high ratings but low competition. These are underserved markets where customer demand already exists, but there aren't many restaurants serving them. That's where the real opportunity is.
+
+You can see on the right — this is our 3D terrain for pizza. Those tall peaks represent intense competition. The taller the peak, the more restaurants fighting for the same customers."
+
+
+SLIDE 3: Our Approach (1 min)
+-----------------------------
+"Here's how we built this. We started with the Yelp academic dataset — 150,000 businesses and 6.9 million reviews. We wrote a Python pipeline to filter it down to just Philadelphia restaurants, which gave us 7,083 records across 51 cuisine categories, output as JSON files.
+
+Then we built a scrollytelling website — a 9-section narrative that guides the user from assumption to insight.
+
+The three most interesting visualizations are:
+- A procedural 3D terrain built with Three.js, where restaurant density becomes a topographic map — peaks show where competition is fiercest.
+- An interactive Leaflet map with three viewing modes: individual dots, a heatmap, and clustered markers — plus search and gem filtering.
+- And isometric 3D dioramas where you can step inside any restaurant and explore it — with clickable tables, customers, and cuisine-themed interiors.
+
+Our stack is D3 for charts, Three.js for 3D, Leaflet for maps, all in vanilla JavaScript."
+
+
+SLIDE 4: Challenges (1 min)
+----------------------------
+"A few things that made this hard.
+
+First — the terrain. We don't use any map tiles. We procedurally generate a 1024-by-1024 canvas texture from scratch at runtime, with six color zones from 'uncharted' to 'epicenter,' plus contour lines and a vintage parchment aesthetic. Getting that to look good and be readable took a lot of iteration.
+
+Second — performance. We have over 7,000 map markers, multiple Three.js scenes, and D3 charts all on a single page. We had to use lazy initialization, IntersectionObserver, and texture caching to keep it smooth.
+
+Third — memory leaks. Every time you switch cuisines on the terrain, we had to properly dispose Three.js geometries and materials and re-bind controls. Otherwise GPU memory would just keep growing.
+
+And finally — the hardest part was honestly the storytelling. Raw data is boring. Designing a narrative arc that keeps people engaged across nine sections — hook, assumption, surprise, exploration, insight — that took as much work as the code itself."
+
+
+SLIDE 5: Highlights (30 sec)
+-----------------------------
+"Here's one of our favorite features — the isometric diorama. You pick any restaurant and it generates a unique 3D interior. The scene uses seeded randomization, so the same restaurant always looks the same, but every restaurant looks different. The interiors are themed by cuisine — Salvadoran restaurants get Latin colors, ramen shops get a Japanese aesthetic. You can click on tables, food, and customers to explore the data."
+
+
+SLIDE 6: Demo (15 sec intro, then ~2 min live demo)
+----------------------------------------------------
+"Alright — let me show you the real thing."
+
+[Switch to browser: localhost:8000/prototype/]
+
+Demo walkthrough order:
+1. Hero section — show the animated counter counting up to 7,083
+2. Quiz — click through the "most common cuisine" quiz (answer: Pizza)
+3. Scroll to the map — toggle between dot/heatmap/cluster modes, search for a cuisine
+4. Scroll to the terrain — rotate it, switch cuisine filter to Pizza (tall peaks), then something like Ethiopian (flat)
+5. Scroll to the restaurant diorama — pick a restaurant, click a table
+6. Done — scroll back to top or stop
+
+[If short on time, skip the quiz and go straight to map -> terrain -> diorama]

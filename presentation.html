@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Gems - CSC316 Final Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #1a1410;
+    --bg-light: #2a2218;
+    --gold: #e0b45c;
+    --cream: #f8f3eb;
+    --cream-dim: #d5cbbe;
+    --accent: #e8833a;
+  }
+
+  html, body {
+    height: 100%; width: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .deck { height: 100vh; width: 100vw; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 72px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; }
+
+  /* ── Typography ── */
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .gold { color: var(--gold); }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--cream-dim);
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  /* ── Layout ── */
+  .columns {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 16px;
+  }
+  .columns > .col { flex: 1; }
+  .columns > .col-img { flex: 1.2; }
+
+  .stack { display: flex; flex-direction: column; gap: 20px; }
+
+  /* ── Points ── */
+  .point { display: flex; gap: 16px; align-items: flex-start; }
+  .point-icon {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    background: rgba(224, 180, 92, 0.15);
+    border: 1.5px solid rgba(224, 180, 92, 0.35);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-top: 2px;
+  }
+  .point-text h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--cream);
+  }
+  .point-text p {
+    font-size: 1.15rem;
+    color: var(--cream-dim);
+    line-height: 1.55;
+  }
+
+  /* ── Images ── */
+  .screenshot {
+    width: 100%;
+    border-radius: 12px;
+    border: 1.5px solid rgba(224, 180, 92, 0.25);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .img-caption {
+    font-size: 1rem;
+    color: var(--cream-dim);
+    opacity: 0.8;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .image-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 24px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  .image-row img {
+    flex: 1;
+    max-width: 50%;
+    border-radius: 12px;
+    border: 1.5px solid rgba(224, 180, 92, 0.25);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    object-fit: cover;
+  }
+
+  /* ── Stats ── */
+  .stats-row { display: flex; gap: 64px; margin-top: 36px; }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-size: 1.1rem;
+    color: var(--cream-dim);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Challenge cards ── */
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 16px;
+  }
+  .challenge-card {
+    background: var(--bg-light);
+    border: 1.5px solid rgba(224, 180, 92, 0.18);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .challenge-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .challenge-card p {
+    font-size: 1.05rem;
+    color: var(--cream-dim);
+    line-height: 1.55;
+  }
+
+  /* ── Tech pills ── */
+  .tech-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .pill {
+    background: rgba(224, 180, 92, 0.12);
+    border: 1.5px solid rgba(224, 180, 92, 0.3);
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 24px;
+  }
+
+  /* ── Pipeline ── */
+  .pipeline { display: flex; align-items: center; gap: 0; margin-top: 24px; }
+  .pipeline-step {
+    background: var(--bg-light);
+    border: 1.5px solid rgba(224, 180, 92, 0.25);
+    border-radius: 12px;
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 170px;
+  }
+  .pipeline-step h4 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .pipeline-step p {
+    font-size: 1rem;
+    color: var(--cream-dim);
+    line-height: 1.45;
+  }
+  .pipeline-arrow {
+    font-size: 1.6rem;
+    color: var(--gold);
+    opacity: 0.6;
+    padding: 0 12px;
+  }
+
+  /* ── Demo box ── */
+  .demo-box {
+    background: var(--bg-light);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 56px 80px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .demo-box p {
+    font-size: 1.4rem;
+    color: var(--cream-dim);
+    margin-top: 12px;
+  }
+  .demo-url {
+    font-family: 'Inter', monospace;
+    font-size: 1.3rem;
+    color: var(--gold);
+    background: rgba(224, 180, 92, 0.1);
+    padding: 10px 28px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+  }
+  .demo-features {
+    margin-top: 36px;
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .demo-features div { text-align: center; }
+  .demo-features .icon { font-size: 2rem; margin-bottom: 6px; }
+  .demo-features .label { font-size: 1.05rem; color: var(--cream-dim); }
+
+  /* ── Blockquote ── */
+  .callout {
+    margin-top: 12px;
+    padding: 18px 24px;
+    background: rgba(224, 180, 92, 0.08);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+  }
+  .callout p {
+    font-size: 1.1rem;
+    color: var(--cream-dim);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  /* ── Decorative ── */
+  .divider { width: 72px; height: 2.5px; background: var(--gold); margin: 18px auto; opacity: 0.5; }
+  .course { font-size: 1.1rem; color: var(--cream-dim); opacity: 0.6; margin-top: 10px; }
+
+  /* ── Progress / Nav ── */
+  .progress {
+    position: fixed; bottom: 0; left: 0;
+    height: 4px; background: var(--gold);
+    transition: width 0.4s ease; z-index: 100;
+  }
+  .counter {
+    position: fixed; bottom: 20px; right: 30px;
+    font-size: 0.95rem; color: var(--cream-dim);
+    opacity: 0.5; font-variant-numeric: tabular-nums; z-index: 100;
+  }
+  .nav-hint {
+    position: fixed; bottom: 20px; left: 30px;
+    font-size: 0.85rem; color: var(--cream-dim); opacity: 0.35; z-index: 100;
+  }
+  .nav-btn {
+    position: fixed; bottom: 16px;
+    width: 42px; height: 42px;
+    background: rgba(224, 180, 92, 0.15);
+    border: 1.5px solid rgba(224, 180, 92, 0.3);
+    border-radius: 10px;
+    color: var(--gold); font-size: 1.2rem;
+    cursor: pointer; z-index: 100;
+    transition: background 0.2s;
+  }
+  .nav-btn:hover { background: rgba(224, 180, 92, 0.3); }
+  .nav-prev { right: 112px; }
+  .nav-next { right: 62px; }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ====== SLIDE 1: Title ====== -->
+  <div class="slide active" data-slide="0">
+    <div class="tag">CSC 316 Final Project</div>
+    <h1>The Entrepreneur's <span class="gold">Data-Driven</span><br>Restaurant Journey</h1>
+    <div class="divider"></div>
+    <p class="subtitle">
+      Finding hidden opportunities in Philadelphia's restaurant market<br>
+      through interactive data storytelling
+    </p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">7,083</div>
+        <div class="stat-label">Restaurants</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">170+</div>
+        <div class="stat-label">Cuisine Types</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6.9M</div>
+        <div class="stat-label">Yelp Reviews</div>
+      </div>
+    </div>
+    <p class="course" style="margin-top: 40px;">CSC 316 &mdash; Interactive Data Visualization &mdash; Spring 2026</p>
+  </div>
+
+  <!-- ====== SLIDE 2: Problem / Motivation ====== -->
+  <div class="slide" data-slide="1">
+    <div class="tag">The Problem</div>
+    <h2>Popularity <span class="gold">&ne;</span> Opportunity</h2>
+    <div class="columns">
+      <div class="col stack">
+        <div class="point">
+          <div class="point-icon">?</div>
+          <div class="point-text">
+            <h3>The Assumption</h3>
+            <p>"Everyone loves pizza, so I should open a pizzeria."</p>
+          </div>
+        </div>
+        <div class="point">
+          <div class="point-icon">!</div>
+          <div class="point-text">
+            <h3>The Reality</h3>
+            <p>Philly has <strong>400+ pizza places</strong> &mdash; the most saturated market in the city.</p>
+          </div>
+        </div>
+        <div class="point">
+          <div class="point-icon">&rarr;</div>
+          <div class="point-text">
+            <h3>The Insight</h3>
+            <p><strong>Hidden gems</strong> = high ratings + low competition. Underserved markets where demand already exists.</p>
+          </div>
+        </div>
+        <div class="callout">
+          <p>"Opening a pizzeria might seem safe, until you realize you're competing with 400 others for the exact same customer."</p>
+        </div>
+      </div>
+      <div class="col-img" style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+        <img src="terrain-pizza.png" class="screenshot" alt="Pizza terrain">
+        <p class="img-caption">Pizza terrain: massive peaks = intense competition</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 3: Our Approach / Process ====== -->
+  <div class="slide" data-slide="2">
+    <div class="tag">Our Approach</div>
+    <h2>Data <span class="gold">&rarr;</span> Story <span class="gold">&rarr;</span> Insight</h2>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <h4>Yelp Dataset</h4>
+        <p>150K businesses<br>6.9M reviews</p>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <h4>Python Pipeline</h4>
+        <p>Filter to Philly<br>Aggregate cuisines</p>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <h4>7 JSON Files</h4>
+        <p>7,083 restaurants<br>51 cuisines</p>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <h4>Scrollytelling</h4>
+        <p>9-section guided<br>narrative</p>
+      </div>
+    </div>
+
+    <div class="columns" style="margin-top: 32px;">
+      <div class="col stack">
+        <div class="point">
+          <div class="point-icon">3D</div>
+          <div class="point-text">
+            <h3>Procedural 3D Terrain</h3>
+            <p>Three.js height map &mdash; density becomes a topographic landscape</p>
+          </div>
+        </div>
+        <div class="point">
+          <div class="point-icon">&#9741;</div>
+          <div class="point-text">
+            <h3>Interactive Map</h3>
+            <p>Leaflet with 3 modes &mdash; dots, heatmap, clusters</p>
+          </div>
+        </div>
+        <div class="point">
+          <div class="point-icon">&#9878;</div>
+          <div class="point-text">
+            <h3>Isometric Diorama</h3>
+            <p>Step inside any restaurant with clickable 3D scenes</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <p style="font-size: 1.1rem; font-weight: 600; color: var(--gold); margin-bottom: 12px;">Tech Stack</p>
+        <div class="tech-pills">
+          <span class="pill">D3.js</span>
+          <span class="pill">Three.js</span>
+          <span class="pill">Leaflet</span>
+          <span class="pill">Vanilla JS</span>
+          <span class="pill">Python / Pandas</span>
+        </div>
+        <p style="font-size: 1.1rem; font-weight: 600; color: var(--gold); margin-bottom: 12px; margin-top: 28px;">Key Visualizations</p>
+        <div class="tech-pills">
+          <span class="pill">Scrollytelling</span>
+          <span class="pill">3D Terrain Map</span>
+          <span class="pill">Isometric Scenes</span>
+          <span class="pill">Word Cloud</span>
+          <span class="pill">Radar Chart</span>
+          <span class="pill">Heatmap</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 4: Challenges ====== -->
+  <div class="slide" data-slide="3">
+    <div class="tag">Challenges</div>
+    <h2>What Made This <span class="gold">Hard</span></h2>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <h3>Procedural Terrain Generation</h3>
+        <p>No map tiles &mdash; we generate a 1024&times;1024 canvas texture from scratch with six zone bands, contour lines, and vintage styling.</p>
+      </div>
+      <div class="challenge-card">
+        <h3>Performance at Scale</h3>
+        <p>7,083 markers + Three.js + D3 on one page. Solved with lazy init, IntersectionObserver, and texture caching.</p>
+      </div>
+      <div class="challenge-card">
+        <h3>Three.js Memory Leaks</h3>
+        <p>Switching cuisines leaked GPU resources. Had to carefully dispose geometries and re-bind controls on each change.</p>
+      </div>
+      <div class="challenge-card">
+        <h3>Making Data Tell a Story</h3>
+        <p>Designed a narrative arc &mdash; hook &rarr; assumption &rarr; surprise &rarr; exploration &rarr; insight &mdash; across 9 sections.</p>
+      </div>
+    </div>
+
+    <div class="image-row" style="margin-top: 28px; max-width: 900px;">
+      <img src="terrain-redesign-3.png" alt="3D terrain close-up">
+      <img src="terrain-final.png" alt="Full terrain page">
+    </div>
+    <div style="display: flex; gap: 20px; max-width: 900px; width: 100%;">
+      <p class="img-caption" style="flex:1;">3D terrain with neighborhood labels</p>
+      <p class="img-caption" style="flex:1;">Full terrain section: peaks = competition</p>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 5: Highlights ====== -->
+  <div class="slide" data-slide="4">
+    <div class="tag">Highlights</div>
+    <h2>Step Inside a <span class="gold">Hidden Gem</span></h2>
+    <div class="image-row" style="max-width: 1100px;">
+      <img src="prototype/restaurant-improved.png" alt="El Bocado" style="max-height: 460px; object-fit: contain;">
+      <img src="prototype/restaurant-terakawa.png" alt="Terakawa Ramen" style="max-height: 460px; object-fit: contain;">
+    </div>
+    <p style="font-size: 1.2rem; color: var(--cream-dim); margin-top: 20px; text-align: center; max-width: 900px; line-height: 1.6;">
+      Each restaurant generates a unique isometric 3D diorama with cuisine-themed interiors and clickable elements.
+    </p>
+  </div>
+
+  <!-- ====== SLIDE 6: Demo ====== -->
+  <div class="slide" data-slide="5">
+    <div class="demo-box">
+      <div class="tag" style="margin-bottom: 28px;">Live Demo</div>
+      <h2 style="margin-bottom: 10px;">Let's <span class="gold">Explore</span></h2>
+      <p>A scrollytelling journey through Philadelphia's restaurant landscape</p>
+      <div class="demo-url">localhost:8000/prototype/</div>
+      <div class="demo-features">
+        <div><div class="icon">&#x1f9e9;</div><div class="label">Interactive Quiz</div></div>
+        <div><div class="icon">&#x1f5fa;</div><div class="label">3-Mode Map</div></div>
+        <div><div class="icon">&#x26f0;</div><div class="label">3D Terrain</div></div>
+        <div><div class="icon">&#x1f575;</div><div class="label">Sentiment Detective</div></div>
+        <div><div class="icon">&#x1f3e0;</div><div class="label">Isometric Diorama</div></div>
+      </div>
+    </div>
+    <p class="course" style="margin-top: 36px;">Thank you! &mdash; CSC 316, Spring 2026</p>
+  </div>
+
+</div>
+
+<!-- Nav -->
+<div class="progress" id="progress"></div>
+<div class="counter" id="counter"></div>
+<div class="nav-hint">Arrow keys to navigate</div>
+<button class="nav-btn nav-prev" id="nav-prev" aria-label="Previous slide">&larr;</button>
+<button class="nav-btn nav-next" id="nav-next" aria-label="Next slide">&rarr;</button>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.getElementById('nav-prev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nav-next').addEventListener('click', () => goTo(current + 1));
+
+  goTo(0);
+</script>
+</body>
+</html>

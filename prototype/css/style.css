@@ -1666,11 +1666,11 @@ footer a {
 /* Canvas wrapper */
 .terrain-canvas-wrapper {
   position: relative;
-  background: #f5f0e6;
+  background: #2a2218;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(180, 165, 140, 0.18);
-  box-shadow: 0 4px 24px rgba(120, 100, 70, 0.08), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid rgba(100, 85, 60, 0.30);
+  box-shadow: 0 4px 24px rgba(20, 16, 10, 0.25), 0 1px 3px rgba(0,0,0,0.12);
 }
 .terrain-canvas-wrapper canvas {
   width: 100% !important;

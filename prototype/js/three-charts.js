@@ -110,15 +110,31 @@
   }
 
   function animateScene(renderer, scene, camera, controls) {
-    var running = true, animId = null;
+    var running = false, animId = null;
     function loop() {
       if (!running) return;
       animId = requestAnimationFrame(loop);
       if (controls) controls.update();
       renderer.render(scene, camera);
     }
-    loop();
-    return function () { running = false; if (animId) cancelAnimationFrame(animId); };
+    function resume() {
+      if (running) return;
+      running = true;
+      animId = requestAnimationFrame(loop);
+    }
+    function pause() {
+      running = false;
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+    }
+    resume();
+    return {
+      pause: pause,
+      resume: resume,
+      stop: pause
+    };
   }
 
   function makeTextSprite(text, opts) {
@@ -329,7 +345,7 @@
     }
 
     var raycasting = setupRaycasting(scene, camera, canvas, bars, onHover, onClick);
-    var stopAnim = animateScene(renderer, scene, camera, controls);
+    var animation = animateScene(renderer, scene, camera, controls);
 
     // Entrance animation: bars grow from 0
     var animStart = performance.now(), animDur = 1200;
@@ -346,12 +362,18 @@
     requestAnimationFrame(growBars);
 
     return {
+      pause: function () { animation.pause(); },
+      resume: function () {
+        var w = parent.clientWidth || 800, h = parent.clientHeight || 500;
+        camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
+        animation.resume();
+      },
       resize: function () {
         var w = parent.clientWidth || 800, h = parent.clientHeight || 500;
         camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
       },
       dispose: function () {
-        stopAnim(); raycasting.dispose(); disposeScene(scene); renderer.dispose();
+        animation.stop(); raycasting.dispose(); disposeScene(scene); renderer.dispose();
         tooltip.style.display = "none"; if (cancelFly) cancelFly();
       }
     };
@@ -498,15 +520,21 @@
     }
 
     var raycasting = setupRaycasting(scene, camera, canvas, hitSpheres, onHover, null);
-    var stopAnim = animateScene(renderer, scene, camera, controls);
+    var animation = animateScene(renderer, scene, camera, controls);
 
     return {
+      pause: function () { animation.pause(); },
+      resume: function () {
+        var w = parent.clientWidth || 800, h = parent.clientHeight || 500;
+        camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
+        animation.resume();
+      },
       resize: function () {
         var w = parent.clientWidth || 800, h = parent.clientHeight || 500;
         camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
       },
       dispose: function () {
-        stopAnim(); raycasting.dispose(); disposeScene(scene); renderer.dispose();
+        animation.stop(); raycasting.dispose(); disposeScene(scene); renderer.dispose();
         tooltip.style.display = "none";
       }
     };
@@ -665,7 +693,7 @@
     }
 
     var raycasting = setupRaycasting(scene, camera, canvas, spheres, onHover, onClick);
-    var stopAnim = animateScene(renderer, scene, camera, controls);
+    var animation = animateScene(renderer, scene, camera, controls);
 
     // Entrance animation: spheres scale up
     var animStart = performance.now(), animDur = 1000;
@@ -679,12 +707,18 @@
     requestAnimationFrame(growSpheres);
 
     return {
+      pause: function () { animation.pause(); },
+      resume: function () {
+        var w = parent.clientWidth || 800, h = parent.clientHeight || 500;
+        camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
+        animation.resume();
+      },
       resize: function () {
         var w = parent.clientWidth || 800, h = parent.clientHeight || 500;
         camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
       },
       dispose: function () {
-        stopAnim(); raycasting.dispose(); disposeScene(scene); renderer.dispose();
+        animation.stop(); raycasting.dispose(); disposeScene(scene); renderer.dispose();
         tooltip.style.display = "none"; if (cancelFly) cancelFly();
       }
     };

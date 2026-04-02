@@ -159,6 +159,27 @@
     requestAnimationFrame(step);
   }
 
+  function bindVisibilityLifecycle(section, getInstance, options) {
+    if (!section || !getInstance || !window.PerfUtils || !window.PerfUtils.observeVisibilityToggle) {
+      return null;
+    }
+
+    return window.PerfUtils.observeVisibilityToggle(section, function (isVisible) {
+      var instance = getInstance();
+      if (!instance) return;
+
+      if (isVisible) {
+        if (instance.resume) {
+          instance.resume();
+        } else if (instance.resize) {
+          instance.resize();
+        }
+      } else if (instance.pause) {
+        instance.pause();
+      }
+    }, options || { threshold: 0.05 });
+  }
+
 
   // ── QUIZ ──────────────────────────────────────────────────
   function setupQuiz(cuisines) {
@@ -428,6 +449,9 @@
   function setupIsometricScene(sceneData, gemData) {
     var canvas = document.getElementById("isometric-canvas");
     if (!canvas) return;
+    var isoInstance = null;
+    var isoVisibilityObserver = null;
+    var section = document.getElementById("section-restaurant");
 
     // Cuisine image mapping
     var CUISINE_IMAGES = {
@@ -572,14 +596,18 @@
     var checkThree = setInterval(function () {
       if (window.IsometricModule && typeof THREE !== "undefined") {
         clearInterval(checkThree);
-        var section = document.getElementById("section-restaurant");
         if (section) {
           var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
               if (entry.isIntersecting) {
                 observer.disconnect();
                 try {
-                  window.IsometricModule.init(canvas, sceneData);
+                  isoInstance = window.IsometricModule.init(canvas, sceneData);
+                  if (!isoVisibilityObserver) {
+                    isoVisibilityObserver = bindVisibilityLifecycle(section, function () {
+                      return isoInstance;
+                    }, { threshold: 0.05 });
+                  }
 
                   // Keep the original working scene behavior: load the top gem first
                   if (select && sceneData.length > 0) {
@@ -617,16 +645,24 @@
   function setup3DToggles(cuisines, restaurants) {
     var toggleBtns = document.querySelectorAll(".toggle-3d-btn");
     var threeChartInstances = {};
+    var threeChartVisibility = {};
+
+    function isElementInViewport(el) {
+      if (!el) return false;
+      var rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    }
 
     toggleBtns.forEach(function (btn) {
       btn.addEventListener("click", function () {
         var chartName = btn.getAttribute("data-chart");
-        var wrapper2D, wrapper3D, canvas;
+        var wrapper2D, wrapper3D, canvas, section;
 
         if (chartName === "opportunity") {
           wrapper2D = document.getElementById("opportunity-matrix");
           wrapper3D = document.getElementById("opportunity-3d-wrapper");
           canvas = document.getElementById("opportunity-3d-canvas");
+          section = document.getElementById("section-opportunity");
         }
 
         if (!wrapper2D || !wrapper3D || !canvas) return;
@@ -675,6 +711,32 @@
               canvas.height = ch;
               try {
                 threeChartInstances[chartName] = window.ThreeCharts.initOpportunity(canvas, cuisines);
+                if (!threeChartVisibility[chartName]) {
+                  threeChartVisibility[chartName] = {
+                    lastVisible: null,
+                    sync: function () {
+                      var instance = threeChartInstances[chartName];
+                      if (!instance) return;
+
+                      var isVisible = wrapper3D.style.display !== "none" && isElementInViewport(wrapper3D);
+                      if (threeChartVisibility[chartName].lastVisible === isVisible) return;
+                      threeChartVisibility[chartName].lastVisible = isVisible;
+
+                      if (isVisible) {
+                        if (instance.resume) {
+                          instance.resume();
+                        } else if (instance.resize) {
+                          instance.resize();
+                        }
+                      } else if (instance.pause) {
+                        instance.pause();
+                      }
+                    }
+                  };
+                  window.addEventListener("scroll", threeChartVisibility[chartName].sync, { passive: true });
+                  window.addEventListener("resize", threeChartVisibility[chartName].sync);
+                }
+                threeChartVisibility[chartName].sync();
               } catch (e) {
                 console.warn("3D chart init error:", e);
                 btn.classList.remove("active-3d");
@@ -698,12 +760,15 @@
     var initialized = false;
     var attempts = 0;
     var maxAttempts = 30;
+    var retryTimer = null;
+    var terrainInstance = null;
+    var terrainVisibilityObserver = null;
 
     function tryInit() {
       if (initialized) return true;
       if (typeof THREE === "undefined" || !window.CuisineTerrain || !window.CuisineTerrain.init) return false;
       try {
-        window.CuisineTerrain.init({
+        terrainInstance = window.CuisineTerrain.init({
           canvasId: "terrain-3d-canvas",
           selectId: "terrain-cuisine-select",
           resetBtnId: "terrain-reset-view",
@@ -711,7 +776,12 @@
           cuisines: cuisines,
           restaurants: restaurants
         });
-        initialized = true;
+        initialized = !!terrainInstance;
+        if (initialized && !terrainVisibilityObserver) {
+          terrainVisibilityObserver = bindVisibilityLifecycle(section, function () {
+            return terrainInstance;
+          }, { threshold: 0.05 });
+        }
         return true;
       } catch (e) {
         console.warn("Cuisine terrain init error:", e);
@@ -719,16 +789,30 @@
       }
     }
 
-    // Try immediately first
-    if (tryInit()) return;
+    function startRetryLoop() {
+      if (retryTimer) return;
+      retryTimer = setInterval(function () {
+        attempts++;
+        if (tryInit() || attempts >= maxAttempts) {
+          clearInterval(retryTimer);
+          retryTimer = null;
+        }
+      }, 400);
+    }
 
-    // Fallback for slow script loading
-    var timer = setInterval(function () {
-      attempts++;
-      if (tryInit() || attempts >= maxAttempts) {
-        clearInterval(timer);
-      }
-    }, 400);
+    function initWhenVisible() {
+      if (tryInit()) return;
+      startRetryLoop();
+    }
+
+    if (window.PerfUtils && window.PerfUtils.observeOnceWhenVisible) {
+      window.PerfUtils.observeOnceWhenVisible(section, initWhenVisible, {
+        rootMargin: "320px 0px",
+        threshold: 0.05
+      });
+    } else {
+      initWhenVisible();
+    }
   }
 
 

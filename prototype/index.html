@@ -373,31 +373,67 @@
       <div class="section-header fade-in">
         <div class="section-tag section-tag--gold">Novel Visualization</div>
         <h2>Philadelphia Restaurant <span style="color:var(--accent-gold);">Opportunity Terrain</span></h2>
-        <p>We all have our go-to comfort foods, but for restaurant owners, popular means crowded.</p>
+        <p class="terrain-intro-text">We all have our go-to comfort foods, but for restaurant owners, <em>popular</em> means <em>crowded</em>. This 3D terrain turns Philadelphia's restaurant landscape into a topographic map &mdash; peaks reveal where competition is fiercest.</p>
       </div>
 
-      <div class="viz-container fade-in">
-        <div class="viz-title">How many restaurants are there in each area?</div>
-        <div class="viz-subtitle">Switch cuisine/category to compare spatial competition patterns</div>
-
-        <div class="terrain-controls">
-          <label for="terrain-cuisine-select" class="control-label">Cuisine / Category:</label>
-          <select id="terrain-cuisine-select" class="cuisine-select"></select>
-          <button id="terrain-reset-view" class="control-btn">Reset Camera</button>
+      <div class="viz-container fade-in terrain-viz-container">
+        <div class="terrain-header-row">
+          <div class="terrain-header-text">
+            <div class="viz-title">Competition Topography</div>
+            <div class="viz-subtitle">Higher peaks = more restaurants competing in that area. Drag to rotate, scroll to zoom.</div>
+          </div>
+          <div class="terrain-controls">
+            <select id="terrain-cuisine-select" class="terrain-cuisine-dropdown" aria-label="Select cuisine type"></select>
+            <button id="terrain-reset-view" class="terrain-reset-btn" aria-label="Reset camera view">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 2v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.05 10A6 6 0 1 0 4.18 4.18L2 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Reset
+            </button>
+          </div>
         </div>
 
-        <div class="terrain-legend">
-          <span><i class="terrain-dot terrain-dot-height"></i><strong>Height</strong>: Avg Rating</span>
-          <span><i class="terrain-dot terrain-dot-density"></i><strong>Color</strong>: Number of Businesses</span>
-          <span><i class="terrain-dot terrain-dot-hotspot"></i><strong>Peaks</strong>: Local cuisine hotspots</span>
+        <div class="terrain-legend-bar">
+          <div class="terrain-legend-item">
+            <span class="terrain-legend-swatch terrain-swatch-height"></span>
+            <span><strong>Height</strong> &mdash; restaurant density</span>
+          </div>
+          <div class="terrain-legend-item">
+            <span class="terrain-legend-swatch terrain-swatch-gradient"></span>
+            <span><strong>Color</strong> &mdash; low <span class="legend-arrow">&rarr;</span> high competition</span>
+          </div>
+          <div class="terrain-legend-item">
+            <span class="terrain-legend-swatch terrain-swatch-peak"></span>
+            <span><strong>Peaks</strong> &mdash; saturated hotspots</span>
+          </div>
         </div>
 
-        <div class="three-container" id="terrain-3d-wrapper">
+        <div class="terrain-canvas-wrapper" id="terrain-3d-wrapper">
           <canvas id="terrain-3d-canvas"></canvas>
           <div class="three-tooltip" id="terrain-tooltip"></div>
         </div>
+
+        <div class="terrain-insight-strip fade-in">
+          <div class="terrain-insight-card">
+            <span class="terrain-insight-icon">&#9650;</span>
+            <div>
+              <strong>Center City</strong> has the tallest peaks &mdash; the highest restaurant density in Philadelphia.
+            </div>
+          </div>
+          <div class="terrain-insight-card">
+            <span class="terrain-insight-icon" style="color:var(--accent-green);">&#9679;</span>
+            <div>
+              <strong>Flat zones</strong> represent underserved areas with fewer competitors and potential opportunity.
+            </div>
+          </div>
+          <div class="terrain-insight-card">
+            <span class="terrain-insight-icon" style="color:var(--accent-gold);">&#9733;</span>
+            <div>
+              Switch cuisines above to see how <strong>competition shifts dramatically</strong> by food type.
+            </div>
+          </div>
+        </div>
       </div>
-            <div class="narration fade-in" style="margin-top:24px;">
+
+      <div class="narration fade-in" style="margin-top:24px;">
         <span class="narrator">Wait...</span>
         "Opening a pizzeria might seem like a safe bet, until you realize you're going head-to-head with 800 other places for the exact same customer."
       </div>
@@ -821,13 +857,14 @@
   <script src="https://unpkg.com/three@0.137.0/build/three.min.js" defer></script>
   <script src="https://unpkg.com/three@0.137.0/examples/js/controls/OrbitControls.js" defer></script>
   <!-- Core visualization scripts -->
-  <script src="js/terrain.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/map.js" defer></script>
+  <script src="js/perf-utils.js?v=20260401e" defer></script>
+  <script src="js/terrain.js?v=20260401e" defer></script>
+  <script src="js/main.js?v=20260401e" defer></script>
+  <script src="js/map.js?v=20260401e" defer></script>
   <script src="js/reviews.js" defer></script>
   <script src="js/stats.js" defer></script>
-  <script src="js/three-charts.js" defer></script>
-  <script src="js/isometric.js" defer></script>
+  <script src="js/three-charts.js?v=20260401e" defer></script>
+  <script src="js/isometric.js?v=20260401e" defer></script>
 </body>
 
 </html>

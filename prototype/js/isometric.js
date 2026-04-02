@@ -2403,11 +2403,12 @@
 
   function createAnimationLoop(renderer, scene, camera, controls, sceneState) {
     var clock = new THREE.Clock();
-    var running = true;
+    var running = false;
+    var rafId = null;
 
     function animate() {
       if (!running) return;
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
 
       var elapsed = clock.getElapsedTime();
 
@@ -2444,10 +2445,26 @@
       renderer.render(scene, camera);
     }
 
-    animate();
+    function resume() {
+      if (running) return;
+      running = true;
+      rafId = requestAnimationFrame(animate);
+    }
 
-    return function stop() {
+    function pause() {
       running = false;
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    resume();
+
+    return {
+      pause: pause,
+      resume: resume,
+      stop: pause
     };
   }
 
@@ -2590,7 +2607,7 @@
 
     // ── Animation ──
     // Use sceneState so animation loop always references current sceneObjects after rebuild
-    var stopAnimation = createAnimationLoop(renderer, scene, camera, controls, sceneState);
+    var animationLoop = createAnimationLoop(renderer, scene, camera, controls, sceneState);
 
     // ── Resize Handler ──
     function onResize() {
@@ -2612,7 +2629,7 @@
 
     // ── Dispose / Cleanup ──
     function dispose() {
-      stopAnimation();
+      animationLoop.stop();
       disposeRaycast();
       window.removeEventListener("resize", onResize, false);
 
@@ -2634,6 +2651,13 @@
     }
 
     return {
+      pause: function () {
+        animationLoop.pause();
+      },
+      resume: function () {
+        onResize();
+        animationLoop.resume();
+      },
       dispose: dispose,
       resize: onResize
     };

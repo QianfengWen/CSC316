@@ -96,61 +96,200 @@
     cvs.height = SIZE;
     var ctx = cvs.getContext("2d");
 
-    // 1. Parchment base
-    ctx.fillStyle = "#f0ebe0";
-    ctx.fillRect(0, 0, SIZE, SIZE);
-
-    // 2. Subtle grain noise
-    var imageData = ctx.getImageData(0, 0, SIZE, SIZE);
-    var pixels = imageData.data;
-    for (var i = 0; i < pixels.length; i += 4) {
-      var noise = (Math.random() - 0.5) * 8;
-      pixels[i]     = clampByte(pixels[i] + noise);
-      pixels[i + 1] = clampByte(pixels[i + 1] + noise);
-      pixels[i + 2] = clampByte(pixels[i + 2] + noise);
-    }
-    ctx.putImageData(imageData, 0, 0);
-
-    // 3. Build smoothed density field from grid
     var field = smoothDensityField(grid, maxCount);
 
-    // 4. Zone coloring — soft radial fills based on density
-    for (var gx = 0; gx < GRID_RES; gx++) {
-      for (var gy = 0; gy < GRID_RES; gy++) {
-        var cell = grid[gx][gy];
-        if (cell.count === 0) continue;
-        var ratio = cell.count / maxCount;
-        var cx = (gx + 0.5) / GRID_RES * SIZE;
-        var cy = (1 - (gy + 0.5) / GRID_RES) * SIZE;
-        var radius = SIZE / GRID_RES * 2.5 * Math.max(0.5, Math.sqrt(ratio));
+    // ── 1. Aged parchment base ────────────────────────────
+    ctx.fillStyle = "#e5dbc8";
+    ctx.fillRect(0, 0, SIZE, SIZE);
 
-        var zoneColor;
-        if (ratio > 0.55)     zoneColor = "rgba(212,80,58,0.30)";
-        else if (ratio > 0.2) zoneColor = "rgba(232,168,56,0.25)";
-        else                  zoneColor = "rgba(39,174,96,0.20)";
+    // Warm-tinted paper grain noise
+    var imgData = ctx.getImageData(0, 0, SIZE, SIZE);
+    var pxArr = imgData.data;
+    for (var i = 0; i < pxArr.length; i += 4) {
+      var n = (Math.random() - 0.5) * 20;
+      pxArr[i]     = clampByte(pxArr[i] + n);
+      pxArr[i + 1] = clampByte(pxArr[i + 1] + n * 0.9);
+      pxArr[i + 2] = clampByte(pxArr[i + 2] + n * 0.7);
+    }
+    ctx.putImageData(imgData, 0, 0);
 
-        var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-        grad.addColorStop(0, zoneColor);
-        grad.addColorStop(1, "rgba(240,235,224,0)");
-        ctx.fillStyle = grad;
-        ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+    // Age staining — soft warm spots across the surface
+    var stains = [
+      [0.2, 0.3, 180], [0.7, 0.2, 150], [0.5, 0.6, 200],
+      [0.3, 0.8, 160], [0.8, 0.7, 140], [0.15, 0.55, 120],
+      [0.6, 0.4, 170], [0.85, 0.5, 130]
+    ];
+    stains.forEach(function (s) {
+      var sg = ctx.createRadialGradient(
+        s[0] * SIZE, s[1] * SIZE, 0,
+        s[0] * SIZE, s[1] * SIZE, s[2]
+      );
+      sg.addColorStop(0, "rgba(170,148,110,0.10)");
+      sg.addColorStop(0.6, "rgba(180,155,120,0.04)");
+      sg.addColorStop(1, "rgba(180,155,120,0)");
+      ctx.fillStyle = sg;
+      ctx.fillRect(0, 0, SIZE, SIZE);
+    });
+
+    // ── 2. Zone classification fills ──────────────────────
+    // Six distinct terrain zones — game-map style biomes
+    var ZONES = [
+      { max: 0.05, r: 195, g: 212, b: 180 },  // Uncharted — pale sage
+      { max: 0.12, r: 148, g: 190, b: 128 },  // Frontier — soft green
+      { max: 0.25, r: 205, g: 188, b: 138 },  // Settled — warm sand
+      { max: 0.42, r: 212, g: 158, b: 85  },  // Contested — amber
+      { max: 0.65, r: 200, g: 105, b: 68  },  // Hotzone — terracotta
+      { max: 1.01, r: 178, g: 62,  b: 48  }   // Epicenter — crimson
+    ];
+
+    // Render zones at low resolution then scale up for smooth blending
+    var ZS = 256;
+    var zoneCvs = document.createElement("canvas");
+    zoneCvs.width = ZS;
+    zoneCvs.height = ZS;
+    var zCtx = zoneCvs.getContext("2d");
+    var zImg = zCtx.createImageData(ZS, ZS);
+    var zPx = zImg.data;
+
+    for (var zy = 0; zy < ZS; zy++) {
+      for (var zx = 0; zx < ZS; zx++) {
+        var density = sampleField(field, zx / ZS, 1 - zy / ZS);
+        var zone = ZONES[ZONES.length - 1];
+        for (var zi = 0; zi < ZONES.length; zi++) {
+          if (density <= ZONES[zi].max) { zone = ZONES[zi]; break; }
+        }
+        var idx = (zy * ZS + zx) * 4;
+        zPx[idx]     = zone.r;
+        zPx[idx + 1] = zone.g;
+        zPx[idx + 2] = zone.b;
+        zPx[idx + 3] = 160;
+      }
+    }
+    zCtx.putImageData(zImg, 0, 0);
+    ctx.drawImage(zoneCvs, 0, 0, SIZE, SIZE);
+
+    // ── 3. Zone texture patterns ──────────────────────────
+    var cellW = SIZE / GRID_RES;
+
+    // Stippling dots in low-density frontier zones
+    ctx.fillStyle = "rgba(80,100,60,0.12)";
+    for (var stX = 0; stX < GRID_RES; stX++) {
+      for (var stY = 0; stY < GRID_RES; stY++) {
+        var stRatio = maxCount > 0 ? grid[stX][stY].count / maxCount : 0;
+        if (stRatio < 0.03 || stRatio > 0.20) continue;
+        var stX0 = stX * cellW;
+        var stY0 = (GRID_RES - 1 - stY) * cellW;
+        var dotN = 5 + Math.floor(stRatio * 40);
+        for (var di = 0; di < dotN; di++) {
+          ctx.beginPath();
+          ctx.arc(
+            stX0 + Math.random() * cellW,
+            stY0 + Math.random() * cellW,
+            1.2, 0, Math.PI * 2
+          );
+          ctx.fill();
+        }
       }
     }
 
-    // 5. Contour lines
+    // Diagonal hatching in medium-to-high density zones
+    ctx.strokeStyle = "rgba(100,72,40,1)";
+    ctx.lineWidth = 1;
+    var hGap = 7;
+    for (var htX = 0; htX < GRID_RES; htX++) {
+      for (var htY = 0; htY < GRID_RES; htY++) {
+        var htRatio = maxCount > 0 ? grid[htX][htY].count / maxCount : 0;
+        if (htRatio < 0.25) continue;
+        var htX0 = htX * cellW;
+        var htY0 = (GRID_RES - 1 - htY) * cellW;
+        ctx.globalAlpha = Math.min(0.18, (htRatio - 0.25) * 0.35);
+        for (var d = -cellW; d < cellW * 2; d += hGap) {
+          ctx.beginPath();
+          ctx.moveTo(htX0 + d, htY0);
+          ctx.lineTo(htX0 + d + cellW, htY0 + cellW);
+          ctx.stroke();
+        }
+        // Cross-hatch for intense zones
+        if (htRatio > 0.50) {
+          for (var d2 = -cellW; d2 < cellW * 2; d2 += hGap) {
+            ctx.beginPath();
+            ctx.moveTo(htX0 + d2 + cellW, htY0);
+            ctx.lineTo(htX0 + d2, htY0 + cellW);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    // ── 4. River features ─────────────────────────────────
+    ctx.save();
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    // Delaware River (eastern edge, flowing south)
+    ctx.beginPath();
+    ctx.moveTo(0.73 * SIZE, 0.08 * SIZE);
+    ctx.bezierCurveTo(0.72 * SIZE, 0.30 * SIZE, 0.70 * SIZE, 0.58 * SIZE, 0.68 * SIZE, 0.93 * SIZE);
+    ctx.strokeStyle = "rgba(60,90,110,0.12)"; ctx.lineWidth = 18; ctx.stroke();
+    ctx.strokeStyle = "rgba(90,130,160,0.28)"; ctx.lineWidth = 11; ctx.stroke();
+    ctx.strokeStyle = "rgba(140,180,210,0.16)"; ctx.lineWidth = 4;  ctx.stroke();
+    // Schuylkill River (NW to SE through center)
+    ctx.beginPath();
+    ctx.moveTo(0.27 * SIZE, 0.14 * SIZE);
+    ctx.bezierCurveTo(0.34 * SIZE, 0.32 * SIZE, 0.42 * SIZE, 0.52 * SIZE, 0.50 * SIZE, 0.82 * SIZE);
+    ctx.strokeStyle = "rgba(60,90,110,0.10)"; ctx.lineWidth = 14; ctx.stroke();
+    ctx.strokeStyle = "rgba(90,130,160,0.24)"; ctx.lineWidth = 8;  ctx.stroke();
+    ctx.strokeStyle = "rgba(140,180,210,0.14)"; ctx.lineWidth = 3;  ctx.stroke();
+    ctx.restore();
+
+    // ── 5. Contour lines ──────────────────────────────────
     drawContourLines(ctx, field, SIZE);
 
-    // 6. Vignette
+    // ── 6. Coordinate grid overlay ────────────────────────
+    ctx.save();
+    ctx.strokeStyle = "rgba(120,100,70,0.10)";
+    ctx.lineWidth = 0.7;
+    ctx.setLineDash([6, 10]);
+    var gridN = 6;
+    for (var gi = 1; gi < gridN; gi++) {
+      var gp = (gi / gridN) * SIZE;
+      ctx.beginPath(); ctx.moveTo(gp, 20); ctx.lineTo(gp, SIZE - 20); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(20, gp); ctx.lineTo(SIZE - 20, gp); ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.restore();
+
+    // ── 7. Decorative map border ──────────────────────────
+    ctx.save();
+    // Outer frame
+    ctx.strokeStyle = "rgba(100,80,50,0.35)";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(14, 14, SIZE - 28, SIZE - 28);
+    // Inner frame
+    ctx.strokeStyle = "rgba(100,80,50,0.18)";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(22, 22, SIZE - 44, SIZE - 44);
+    // Corner ornament marks
+    var cl = 28, co = 10;
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "rgba(100,80,50,0.30)";
+    ctx.beginPath(); ctx.moveTo(co, co + cl); ctx.lineTo(co, co); ctx.lineTo(co + cl, co); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(SIZE - co - cl, co); ctx.lineTo(SIZE - co, co); ctx.lineTo(SIZE - co, co + cl); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(SIZE - co, SIZE - co - cl); ctx.lineTo(SIZE - co, SIZE - co); ctx.lineTo(SIZE - co - cl, SIZE - co); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(co + cl, SIZE - co); ctx.lineTo(co, SIZE - co); ctx.lineTo(co, SIZE - co - cl); ctx.stroke();
+    ctx.restore();
+
+    // ── 8. Vignette — gentle edge fade toward dark background
     var vcx = SIZE / 2, vcy = SIZE / 2;
-    var innerR = SIZE * 0.42, outerR = SIZE * 0.58;
+    var innerR = SIZE * 0.44, outerR = SIZE * 0.56;
     var vig = ctx.createRadialGradient(vcx, vcy, innerR, vcx, vcy, outerR);
-    vig.addColorStop(0, "rgba(245,240,230,0)");
-    vig.addColorStop(0.7, "rgba(245,240,230,0.25)");
-    vig.addColorStop(1, "rgba(245,240,230,0.92)");
+    vig.addColorStop(0, "rgba(42,34,24,0)");
+    vig.addColorStop(0.7, "rgba(42,34,24,0.08)");
+    vig.addColorStop(1, "rgba(42,34,24,0.35)");
     ctx.fillStyle = vig;
     ctx.fillRect(0, 0, SIZE, SIZE);
 
-    // 7. Rounded corners
+    // ── 9. Rounded corners ────────────────────────────────
     var r = 40;
     ctx.globalCompositeOperation = "destination-in";
     ctx.beginPath();
@@ -224,8 +363,9 @@
   }
 
   function drawContourLines(ctx, field, size) {
-    var thresholds = [0.08, 0.18, 0.35, 0.55];
-    var lineWidths = [1.0, 1.4, 1.8, 2.2];
+    var thresholds = [0.06, 0.14, 0.24, 0.38, 0.52, 0.70];
+    var lineWidths = [0.8, 1.0, 1.3, 1.7, 2.2, 2.8];
+    var alphas     = [0.18, 0.24, 0.32, 0.40, 0.48, 0.55];
     var step = 4;
 
     var gridW = Math.floor(size / step);
@@ -242,12 +382,13 @@
       samples.push(srow);
     }
 
-    ctx.strokeStyle = "rgba(120,100,70,0.45)";
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
 
     thresholds.forEach(function (threshold, ti) {
       ctx.lineWidth = lineWidths[ti];
+      ctx.strokeStyle = "rgba(85,68,40," + alphas[ti] + ")";
+      if (ti < 2) { ctx.setLineDash([4, 6]); } else { ctx.setLineDash([]); }
 
       for (var y = 0; y < gridH; y++) {
         for (var x = 0; x < gridW; x++) {
@@ -289,6 +430,7 @@
         }
       }
     });
+    ctx.setLineDash([]);
   }
 
   /* ── Scene factory ──────────────────────────────────── */
@@ -306,12 +448,12 @@
     var asp = W / H;
 
     var scene = new THREE.Scene();
-    scene.background = new THREE.Color("#f5f0e6");
-    scene.fog = new THREE.FogExp2("#f5f0e6", 0.002);
+    scene.background = new THREE.Color("#2a2218");
+    scene.fog = new THREE.FogExp2("#2a2218", 0.0005);
 
-    var d = 52;
+    var d = 40;
     var camera = new THREE.OrthographicCamera(-d * asp, d * asp, d, -d, 1, 1000);
-    camera.position.set(68, 62, 68);
+    camera.position.set(60, 52, 60);
 
     var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setSize(W, H);
@@ -373,6 +515,68 @@
     };
   }
 
+  /* ── Background table surface (fills dark margins) ─── */
+
+  function createTableSurface(state) {
+    if (state.tableSurface) return; // only create once
+
+    var TABLE_SIZE = GEO_SIZE * 2.5;
+    var TS = 512;
+    var cvs = document.createElement("canvas");
+    cvs.width = TS; cvs.height = TS;
+    var tCtx = cvs.getContext("2d");
+
+    // Dark wood base
+    tCtx.fillStyle = "#2a2218";
+    tCtx.fillRect(0, 0, TS, TS);
+
+    // Wood grain noise
+    var tImg = tCtx.getImageData(0, 0, TS, TS);
+    var tPx = tImg.data;
+    for (var ti = 0; ti < tPx.length; ti += 4) {
+      var tn = (Math.random() - 0.5) * 14;
+      tPx[ti]     = clampByte(tPx[ti] + tn);
+      tPx[ti + 1] = clampByte(tPx[ti + 1] + tn * 0.8);
+      tPx[ti + 2] = clampByte(tPx[ti + 2] + tn * 0.5);
+    }
+    tCtx.putImageData(tImg, 0, 0);
+
+    // Horizontal grain lines
+    tCtx.strokeStyle = "rgba(60,48,30,0.10)";
+    tCtx.lineWidth = 0.8;
+    for (var gy = 0; gy < TS; gy += 2 + Math.floor(Math.random() * 4)) {
+      tCtx.beginPath();
+      tCtx.moveTo(0, gy);
+      for (var gx = 0; gx < TS; gx += 20) {
+        tCtx.lineTo(gx, gy + Math.sin(gx * 0.015 + gy * 0.08) * 2);
+      }
+      tCtx.stroke();
+    }
+
+    // Warm highlight spots (leather sheen)
+    for (var si = 0; si < 6; si++) {
+      var sx = Math.random() * TS, sy = Math.random() * TS;
+      var sg = tCtx.createRadialGradient(sx, sy, 0, sx, sy, 70 + Math.random() * 50);
+      sg.addColorStop(0, "rgba(55,45,30,0.08)");
+      sg.addColorStop(1, "rgba(55,45,30,0)");
+      tCtx.fillStyle = sg;
+      tCtx.fillRect(0, 0, TS, TS);
+    }
+
+    var tex = new THREE.CanvasTexture(cvs);
+    tex.wrapS = THREE.RepeatWrapping;
+    tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(3, 3);
+
+    var geo = new THREE.PlaneGeometry(TABLE_SIZE, TABLE_SIZE);
+    geo.rotateX(-Math.PI / 2);
+    var mat = new THREE.MeshBasicMaterial({ map: tex });
+    var mesh = new THREE.Mesh(geo, mat);
+    mesh.position.y = -0.4;
+    state.scene.add(mesh);
+    state.tableSurface = mesh;
+  }
+
   /* ── Ground plane ───────────────────────────────────── */
 
   function setGroundPlane(state, texture) {
@@ -406,26 +610,35 @@
     state.scene.add(plane);
     state.groundPlane = plane;
 
-    // Soft drop shadow beneath the map
-    var shadowGeo = new THREE.PlaneGeometry(GEO_SIZE * 1.04, GEO_SIZE * 1.04);
+    // Drop shadow layers beneath the map (floating-on-table effect)
+    var shadowGeo = new THREE.PlaneGeometry(GEO_SIZE * 1.06, GEO_SIZE * 1.06);
     shadowGeo.rotateX(-Math.PI / 2);
     var shadowMat = new THREE.MeshBasicMaterial({
-      color: "#1a1410", transparent: true, opacity: 0.06, depthWrite: false
+      color: "#0a0806", transparent: true, opacity: 0.18, depthWrite: false
     });
     var shadow = new THREE.Mesh(shadowGeo, shadowMat);
-    shadow.position.y = -0.05;
+    shadow.position.y = -0.08;
     state.scene.add(shadow);
 
-    // Second, softer shadow ring
-    var shadow2Geo = new THREE.PlaneGeometry(GEO_SIZE * 1.10, GEO_SIZE * 1.10);
+    // Mid shadow ring
+    var shadow2Geo = new THREE.PlaneGeometry(GEO_SIZE * 1.14, GEO_SIZE * 1.14);
     shadow2Geo.rotateX(-Math.PI / 2);
     var shadow2 = new THREE.Mesh(shadow2Geo, new THREE.MeshBasicMaterial({
-      color: "#1a1410", transparent: true, opacity: 0.03, depthWrite: false
+      color: "#0a0806", transparent: true, opacity: 0.08, depthWrite: false
     }));
-    shadow2.position.y = -0.1;
+    shadow2.position.y = -0.15;
     state.scene.add(shadow2);
 
-    state.groundBorder = [shadow, shadow2]; // track for cleanup
+    // Outer soft glow
+    var shadow3Geo = new THREE.PlaneGeometry(GEO_SIZE * 1.24, GEO_SIZE * 1.24);
+    shadow3Geo.rotateX(-Math.PI / 2);
+    var shadow3 = new THREE.Mesh(shadow3Geo, new THREE.MeshBasicMaterial({
+      color: "#0a0806", transparent: true, opacity: 0.04, depthWrite: false
+    }));
+    shadow3.position.y = -0.2;
+    state.scene.add(shadow3);
+
+    state.groundBorder = [shadow, shadow2, shadow3]; // track for cleanup
   }
 
   /* ── Columns ────────────────────────────────────────── */
@@ -668,7 +881,7 @@
 
     if (state.resetBtn) {
       state.resetBtn.addEventListener("click", function () {
-        state.camera.position.set(68, 62, 68);
+        state.camera.position.set(60, 52, 60);
         state.controls.target.set(0, 4, 0);
         state.controls.autoRotate = true;
         state.controls.update();
@@ -726,7 +939,7 @@
   function setupResize(state) {
     function onResize() {
       var p = state.canvas.parentElement;
-      var w = p.clientWidth || 900, h = p.clientHeight || 500, a = w / h, d = 52;
+      var w = p.clientWidth || 900, h = p.clientHeight || 500, a = w / h, d = 40;
       state.camera.left = -d * a; state.camera.right = d * a;
       state.camera.top = d; state.camera.bottom = -d;
       state.camera.updateProjectionMatrix();
@@ -750,6 +963,7 @@
     state.tb = clippedBounds(db);
 
     populateSelect(state);
+    createTableSurface(state);          // wood-grain surface behind the map
     setGroundPlane(state, null);        // plain colour initially
     buildColumns(state, "All");
     addLabels(state);

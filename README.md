@@ -1,4 +1,42 @@
-# CSC316 Final Project (Yelp Dataset)
+# CSC316 Final Project: The Entrepreneur's Data-Driven Restaurant Journey
+
+## Overview
+The project explores the Philadelphia restaurant scene using the Yelp dataset, providing an interactive interface that bridges geographical mapping with an immersive 3D environment to discover culinary "hidden gems."
+
+## Links
+* **Project Website:** [Insert Website URL Here]
+* **Screencast Video:** [Insert Video URL Here]
+* **Presentation Slides:** `presentation.html`
+
+## Code Structure
+### Code
+* `prototype/index.html` & `prototype/css/style.css`: The main application architecture, UI layout, and custom styling.
+* `prototype/js/`: All core interaction, logic, and rendering mechanics.
+    * `main.js`: The application entry point and state manager.
+    * `map.js`: Logic and event handlers for the 2D geographical map view.
+    * `isometric.js` & `terrain.js`: Core 3D logic for generating and rendering the isometric restaurant landscape based on dataset metrics.
+    * `reviews.js` & `stats.js`: Modules for parsing specific restaurant data, rendering statistical charts, and displaying user reviews.
+    * `three-charts.js`: Custom implementation for rendering data visualizations within the 3D space.
+    * `perf-utils.js`: Custom performance monitoring utilities to ensure stable frame rates.
+* `scripts/`: A suite of Python data pipelines (`yelp_extract.py`, `yelp_eda.py`, `preprocess_prototype_*.py`) that I wrote to clean, aggregate, and transform the massive raw Yelp dataset into the lightweight JSON formats consumed by the front-end.
+* `tests/`: Custom unit tests (`test_perf_utils.js`, `test_preprocess_prototype_v1.py`) for validating data integrity and script performance.
+
+### External Libraries & Assets
+* **Three.js**: Used extensively in the `prototype/js` directory to handle WebGL 3D rendering for the isometric views and terrains.
+* **Leaflet**: Utilized in `map.js` for rendering the geographical base map tiles.
+* **D3.js**: Used for rendering 2D statistical graphs
+* **Python Data Science Stack**: `pandas`, `matplotlib`, and `seaborn` were used offline in the `/scripts` directory for Exploratory Data Analysis (EDA) and data wrangling.
+* **Dataset**: Yelp Open Dataset
+
+## Interface & Non-Obvious Features
+
+1. **View Toggling (2D to 3D):** Users can seamlessly transition between a traditional 2D map view and the 3D isometric terrain view.
+2. **Philadelphia Restaurant Opportunity Terrain:** In this 3D view, the elevation, size, and clustering of the terrain blocks are not random; they are meticulously mapped to underlying dataset attributes. For example, the spatial coordinates strictly correspond to real-world latitude and longitude.
+3. **"What Are People Actually Saying?" (Detective Game):** An interactive mini-game where users act as detectives. By reading real reviews from the dataset, users must guess the corresponding star rating, which helps in detecting true customer sentiment.
+4. **"Where the Hidden Gems Live" (Investment Game):** A strategic investment simulation where users are given three coins. Users must analyze the data charts provided above and decide how to invest their coins into three different promising cuisines.
+5. **"Step Inside a Hidden Gem" (Interactive 3D Interior):** Features a fully draggable and zoomable 3D restaurant interior. Users can directly interact with the environment: clicking on customers reveals real Yelp reviews, clicking on food items displays menu introductions, and switching between different restaurants dynamically changes the interior decor to match the actual real-world style of that establishment.
+6. **Performance Metrics:** For grading and debugging purposes, a subtle performance monitor (`perf-utils.js`) runs to track rendering efficiency, especially during complex 3D transitions.
+
 
 ## Data
 - Yelp Open Dataset archive: `data/Yelp-JSON.zip`

@@ -4,7 +4,7 @@
 The project explores the Philadelphia restaurant scene using the Yelp dataset, providing an interactive interface that bridges geographical mapping with an immersive 3D environment to discover culinary "hidden gems."
 
 ## Links
-* **Project Website:** [Insert Website URL Here]
+* **Project Website:** https://qianfengwen.github.io/CSC316/
 * **Screencast Video:** [Insert Video URL Here]
 * **Presentation Slides:** `presentation.html`
 

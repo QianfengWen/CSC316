@@ -6,6 +6,9 @@ const {
   observeVisibilityToggle,
   createRestaurantIndex,
   filterRestaurantIndex,
+  buildJourneyRestartUrl,
+  queueJourneyRestart,
+  consumeJourneyRestart,
 } = require("../prototype/js/perf-utils.js");
 
 test("observeOnceWhenVisible waits for visibility and only runs once", () => {
@@ -199,4 +202,73 @@ test("filterRestaurantIndex applies cuisine filters and search without mutating 
     ["Neighborhood Pizza"]
   );
   assert.equal(indexed.length, 3);
+});
+
+test("buildJourneyRestartUrl strips the hash and keeps the current page path", () => {
+  assert.equal(
+    buildJourneyRestartUrl({
+      pathname: "/CSC316/",
+      search: "?view=full",
+      hash: "#cta",
+    }),
+    "/CSC316/?view=full"
+  );
+});
+
+test("queueJourneyRestart flags a top-of-page reset and navigates to the clean URL", () => {
+  var assignedUrl = null;
+  var stored = {};
+  var runtime = {
+    location: {
+      pathname: "/prototype/",
+      search: "",
+      hash: "#cta",
+      assign: function (nextUrl) {
+        assignedUrl = nextUrl;
+      },
+    },
+    history: {
+      scrollRestoration: "auto",
+    },
+    sessionStorage: {
+      setItem: function (key, value) {
+        stored[key] = value;
+      },
+      getItem: function (key) {
+        return stored[key] || null;
+      },
+      removeItem: function (key) {
+        delete stored[key];
+      },
+    },
+  };
+
+  queueJourneyRestart(runtime);
+
+  assert.equal(runtime.history.scrollRestoration, "manual");
+  assert.equal(stored.journeyRestartAtTop, "1");
+  assert.equal(assignedUrl, "/prototype/");
+});
+
+test("consumeJourneyRestart clears the flag and scrolls to the top once", () => {
+  var scrollCalls = [];
+  var stored = { journeyRestartAtTop: "1" };
+  var runtime = {
+    sessionStorage: {
+      getItem: function (key) {
+        return stored[key] || null;
+      },
+      removeItem: function (key) {
+        delete stored[key];
+      },
+    },
+    scrollTo: function (x, y) {
+      scrollCalls.push([x, y]);
+    },
+  };
+
+  assert.equal(consumeJourneyRestart(runtime), true);
+  assert.deepEqual(scrollCalls, [[0, 0]]);
+  assert.equal(stored.journeyRestartAtTop, undefined);
+  assert.equal(consumeJourneyRestart(runtime), false);
 });

@@ -6,6 +6,10 @@
 (function () {
   "use strict";
 
+  if (window.PerfUtils && typeof window.PerfUtils.consumeJourneyRestart === "function") {
+    window.PerfUtils.consumeJourneyRestart(window);
+  }
+
   // ── Shared color helpers ──────────────────────────────────
   var COLORS = {
     red: "#d4503a",
@@ -112,6 +116,7 @@
     // Novel Visualization: Cuisine opportunity terrain
     setupCuisineTerrain(cuisines, restaurants);
 
+    setupJourneyRestartButton();
     setupScrollAnimations();
     setupNavDots();
     setupJourneyRecap();
@@ -2070,6 +2075,20 @@
           section.scrollIntoView({ behavior: "smooth" });
         }
       });
+    });
+  }
+
+  function setupJourneyRestartButton() {
+    var restartButton = document.getElementById("restart-journey-btn");
+    if (!restartButton) return;
+
+    restartButton.addEventListener("click", function () {
+      if (window.PerfUtils && typeof window.PerfUtils.queueJourneyRestart === "function") {
+        window.PerfUtils.queueJourneyRestart(window);
+        return;
+      }
+
+      window.location.assign(window.location.pathname + window.location.search);
     });
   }
 

@@ -5,7 +5,7 @@ The project explores the Philadelphia restaurant scene using the Yelp dataset, p
 
 ## Links
 * **Project Website:** https://qianfengwen.github.io/CSC316/
-* **Screencast Video:** [Insert Video URL Here]
+* **Screencast Video:** https://drive.google.com/file/d/16N07wAhkIIGkySYlxvTmRq2CC2sapzUC/view?usp=sharing
 * **Presentation Slides:** `presentation.html`
 
 ## Code Structure

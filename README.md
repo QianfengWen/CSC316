@@ -23,9 +23,9 @@ The project explores the Philadelphia restaurant scene using the Yelp dataset, p
 * `tests/`: Custom unit tests (`test_perf_utils.js`, `test_preprocess_prototype_v1.py`) for validating data integrity and script performance.
 
 ### External Libraries & Assets
+* **D3.js**: Used for rendering 2D statistical graphs
 * **Three.js**: Used extensively in the `prototype/js` directory to handle WebGL 3D rendering for the isometric views and terrains.
 * **Leaflet**: Utilized in `map.js` for rendering the geographical base map tiles.
-* **D3.js**: Used for rendering 2D statistical graphs
 * **Python Data Science Stack**: `pandas`, `matplotlib`, and `seaborn` were used offline in the `/scripts` directory for Exploratory Data Analysis (EDA) and data wrangling.
 * **Dataset**: Yelp Open Dataset
 
